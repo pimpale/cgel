@@ -20,12 +20,13 @@
     "lib/**/*"
   ],
   "scripts": {
-    "build:lexicon": "cd make_lexicon && python english_json2.py -o ../src/english.json",
+    "build:lexicon": "cd lexicon && python make_lexicon.py -o ../src/english.json",
     "build:grammar": "cd src && python gen_englishGrammar.py | nearleyc > englishGrammar.js",
     "build:ts": "tsc",
     "build": "npm run build:lexicon && npm run build:grammar && npm run build:ts",
     "clean": "rm -rf lib src/english.json src/englishGrammar.js && touch src/english.json src/englishGrammar.js",
     "prepublishOnly": "npm run build",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
