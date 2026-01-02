@@ -1,9 +1,22 @@
 # %%
+import argparse
 import json
 import pathlib
 from copy import deepcopy
 from pathlib import Path
 from collections import defaultdict
+
+# ---------------------------------------------------------------------------
+# CLI argument parsing
+# ---------------------------------------------------------------------------
+parser = argparse.ArgumentParser(description="Generate english.json lexicon")
+parser.add_argument(
+    "-o", "--output",
+    type=Path,
+    default=Path("english.json"),
+    help="Output path for the generated JSON (default: english.json)"
+)
+args = parser.parse_args()
 
 # Load irregular noun/verb maps early so helper functions can reference them
 irregular_nouns = json.loads(Path("irregular_noun_forms.json").read_text())
@@ -430,5 +443,5 @@ for kind, words in english_json.items():
 transposed = {word: sorted(list(classes)) for word, classes in transposed.items()}
 
 # Write output
-Path("english.json").write_text(json.dumps(transposed, indent=4))
-print(f"Wrote english.json with {len(transposed)} unique words.")
+args.output.write_text(json.dumps(transposed, indent=4))
+print(f"Wrote {args.output} with {len(transposed)} unique words.")

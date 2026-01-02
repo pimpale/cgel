@@ -20,7 +20,7 @@
     "lib/**/*"
   ],
   "scripts": {
-    "build:lexicon": "cd make_lexicon && python english_json2.py && cp english.json ../src/english.json",
+    "build:lexicon": "cd make_lexicon && python english_json2.py -o ../src/english.json",
     "build:grammar": "cd src && python gen_englishGrammar.py | nearleyc > englishGrammar.js",
     "build:ts": "tsc",
     "build": "npm run build:lexicon && npm run build:grammar && npm run build:ts",
