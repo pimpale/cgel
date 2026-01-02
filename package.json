@@ -1,0 +1,58 @@
+{
+  "name": "@pimpale/cgel",
+  "version": "0.1.0",
+  "description": "CGEL is an implementation of Cambridge Grammar of English Language (Huddleston & Pullum 2002) as a TypeScript library.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./lexicon": {
+      "import": "./lib/english.json",
+      "types": "./lib/english.json"
+    }
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build:lexicon": "cd make_lexicon && python english_json2.py && cp english.json ../src/english.json",
+    "build:grammar": "cd src && python gen_englishGrammar.py | nearleyc > englishGrammar.js",
+    "build:ts": "tsc",
+    "build": "npm run build:lexicon && npm run build:grammar && npm run build:ts",
+    "clean": "rm -rf lib src/english.json src/englishGrammar.js && touch src/english.json src/englishGrammar.js",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pimpale/cgel.git"
+  },
+  "author": "Govind Pimpale",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pimpale/cgel/issues"
+  },
+  "homepage": "https://github.com/pimpale/cgel#readme",
+  "keywords": [
+    "grammar",
+    "nlp",
+    "parser",
+    "english",
+    "cgel",
+    "linguistics",
+    "nearley"
+  ],
+  "devDependencies": {
+    "nearley": "git+https://github.com/pimpale/nearley-patched.git",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "nearley": "^2.20.1"
+  }
+}

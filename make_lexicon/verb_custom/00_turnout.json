@@ -1,0 +1,12 @@
+{
+    "members": [
+        "turn_out",
+        "work_out"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "S_INF"],
+            "examples": ["The meeting turned out to be a success."]
+        }
+    ]
+}
