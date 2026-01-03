@@ -70772,19 +70772,19 @@
         "vbz_o_predcomp"
     ],
     "made": [
-        "vbd_io_bare_declarative_cl",
+        "vbd_intnp_bare_inf_cl",
         "vbd_io_do",
         "vbd_o",
         "vbd_prt_o",
-        "vbf_pl_io_bare_declarative_cl",
+        "vbf_pl_intnp_bare_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
         "vbf_pl_prt_o",
-        "vbf_sg_io_bare_declarative_cl",
+        "vbf_sg_intnp_bare_inf_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
         "vbf_sg_prt_o",
-        "vbn_io_bare_declarative_cl",
+        "vbn_intnp_bare_inf_cl",
         "vbn_io_do",
         "vbn_o",
         "vbn_prt_o"
@@ -71049,25 +71049,25 @@
         "vbz_that_declarative_cl"
     ],
     "make": [
-        "inf_io_bare_declarative_cl",
+        "inf_intnp_bare_inf_cl",
         "inf_io_do",
         "inf_o",
         "inf_prt_o",
-        "vbf_pl_io_bare_declarative_cl",
+        "vbf_pl_intnp_bare_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
         "vbf_pl_prt_o",
-        "vbp_io_bare_declarative_cl",
+        "vbp_intnp_bare_inf_cl",
         "vbp_io_do",
         "vbp_o",
         "vbp_prt_o"
     ],
     "makes": [
-        "vbf_sg_io_bare_declarative_cl",
+        "vbf_sg_intnp_bare_inf_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
         "vbf_sg_prt_o",
-        "vbz_io_bare_declarative_cl",
+        "vbz_intnp_bare_inf_cl",
         "vbz_io_do",
         "vbz_o",
         "vbz_prt_o"
@@ -71081,7 +71081,7 @@
         "noun_pl"
     ],
     "making": [
-        "vbg_io_bare_declarative_cl",
+        "vbg_intnp_bare_inf_cl",
         "vbg_io_do",
         "vbg_o",
         "vbg_prt_o"

@@ -127,7 +127,7 @@ def cat_from_primary(slots: list[str]) -> str | None:
         return "vb_predcomp"
     if slots == ["NP", "V", "S_INF"]:
         return "vb_to_inf_cl"
-    if slots == ["NP", "V", "bare_infinitive"]:
+    if slots == ["NP", "V", "S_BARE_INF"]:
         return "vb_bare_inf_cl"
     if slots == ["NP", "V", "S_ING"]:
         return "vb_vbg_cl"
@@ -151,6 +151,8 @@ def cat_from_primary(slots: list[str]) -> str | None:
         return "vb_o_predcomp"
     if slots == ["NP", "V", "NP", "S_INF"]:
         return "vb_intnp_to_inf_cl"
+    if slots == ["NP", "V", "NP", "S_BARE_INF"]:
+        return "vb_intnp_bare_inf_cl"
     if slots == ["NP", "V", "NP", "S_ING"]:
         return "vb_io_vbg_cl"
     if slots == ["NP", "V", "NP", "VP_VBN"]:

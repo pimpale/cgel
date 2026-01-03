@@ -8,7 +8,7 @@
         "NP",
         "V",
         "NP",
-        "S"
+        "S_BARE_INF"
       ],
       "examples": [
         "John made the radio work."

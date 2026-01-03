@@ -5,7 +5,7 @@
     ],
     "frames": [
         {
-            "primary": ["NP", "V", "bare_infinitive"],
+            "primary": ["NP", "V", "S_BARE_INF"],
             "examples": ["I do know."]
         }
     ]
