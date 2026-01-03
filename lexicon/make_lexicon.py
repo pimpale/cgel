@@ -439,8 +439,8 @@ for kind, words in english_json.items():
         # lowercase all words and avoid duplicate class entries
         transposed.setdefault(word.lower(), set()).add(kind)
 
-# Convert each set to a sorted list for consistent JSON output
-transposed = {word: sorted(list(classes)) for word, classes in transposed.items()}
+# Convert each set to a sorted list and sort words alphabetically for consistent JSON output
+transposed = {word: sorted(list(classes)) for word, classes in sorted(transposed.items())}
 
 # Write output
 args.output.write_text(json.dumps(transposed, indent=4))
