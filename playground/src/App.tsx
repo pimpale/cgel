@@ -1,11 +1,45 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import nearley from 'nearley';
 import { lex, grammar } from '@pimpale/cgel';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DragAndDropCard from './components/DragAndDropCard';
+import testResultsJson from '../../test-results.json';
 
 import './style.scss';
+
+/** Test result from vitest JSON output */
+interface AssertionResult {
+  ancestorTitles: string[];
+  fullName: string;
+  status: 'passed' | 'failed' | 'pending';
+  title: string;
+  duration: number;
+  failureMessages: string[];
+  meta?: {
+    sentence?: string;
+    parseCount?: number;
+    assertions?: Array<{
+      type: string;
+      passed: boolean;
+      details?: Record<string, unknown>;
+    }>;
+  };
+}
+
+interface TestFileResult {
+  assertionResults: AssertionResult[];
+  name: string;
+}
+
+interface VitestJsonOutput {
+  numPassedTests: number;
+  numFailedTests: number;
+  numTotalTests: number;
+  testResults: TestFileResult[];
+}
+
+const testResults = testResultsJson as VitestJsonOutput;
 
 type TreeNode = {
   kind: string;
@@ -16,9 +50,7 @@ function parseEnglish(input: string): TreeNode[] {
   try {
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
     const tokens = lex(input);
-    console.log('Tokens:', tokens);
     parser.feed(tokens as unknown as string);
-    console.log('Parse results:', parser.results);
     return parser.results as TreeNode[];
   } catch (error) {
     console.error('Error parsing sentence:', error);
@@ -26,28 +58,23 @@ function parseEnglish(input: string): TreeNode[] {
   }
 }
 
-const INITIAL_EXAMPLE_SENTENCES = [
-  "Who are you?",
-  "I know that you like cheese.",
-  "She walked to the store.",
-  "I went to the garden and played with the dog.",
-  "John and Mary went to the park yesterday.",
-  "The book that I read was very interesting.",
-  "Running through the forest, he felt free.",
-  "The teacher explained the concept clearly to the students.",
-  "After the rain stopped, the sun emerged.",
-  "The old house on the hill looked mysterious.",
-  "They were playing tennis when it started to rain.",
-  "She hasn't yet contacted the people whose house she wants to rent.",
-  "The horse raced past the barn fell.",
-  "I was given a book by the old man.",
-  "What I was mailed was quite interesting.",
-  "Who was this letter sent to?",
-  "The book that I was recommended by my professor turned out to be excellent.",
-  "Which student was the scholarship awarded to?",
-  "It was Mary who was chosen by the committee.",
-  "The issue was talked about at length.",
-];
+/** Extract sentences from test results */
+function getSentencesFromTests(): Array<{ sentence: string; status: 'passed' | 'failed' }> {
+  const sentences: Array<{ sentence: string; status: 'passed' | 'failed' }> = [];
+  
+  for (const file of testResults.testResults) {
+    for (const test of file.assertionResults) {
+      // Use meta.sentence if available, otherwise use title
+      const sentence = test.meta?.sentence ?? test.title;
+      sentences.push({
+        sentence,
+        status: test.status === 'passed' ? 'passed' : 'failed',
+      });
+    }
+  }
+  
+  return sentences;
+}
 
 // Tree visualization
 type AugmentedTreeNode = {
@@ -157,18 +184,21 @@ function SyntaxTree({ showNulls, tree }: { showNulls: boolean; tree: TreeNode })
   );
 }
 
+// Sentence item with status
+interface SentenceItem {
+  sentence: string;
+  status?: 'passed' | 'failed';
+}
+
 // Main App
 export default function App() {
+  // Initialize sentences from test results
+  const initialSentences = useMemo(() => getSentencesFromTests(), []);
+  
   const [input, setInput] = useState('');
   const [output, setOutput] = useState<TreeNode[]>([]);
   const [showNulls, setShowNulls] = useState(false);
-  const [exampleSentences, setExampleSentences] = useState<string[]>(INITIAL_EXAMPLE_SENTENCES);
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.ctrlKey && e.key === 'Enter') {
-      setOutput(parseEnglish(input));
-    }
-  };
+  const [sentences, setSentences] = useState<SentenceItem[]>(initialSentences);
 
   const handleExampleClick = (sentence: string) => {
     setInput(sentence);
@@ -177,13 +207,13 @@ export default function App() {
 
   const handleAddExample = () => {
     const trimmed = input.trim();
-    if (trimmed !== '' && !exampleSentences.includes(trimmed)) {
-      setExampleSentences([...exampleSentences, trimmed]);
+    if (trimmed !== '' && !sentences.some(s => s.sentence === trimmed)) {
+      setSentences([...sentences, { sentence: trimmed }]);
     }
   };
 
   const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
-    setExampleSentences((prevCards) => {
+    setSentences((prevCards) => {
       const newCards = [...prevCards];
       const [removed] = newCards.splice(dragIndex, 1);
       newCards.splice(hoverIndex, 0, removed);
@@ -193,51 +223,74 @@ export default function App() {
 
   const handleDeleteCurrentExample = () => {
     const trimmed = input.trim();
-    if (trimmed !== '' && exampleSentences.includes(trimmed)) {
-      setExampleSentences(exampleSentences.filter((s) => s !== trimmed));
+    if (trimmed !== '') {
+      setSentences(sentences.filter((s) => s.sentence !== trimmed));
     }
   };
 
   const handleResetExamples = () => {
-    setExampleSentences(INITIAL_EXAMPLE_SENTENCES);
+    setSentences(initialSentences);
   };
 
-  const isModified =
-    exampleSentences.length !== INITIAL_EXAMPLE_SENTENCES.length ||
-    exampleSentences.some((s, i) => s !== INITIAL_EXAMPLE_SENTENCES[i]);
+  const isModified = useMemo(() => {
+    if (sentences.length !== initialSentences.length) return true;
+    return sentences.some((s, i) => s.sentence !== initialSentences[i]?.sentence);
+  }, [sentences, initialSentences]);
 
-  const canDeleteCurrent = input.trim() !== '' && exampleSentences.includes(input.trim());
+  const canDeleteCurrent = input.trim() !== '' && sentences.some(s => s.sentence === input.trim());
+
+  // Summary stats
+  const summary = useMemo(() => ({
+    passed: testResults.numPassedTests,
+    failed: testResults.numFailedTests,
+    total: testResults.numTotalTests,
+  }), []);
 
   return (
     <div className="container-fluid py-4">
-      <h1 className="mb-4">🌳 CGEL Playground</h1>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h1 className="mb-0">🌳 CGEL Playground</h1>
+        <div>
+          <span className="badge bg-success me-1">{summary.passed}</span> passed
+          <span className="badge bg-danger mx-1">{summary.failed}</span> failed
+        </div>
+      </div>
+      
       <p className="text-muted mb-4">
         Parse English sentences using the Cambridge Grammar of English Language. 
         Press <kbd>Ctrl+Enter</kbd> or click Parse.
       </p>
 
       <div className="row">
-        <div className="col-md-3">
-          <h5 className="mb-3 d-flex justify-content-between align-items-center">
-            <span>Example Sentences</span>
-            {isModified && (
-              <button className="btn btn-sm btn-secondary" onClick={handleResetExamples}>
-                Reset
-              </button>
-            )}
-          </h5>
-          <div style={{ maxHeight: '70vh', overflowY: 'auto' }}>
-            <div className="list-group">
+        {/* Left sidebar - sticky sentence list */}
+        <div className="col-md-4">
+          <div 
+            className="position-sticky"
+            style={{ top: '1rem' }}
+          >
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <h5 className="mb-0">Sentences</h5>
+              {isModified && (
+                <button className="btn btn-sm btn-outline-secondary" onClick={handleResetExamples}>
+                  Reset
+                </button>
+              )}
+            </div>
+            <div 
+              className="list-group"
+              style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}
+            >
               <DndProvider backend={HTML5Backend}>
-                {exampleSentences.map((sentence, index) => (
+                {sentences.map((item, index) => (
                   <DragAndDropCard
-                    key={sentence}
-                    id={sentence}
+                    key={`${item.sentence}-${index}`}
+                    id={item.sentence}
                     index={index}
-                    text={sentence}
+                    text={item.sentence}
                     moveCard={moveCard}
-                    onClick={() => handleExampleClick(sentence)}
-                    isActive={sentence === input}
+                    onClick={() => handleExampleClick(item.sentence)}
+                    isActive={item.sentence === input}
+                    status={item.status}
                   />
                 ))}
               </DndProvider>
@@ -245,13 +298,18 @@ export default function App() {
           </div>
         </div>
 
-        <div className="col-md-9">
+        {/* Main content */}
+        <div className="col-md-8">
           <textarea
             className="form-control"
-            style={{ width: '100%', height: '150px', fontFamily: 'monospace' }}
+            style={{ width: '100%', height: '120px', fontFamily: 'monospace' }}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
+            onKeyDown={(e) => {
+              if (e.ctrlKey && e.key === 'Enter') {
+                setOutput(parseEnglish(input));
+              }
+            }}
             placeholder="Enter a sentence to parse..."
           />
 
@@ -259,14 +317,14 @@ export default function App() {
             <button className="btn btn-primary" onClick={() => setOutput(parseEnglish(input))}>
               Parse
             </button>
-            {input.trim() !== '' && !exampleSentences.includes(input.trim()) && (
+            {input.trim() !== '' && !sentences.some(s => s.sentence === input.trim()) && (
               <button className="btn btn-outline-secondary" onClick={handleAddExample}>
-                Add to Examples
+                Add to List
               </button>
             )}
             {canDeleteCurrent && (
               <button className="btn btn-outline-danger ms-auto" onClick={handleDeleteCurrentExample}>
-                Delete Example
+                Remove
               </button>
             )}
           </div>
@@ -287,7 +345,7 @@ export default function App() {
           <div className="mt-4">
             {output.length === 0 ? (
               <div className="alert alert-secondary">
-                No parse results yet. Enter a sentence and click Parse.
+                No parse results yet. Select a sentence or enter one and click Parse.
               </div>
             ) : (
               <>

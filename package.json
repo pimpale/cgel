@@ -30,7 +30,11 @@
     "clean": "rm -rf lib src/english.json src/englishGrammar.js && touch src/english.json src/englishGrammar.js",
     "prepublishOnly": "npm run build",
     "prepare": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:json": "vitest run --reporter=json --outputFile=test-results.json",
+    "test:json:watch": "vitest --reporter=json --outputFile=test-results.json",
     "dev": "npm run dev --workspace=playground"
   },
   "repository": {
@@ -53,10 +57,11 @@
     "nearley"
   ],
   "devDependencies": {
+    "@vitest/ui": "^4.0.16",
     "nearley": "git+https://github.com/pimpale/nearley-patched.git",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
   },
-  "dependencies": {},
   "peerDependencies": {
     "nearley": "^2.20.1"
   }

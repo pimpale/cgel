@@ -18,6 +18,8 @@ export interface CardProps {
   moveCard: (dragIndex: number, hoverIndex: number) => void;
   onClick?: () => void;
   isActive?: boolean;
+  /** Test status: 'passed', 'failed', or undefined for no status */
+  status?: 'passed' | 'failed';
 }
 
 interface DragItem {
@@ -26,7 +28,7 @@ interface DragItem {
   type: string;
 }
 
-const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, isActive }) => {
+const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, isActive, status }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [{ handlerId }, drop] = useDrop<DragItem, void, { handlerId: Identifier | null }>(() => ({
@@ -79,11 +81,16 @@ const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, is
     <div
       ref={ref}
       style={{ ...style, ...draggingStyle }}
-      className={`list-group-item list-group-item-action ${isActive ? 'active' : ''}`}
+      className={`list-group-item list-group-item-action d-flex justify-content-between align-items-center ${isActive ? 'active' : ''}`}
       data-handler-id={handlerId || undefined}
       onClick={onClick}
     >
-      {text}
+      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{text}</span>
+      {status && (
+        <span className={`badge ${status === 'passed' ? 'bg-success' : 'bg-danger'} ms-2`}>
+          {status === 'passed' ? '✓' : '✗'}
+        </span>
+      )}
     </div>
   );
 };

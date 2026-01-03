@@ -1,3 +1,4 @@
 node_modules/
 lib/
 references/
+test-results.json
