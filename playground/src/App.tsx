@@ -5,6 +5,8 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DragAndDropCard from './components/DragAndDropCard';
 
+import './style.scss';
+
 type TreeNode = {
   kind: string;
   children: TreeNode[] | string;
@@ -126,7 +128,7 @@ function SyntaxTreeSvg({ depth, maxdepth, node, parent_loc }: SyntaxTreeSvgProps
   return (
     <>
       {children.length === 0 ? (
-        <rect x={x} y={y} width={this_width * CHAR_WIDTH} height="40" fill="#0d6efd" />
+        <rect x={x} y={y} width={this_width * CHAR_WIDTH} height="40" fill="var(--bs-blue)" />
       ) : (
         children.map((child, i) => (
           <SyntaxTreeSvg key={i} node={child} depth={depth + 1} maxdepth={maxdepth} parent_loc={{ x: line_x, y: line_y }} />
@@ -134,7 +136,7 @@ function SyntaxTreeSvg({ depth, maxdepth, node, parent_loc }: SyntaxTreeSvgProps
       )}
       <text x={x} y={y + 30} fill="currentColor">{kind}</text>
       {parent_loc && (
-        <line x1={line_x} y1={line_y - 10} x2={parent_loc.x} y2={parent_loc.y + 15} stroke="#0d6efd" />
+        <line x1={line_x} y1={line_y - 10} x2={parent_loc.x} y2={parent_loc.y + 15} stroke="var(--bs-blue)" />
       )}
     </>
   );
