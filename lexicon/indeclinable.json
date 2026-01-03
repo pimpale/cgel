@@ -23,6 +23,9 @@
     "or": {
         "or": null
     },
+    "nor": {
+        "nor": null
+    },
     "not": {
         "not": null
     },
@@ -172,7 +175,8 @@
         "young": null,
         "old": null,
         "shiny": null,
-        "magical": null
+        "magical": null,
+        "tired": null
     },
     "adj_pp": {
         "interested": null,

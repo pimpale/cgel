@@ -77579,6 +77579,9 @@
     "noons": [
         "noun_pl"
     ],
+    "nor": [
+        "nor"
+    ],
     "normalize": [
         "inf",
         "inf_o",
@@ -122579,6 +122582,7 @@
         "vbp_o_predcomp"
     ],
     "tired": [
+        "adj",
         "vbd",
         "vbd_o",
         "vbd_o_predcomp",
