@@ -19,6 +19,9 @@
   "files": [
     "lib/**/*"
   ],
+  "workspaces": [
+    "playground"
+  ],
   "scripts": {
     "build:lexicon": "cd lexicon && python make_lexicon.py -o ../src/english.json",
     "build:grammar": "cd src && python gen_englishGrammar.py | nearleyc > englishGrammar.js",
@@ -27,7 +30,8 @@
     "clean": "rm -rf lib src/english.json src/englishGrammar.js && touch src/english.json src/englishGrammar.js",
     "prepublishOnly": "npm run build",
     "prepare": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run dev --workspace=playground"
   },
   "repository": {
     "type": "git",
@@ -50,7 +54,7 @@
   ],
   "devDependencies": {
     "nearley": "git+https://github.com/pimpale/nearley-patched.git",
-    "typescript": "^5.5.4"
+    "typescript": "^5.9.3"
   },
   "dependencies": {},
   "peerDependencies": {

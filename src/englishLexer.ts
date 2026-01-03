@@ -1,5 +1,3 @@
-import english from './english.json';
-
 function expandContractions(word: string): string[] {
     if (word.slice(-2) === "'s") {
         return [word.slice(0, -2), "s"];
@@ -32,8 +30,7 @@ function seperatePunctuation(word: string): string[] {
     }
 }
 
-
-function normalizeBe(word: string): string {
+function normalizeBe(word: string): string {    
     if (word === "am") {
         // we don't want to handle am specially, since it's literally just for I. 
         // we just treat I as a plural pronoun
