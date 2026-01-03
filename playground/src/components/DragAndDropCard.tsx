@@ -18,8 +18,12 @@ export interface CardProps {
   moveCard: (dragIndex: number, hoverIndex: number) => void;
   onClick?: () => void;
   isActive?: boolean;
-  /** Test status: 'passed', 'failed', or undefined for no status */
-  status?: 'passed' | 'failed';
+  /** Number of passed assertions */
+  passedCount?: number;
+  /** Total number of assertions */
+  totalCount?: number;
+  /** True if testing for ungrammaticality */
+  isUngrammatical?: boolean;
 }
 
 interface DragItem {
@@ -28,7 +32,7 @@ interface DragItem {
   type: string;
 }
 
-const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, isActive, status }) => {
+const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, isActive, passedCount, totalCount, isUngrammatical }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [{ handlerId }, drop] = useDrop<DragItem, void, { handlerId: Identifier | null }>(() => ({
@@ -77,6 +81,19 @@ const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, is
 
   drag(drop(ref));
 
+  // Determine badge color based on pass ratio
+  const hasTests = totalCount !== undefined && totalCount > 0;
+  let badgeClass = 'bg-secondary';
+  if (hasTests) {
+    if (passedCount === totalCount) {
+      badgeClass = 'bg-success';
+    } else if (passedCount === 0) {
+      badgeClass = 'bg-danger';
+    } else {
+      badgeClass = 'bg-warning';
+    }
+  }
+
   return (
     <div
       ref={ref}
@@ -85,10 +102,13 @@ const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, is
       data-handler-id={handlerId || undefined}
       onClick={onClick}
     >
-      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{text}</span>
-      {status && (
-        <span className={`badge ${status === 'passed' ? 'bg-success' : 'bg-danger'} ms-2`}>
-          {status === 'passed' ? '✓' : '✗'}
+      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        {isUngrammatical && <span className="text-warning me-1">*</span>}
+        {text}
+      </span>
+      {hasTests && (
+        <span className={`badge ${badgeClass} ms-2`} style={{ flexShrink: 0 }}>
+          {passedCount}/{totalCount}
         </span>
       )}
     </div>

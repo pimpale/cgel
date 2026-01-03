@@ -4,9 +4,16 @@ import { lex, grammar } from '@pimpale/cgel';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DragAndDropCard from './components/DragAndDropCard';
-import testResultsJson from '../../test-results.json';
+import testResultsJson from '../test-results.json';
 
 import './style.scss';
+
+/** Recorded assertion from vitest matchers */
+interface RecordedAssertion {
+  type: string;
+  passed: boolean;
+  details?: Record<string, unknown>;
+}
 
 /** Test result from vitest JSON output */
 interface AssertionResult {
@@ -19,11 +26,7 @@ interface AssertionResult {
   meta?: {
     sentence?: string;
     parseCount?: number;
-    assertions?: Array<{
-      type: string;
-      passed: boolean;
-      details?: Record<string, unknown>;
-    }>;
+    assertions?: RecordedAssertion[];
   };
 }
 
@@ -58,17 +61,38 @@ function parseEnglish(input: string): TreeNode[] {
   }
 }
 
+// Sentence item with assertions
+interface SentenceItem {
+  sentence: string;
+  assertions?: RecordedAssertion[];
+  passedCount: number;
+  totalCount: number;
+  /** True if testing for ungrammaticality (sentence should NOT parse) */
+  isUngrammatical?: boolean;
+}
+
 /** Extract sentences from test results */
-function getSentencesFromTests(): Array<{ sentence: string; status: 'passed' | 'failed' }> {
-  const sentences: Array<{ sentence: string; status: 'passed' | 'failed' }> = [];
+function getSentencesFromTests(): SentenceItem[] {
+  const sentences: SentenceItem[] = [];
   
   for (const file of testResults.testResults) {
     for (const test of file.assertionResults) {
-      // Use meta.sentence if available, otherwise use title
       const sentence = test.meta?.sentence ?? test.title;
+      const assertions = test.meta?.assertions ?? [];
+      const passedCount = assertions.filter(a => a.passed).length;
+      const totalCount = assertions.length;
+      
+      // Detect ungrammaticality test: grammatical assertion passes with parseCount: 0
+      const grammaticalAssertion = assertions.find(a => a.type === 'grammatical');
+      const isUngrammatical = grammaticalAssertion?.passed && 
+        grammaticalAssertion?.details?.parseCount === 0;
+      
       sentences.push({
         sentence,
-        status: test.status === 'passed' ? 'passed' : 'failed',
+        assertions,
+        passedCount,
+        totalCount,
+        isUngrammatical,
       });
     }
   }
@@ -184,12 +208,6 @@ function SyntaxTree({ showNulls, tree }: { showNulls: boolean; tree: TreeNode })
   );
 }
 
-// Sentence item with status
-interface SentenceItem {
-  sentence: string;
-  status?: 'passed' | 'failed';
-}
-
 // Main App
 export default function App() {
   // Initialize sentences from test results
@@ -200,6 +218,11 @@ export default function App() {
   const [showNulls, setShowNulls] = useState(false);
   const [sentences, setSentences] = useState<SentenceItem[]>(initialSentences);
 
+  // Find the active sentence item (for showing assertions)
+  const activeSentenceItem = useMemo(() => {
+    return sentences.find(s => s.sentence === input);
+  }, [sentences, input]);
+
   const handleExampleClick = (sentence: string) => {
     setInput(sentence);
     setOutput(parseEnglish(sentence));
@@ -208,7 +231,7 @@ export default function App() {
   const handleAddExample = () => {
     const trimmed = input.trim();
     if (trimmed !== '' && !sentences.some(s => s.sentence === trimmed)) {
-      setSentences([...sentences, { sentence: trimmed }]);
+      setSentences([...sentences, { sentence: trimmed, passedCount: 0, totalCount: 0 }]);
     }
   };
 
@@ -262,38 +285,66 @@ export default function App() {
       </p>
 
       <div className="row">
-        {/* Left sidebar - sticky sentence list */}
+        {/* Left sidebar - split into sentences list and assertions */}
         <div className="col-md-4">
           <div 
-            className="position-sticky"
-            style={{ top: '1rem' }}
+            className="position-sticky d-flex flex-column"
+            style={{ top: '1rem', height: 'calc(100vh - 180px)' }}
           >
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5 className="mb-0">Sentences</h5>
-              {isModified && (
-                <button className="btn btn-sm btn-outline-secondary" onClick={handleResetExamples}>
-                  Reset
-                </button>
-              )}
+            {/* Top half: Sentence list */}
+            <div className="flex-grow-1 d-flex flex-column" style={{ minHeight: 0 }}>
+              <div className="d-flex justify-content-between align-items-center mb-2">
+                <h5 className="mb-0">Sentences</h5>
+                {isModified && (
+                  <button className="btn btn-sm btn-secondary" onClick={handleResetExamples}>
+                    Reset
+                  </button>
+                )}
+              </div>
+              <div 
+                className="list-group flex-grow-1"
+                style={{ overflowY: 'auto', minHeight: 0 }}
+              >
+                <DndProvider backend={HTML5Backend}>
+                  {sentences.map((item, index) => (
+                    <DragAndDropCard
+                      key={`${item.sentence}-${index}`}
+                      id={item.sentence}
+                      index={index}
+                      text={item.sentence}
+                      moveCard={moveCard}
+                      onClick={() => handleExampleClick(item.sentence)}
+                      isActive={item.sentence === input}
+                      passedCount={item.passedCount}
+                      totalCount={item.totalCount}
+                      isUngrammatical={item.isUngrammatical}
+                    />
+                  ))}
+                </DndProvider>
+              </div>
             </div>
-            <div 
-              className="list-group"
-              style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}
-            >
-              <DndProvider backend={HTML5Backend}>
-                {sentences.map((item, index) => (
-                  <DragAndDropCard
-                    key={`${item.sentence}-${index}`}
-                    id={item.sentence}
-                    index={index}
-                    text={item.sentence}
-                    moveCard={moveCard}
-                    onClick={() => handleExampleClick(item.sentence)}
-                    isActive={item.sentence === input}
-                    status={item.status}
-                  />
-                ))}
-              </DndProvider>
+
+            {/* Bottom half: Assertions for active sentence */}
+            <div className="mt-3" style={{ maxHeight: '40%', minHeight: '20vh' }}>
+              <h6 className="mb-2">Assertions</h6>
+              <div 
+                className="rounded p-2 border"
+                style={{ 
+                  overflowY: 'auto', 
+                  height: 'calc(100% - 30px)',
+                  fontSize: '0.8em',
+                }}
+              >
+                {activeSentenceItem?.assertions && activeSentenceItem.assertions.length > 0 ? (
+                  <pre className="mb-0" style={{ whiteSpace: 'pre-wrap' }}>
+                    {JSON.stringify(activeSentenceItem.assertions, null, 2)}
+                  </pre>
+                ) : (
+                  <span className="text-muted">
+                    {input ? 'No assertions for this sentence' : 'Select a sentence to see assertions'}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -318,12 +369,12 @@ export default function App() {
               Parse
             </button>
             {input.trim() !== '' && !sentences.some(s => s.sentence === input.trim()) && (
-              <button className="btn btn-outline-secondary" onClick={handleAddExample}>
+              <button className="btn btn-secondary" onClick={handleAddExample}>
                 Add to List
               </button>
             )}
             {canDeleteCurrent && (
-              <button className="btn btn-outline-danger ms-auto" onClick={handleDeleteCurrentExample}>
+              <button className="btn btn-danger ms-auto" onClick={handleDeleteCurrentExample}>
                 Remove
               </button>
             )}

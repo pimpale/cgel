@@ -32,10 +32,9 @@
     "prepare": "npm run build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui",
-    "test:json": "vitest run --reporter=json --outputFile=test-results.json",
-    "test:json:watch": "vitest --reporter=json --outputFile=test-results.json",
-    "dev": "npm run dev --workspace=playground"
+    "test:json": "vitest run --reporter=json --outputFile=./playground/test-results.json",
+    "test:json:watch": "vitest --reporter=json --outputFile=./playground/test-results.json",
+    "dev": "npm run test:json:watch  & npm run dev --workspace=playground"
   },
   "repository": {
     "type": "git",

@@ -8,8 +8,6 @@ export default defineConfig({
     alias: {
       // Import directly from source for live updates
       '@pimpale/cgel': path.resolve(__dirname, '../src'),
-      // Allow importing test cases from the tests folder
-      '@cgel-tests': path.resolve(__dirname, '../tests'),
     },
   },
   server: {
