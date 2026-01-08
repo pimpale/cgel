@@ -510,7 +510,7 @@ def adjunct_list_grammar(mv_type):
             # Ex: I found the suspect guilty today
             # Ex mv_np: I know who I found [gap] guilty today
             # Ex mv_adjp: I know how guilty I found the suspect [gap] today
-            f"np{mv_suf} adjunct_list_o_predcomp",
+            f"np{mv_suf} adjunct_list_predcomp",
             # Ex: I found guilty the man with the knife today
             # Ex mv_np: I know which man I found guilty [gap] today
             # (marginal/rare) Ex mv_adjp: ADJP extraction from post-object adjuncts is very marginal

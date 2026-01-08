@@ -1,0 +1,16 @@
+{
+  "members": [
+    "conquer"
+  ],
+  "frames": [
+    {
+      "primary": [
+        "NP",
+        "V"
+      ],
+      "examples": [
+        "We conquered."
+      ]
+    }
+  ]
+}

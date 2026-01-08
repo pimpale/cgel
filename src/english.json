@@ -1708,50 +1708,50 @@
         "vbg_o"
     ],
     "admonish": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
         "inf_that_declarative_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbf_pl_that_declarative_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o",
         "vbp_that_declarative_cl"
     ],
     "admonished": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
         "vbd_that_declarative_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbf_pl_that_declarative_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbf_sg_that_declarative_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o",
         "vbn_that_declarative_cl"
     ],
     "admonishes": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbf_sg_that_declarative_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o",
         "vbz_that_declarative_cl"
     ],
     "admonishing": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o",
         "vbg_that_declarative_cl"
     ],
@@ -5643,69 +5643,69 @@
     "ask": [
         "inf",
         "inf_interrogative_cl",
+        "inf_intnp_to_inf_cl",
         "inf_io_interrogative_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
         "vbf_pl",
         "vbf_pl_interrogative_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_interrogative_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbp",
         "vbp_interrogative_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_interrogative_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "asked": [
         "vbd",
         "vbd_interrogative_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_io_interrogative_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
         "vbf_pl",
         "vbf_pl_interrogative_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_interrogative_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbf_sg",
         "vbf_sg_interrogative_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_interrogative_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbn",
         "vbn_interrogative_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_interrogative_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "asking": [
         "vbg",
         "vbg_interrogative_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_io_interrogative_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "asks": [
         "vbf_sg",
         "vbf_sg_interrogative_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_interrogative_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbz",
         "vbz_interrogative_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_interrogative_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "asphalt": [
@@ -16633,31 +16633,31 @@
         "vbz_o"
     ],
     "call_on": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o"
     ],
     "call_oned": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o"
     ],
     "call_oning": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o"
     ],
     "call_ons": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o"
     ],
     "called": [
@@ -25538,17 +25538,25 @@
         "vbz_o"
     ],
     "conquer": [
+        "inf",
         "inf_o",
+        "vbf_pl",
         "vbf_pl_o",
+        "vbp",
         "vbp_o"
     ],
     "conquered": [
+        "vbd",
         "vbd_o",
+        "vbf_pl",
         "vbf_pl_o",
+        "vbf_sg",
         "vbf_sg_o",
+        "vbn",
         "vbn_o"
     ],
     "conquering": [
+        "vbg",
         "vbg_o"
     ],
     "conqueror": [
@@ -25562,7 +25570,9 @@
         "people_occupations"
     ],
     "conquers": [
+        "vbf_sg",
         "vbf_sg_o",
+        "vbz",
         "vbz_o"
     ],
     "cons": [
@@ -30430,21 +30440,21 @@
         "vbg_o"
     ],
     "dare": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o"
     ],
     "dared": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o"
     ],
     "daredevil": [
@@ -30458,13 +30468,13 @@
         "people_occupations"
     ],
     "dares": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o"
     ],
     "daring": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o"
     ],
     "darken": [
@@ -41024,31 +41034,31 @@
         "noun_sg"
     ],
     "egg_on": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o"
     ],
     "egg_oned": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o"
     ],
     "egg_oning": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o"
     ],
     "egg_ons": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o"
     ],
     "eggs": [
@@ -42241,22 +42251,22 @@
     ],
     "encourage": [
         "inf_interrogative_cl",
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
         "inf_o_predcomp",
         "inf_that_declarative_cl",
         "inf_vbg_cl",
         "vbf_pl_interrogative_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
         "vbf_pl_that_declarative_cl",
         "vbf_pl_vbg_cl",
         "vbp_interrogative_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o",
         "vbp_o_predcomp",
         "vbp_that_declarative_cl",
@@ -42264,29 +42274,29 @@
     ],
     "encouraged": [
         "vbd_interrogative_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
         "vbd_o_predcomp",
         "vbd_that_declarative_cl",
         "vbd_vbg_cl",
         "vbf_pl_interrogative_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
         "vbf_pl_that_declarative_cl",
         "vbf_pl_vbg_cl",
         "vbf_sg_interrogative_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
         "vbf_sg_that_declarative_cl",
         "vbf_sg_vbg_cl",
         "vbn_interrogative_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o",
         "vbn_o_predcomp",
         "vbn_that_declarative_cl",
@@ -42294,15 +42304,15 @@
     ],
     "encourages": [
         "vbf_sg_interrogative_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
         "vbf_sg_that_declarative_cl",
         "vbf_sg_vbg_cl",
         "vbz_interrogative_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o",
         "vbz_o_predcomp",
         "vbz_that_declarative_cl",
@@ -42310,8 +42320,8 @@
     ],
     "encouraging": [
         "vbg_interrogative_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o",
         "vbg_o_predcomp",
         "vbg_that_declarative_cl",
@@ -43515,41 +43525,41 @@
         "vbz_o"
     ],
     "entreat": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "entreated": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "entreating": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "entreats": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "entrepreneur": [
@@ -45303,41 +45313,41 @@
         "vbg_o_predcomp"
     ],
     "exhort": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "exhorted": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "exhorting": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "exhorts": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "exhume": [
@@ -50511,13 +50521,13 @@
         "vbz_vbg_cl"
     ],
     "force": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
         "inf_prtout_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
         "vbf_pl_prtout_o",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o",
         "vbp_prtout_o"
     ],
@@ -50550,29 +50560,29 @@
         "vbz_o"
     ],
     "forced": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
         "vbd_prtout_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
         "vbf_pl_prtout_o",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
         "vbf_sg_prtout_o",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o",
         "vbn_prtout_o"
     ],
     "forces": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
         "vbf_sg_prtout_o",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o",
         "vbz_prtout_o"
     ],
     "forcing": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o",
         "vbg_prtout_o"
     ],
@@ -62507,41 +62517,41 @@
         "vbz_o"
     ],
     "implore": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "implored": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "implores": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "imploring": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "imply": [
@@ -65543,40 +65553,40 @@
         "vbg_o_predcomp"
     ],
     "invite": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
         "inf_vbg_cl",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
         "vbf_pl_vbg_cl",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o",
         "vbp_vbg_cl"
     ],
     "invited": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
         "vbd_vbg_cl",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
         "vbf_pl_vbg_cl",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
         "vbf_sg_vbg_cl",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o",
         "vbn_vbg_cl"
     ],
     "invites": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
         "vbf_sg_vbg_cl",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o",
         "vbz_vbg_cl"
     ],
     "inviting": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o",
         "vbg_vbg_cl"
     ],
@@ -67452,30 +67462,15 @@
         "inf_o",
         "inf_o_predcomp",
         "inf_predcomp",
+        "inf_prtdown_o",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
         "vbf_pl_predcomp",
+        "vbf_pl_prtdown_o",
         "vbp_o",
         "vbp_o_predcomp",
-        "vbp_predcomp"
-    ],
-    "keep_down": [
-        "inf_o",
-        "vbf_pl_o",
-        "vbp_o"
-    ],
-    "keep_downed": [
-        "vbd_o",
-        "vbf_pl_o",
-        "vbf_sg_o",
-        "vbn_o"
-    ],
-    "keep_downing": [
-        "vbg_o"
-    ],
-    "keep_downs": [
-        "vbf_sg_o",
-        "vbz_o"
+        "vbp_predcomp",
+        "vbp_prtdown_o"
     ],
     "keep_to": [
         "inf_o",
@@ -67498,15 +67493,18 @@
     "keeping": [
         "vbg_o",
         "vbg_o_predcomp",
-        "vbg_predcomp"
+        "vbg_predcomp",
+        "vbg_prtdown_o"
     ],
     "keeps": [
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
         "vbf_sg_predcomp",
+        "vbf_sg_prtdown_o",
         "vbz_o",
         "vbz_o_predcomp",
-        "vbz_predcomp"
+        "vbz_predcomp",
+        "vbz_prtdown_o"
     ],
     "kelp": [
         "noun_sg",
@@ -67538,15 +67536,19 @@
         "vbd_o",
         "vbd_o_predcomp",
         "vbd_predcomp",
+        "vbd_prtdown_o",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
         "vbf_pl_predcomp",
+        "vbf_pl_prtdown_o",
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
         "vbf_sg_predcomp",
+        "vbf_sg_prtdown_o",
         "vbn_o",
         "vbn_o_predcomp",
-        "vbn_predcomp"
+        "vbn_predcomp",
+        "vbn_prtdown_o"
     ],
     "keratin": [
         "noun_sg",
@@ -69332,31 +69334,31 @@
         "vbp"
     ],
     "lean_on": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o"
     ],
     "lean_oned": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o"
     ],
     "lean_oning": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o"
     ],
     "lean_ons": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o"
     ],
     "leaned": [
@@ -71124,48 +71126,48 @@
         "vbp_o"
     ],
     "lobbied": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "lobbies": [
         "countable_noun",
         "location",
         "noun_pl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "lobby": [
         "countable_noun",
         "in_location",
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
         "location",
         "noun_sg",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "lobbying": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "lobed": [
@@ -89354,79 +89356,79 @@
         "people_occupations"
     ],
     "press": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "pressed": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "presses": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "pressing": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "pressure": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "pressured": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "pressures": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "pressuring": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "presume": [
@@ -90055,41 +90057,41 @@
         "vbg_o"
     ],
     "prod": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "proded": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "proding": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "prods": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "produce": [
@@ -92069,41 +92071,41 @@
         "noun_pl"
     ],
     "push": [
+        "inf_intnp_to_inf_cl",
         "inf_io_do",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_do",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_do",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "pushed": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_do",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_do",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_do",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_do",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "pushes": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_do",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_do",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "pushing": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_do",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "pussyfoot": [
@@ -115898,66 +115900,58 @@
         "inf_io_do",
         "inf_io_vbg_cl",
         "inf_o",
+        "inf_prtdown_o",
         "vbf_pl",
         "vbf_pl_io_do",
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_pl_prtdown_o",
         "vbp",
         "vbp_io_do",
         "vbp_io_vbg_cl",
-        "vbp_o"
-    ],
-    "stamp_down": [
-        "inf_o",
-        "vbf_pl_o",
-        "vbp_o"
-    ],
-    "stamp_downed": [
-        "vbd_o",
-        "vbf_pl_o",
-        "vbf_sg_o",
-        "vbn_o"
-    ],
-    "stamp_downing": [
-        "vbg_o"
-    ],
-    "stamp_downs": [
-        "vbf_sg_o",
-        "vbz_o"
+        "vbp_o",
+        "vbp_prtdown_o"
     ],
     "stamped": [
         "vbd",
         "vbd_io_do",
         "vbd_io_vbg_cl",
         "vbd_o",
+        "vbd_prtdown_o",
         "vbf_pl",
         "vbf_pl_io_do",
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_pl_prtdown_o",
         "vbf_sg",
         "vbf_sg_io_do",
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbf_sg_prtdown_o",
         "vbn",
         "vbn_io_do",
         "vbn_io_vbg_cl",
-        "vbn_o"
+        "vbn_o",
+        "vbn_prtdown_o"
     ],
     "stamping": [
         "vbg",
         "vbg_io_do",
         "vbg_io_vbg_cl",
-        "vbg_o"
+        "vbg_o",
+        "vbg_prtdown_o"
     ],
     "stamps": [
         "vbf_sg",
         "vbf_sg_io_do",
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbf_sg_prtdown_o",
         "vbz",
         "vbz_io_do",
         "vbz_io_vbg_cl",
-        "vbz_o"
+        "vbz_o",
+        "vbz_prtdown_o"
     ],
     "stand": [
         "at_location",
@@ -119674,31 +119668,31 @@
         "on_location"
     ],
     "summon": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o"
     ],
     "summoned": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o"
     ],
     "summoning": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o"
     ],
     "summons": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o"
     ],
     "sums": [
@@ -123449,40 +123443,40 @@
         "vbz"
     ],
     "tempt": [
-        "inf_io_vbg_cl",
+        "inf_intnp_to_inf_cl",
         "inf_o",
         "inf_o_predcomp",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
-        "vbp_io_vbg_cl",
+        "vbp_intnp_to_inf_cl",
         "vbp_o",
         "vbp_o_predcomp"
     ],
     "tempted": [
-        "vbd_io_vbg_cl",
+        "vbd_intnp_to_inf_cl",
         "vbd_o",
         "vbd_o_predcomp",
-        "vbf_pl_io_vbg_cl",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
-        "vbn_io_vbg_cl",
+        "vbn_intnp_to_inf_cl",
         "vbn_o",
         "vbn_o_predcomp"
     ],
     "tempting": [
-        "vbg_io_vbg_cl",
+        "vbg_intnp_to_inf_cl",
         "vbg_o",
         "vbg_o_predcomp"
     ],
     "tempts": [
-        "vbf_sg_io_vbg_cl",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
-        "vbz_io_vbg_cl",
+        "vbz_intnp_to_inf_cl",
         "vbz_o",
         "vbz_o_predcomp"
     ],
@@ -131031,41 +131025,41 @@
         "noun_pl"
     ],
     "urge": [
+        "inf_intnp_to_inf_cl",
         "inf_io_that_declarative_cl",
-        "inf_io_vbg_cl",
         "inf_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbp_intnp_to_inf_cl",
         "vbp_io_that_declarative_cl",
-        "vbp_io_vbg_cl",
         "vbp_o"
     ],
     "urged": [
+        "vbd_intnp_to_inf_cl",
         "vbd_io_that_declarative_cl",
-        "vbd_io_vbg_cl",
         "vbd_o",
+        "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_that_declarative_cl",
-        "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbn_intnp_to_inf_cl",
         "vbn_io_that_declarative_cl",
-        "vbn_io_vbg_cl",
         "vbn_o"
     ],
     "urges": [
+        "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_that_declarative_cl",
-        "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbz_intnp_to_inf_cl",
         "vbz_io_that_declarative_cl",
-        "vbz_io_vbg_cl",
         "vbz_o"
     ],
     "urging": [
+        "vbg_intnp_to_inf_cl",
         "vbg_io_that_declarative_cl",
-        "vbg_io_vbg_cl",
         "vbg_o"
     ],
     "urinate": [
