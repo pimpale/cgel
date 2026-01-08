@@ -165,8 +165,7 @@ def cat_from_primary(slots: list[str]) -> str | None:
         return "vb_io_interrogative_cl"
     return None
 
-
-def add_particle_to_category(cat: str) -> str | None:
+def add_particle_to_category(cat: str, particle: str) -> str | None:
     """Transform a regular verb category to its particle version.
     
     For intransitive/simple patterns, particle comes right after 'vb' (vb_prt_...).
@@ -175,27 +174,27 @@ def add_particle_to_category(cat: str) -> str | None:
     """
     mappings = {
         # Intransitive / simple patterns: vb -> vb_prt
-        "vb": "vb_prt",
-        "vb_predcomp": "vb_prt_predcomp",
-        "vb_to_inf_cl": "vb_prt_to_inf_cl",
-        "vb_bare_inf_cl": "vb_prt_bare_inf_cl",
-        "vb_vbg_cl": "vb_prt_vbg_cl",
-        "vb_vbn_cl": "vb_prt_vbn_cl",
-        "vb_passive_cl": "vb_prt_passive_cl",
-        "vb_that_declarative_cl": "vb_prt_that_declarative_cl",
-        "vb_bare_declarative_cl": "vb_prt_bare_declarative_cl",
-        "vb_exclamative_cl": "vb_prt_exclamative_cl",
-        "vb_interrogative_cl": "vb_prt_interrogative_cl",
+        "vb": f"vb_prt{particle}",
+        "vb_predcomp": f"vb_prt{particle}_predcomp",
+        "vb_to_inf_cl": f"vb_prt{particle}_to_inf_cl",
+        "vb_bare_inf_cl": f"vb_prt{particle}_bare_inf_cl",
+        "vb_vbg_cl": f"vb_prt{particle}_vbg_cl",
+        "vb_vbn_cl": f"vb_prt{particle}_vbn_cl",
+        "vb_passive_cl": f"vb_prt{particle}_passive_cl",
+        "vb_that_declarative_cl": f"vb_prt{particle}_that_declarative_cl",
+        "vb_bare_declarative_cl": f"vb_prt{particle}_bare_declarative_cl",
+        "vb_exclamative_cl": f"vb_prt{particle}_exclamative_cl",
+        "vb_interrogative_cl": f"vb_prt{particle}_interrogative_cl",
         # Transitive pattern: vb_o -> vb_prt_o
-        "vb_o": "vb_prt_o",
+        "vb_o": f"vb_prt{particle}_o",
         # Transitive with complements: particle after object
-        "vb_io_do": "vb_o_prt_o",
-        "vb_o_predcomp": "vb_o_prt_predcomp",
-        "vb_io_that_declarative_cl": "vb_o_prt_that_declarative_cl",
-        "vb_io_bare_declarative_cl": "vb_o_prt_bare_declarative_cl",
-        "vb_io_interrogative_cl": "vb_o_prt_interrogative_cl",
-        "vb_intnp_to_inf_cl": "vb_prt_intnp_to_inf_cl",
-        "vb_intnp_bare_inf_cl": "vb_prt_intnp_bare_inf_cl",
+        "vb_io_do": f"vb_o_prt{particle}_o",
+        "vb_o_predcomp": f"vb_o_prt{particle}_predcomp",
+        "vb_io_that_declarative_cl": f"vb_o_prt{particle}_that_declarative_cl",
+        "vb_io_bare_declarative_cl": f"vb_o_prt{particle}_bare_declarative_cl",
+        "vb_io_interrogative_cl": f"vb_o_prt{particle}_interrogative_cl",
+        "vb_intnp_to_inf_cl": f"vb_prt{particle}_intnp_to_inf_cl",
+        "vb_intnp_bare_inf_cl": f"vb_prt{particle}_intnp_bare_inf_cl",
     }
     return mappings.get(cat)
 
@@ -204,7 +203,7 @@ def extract_particle_and_verb_categories() -> tuple[dict[str, None], dict[str, d
     """Parse all VerbNet JSON files under each directory in *VERBNET_DIRS* and
     build verb sets per coarse syntactic category compatible with our grammar.
     
-    Phrasal verbs (containing underscores like "sign_up") are split into:
+    Phrasal verbs (containing double underscores like "sign__up") are split into:
     - main verb: "sign" 
     - particle: "up"
     The particle is collected separately, and the verb category is transformed
@@ -231,9 +230,9 @@ def extract_particle_and_verb_categories() -> tuple[dict[str, None], dict[str, d
                     continue
 
                 for verb in members:
-                    if "_" in verb:
+                    if "__" in verb:
                         # Phrasal verb: split into main verb and particle
-                        parts = verb.split("_", 1)  # Split only on first underscore
+                        parts = verb.split("__", 1)  # Split only on first double underscore
                         main_verb = parts[0]
                         particle = parts[1]
                         
@@ -241,7 +240,7 @@ def extract_particle_and_verb_categories() -> tuple[dict[str, None], dict[str, d
                         particles[particle] = None
                         
                         # Transform category to particle version
-                        prt_cat = add_particle_to_category(cat)
+                        prt_cat = add_particle_to_category(cat, particle)
                         if prt_cat is not None:
                             categories[prt_cat].add(main_verb)
                         # If no particle category mapping exists, skip this verb/frame combo

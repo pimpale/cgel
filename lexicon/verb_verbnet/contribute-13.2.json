@@ -13,10 +13,10 @@
     "forfeit",
     "forgo",
     "gift",
-    "give-away",
-    "give-out",
-    "give-up",
-    "hand_out",
+    "give__away",
+    "give__out",
+    "give__up",
+    "hand__out",
     "pass_out",
     "proffer",
     "refer",
@@ -31,8 +31,8 @@
     "submit",
     "surrender",
     "transfer",
-    "turn-in",
-    "turn-over"
+    "turn__in",
+    "turn__over"
   ],
   "frames": [
     {

@@ -66,6 +66,17 @@
       "examples": [
         "He was like, 'It has to go.'"
       ]
+    },
+    {
+      "commentary": "Consider restricting this to a subset of the members.",
+      "primary": [
+        "NP",
+        "V",
+        "S"
+      ],
+      "examples": [
+        "He said the suspect is guilty."
+      ]
     }
   ]
 }

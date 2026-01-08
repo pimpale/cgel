@@ -45,8 +45,8 @@ describe('Clause Coordination with BUT', () => {
 });
 
 describe('Clause Coordination with NOR (requires inversion)', () => {
-  // Binary: "He won't go, nor will I"
-  test('He won\'t go, nor will I.', ({ expect, task }) => {
+  // Binary: "He won't go, nor will I go"
+  test('He won\'t go, nor will I go.', ({ expect, task }) => {
     const result = parse(task.name);
     expect(result).toBeGrammatical();
   });

@@ -7,6 +7,10 @@
         {
             "primary": ["NP", "V", "S_INF"],
             "examples": ["The meeting turned out to be a success."]
+        },
+        {
+            "primary": ["NP", "V", "ADV"],
+            "examples": ["The meeting turned out well."]
         }
     ]
 }

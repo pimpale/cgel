@@ -159,6 +159,8 @@
     },
     "adj": {
         "big": null,
+        "good": null,
+        "great": null,
         "small": null,
         "little": null,
         "happy": null,
@@ -176,15 +178,24 @@
         "old": null,
         "shiny": null,
         "magical": null,
-        "tired": null
+        "tired": null,
+        "wrong": null,
+        "guilty": null
     },
     "adj_pp": {
         "interested": null,
         "glad": null,
         "sad": null,
+        "sorry": null,
+        "guilty": null
+    },
+    "adj_that_declarative_cl": {
+        "happy": null,
+        "glad": null,
+        "sad": null,
         "sorry": null
     },
-    "adj_declarative_cl": {
+    "adj_bare_declarative_cl": {
         "happy": null,
         "glad": null,
         "sad": null,

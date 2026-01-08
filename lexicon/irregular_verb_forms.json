@@ -143,6 +143,14 @@
         "VBZ": "gives",
         "VBP": "give"
     },
+    "forgive": {
+        "VB": "forgive",
+        "VBD": "forgave",
+        "VBN": "forgiven",
+        "VBG": "forgiving",
+        "VBZ": "forgives",
+        "VBP": "forgive"
+    },
     "bring": {
         "VB": "bring",
         "VBD": "brought",
@@ -382,5 +390,29 @@
         "VBG": "breaking",
         "VBZ": "breaks",
         "VBP": "break"
+    },
+    "refer": {
+        "VB": "refer",
+        "VBD": "referred",
+        "VBN": "referred",
+        "VBG": "referring",
+        "VBZ": "refers",
+        "VBP": "refer"
+    },
+    "mean": {
+        "VB": "mean",
+        "VBD": "meant",
+        "VBN": "meant",
+        "VBG": "meaning",
+        "VBZ": "means",
+        "VBP": "mean"
+    },
+    "leave": {
+        "VB": "leave",
+        "VBD": "left",
+        "VBN": "left",
+        "VBG": "leaving",
+        "VBZ": "leaves",
+        "VBP": "leave"
     }
 }

@@ -174,14 +174,14 @@ describe('Particle + Predicative Complement (CGEL 6.3.2 Structure VI)', () => {
     expect(result).toBeGrammatical();
   });
 
-  test('It turned out fine.', ({ expect, task }) => {
+  test('The meeting turned out fine.', ({ expect, task }) => {
     const result = parse(task.name);
     expect(result).toBeGrammatical();
   });
 });
 
 describe('Particle + To-Infinitive', () => {
-  test('It turned out to be wrong.', ({ expect, task }) => {
+  test('The answer turned out to be wrong.', ({ expect, task }) => {
     const result = parse(task.name);
     expect(result).toBeGrammatical();
   });

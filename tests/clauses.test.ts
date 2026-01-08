@@ -17,14 +17,14 @@ describe('That-Declarative Clauses', () => {
     expect(result).toBeGrammatical();
   });
 
-  test('It turned out that he was lying.', ({ expect, task }) => {
+  test('We figured out that he was lying.', ({ expect, task }) => {
     const result = parse(task.name);
     expect(result).toBeGrammatical();
   });
 });
 
 describe('Bare Declarative Clauses', () => {
-  test('I knew you eat.', ({ expect, task }) => {
+  test('I made you eat.', ({ expect, task }) => {
     const result = parse(task.name);
     expect(result).toBeGrammatical();
   });

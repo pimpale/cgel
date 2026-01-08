@@ -1,0 +1,11 @@
+{
+    "members": [
+        "refer_to"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["He referred to the book."]
+        }
+    ]
+}

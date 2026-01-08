@@ -45,9 +45,7 @@
         "NP",
         "V",
         "NP",
-        "to",
-        "be",
-        "NP"
+        "S_INF"
       ],
       "examples": [
         "He trained them to be blacksmiths."

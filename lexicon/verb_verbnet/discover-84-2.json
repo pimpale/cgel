@@ -1,17 +1,18 @@
 {
   "members": [
-    "kill",
-    "kill__off"
+    "find",
+    "discover"
   ],
   "frames": [
     {
       "primary": [
-        "NP.instrument",
+        "NP",
         "V",
-        "NP"
+        "NP",
+        "ADJ"
       ],
       "examples": [
-        "The DDT killed the insects."
+        "I found him guilty."
       ]
     }
   ]
