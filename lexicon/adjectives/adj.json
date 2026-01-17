@@ -35,7 +35,9 @@
         "bright": null,
         "fine": null,
         "expensive": null,
-        "cheap": null
+        "cheap": null,
+        "early": null,
+        "late": null
     },
     "classes": [
         "adj"

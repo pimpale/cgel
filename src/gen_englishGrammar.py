@@ -498,6 +498,20 @@ def adjunct_list_grammar(mv_type):
         ],
     )
 
+    out += serialize_rules(
+        f"adjunct_list_quot_cl{mv_suf}",
+        [
+            # Ex: He said "hello" on tuesday
+            # Ex mv_np: I know what day he said "hello" on [gap]
+            # Ex mv_adjp: I know how loudly he said "hello" [gap] on tuesday
+            f"maybe_comma quot_cl adjunct_list{mv_suf}",
+            # Ex: He said in Paris "hello"
+            # Ex mv_np: Which city did he say in [gap] "hello"
+            # Ex mv_adjp: How loudly did he say [gap] "hello"
+            f"adjunct{mv_suf} adjunct_list_quot_cl",
+        ],
+    )
+
     # cannot be shifted: *I saw quickly the janitor
     out += serialize_rules(
         f"adjunct_list_o{mv_suf}",
@@ -640,6 +654,22 @@ def adjunct_list_grammar(mv_type):
             # Ex mv_np: I know who he asked [gap] whether Joe left today
             # Ex mv_adjp: I know how eager he asked you whether Joe left [gap] today
             f"np{mv_suf} adjunct_list_interrogative_cl",
+        ],
+    )
+
+    # Note: quotation clauses are islands - cannot extract from inside them
+    # Note: adjuncts CANNOT appear before the IO: *He told loudly you "hello"
+    out += serialize_rules(
+        f"adjunct_list_io_quot_cl{mv_suf}",
+        [
+            # Ex: He told you "hello" on tuesday
+            # Ex mv_np: I know what day he told you "hello" on [gap]
+            # Ex mv_adjp: I know how loudly he told you "hello" [gap] on tuesday
+            f"np adjunct_list_quot_cl{mv_suf}",
+            # Ex: He told you "hello" today
+            # Ex mv_np: I know who he told [gap] "hello" today
+            # Ex mv_adjp: I know how loudly he told you "hello" [gap] today
+            f"np{mv_suf} adjunct_list_quot_cl",
         ],
     )
 
@@ -941,6 +971,18 @@ def adjunct_list_grammar(mv_type):
     )
 
     out += serialize_rules(
+        f"adjunct_list_passive_io_quot_cl{mv_suf}",
+        [
+            # Active: They told you "hello" → Passive: You were told "hello"
+            # The IO is promoted to subject, the quote clause + adjuncts remain
+            # Ex: You were told "hello" on tuesday
+            # Ex mv_np: I know what day you were told "hello" on [gap]
+            # Ex mv_adjp: I know how loudly you were told "hello" [gap] on tuesday
+            f"adjunct_list_quot_cl{mv_suf}",
+        ],
+    )
+
+    out += serialize_rules(
         f"adjunct_list_passive_io_do{mv_suf}",
         [
             # Active: They gave you food → Passive: You were given food
@@ -1126,6 +1168,7 @@ def vp_grammar(vp_type: str, mv_type: str | None = None):
     | advp_vp? {vp_type}_bare_declarative_cl    adjunct_list_bare_declarative_cl{mv_suf}      {{%nt("{vp_type}_vp{mv_suf}")%}} # verb with bare declarative clause (ex: "I knew you eat")
     | advp_vp? {vp_type}_exclamative_cl         adjunct_list_exclamative_cl{mv_suf}           {{%nt("{vp_type}_vp{mv_suf}")%}} # verb with exclamative clause (ex: "I said how expensive it was")
     | advp_vp? {vp_type}_interrogative_cl       adjunct_list_interrogative_cl{mv_suf}         {{%nt("{vp_type}_vp{mv_suf}")%}} # verb with interrogative clause (ex: "I knew what you eat")
+    | advp_vp? {vp_type}_quot_cl                adjunct_list_quot_cl{mv_suf}                  {{%nt("{vp_type}_vp{mv_suf}")%}} # verb with quotation clause (ex: "I said 'hello'")
     | advp_vp? {vp_type}_vbg_cl                 vbg_cl{mv_suf}                                {{%nt("{vp_type}_vp{mv_suf}")%}} # progressive aspect or catenative with gerund (ex: "We are eating", "we started eating")
     | advp_vp? {vp_type}_vbn_cl                 vbn_cl{mv_suf}                                {{%nt("{vp_type}_vp{mv_suf}")%}} # perfect aspect (ex: "He had eaten")
     | advp_vp? {vp_type}_passive_cl             passive_cl{mv_suf}                            {{%nt("{vp_type}_vp{mv_suf}")%}} # passive voice (ex: "He was eaten")
@@ -1138,6 +1181,7 @@ def vp_grammar(vp_type: str, mv_type: str | None = None):
     | advp_vp? {vp_type}_io_bare_declarative_cl adjunct_list_io_bare_declarative_cl{mv_suf}   {{%nt("{vp_type}_vp{mv_suf}")%}} # verb + IO + bare declarative (ex: "I told you you eat the apple")
     | advp_vp? {vp_type}_io_exclamative_cl      adjunct_list_io_exclamative_cl{mv_suf}        {{%nt("{vp_type}_vp{mv_suf}")%}} # verb + IO + exclamative (ex: "I told you how expensive it was")
     | advp_vp? {vp_type}_io_interrogative_cl    adjunct_list_io_interrogative_cl{mv_suf}      {{%nt("{vp_type}_vp{mv_suf}")%}} # verb + IO + interrogative (ex: "I asked you what you eat")
+    | advp_vp? {vp_type}_io_quot_cl             adjunct_list_io_quot_cl{mv_suf}               {{%nt("{vp_type}_vp{mv_suf}")%}} # verb + IO + quotation clause (ex: "I told you 'hello'")
 # --- ditransitive verbs (two objects) ---
     | advp_vp? {vp_type}_io_do                  adjunct_list_io_do{mv_suf}                    {{%nt("{vp_type}_vp{mv_suf}")%}} # ditransitive verb (ex: "I gave you food")
     | advp_vp? {vp_type}_io_do                  adjunct_list_do_dative_to{mv_suf}             {{%nt("{vp_type}_vp{mv_suf}")%}} # ditransitive verb with dative shift (ex: "I gave food to you")
@@ -1176,6 +1220,7 @@ passive_cl{mv_suf} ->
     | advp_vp? {vp_type}_io_bare_declarative_cl adjunct_list_passive_io_bare_declarative_cl{mv_suf}    {{%nt("passive_cl{mv_suf}")%}} # IO + bare declarative passive (ex: "You were told...")
     | advp_vp? {vp_type}_io_exclamative_cl      adjunct_list_passive_io_exclamative_cl{mv_suf}         {{%nt("passive_cl{mv_suf}")%}} # IO + exclamative passive (ex: "You were told how...")
     | advp_vp? {vp_type}_io_interrogative_cl    adjunct_list_passive_io_interrogative_cl{mv_suf}       {{%nt("passive_cl{mv_suf}")%}} # IO + interrogative passive (ex: "You were asked whether...")
+    | advp_vp? {vp_type}_io_quot_cl             adjunct_list_passive_io_quot_cl{mv_suf}                {{%nt("passive_cl{mv_suf}")%}} # IO + quotation passive (ex: "You were told 'hello'")
 # --- passive of ditransitive verbs ---
     | advp_vp? {vp_type}_io_do                  adjunct_list_passive_io_do{mv_suf}                     {{%nt("passive_cl{mv_suf}")%}} # IO promoted passive (ex: "You were given food")
     | advp_vp? {vp_type}_io_do                  adjunct_list_passive_do_dative_to{mv_suf}              {{%nt("passive_cl{mv_suf}")%}} # DO promoted passive (ex: "Food was given to you")
@@ -1785,6 +1830,9 @@ advp? -> advp       {%nt("advp?")%}
 not? -> not         {%nt("not?")%}
       | null        {%nt("not?")%}
 
+maybe_comma -> comma {%nt("maybe_comma")%}
+            | null  {%nt("maybe_comma")%}
+
 # idioms / poly-words
 
 # not only / not just / not merely
@@ -1839,6 +1887,7 @@ for vp_type in ["inf", "vbg", "vbn", "vbf_sg", "vbf_pl"]:
 {vp_type}_bare_declarative_cl -> %{vp_type}_bare_declarative_cl {{%t("{vp_type}_bare_declarative_cl")%}}
 {vp_type}_exclamative_cl -> %{vp_type}_exclamative_cl {{%t("{vp_type}_exclamative_cl")%}}
 {vp_type}_interrogative_cl -> %{vp_type}_interrogative_cl {{%t("{vp_type}_interrogative_cl")%}}
+{vp_type}_quot_cl -> %{vp_type}_quot_cl {{%t("{vp_type}_quot_cl")%}}
 {vp_type}_vbg_cl -> %{vp_type}_vbg_cl {{%t("{vp_type}_vbg_cl")%}}
 {vp_type}_vbn_cl -> %{vp_type}_vbn_cl {{%t("{vp_type}_vbn_cl")%}}
 {vp_type}_passive_cl -> %{vp_type}_passive_cl {{%t("{vp_type}_passive_cl")%}}
@@ -1850,6 +1899,7 @@ for vp_type in ["inf", "vbg", "vbn", "vbf_sg", "vbf_pl"]:
 {vp_type}_io_bare_declarative_cl -> %{vp_type}_io_bare_declarative_cl {{%t("{vp_type}_io_bare_declarative_cl")%}}
 {vp_type}_io_exclamative_cl -> %{vp_type}_io_exclamative_cl {{%t("{vp_type}_io_exclamative_cl")%}}
 {vp_type}_io_interrogative_cl -> %{vp_type}_io_interrogative_cl {{%t("{vp_type}_io_interrogative_cl")%}}
+{vp_type}_io_quot_cl -> %{vp_type}_io_quot_cl {{%t("{vp_type}_io_quot_cl")%}}
 {vp_type}_io_do -> %{vp_type}_io_do {{%t("{vp_type}_io_do")%}}
 """
     for particle in particles:

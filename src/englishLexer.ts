@@ -21,10 +21,14 @@ function seperatePunctuation(word: string): string[] {
     
     const lastChar = word[word.length - 1];
     const punctuationRegex = /[.,!?;:'"()[\]{}]/;
+
+    if (word.startsWith('"') && word.length > 1) {
+        return ['"', ...seperatePunctuation(word.slice(1))];
+    }
     
     if (punctuationRegex.test(lastChar)) {
         // Split the word and the punctuation
-        return [word.slice(0, -1), lastChar];
+        return [...seperatePunctuation(word.slice(0, -1)), lastChar];
     } else {
         return [word];
     }

@@ -118,6 +118,22 @@ describe('Exclamative Content Clauses', () => {
   });
 });
 
+describe('Quotation Clauses', () => {
+  test('Bob said "I am happy.".', ({ expect, task }) => {
+    const result = parse(task.name);
+    expect(result).toBeGrammatical();
+  });
+  test('Bob said, "I am happy.".', ({ expect, task }) => {
+    const result = parse(task.name);
+    expect(result).toBeGrammatical();
+  });
+
+  test('Bob told them, "I am happy.".', ({ expect, task }) => {
+    const result = parse(task.name);
+    expect(result).toBeGrammatical();
+  });
+});
+
 describe('Verb + IO + That-Declarative', () => {
   test('I told you that you eat the apple.', ({ expect, task }) => {
     const result = parse(task.name);

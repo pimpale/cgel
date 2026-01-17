@@ -1,0 +1,11 @@
+{
+    "members": [
+        "go"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "S_INF"],
+            "examples": ["I am going to sing."]
+        }
+    ]
+}
