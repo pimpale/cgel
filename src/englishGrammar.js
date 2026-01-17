@@ -5606,6 +5606,7 @@ let ParserRules = [
     {"name": "interrogative_cl", "symbols": ["ip_np", "np_pl", "vbf_pl_vp_minus_np"], "postprocess": nt("interrogative_cl")},
     {"name": "interrogative_cl", "symbols": ["ip_pp", "np_sg", "vbf_sg_vp"], "postprocess": nt("interrogative_cl")},
     {"name": "interrogative_cl", "symbols": ["ip_pp", "np_pl", "vbf_pl_vp"], "postprocess": nt("interrogative_cl")},
+    {"name": "interrogative_cl", "symbols": ["how", "to_inf_cl"], "postprocess": nt("interrogative_cl")},
     {"name": "fused_relative_clause_sg", "symbols": ["fused_rel_ip_np_sg", "vbf_sg_vp"], "postprocess": nt("fused_relative_clause_sg")},
     {"name": "fused_relative_clause_sg", "symbols": ["fused_rel_ip_np_sg", "np_sg", "vbf_sg_vp_minus_np"], "postprocess": nt("fused_relative_clause_sg")},
     {"name": "fused_relative_clause_sg", "symbols": ["fused_rel_ip_np_sg", "np_pl", "vbf_pl_vp_minus_np"], "postprocess": nt("fused_relative_clause_sg")},

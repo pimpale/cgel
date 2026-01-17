@@ -1230,6 +1230,9 @@ interrogative_cl ->
     | ip_pp                        np_sg vbf_sg_vp            {%nt("interrogative_cl")%} # open interrogative clause (ex: "where he goes")
 # interrogative phrase replaces adjunct of time, place, or reason (plural subject)
     | ip_pp                        np_pl vbf_pl_vp            {%nt("interrogative_cl")%} # open interrogative clause (ex: "where they go")
+# how to clause
+# TODO: not sure this fits everywhere a interrogative clause fits, but it fits in most cases
+    | how to_inf_cl {%nt("interrogative_cl")%} # how to do it
 
 # fused relative clause (singular)
 fused_relative_clause_sg -> 
