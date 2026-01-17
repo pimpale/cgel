@@ -17,6 +17,9 @@
     "semicolon": {
         ";": null
     },
+    "quotation_mark": {
+        "\"": null
+    },
     "and": {
         "and": null
     },

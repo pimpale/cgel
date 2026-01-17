@@ -77,6 +77,7 @@ const period = isPoS("period");
 const question_mark = isPoS("question_mark");
 const exclamation_mark = isPoS("exclamation_mark");
 const comma = isPoS("comma");
+const quotation_mark = isPoS("quotation_mark");
 
 // verbs
 
@@ -100,6 +101,7 @@ const {vp_type}_that_declarative_cl = isPoS("{vp_type}_that_declarative_cl");
 const {vp_type}_bare_declarative_cl = isPoS("{vp_type}_bare_declarative_cl");
 const {vp_type}_exclamative_cl = isPoS("{vp_type}_exclamative_cl");
 const {vp_type}_interrogative_cl = isPoS("{vp_type}_interrogative_cl");
+const {vp_type}_quot_cl = isPoS("{vp_type}_quot_cl");
 const {vp_type}_vbg_cl = isPoS("{vp_type}_vbg_cl");
 const {vp_type}_vbn_cl = isPoS("{vp_type}_vbn_cl");
 const {vp_type}_passive_cl = isPoS("{vp_type}_passive_cl");
@@ -111,6 +113,7 @@ const {vp_type}_io_that_declarative_cl = isPoS("{vp_type}_io_that_declarative_cl
 const {vp_type}_io_bare_declarative_cl = isPoS("{vp_type}_io_bare_declarative_cl");
 const {vp_type}_io_exclamative_cl = isPoS("{vp_type}_io_exclamative_cl");
 const {vp_type}_io_interrogative_cl = isPoS("{vp_type}_io_interrogative_cl");
+const {vp_type}_io_quot_cl = isPoS("{vp_type}_io_quot_cl");
 const {vp_type}_io_do = isPoS("{vp_type}_io_do");
     """
     for particle in particles:
@@ -189,6 +192,8 @@ text -> sentence:* {%nonterminal_unpack("text")%}
 sentence -> 
       fin_cl period {%nt("sentence")%}
     | fin_cl exclamation_mark {%nt("sentence")%}
+    | displaced_quot_cl period {%nt("sentence")%}
+    | displaced_quot_cl exclamation_mark {%nt("sentence")%}
     | question_cl question_mark {%nt("sentence")%}
 
 
@@ -262,6 +267,17 @@ fin_cl ->
 
 precl_adjunct_list -> adjunct_list          {%nt("precl_adjunct_list")%}
                     | adjunct_list comma    {%nt("precl_adjunct_list")%}
+
+
+# examples:
+# "I am happy", bob said.
+# "I am happy", he told them.
+# "I am happy", said bob.
+displaced_quot_cl -> null {%nt("displaced_quot_cl")%}
+
+
+
+quot_cl -> quotation_mark text quotation_mark {%nt("quot")%}
 
 # a question clause
 question_cl ->
@@ -1900,6 +1916,7 @@ period -> %period {%t("period")%}
 question_mark -> %question_mark {%t("question_mark")%}
 exclamation_mark -> %exclamation_mark {%t("exclamation_mark")%}
 comma -> %comma {%t("comma")%}
+quotation_mark -> %quotation_mark {%t("quotation_mark")%}
 """
 
 print(output)
