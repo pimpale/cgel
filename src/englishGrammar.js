@@ -57,6 +57,11 @@ const where = isPoS("where");
 const when = isPoS("when");
 const which = isPoS("which");
 
+const else_word = isPoS("else");
+const whatever = isPoS("whatever");
+const whichever = isPoS("whichever");
+const whoever = isPoS("whoever");
+
 // punctuation
 const period = isPoS("period");
 const question_mark = isPoS("question_mark");
@@ -5601,12 +5606,12 @@ let ParserRules = [
     {"name": "interrogative_cl", "symbols": ["ip_np", "np_pl", "vbf_pl_vp_minus_np"], "postprocess": nt("interrogative_cl")},
     {"name": "interrogative_cl", "symbols": ["ip_pp", "np_sg", "vbf_sg_vp"], "postprocess": nt("interrogative_cl")},
     {"name": "interrogative_cl", "symbols": ["ip_pp", "np_pl", "vbf_pl_vp"], "postprocess": nt("interrogative_cl")},
-    {"name": "fused_relative_clause_sg", "symbols": ["ip_np_sg", "vbf_sg_vp"], "postprocess": nt("fused_relative_clause_sg")},
-    {"name": "fused_relative_clause_sg", "symbols": ["ip_np_sg", "np_sg", "vbf_sg_vp_minus_np"], "postprocess": nt("fused_relative_clause_sg")},
-    {"name": "fused_relative_clause_sg", "symbols": ["ip_np_sg", "np_pl", "vbf_pl_vp_minus_np"], "postprocess": nt("fused_relative_clause_sg")},
-    {"name": "fused_relative_clause_pl", "symbols": ["ip_np_pl", "vbf_pl_vp"], "postprocess": nt("fused_relative_clause_pl")},
-    {"name": "fused_relative_clause_pl", "symbols": ["ip_np_pl", "np_sg", "vbf_sg_vp_minus_np"], "postprocess": nt("fused_relative_clause_pl")},
-    {"name": "fused_relative_clause_pl", "symbols": ["ip_np_pl", "np_pl", "vbf_pl_vp_minus_np"], "postprocess": nt("fused_relative_clause_pl")},
+    {"name": "fused_relative_clause_sg", "symbols": ["fused_rel_ip_np_sg", "vbf_sg_vp"], "postprocess": nt("fused_relative_clause_sg")},
+    {"name": "fused_relative_clause_sg", "symbols": ["fused_rel_ip_np_sg", "np_sg", "vbf_sg_vp_minus_np"], "postprocess": nt("fused_relative_clause_sg")},
+    {"name": "fused_relative_clause_sg", "symbols": ["fused_rel_ip_np_sg", "np_pl", "vbf_pl_vp_minus_np"], "postprocess": nt("fused_relative_clause_sg")},
+    {"name": "fused_relative_clause_pl", "symbols": ["fused_rel_ip_np_pl", "vbf_pl_vp"], "postprocess": nt("fused_relative_clause_pl")},
+    {"name": "fused_relative_clause_pl", "symbols": ["fused_rel_ip_np_pl", "np_sg", "vbf_sg_vp_minus_np"], "postprocess": nt("fused_relative_clause_pl")},
+    {"name": "fused_relative_clause_pl", "symbols": ["fused_rel_ip_np_pl", "np_pl", "vbf_pl_vp_minus_np"], "postprocess": nt("fused_relative_clause_pl")},
     {"name": "dative_to", "symbols": ["to", "np"], "postprocess": nt("dative_to")},
     {"name": "dative_to_minus_np", "symbols": ["to", "np_minus_np"], "postprocess": nt("dative_to_minus_np")},
     {"name": "dative_to_minus_adjp", "symbols": ["to", "np_minus_adjp"], "postprocess": nt("dative_to_minus_adjp")},
@@ -5628,11 +5633,21 @@ let ParserRules = [
     {"name": "ip_np_sg", "symbols": ["what"], "postprocess": nt("ip_np_sg")},
     {"name": "ip_np_sg", "symbols": ["which"], "postprocess": nt("ip_np_sg")},
     {"name": "ip_np_sg", "symbols": ["ip_det", "adjp_list", "noun_sg", "n_modifier_list_sg"], "postprocess": nt("ip_np_sg")},
+    {"name": "maybe_else", "symbols": ["else"], "postprocess": nt("maybe_else")},
+    {"name": "maybe_else", "symbols": [], "postprocess": nt("maybe_else")},
+    {"name": "fused_rel_ip_np_sg", "symbols": ["whoever", "maybe_else"], "postprocess": nt("fused_rel_ip_np_sg")},
+    {"name": "fused_rel_ip_np_sg", "symbols": ["what", "maybe_else"], "postprocess": nt("fused_rel_ip_np_sg")},
+    {"name": "fused_rel_ip_np_sg", "symbols": ["whatever", "maybe_else"], "postprocess": nt("fused_rel_ip_np_sg")},
+    {"name": "fused_rel_ip_np_sg", "symbols": ["whichever", "maybe_else"], "postprocess": nt("fused_rel_ip_np_sg")},
+    {"name": "fused_rel_ip_np_sg", "symbols": ["fused_rel_ip_det", "adjp_list", "noun_sg", "n_modifier_list_sg"], "postprocess": nt("fused_rel_ip_np_sg")},
     {"name": "ip_np_pl", "symbols": ["ip_det", "adjp_list", "noun_pl", "n_modifier_list_pl"], "postprocess": nt("ip_np_pl")},
+    {"name": "fused_rel_ip_np_pl", "symbols": ["fused_rel_ip_det", "adjp_list", "noun_pl", "n_modifier_list_pl"], "postprocess": nt("fused_rel_ip_np_pl")},
     {"name": "ip_np", "symbols": ["ip_np_sg"], "postprocess": nt("ip_np")},
     {"name": "ip_np", "symbols": ["ip_np_pl"], "postprocess": nt("ip_np")},
     {"name": "ip_det", "symbols": ["which"], "postprocess": nt("ip_det")},
     {"name": "ip_det", "symbols": ["whose"], "postprocess": nt("ip_det")},
+    {"name": "fused_rel_ip_det", "symbols": ["whichever"], "postprocess": nt("fused_rel_ip_det")},
+    {"name": "fused_rel_ip_det", "symbols": ["whatever"], "postprocess": nt("fused_rel_ip_det")},
     {"name": "np", "symbols": ["np_sg"], "postprocess": nt("np")},
     {"name": "np", "symbols": ["np_pl"], "postprocess": nt("np")},
     {"name": "core_np", "symbols": ["core_np_sg"], "postprocess": nt("core_np")},
@@ -6795,6 +6810,10 @@ let ParserRules = [
     {"name": "when", "symbols": [when], "postprocess": t("when")},
     {"name": "why", "symbols": [why], "postprocess": t("why")},
     {"name": "how", "symbols": [how], "postprocess": t("how")},
+    {"name": "whatever", "symbols": [whatever], "postprocess": t("whatever")},
+    {"name": "whichever", "symbols": [whichever], "postprocess": t("whichever")},
+    {"name": "whoever", "symbols": [whoever], "postprocess": t("whoever")},
+    {"name": "else", "symbols": [else_word], "postprocess": t("else")},
     {"name": "precorenp_modifier", "symbols": [precorenp_modifier], "postprocess": t("precorenp_modifier")},
     {"name": "postcorenp_modifier", "symbols": [postcorenp_modifier], "postprocess": t("postcorenp_modifier")},
     {"name": "precore_emphatic_modifier", "symbols": [precore_emphatic_modifier], "postprocess": t("precore_emphatic_modifier")},

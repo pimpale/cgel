@@ -180,7 +180,19 @@
         "magical": null,
         "tired": null,
         "wrong": null,
-        "guilty": null
+        "guilty": null,
+        "tall": null,
+        "short": null,
+        "fat": null,
+        "thin": null,
+        "heavy": null,
+        "light": null,
+        "loud": null,
+        "quiet": null,
+        "bright": null,
+        "fine": null,
+        "expensive": null,
+        "cheap": null
     },
     "adj_pp": {
         "interested": null,
@@ -296,5 +308,17 @@
     },
     "when": {
         "when": null
+    },
+    "whoever": {
+        "whoever": null
+    },
+    "whatever": {
+        "whatever": null
+    },
+    "whichever": {
+        "whichever": null
+    },
+    "else": {
+        "else": null
     }
 }

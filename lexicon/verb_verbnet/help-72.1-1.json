@@ -55,10 +55,21 @@
       "primary": [
         "NP",
         "V",
-        "S_ING"
+        "NP",
+        "S_BARE_INF"
       ],
       "examples": [
-        "I helped with finishing the homework."
+        "I helped him to finish the homework."
+      ]
+    },
+    {
+      "primary": [
+        "NP",
+        "V",
+        "S_BARE_INF"
+      ],
+      "examples": [
+        "I helped clean the house."
       ]
     }
   ]

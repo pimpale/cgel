@@ -43,6 +43,18 @@
         "NP",
         "V",
         "NP",
+        "that",
+        "S"
+      ],
+      "examples": [
+        "She told him that he should not go."
+      ]
+    },
+    {
+      "primary": [
+        "NP",
+        "V",
+        "NP",
         "S"
       ],
       "examples": [

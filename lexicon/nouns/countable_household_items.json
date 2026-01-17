@@ -202,6 +202,7 @@
         "lockbox": null,
         "safebox": null,
         "scholarship": null,
-        "label": null
+        "label": null,
+        "thing": null
     }
 }

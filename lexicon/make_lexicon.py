@@ -141,6 +141,8 @@ def cat_from_primary(slots: list[str]) -> str | None:
         return "vb_that_declarative_cl"
     if slots == ["NP", "V", "what", "S"]:
         return "vb_interrogative_cl"
+    if slots == ["NP", "V", "how", "S"]:
+        return "vb_exclamative_cl"
     if slots == ["NP", "V", "NP"]:
         return "vb_o"
     if slots == ["It", "V", "NP"]:
@@ -163,6 +165,8 @@ def cat_from_primary(slots: list[str]) -> str | None:
         return "vb_io_that_declarative_cl"
     if slots == ["NP", "V", "NP", "what", "S"]:
         return "vb_io_interrogative_cl"
+    if slots == ["NP", "V", "NP", "how", "S"]:
+        return "vb_io_exclamative_cl"
     return None
 
 def add_particle_to_category(cat: str, particle: str) -> str | None:

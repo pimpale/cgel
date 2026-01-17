@@ -67,6 +67,11 @@ const where = isPoS("where");
 const when = isPoS("when");
 const which = isPoS("which");
 
+const else_word = isPoS("else");
+const whatever = isPoS("whatever");
+const whichever = isPoS("whichever");
+const whoever = isPoS("whoever");
+
 // punctuation
 const period = isPoS("period");
 const question_mark = isPoS("question_mark");
@@ -1227,19 +1232,16 @@ interrogative_cl ->
     | ip_pp                        np_pl vbf_pl_vp            {%nt("interrogative_cl")%} # open interrogative clause (ex: "where they go")
 
 # fused relative clause (singular)
-# TODO: note that `who` is usually not preferred in fused relative clauses, it should be `whoever` instead
-# *who killed bob is evil -> whoever killed bob is evil
-# TODO: also note that you can often use "else" after the ip_np, which you cannot in interrogative clauses
 fused_relative_clause_sg -> 
-      ip_np_sg                        vbf_sg_vp               {%nt("fused_relative_clause_sg")%} # whoever kills him
-    | ip_np_sg                        np_sg vbf_sg_vp_minus_np   {%nt("fused_relative_clause_sg")%} # what he was mailed
-    | ip_np_sg                        np_pl vbf_pl_vp_minus_np   {%nt("fused_relative_clause_sg")%} # what they were mailed
+      fused_rel_ip_np_sg                        vbf_sg_vp               {%nt("fused_relative_clause_sg")%} # whoever kills him
+    | fused_rel_ip_np_sg                        np_sg vbf_sg_vp_minus_np   {%nt("fused_relative_clause_sg")%} # whatever he was mailed
+    | fused_rel_ip_np_sg                        np_pl vbf_pl_vp_minus_np   {%nt("fused_relative_clause_sg")%} # whatever they were mailed
 
 # fused relative clause (plural)
 fused_relative_clause_pl -> 
-      ip_np_pl                        vbf_pl_vp               {%nt("fused_relative_clause_pl")%} # whatever things happen
-    | ip_np_pl                        np_sg vbf_sg_vp_minus_np   {%nt("fused_relative_clause_pl")%} # whatever things he was mailed
-    | ip_np_pl                        np_pl vbf_pl_vp_minus_np   {%nt("fused_relative_clause_pl")%} # whatever things they were mailed
+      fused_rel_ip_np_pl                        vbf_pl_vp               {%nt("fused_relative_clause_pl")%} # whichever things happen
+    | fused_rel_ip_np_pl                        np_sg vbf_sg_vp_minus_np   {%nt("fused_relative_clause_pl")%} # whichever things he was mailed
+    | fused_rel_ip_np_pl                        np_pl vbf_pl_vp_minus_np   {%nt("fused_relative_clause_pl")%} # whichever things they were mailed
 
 # a dative to
 dative_to -> to np {%nt("dative_to")%}
@@ -1288,12 +1290,44 @@ ip_np_sg ->
 # determiner + singular noun
     | ip_det adjp_list noun_sg n_modifier_list_sg {%nt("ip_np_sg")%}
 
+
+maybe_else -> else {%nt("maybe_else")%}
+            | null {%nt("maybe_else")%}
+
+# interrogative phrase replacing a singular np in a fused relative clause
+# the differences are:
+# * who is not allowed, use whoever instead
+# * what and whatever are both allowed
+# * which is not allowed, use whichever instead
+# all of them support optional "else" modifier (e.g., "whoever else", "whatever else")
+# [whoever] killed bob is evil
+# [whatever else] happens will be fine
+# [whichever book] you choose is yours
+fused_rel_ip_np_sg -> 
+# pronoun equivalent (only singular)
+      whoever maybe_else                                   {%nt("fused_rel_ip_np_sg")%}
+    | what maybe_else                                     {%nt("fused_rel_ip_np_sg")%}
+    | whatever maybe_else                                  {%nt("fused_rel_ip_np_sg")%}
+    | whichever maybe_else                                  {%nt("fused_rel_ip_np_sg")%}
+# determiner + singular noun
+    | fused_rel_ip_det adjp_list noun_sg n_modifier_list_sg {%nt("fused_rel_ip_np_sg")%}
+
 # interrogative phrase replacing a plural np
 # [which books] are yours?
 # note that the pronouns who, what, and which are grammatically singular.
 ip_np_pl -> 
 # determiner + plural noun
       ip_det adjp_list noun_pl n_modifier_list_pl {%nt("ip_np_pl")%}
+
+# interrogative phrase replacing a plural np in a fused relative clause
+# the differences are:
+# * which is not allowed, use whichever instead
+# * whatever is also allowed as a determiner
+# [whichever books] you choose are yours
+# [whatever things] happen will be fine
+fused_rel_ip_np_pl -> 
+# determiner + plural noun
+      fused_rel_ip_det adjp_list noun_pl n_modifier_list_pl {%nt("fused_rel_ip_np_pl")%}
 
 # generic ip_np for contexts where number doesn't matter (e.g., extracted object)
 # I know [what] you eat
@@ -1302,6 +1336,9 @@ ip_np -> ip_np_sg {%nt("ip_np")%}
 
 ip_det -> which  {%nt("ip_det")%}
         | whose  {%nt("ip_det")%}
+
+fused_rel_ip_det -> whichever  {%nt("fused_rel_ip_det")%}
+                  | whatever   {%nt("fused_rel_ip_det")%}
 
 # noun phrase (either singular or plural)
 np -> np_sg {%nt("np")%}
@@ -1839,6 +1876,10 @@ where -> %where {%t("where")%}
 when -> %when {%t("when")%}
 why -> %why {%t("why")%}
 how -> %how {%t("how")%}
+whatever -> %whatever {%t("whatever")%}
+whichever -> %whichever {%t("whichever")%}
+whoever -> %whoever {%t("whoever")%}
+else -> %else_word {%t("else")%}
 precorenp_modifier -> %precorenp_modifier {%t("precorenp_modifier")%}
 postcorenp_modifier -> %postcorenp_modifier {%t("postcorenp_modifier")%}
 precore_emphatic_modifier -> %precore_emphatic_modifier {%t("precore_emphatic_modifier")%}
