@@ -10693,6 +10693,10 @@
     "big": [
         "adj"
     ],
+    "bigly": [
+        "adv",
+        "adv_vp"
+    ],
     "bike": [
         "countable_noun",
         "inf",
@@ -14550,6 +14554,10 @@
         "vbf_sg_o",
         "vbz",
         "vbz_o"
+    ],
+    "brightly": [
+        "adv",
+        "adv_vp"
     ],
     "brine": [
         "noun_sg",
@@ -19948,6 +19956,10 @@
         "vbf_sg_o",
         "vbz",
         "vbz_o"
+    ],
+    "cheaply": [
+        "adv",
+        "adv_vp"
     ],
     "cheat": [
         "inf_io_vbg_cl",
@@ -46321,6 +46333,10 @@
     "expensive": [
         "adj"
     ],
+    "expensively": [
+        "adv",
+        "adv_vp"
+    ],
     "experience": [
         "inf_o",
         "vbf_pl_o",
@@ -47785,6 +47801,10 @@
         "vbg_o",
         "vbg_o_predcomp"
     ],
+    "fatly": [
+        "adv",
+        "adv_vp"
+    ],
     "fats": [
         "noun_pl"
     ],
@@ -49241,6 +49261,10 @@
         "vbf_sg_o",
         "vbn_io_do",
         "vbn_o"
+    ],
+    "finely": [
+        "adv",
+        "adv_vp"
     ],
     "fines": [
         "vbf_sg_io_do",
@@ -52320,6 +52344,10 @@
     "freelancing": [
         "vbg"
     ],
+    "freely": [
+        "adv",
+        "adv_vp"
+    ],
     "frees": [
         "vbf_sg_io_vbg_cl",
         "vbz_io_vbg_cl"
@@ -55042,6 +55070,10 @@
         "vbz_o",
         "vbz_o_predcomp"
     ],
+    "gladly": [
+        "adv",
+        "adv_vp"
+    ],
     "gland": [
         "countable_body_parts",
         "noun_sg"
@@ -56170,6 +56202,10 @@
     "good": [
         "adj"
     ],
+    "goodly": [
+        "adv",
+        "adv_vp"
+    ],
     "goose": [
         "animals",
         "countable_noun",
@@ -56959,6 +56995,10 @@
     ],
     "greatests": [
         "noun_pl"
+    ],
+    "greatly": [
+        "adv",
+        "adv_vp"
     ],
     "green": [
         "colors_as_nouns",
@@ -57967,6 +58007,10 @@
         "emotions",
         "noun_sg",
         "uncountable_noun"
+    ],
+    "guiltily": [
+        "adv",
+        "adv_vp"
     ],
     "guilts": [
         "noun_pl"
@@ -59817,6 +59861,10 @@
         "vbf_sg_o",
         "vbz_io_do",
         "vbz_o"
+    ],
+    "heavily": [
+        "adv",
+        "adv_vp"
     ],
     "heaving": [
         "vbg_io_do",
@@ -62794,6 +62842,10 @@
     "icicles": [
         "noun_pl"
     ],
+    "icily": [
+        "adv",
+        "adv_vp"
+    ],
     "icing": [
         "vbg_o"
     ],
@@ -65652,10 +65704,18 @@
         "vbn_o",
         "vbn_o_predcomp"
     ],
+    "interestedly": [
+        "adv",
+        "adv_vp"
+    ],
     "interesting": [
         "adj",
         "vbg_o",
         "vbg_o_predcomp"
+    ],
+    "interestingly": [
+        "adv",
+        "adv_vp"
     ],
     "interests": [
         "vbf_sg_o",
@@ -68890,6 +68950,10 @@
         "vbg_io_do",
         "vbg_o"
     ],
+    "kindly": [
+        "adv",
+        "adv_vp"
+    ],
     "kindness": [
         "abstract_concepts_countable",
         "abstract_concepts_uncountable",
@@ -71397,6 +71461,10 @@
     "lightings": [
         "noun_pl"
     ],
+    "lightly": [
+        "adv",
+        "adv_vp"
+    ],
     "lightning": [
         "countable_natural_items",
         "countable_noun",
@@ -72019,6 +72087,10 @@
     "little": [
         "adj"
     ],
+    "littly": [
+        "adv",
+        "adv_vp"
+    ],
     "live": [
         "inf",
         "inf_o",
@@ -72510,6 +72582,10 @@
     "london": [
         "proper_noun_sg"
     ],
+    "lonelily": [
+        "adv",
+        "adv_vp"
+    ],
     "loneliness": [
         "abstract_concepts_uncountable",
         "emotions",
@@ -72794,6 +72870,10 @@
     ],
     "loud": [
         "adj"
+    ],
+    "loudly": [
+        "adv",
+        "adv_vp"
     ],
     "lounge": [
         "inf",
@@ -73548,6 +73628,10 @@
     ],
     "magical": [
         "adj"
+    ],
+    "magically": [
+        "adv",
+        "adv_vp"
     ],
     "magics": [
         "abstract_concepts_countable",
@@ -78940,6 +79024,10 @@
     "mysterious": [
         "adj"
     ],
+    "mysteriously": [
+        "adv",
+        "adv_vp"
+    ],
     "mystified": [
         "vbd_o",
         "vbd_o_predcomp",
@@ -81867,6 +81955,10 @@
     ],
     "old": [
         "adj"
+    ],
+    "oldly": [
+        "adv",
+        "adv_vp"
     ],
     "olive": [
         "colors_as_nouns",
@@ -94169,6 +94261,10 @@
     "quieting": [
         "vbg",
         "vbg_o"
+    ],
+    "quietly": [
+        "adv",
+        "adv_vp"
     ],
     "quiets": [
         "vbf_sg",
@@ -108629,6 +108725,10 @@
     "shingling": [
         "vbg_o"
     ],
+    "shinily": [
+        "adv",
+        "adv_vp"
+    ],
     "shining": [
         "vbg",
         "vbg_o"
@@ -109072,6 +109172,10 @@
     "shorting": [
         "vbg",
         "vbg_o"
+    ],
+    "shortly": [
+        "adv",
+        "adv_vp"
     ],
     "shorts": [
         "clothing_uncountable",
@@ -112603,6 +112707,10 @@
     "smallests": [
         "noun_pl"
     ],
+    "smallly": [
+        "adv",
+        "adv_vp"
+    ],
     "smart": [
         "inf",
         "vbf_pl",
@@ -114712,6 +114820,10 @@
         "countable_noun",
         "noun_pl",
         "people_occupations"
+    ],
+    "sorrily": [
+        "adv",
+        "adv_vp"
     ],
     "sorrow": [
         "inf",
@@ -123864,6 +123976,10 @@
         "vbf_sg_o",
         "vbz_o"
     ],
+    "tallly": [
+        "adv",
+        "adv_vp"
+    ],
     "tally": [
         "inf_o",
         "vbf_pl_o",
@@ -126109,6 +126225,10 @@
         "vbz_that_declarative_cl",
         "vbz_to_inf_cl"
     ],
+    "thinly": [
+        "adv",
+        "adv_vp"
+    ],
     "thins": [
         "vbf_sg",
         "vbf_sg_o",
@@ -127213,6 +127333,10 @@
         "vbn",
         "vbn_o",
         "vbn_o_predcomp"
+    ],
+    "tiredly": [
+        "adv",
+        "adv_vp"
     ],
     "tires": [
         "vbf_sg",
@@ -139573,6 +139697,10 @@
     "wrong": [
         "adj"
     ],
+    "wrongly": [
+        "adv",
+        "adv_vp"
+    ],
     "wrote": [
         "vbd",
         "vbd_bare_declarative_cl",
@@ -140244,6 +140372,10 @@
     ],
     "young": [
         "adj"
+    ],
+    "youngly": [
+        "adv",
+        "adv_vp"
     ],
     "your": [
         "dependent_genitive_pronoun"

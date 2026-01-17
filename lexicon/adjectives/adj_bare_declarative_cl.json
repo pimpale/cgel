@@ -1,0 +1,12 @@
+{
+    "commentary": "Adjectives selecting a bare declarative clause.",
+    "words": {
+        "happy": null,
+        "glad": null,
+        "sad": null,
+        "sorry": null
+    },
+    "classes": [
+        "adj_bare_declarative_cl"
+    ]
+}

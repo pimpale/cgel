@@ -1,7 +1,6 @@
 # %%
 import argparse
 import json
-import pathlib
 from copy import deepcopy
 from pathlib import Path
 from collections import defaultdict
@@ -39,6 +38,16 @@ def noun_to_noun_pl(singular: str) -> str:
         return singular[:-1] + "ies"
     return singular + "s"
 
+# Adjective inflection helpers ----------------------------------------------------
+
+def adjective_to_adverb(adjective: str) -> str:
+    if adjective.endswith("y"):
+        return adjective[:-1] + "ily"
+    if adjective.endswith("le") or adjective.endswith("able") or adjective.endswith("ible"):
+        return adjective[:-2] + "ly"
+    if adjective.endswith("ic"):
+        return adjective + "ally"
+    return adjective + "ly"
 
 # Verb inflection helpers ----------------------------------------------------
 
@@ -91,7 +100,6 @@ def dict_to_vbp(verb: str) -> str | None:  # 3rd-person-plural (eg "they go")
         return irregular_verbs[verb]["VBP"]
     # usually just the same as VB
     return verb
-
 
 # ---------------------------------------------------------------------------
 # Extract verb categories from local VerbNet JSON dump
@@ -346,6 +354,20 @@ for kind in indeclinable:
 # 1b. Particles extracted from phrasal verbs
 english_json["particle"] = {p: None for p in sorted(particles.keys())}
 
+# ---------------------------------------------------------------------------
+# 1c. Adjective classes (from adjectives/ folder)
+# ---------------------------------------------------------------------------
+ADJECTIVES_DIR = Path("adjectives")
+adjective_words: set[str] = set()
+for fp in ADJECTIVES_DIR.glob("*.json"):
+    data = json.loads(fp.read_text())
+    words = data.get("words", {}).keys()
+    for cls in data.get("classes", []):
+        english_json.setdefault(cls, {})
+        for w in words:
+            english_json[cls][w] = None
+            adjective_words.add(w)
+
 # 2. Noun classes (from nouns/ folder)
 raw_noun_data = load_raw_noun_files()
 resolved_nouns = resolve_nouns(raw_noun_data)
@@ -420,6 +442,16 @@ for fp in ADVERBS_DIR.glob("*.json"):
         english_json.setdefault(cls, {})
         for w in words:
             english_json[cls][w] = None
+
+# ---------------------------------------------------------------------------
+# 3c. Derived adverbs from adjectives
+# ---------------------------------------------------------------------------
+english_json.setdefault("adv", {})
+english_json.setdefault("adv_vp", {})
+for adj in adjective_words:
+    adv = adjective_to_adverb(adj)
+    english_json["adv"][adv] = None
+    english_json["adv_vp"][adv] = None
 
 # ---------------------------------------------------------------------------
 # 4. Preposition classes (from prepositions/ folder)

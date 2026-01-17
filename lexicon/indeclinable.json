@@ -157,68 +157,6 @@
         "if": null,
         "whether": null
     },
-    "adj": {
-        "big": null,
-        "good": null,
-        "great": null,
-        "small": null,
-        "little": null,
-        "happy": null,
-        "sad": null,
-        "icy": null,
-        "thoughtful": null,
-        "careful": null,
-        "lonely": null,
-        "kind": null,
-        "quick": null,
-        "interesting": null,
-        "mysterious": null,
-        "free": null,
-        "young": null,
-        "old": null,
-        "shiny": null,
-        "magical": null,
-        "tired": null,
-        "wrong": null,
-        "guilty": null,
-        "tall": null,
-        "short": null,
-        "fat": null,
-        "thin": null,
-        "heavy": null,
-        "light": null,
-        "loud": null,
-        "quiet": null,
-        "bright": null,
-        "fine": null,
-        "expensive": null,
-        "cheap": null
-    },
-    "adj_pp": {
-        "interested": null,
-        "glad": null,
-        "sad": null,
-        "sorry": null,
-        "guilty": null
-    },
-    "adj_that_declarative_cl": {
-        "happy": null,
-        "glad": null,
-        "sad": null,
-        "sorry": null
-    },
-    "adj_bare_declarative_cl": {
-        "happy": null,
-        "glad": null,
-        "sad": null,
-        "sorry": null
-    },
-    "adj_to_inf_cl": {
-        "happy": null,
-        "glad": null,
-        "sad": null,
-        "sorry": null
-    },
     "precorenp_modifier": {
         "even": null
     },

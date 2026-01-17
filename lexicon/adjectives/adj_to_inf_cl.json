@@ -1,0 +1,12 @@
+{
+    "commentary": "Adjectives selecting a to-infinitival clause.",
+    "words": {
+        "happy": null,
+        "glad": null,
+        "sad": null,
+        "sorry": null
+    },
+    "classes": [
+        "adj_to_inf_cl"
+    ]
+}

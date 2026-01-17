@@ -1,0 +1,12 @@
+{
+    "commentary": "Adjectives selecting a that-clause.",
+    "words": {
+        "happy": null,
+        "glad": null,
+        "sad": null,
+        "sorry": null
+    },
+    "classes": [
+        "adj_that_declarative_cl"
+    ]
+}
