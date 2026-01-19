@@ -414,5 +414,13 @@
         "VBG": "leaving",
         "VBZ": "leaves",
         "VBP": "leave"
+    },
+    "tip": {
+        "VB": "tip",
+        "VBD": "tipped",
+        "VBN": "tipped",
+        "VBG": "tipping",
+        "VBZ": "tips",
+        "VBP": "tip"
     }
 }

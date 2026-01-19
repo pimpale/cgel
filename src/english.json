@@ -74619,15 +74619,23 @@
         "vbd_intnp_bare_inf_cl",
         "vbd_io_do",
         "vbd_o",
+        "vbd_prtout_bare_declarative_cl",
+        "vbd_prtout_that_declarative_cl",
         "vbf_pl_intnp_bare_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_prtout_bare_declarative_cl",
+        "vbf_pl_prtout_that_declarative_cl",
         "vbf_sg_intnp_bare_inf_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_prtout_bare_declarative_cl",
+        "vbf_sg_prtout_that_declarative_cl",
         "vbn_intnp_bare_inf_cl",
         "vbn_io_do",
-        "vbn_o"
+        "vbn_o",
+        "vbn_prtout_bare_declarative_cl",
+        "vbn_prtout_that_declarative_cl"
     ],
     "magazine": [
         "countable_household_items",
@@ -74896,12 +74904,18 @@
         "inf_intnp_bare_inf_cl",
         "inf_io_do",
         "inf_o",
+        "inf_prtout_bare_declarative_cl",
+        "inf_prtout_that_declarative_cl",
         "vbf_pl_intnp_bare_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_prtout_bare_declarative_cl",
+        "vbf_pl_prtout_that_declarative_cl",
         "vbp_intnp_bare_inf_cl",
         "vbp_io_do",
-        "vbp_o"
+        "vbp_o",
+        "vbp_prtout_bare_declarative_cl",
+        "vbp_prtout_that_declarative_cl"
     ],
     "make_out": [
         "inf_o",
@@ -74943,9 +74957,13 @@
         "vbf_sg_intnp_bare_inf_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_prtout_bare_declarative_cl",
+        "vbf_sg_prtout_that_declarative_cl",
         "vbz_intnp_bare_inf_cl",
         "vbz_io_do",
-        "vbz_o"
+        "vbz_o",
+        "vbz_prtout_bare_declarative_cl",
+        "vbz_prtout_that_declarative_cl"
     ],
     "makeup": [
         "noun_sg",
@@ -74958,7 +74976,9 @@
     "making": [
         "vbg_intnp_bare_inf_cl",
         "vbg_io_do",
-        "vbg_o"
+        "vbg_o",
+        "vbg_prtout_bare_declarative_cl",
+        "vbg_prtout_that_declarative_cl"
     ],
     "malign": [
         "inf_o",
@@ -129048,30 +129068,50 @@
     "tip": [
         "inf_io_do",
         "inf_o",
+        "inf_o_prtoff_bare_declarative_cl",
+        "inf_o_prtoff_that_declarative_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_o_prtoff_bare_declarative_cl",
+        "vbf_pl_o_prtoff_that_declarative_cl",
         "vbp_io_do",
-        "vbp_o"
+        "vbp_o",
+        "vbp_o_prtoff_bare_declarative_cl",
+        "vbp_o_prtoff_that_declarative_cl"
     ],
-    "tiped": [
+    "tipped": [
         "vbd_io_do",
         "vbd_o",
+        "vbd_o_prtoff_bare_declarative_cl",
+        "vbd_o_prtoff_that_declarative_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_o_prtoff_bare_declarative_cl",
+        "vbf_pl_o_prtoff_that_declarative_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_o_prtoff_bare_declarative_cl",
+        "vbf_sg_o_prtoff_that_declarative_cl",
         "vbn_io_do",
-        "vbn_o"
+        "vbn_o",
+        "vbn_o_prtoff_bare_declarative_cl",
+        "vbn_o_prtoff_that_declarative_cl"
     ],
-    "tiping": [
+    "tipping": [
         "vbg_io_do",
-        "vbg_o"
+        "vbg_o",
+        "vbg_o_prtoff_bare_declarative_cl",
+        "vbg_o_prtoff_that_declarative_cl"
     ],
     "tips": [
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_o_prtoff_bare_declarative_cl",
+        "vbf_sg_o_prtoff_that_declarative_cl",
         "vbz_io_do",
-        "vbz_o"
+        "vbz_o",
+        "vbz_o_prtoff_bare_declarative_cl",
+        "vbz_o_prtoff_that_declarative_cl"
     ],
     "tiptoe": [
         "inf",

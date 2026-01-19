@@ -1,0 +1,15 @@
+{
+    "members": [
+        "tip__off"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "that", "S"],
+            "examples": ["She tipped him off that the police were coming."]
+        },
+        {
+            "primary": ["NP", "V", "NP", "S"],
+            "examples": ["She tipped him off the police were coming."]
+        }
+    ]
+}

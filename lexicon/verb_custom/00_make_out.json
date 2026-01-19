@@ -1,0 +1,15 @@
+{
+    "members": [
+        "make__out"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "that", "S"],
+            "examples": ["He made out that he was sick."]
+        },
+        {
+            "primary": ["NP", "V", "S"],
+            "examples": ["He made out he was sick."]
+        }
+    ]
+}
