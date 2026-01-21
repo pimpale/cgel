@@ -18,7 +18,8 @@
     "telephone",
     "telex",
     "wire",
-    "wireless"
+    "wireless",
+    "run__off"
   ],
   "frames": [
     {

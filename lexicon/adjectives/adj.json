@@ -37,7 +37,8 @@
         "expensive": null,
         "cheap": null,
         "early": null,
-        "late": null
+        "late": null,
+        "spineless": null
     },
     "classes": [
         "adj"

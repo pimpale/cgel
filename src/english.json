@@ -4306,6 +4306,9 @@
         "vbz_io_do",
         "vbz_o"
     ],
+    "another": [
+        "determinative"
+    ],
     "answer": [
         "inf",
         "inf_o",
@@ -9524,31 +9527,21 @@
         "proper_noun_sg"
     ],
     "become": [
-        "inf_o",
         "inf_predcomp",
-        "vbf_pl_o",
         "vbf_pl_predcomp",
-        "vbp_o",
         "vbp_predcomp"
     ],
     "becomed": [
-        "vbd_o",
         "vbd_predcomp",
-        "vbf_pl_o",
         "vbf_pl_predcomp",
-        "vbf_sg_o",
         "vbf_sg_predcomp",
-        "vbn_o",
         "vbn_predcomp"
     ],
     "becomes": [
-        "vbf_sg_o",
         "vbf_sg_predcomp",
-        "vbz_o",
         "vbz_predcomp"
     ],
     "becoming": [
-        "vbg_o",
         "vbg_predcomp"
     ],
     "bed": [
@@ -17416,10 +17409,13 @@
     "came": [
         "vbd",
         "vbd_predcomp",
+        "vbd_prtout_predcomp",
         "vbf_pl",
         "vbf_pl_predcomp",
+        "vbf_pl_prtout_predcomp",
         "vbf_sg",
-        "vbf_sg_predcomp"
+        "vbf_sg_predcomp",
+        "vbf_sg_prtout_predcomp"
     ],
     "camel": [
         "animals",
@@ -24235,12 +24231,16 @@
     "come": [
         "inf",
         "inf_predcomp",
+        "inf_prtout_predcomp",
         "vbf_pl",
         "vbf_pl_predcomp",
+        "vbf_pl_prtout_predcomp",
         "vbn",
         "vbn_predcomp",
+        "vbn_prtout_predcomp",
         "vbp",
-        "vbp_predcomp"
+        "vbp_predcomp",
+        "vbp_prtout_predcomp"
     ],
     "come_across": [
         "inf_o",
@@ -24296,29 +24296,13 @@
         "vbf_sg",
         "vbz"
     ],
-    "come_out": [
-        "inf_predcomp",
-        "vbf_pl_predcomp",
-        "vbp_predcomp"
-    ],
-    "come_outed": [
-        "vbd_predcomp",
-        "vbf_pl_predcomp",
-        "vbf_sg_predcomp",
-        "vbn_predcomp"
-    ],
-    "come_outing": [
-        "vbg_predcomp"
-    ],
-    "come_outs": [
-        "vbf_sg_predcomp",
-        "vbz_predcomp"
-    ],
     "comes": [
         "vbf_sg",
         "vbf_sg_predcomp",
+        "vbf_sg_prtout_predcomp",
         "vbz",
-        "vbz_predcomp"
+        "vbz_predcomp",
+        "vbz_prtout_predcomp"
     ],
     "comet": [
         "countable_natural_items",
@@ -24383,7 +24367,8 @@
     ],
     "coming": [
         "vbg",
-        "vbg_predcomp"
+        "vbg_predcomp",
+        "vbg_prtout_predcomp"
     ],
     "command": [
         "inf_bare_declarative_cl",
@@ -27965,6 +27950,9 @@
         "vbn_o"
     ],
     "copies": [
+        "computer_countable",
+        "countable_noun",
+        "noun_pl",
         "vbf_sg_o",
         "vbz_o"
     ],
@@ -27989,7 +27977,10 @@
         "vbz_o"
     ],
     "copy": [
+        "computer_countable",
+        "countable_noun",
         "inf_o",
+        "noun_sg",
         "vbf_pl_o",
         "vbp_o"
     ],
@@ -43723,66 +43714,46 @@
         "inf",
         "inf_o",
         "inf_o_predcomp",
+        "inf_prtup_predcomp",
         "inf_vbg_cl",
         "vbf_pl",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
+        "vbf_pl_prtup_predcomp",
         "vbf_pl_vbg_cl",
         "vbp",
         "vbp_o",
         "vbp_o_predcomp",
+        "vbp_prtup_predcomp",
         "vbp_vbg_cl"
-    ],
-    "end_up": [
-        "inf_o",
-        "inf_predcomp",
-        "vbf_pl_o",
-        "vbf_pl_predcomp",
-        "vbp_o",
-        "vbp_predcomp"
-    ],
-    "end_uped": [
-        "vbd_o",
-        "vbd_predcomp",
-        "vbf_pl_o",
-        "vbf_pl_predcomp",
-        "vbf_sg_o",
-        "vbf_sg_predcomp",
-        "vbn_o",
-        "vbn_predcomp"
-    ],
-    "end_uping": [
-        "vbg_o",
-        "vbg_predcomp"
-    ],
-    "end_ups": [
-        "vbf_sg_o",
-        "vbf_sg_predcomp",
-        "vbz_o",
-        "vbz_predcomp"
     ],
     "ended": [
         "vbd",
         "vbd_o",
         "vbd_o_predcomp",
+        "vbd_prtup_predcomp",
         "vbd_vbg_cl",
         "vbf_pl",
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
+        "vbf_pl_prtup_predcomp",
         "vbf_pl_vbg_cl",
         "vbf_sg",
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
+        "vbf_sg_prtup_predcomp",
         "vbf_sg_vbg_cl",
         "vbn",
         "vbn_o",
         "vbn_o_predcomp",
+        "vbn_prtup_predcomp",
         "vbn_vbg_cl"
     ],
     "ending": [
         "vbg",
         "vbg_o",
         "vbg_o_predcomp",
+        "vbg_prtup_predcomp",
         "vbg_vbg_cl"
     ],
     "endorphins": [
@@ -43843,10 +43814,12 @@
         "vbf_sg",
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
+        "vbf_sg_prtup_predcomp",
         "vbf_sg_vbg_cl",
         "vbz",
         "vbz_o",
         "vbz_o_predcomp",
+        "vbz_prtup_predcomp",
         "vbz_vbg_cl"
     ],
     "endure": [
@@ -96318,14 +96291,32 @@
         "vbd_intnp_to_inf_cl",
         "vbd_io_do",
         "vbd_o",
+        "vbd_o_prtoff_o",
+        "vbd_o_prtoff_that_declarative_cl",
+        "vbd_prtoff_intnp_to_inf_cl",
+        "vbd_prtoff_o",
+        "vbd_prtoff_that_declarative_cl",
+        "vbd_prtoff_to_inf_cl",
         "vbf_pl",
         "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_o_prtoff_o",
+        "vbf_pl_o_prtoff_that_declarative_cl",
+        "vbf_pl_prtoff_intnp_to_inf_cl",
+        "vbf_pl_prtoff_o",
+        "vbf_pl_prtoff_that_declarative_cl",
+        "vbf_pl_prtoff_to_inf_cl",
         "vbf_sg",
         "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_do",
-        "vbf_sg_o"
+        "vbf_sg_o",
+        "vbf_sg_o_prtoff_o",
+        "vbf_sg_o_prtoff_that_declarative_cl",
+        "vbf_sg_prtoff_intnp_to_inf_cl",
+        "vbf_sg_prtoff_o",
+        "vbf_sg_prtoff_that_declarative_cl",
+        "vbf_sg_prtoff_to_inf_cl"
     ],
     "ranch": [
         "countable_noun",
@@ -105223,34 +105214,76 @@
         "inf_intnp_to_inf_cl",
         "inf_io_do",
         "inf_o",
+        "inf_o_prtoff_o",
+        "inf_o_prtoff_that_declarative_cl",
+        "inf_prtoff_intnp_to_inf_cl",
+        "inf_prtoff_o",
+        "inf_prtoff_that_declarative_cl",
+        "inf_prtoff_to_inf_cl",
         "vbf_pl",
         "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_o_prtoff_o",
+        "vbf_pl_o_prtoff_that_declarative_cl",
+        "vbf_pl_prtoff_intnp_to_inf_cl",
+        "vbf_pl_prtoff_o",
+        "vbf_pl_prtoff_that_declarative_cl",
+        "vbf_pl_prtoff_to_inf_cl",
         "vbn",
         "vbn_intnp_to_inf_cl",
         "vbn_io_do",
         "vbn_o",
+        "vbn_o_prtoff_o",
+        "vbn_o_prtoff_that_declarative_cl",
+        "vbn_prtoff_intnp_to_inf_cl",
+        "vbn_prtoff_o",
+        "vbn_prtoff_that_declarative_cl",
+        "vbn_prtoff_to_inf_cl",
         "vbp",
         "vbp_intnp_to_inf_cl",
         "vbp_io_do",
-        "vbp_o"
+        "vbp_o",
+        "vbp_o_prtoff_o",
+        "vbp_o_prtoff_that_declarative_cl",
+        "vbp_prtoff_intnp_to_inf_cl",
+        "vbp_prtoff_o",
+        "vbp_prtoff_that_declarative_cl",
+        "vbp_prtoff_to_inf_cl"
     ],
     "running": [
         "vbg",
         "vbg_intnp_to_inf_cl",
         "vbg_io_do",
-        "vbg_o"
+        "vbg_o",
+        "vbg_o_prtoff_o",
+        "vbg_o_prtoff_that_declarative_cl",
+        "vbg_prtoff_intnp_to_inf_cl",
+        "vbg_prtoff_o",
+        "vbg_prtoff_that_declarative_cl",
+        "vbg_prtoff_to_inf_cl"
     ],
     "runs": [
         "vbf_sg",
         "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_o_prtoff_o",
+        "vbf_sg_o_prtoff_that_declarative_cl",
+        "vbf_sg_prtoff_intnp_to_inf_cl",
+        "vbf_sg_prtoff_o",
+        "vbf_sg_prtoff_that_declarative_cl",
+        "vbf_sg_prtoff_to_inf_cl",
         "vbz",
         "vbz_intnp_to_inf_cl",
         "vbz_io_do",
-        "vbz_o"
+        "vbz_o",
+        "vbz_o_prtoff_o",
+        "vbz_o_prtoff_that_declarative_cl",
+        "vbz_prtoff_intnp_to_inf_cl",
+        "vbz_prtoff_o",
+        "vbz_prtoff_that_declarative_cl",
+        "vbz_prtoff_to_inf_cl"
     ],
     "runway": [
         "countable_noun",
@@ -110860,6 +110893,7 @@
         "inf_io_vbg_cl",
         "inf_o",
         "inf_prtup",
+        "inf_prtup_o",
         "vbf_pl",
         "vbf_pl_exclamative_cl",
         "vbf_pl_interrogative_cl",
@@ -110872,6 +110906,7 @@
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbf_pl_prtup",
+        "vbf_pl_prtup_o",
         "vbp",
         "vbp_exclamative_cl",
         "vbp_interrogative_cl",
@@ -110883,7 +110918,8 @@
         "vbp_io_that_declarative_cl",
         "vbp_io_vbg_cl",
         "vbp_o",
-        "vbp_prtup"
+        "vbp_prtup",
+        "vbp_prtup_o"
     ],
     "showed": [
         "vbd",
@@ -110898,6 +110934,7 @@
         "vbd_io_vbg_cl",
         "vbd_o",
         "vbd_prtup",
+        "vbd_prtup_o",
         "vbf_pl",
         "vbf_pl_exclamative_cl",
         "vbf_pl_interrogative_cl",
@@ -110910,6 +110947,7 @@
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
         "vbf_pl_prtup",
+        "vbf_pl_prtup_o",
         "vbf_sg",
         "vbf_sg_exclamative_cl",
         "vbf_sg_interrogative_cl",
@@ -110922,6 +110960,7 @@
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbf_sg_prtup",
+        "vbf_sg_prtup_o",
         "vbn",
         "vbn_exclamative_cl",
         "vbn_interrogative_cl",
@@ -110933,7 +110972,8 @@
         "vbn_io_that_declarative_cl",
         "vbn_io_vbg_cl",
         "vbn_o",
-        "vbn_prtup"
+        "vbn_prtup",
+        "vbn_prtup_o"
     ],
     "shower": [
         "countable_household_items",
@@ -110993,7 +111033,8 @@
         "vbg_io_that_declarative_cl",
         "vbg_io_vbg_cl",
         "vbg_o",
-        "vbg_prtup"
+        "vbg_prtup",
+        "vbg_prtup_o"
     ],
     "shows": [
         "vbf_sg",
@@ -111008,6 +111049,7 @@
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
         "vbf_sg_prtup",
+        "vbf_sg_prtup_o",
         "vbz",
         "vbz_exclamative_cl",
         "vbz_interrogative_cl",
@@ -111019,7 +111061,8 @@
         "vbz_io_that_declarative_cl",
         "vbz_io_vbg_cl",
         "vbz_o",
-        "vbz_prtup"
+        "vbz_prtup",
+        "vbz_prtup_o"
     ],
     "showtime": [
         "bare_time_nouns",
@@ -117496,6 +117539,13 @@
         "vbn_o",
         "vbn_o_predcomp",
         "vbn_predcomp"
+    ],
+    "spineless": [
+        "adj"
+    ],
+    "spinelessly": [
+        "adv",
+        "adv_vp"
     ],
     "spines": [
         "noun_pl"

@@ -23,6 +23,7 @@
         "assembler": null,
         "OS": null,
         "toolkit": null,
-        "framework": null
+        "framework": null,
+        "copy": null
     }
 } 

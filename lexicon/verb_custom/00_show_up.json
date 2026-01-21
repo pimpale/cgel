@@ -1,0 +1,11 @@
+{
+    "members": [
+        "show__up"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["This showed him up as a liar."]
+        }
+    ]
+}
