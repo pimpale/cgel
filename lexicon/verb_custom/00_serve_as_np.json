@@ -1,0 +1,21 @@
+{
+    "members": [
+        "act_as",
+        "function_as",
+        "double_as",
+        "emerge_as",
+        "pose_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": [
+                "She acts as president.",
+                "He functions as leader.",
+                "The sofa doubles as a bed.",
+                "She emerged as the winner.",
+                "He posed as a doctor."
+            ]
+        }
+    ]
+}

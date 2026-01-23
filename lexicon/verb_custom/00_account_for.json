@@ -1,0 +1,11 @@
+{
+    "members": [
+        "account_for"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["She accounts for the discrepancy."]
+        }
+    ]
+}

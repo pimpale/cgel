@@ -1,0 +1,11 @@
+{
+    "members": [
+        "look_upon_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["She looks upon him as a brother."]
+        }
+    ]
+}

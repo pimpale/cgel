@@ -1,0 +1,19 @@
+{
+    "members": [
+        "accuse_of",
+        "convince_of",
+        "deprive_of",
+        "rob_of"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": [
+                "They accused him of theft.",
+                "She convinced me of her innocence.",
+                "He deprived them of food.",
+                "They robbed him of his wallet."
+            ]
+        }
+    ]
+}

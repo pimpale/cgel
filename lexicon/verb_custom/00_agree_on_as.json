@@ -1,0 +1,11 @@
+{
+    "members": [
+        "agree_on_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["I agree on this as the best option."]
+        }
+    ]
+}

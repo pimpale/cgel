@@ -1,0 +1,11 @@
+{
+    "members": [
+        "get__over"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["She got over her fear."]
+        }
+    ]
+}

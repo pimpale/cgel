@@ -1,0 +1,17 @@
+{
+    "members": [
+        "agree_with_about",
+        "argue_with_about",
+        "complain_to_about"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": [
+                "I agree with you about the proposal.",
+                "They argued with me about the details.",
+                "She complained to the manager about the service."
+            ]
+        }
+    ]
+}

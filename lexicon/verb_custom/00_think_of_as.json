@@ -1,0 +1,15 @@
+{
+    "members": [
+        "think_of_as",
+        "conceive_of_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "ADJ"],
+            "examples": [
+                "I think of it as indispensable.",
+                "We conceive of the project as feasible."
+            ]
+        }
+    ]
+}

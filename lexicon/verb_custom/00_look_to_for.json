@@ -1,0 +1,11 @@
+{
+    "members": [
+        "look_to_for"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["He looked to her for guidance."]
+        }
+    ]
+}

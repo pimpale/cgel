@@ -1,0 +1,11 @@
+{
+    "members": [
+        "introduce_to"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["She introduced her to the committee."]
+        }
+    ]
+}

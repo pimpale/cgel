@@ -1,0 +1,22 @@
+{
+    "members": [
+        "regard_as",
+        "see_as",
+        "view_as",
+        "perceive_as",
+        "dismiss_as",
+        "count_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "ADJ"],
+            "examples": [
+                "They regard it as successful.",
+                "I see it as important.",
+                "She views the matter as serious.",
+                "We perceive it as dangerous.",
+                "They dismissed him as incompetent."
+            ]
+        }
+    ]
+}

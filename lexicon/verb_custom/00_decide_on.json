@@ -1,0 +1,11 @@
+{
+    "members": [
+        "decide_on"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["I decided on the blue one."]
+        }
+    ]
+}

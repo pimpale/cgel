@@ -1,0 +1,11 @@
+{
+    "members": [
+        "intend_for"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["I intended it for Kim."]
+        }
+    ]
+}

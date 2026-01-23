@@ -1,0 +1,15 @@
+{
+    "members": [
+        "count_as",
+        "serve_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "ADJ"],
+            "examples": [
+                "It counts as too short.",
+                "It serves as adequate."
+            ]
+        }
+    ]
+}

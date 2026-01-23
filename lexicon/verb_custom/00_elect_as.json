@@ -1,0 +1,21 @@
+{
+    "members": [
+        "elect_as",
+        "consider_as",
+        "describe_as",
+        "know_as",
+        "appoint_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": [
+                "They elected him as chairman.",
+                "I consider her as a friend.",
+                "She described him as a genius.",
+                "We know her as the best candidate.",
+                "They appointed Kim as treasurer."
+            ]
+        }
+    ]
+}

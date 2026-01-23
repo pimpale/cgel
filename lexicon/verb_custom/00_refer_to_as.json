@@ -1,0 +1,11 @@
+{
+    "members": [
+        "refer_to_as"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["They refer to it as the solution."]
+        }
+    ]
+}

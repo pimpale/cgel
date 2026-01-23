@@ -1,0 +1,11 @@
+{
+    "members": [
+        "appeal_to_for"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["She appealed to the court for clemency."]
+        }
+    ]
+}

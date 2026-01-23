@@ -1,0 +1,11 @@
+{
+    "members": [
+        "shout__down"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["He shouted down his opponent."]
+        }
+    ]
+}

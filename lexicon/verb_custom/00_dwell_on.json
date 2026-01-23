@@ -1,0 +1,11 @@
+{
+    "members": [
+        "dwell_on"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["She dwelt on the topic."]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "members": [
+        "come_across"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["I came across some old letters."]
+        }
+    ]
+}
