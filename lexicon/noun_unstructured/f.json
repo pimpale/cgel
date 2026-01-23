@@ -1,0 +1,19 @@
+{
+    "fish": {
+        "countable_noun": {
+            "comment": "As an animal, fish is countable.",
+            "examples": [
+                "I saw a fish in the ocean."
+            ]
+        },
+        "uncountable_noun": {
+            "comment": "As a foodstuff, fish is uncountable.",
+            "examples": [
+                "I ate fish for dinner."
+            ]
+        },
+        "otherclass": {
+            "comment": "You can just add other random classes here. Both comment and examples fields are optional."
+        }
+    }
+}

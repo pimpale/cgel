@@ -15,21 +15,10 @@ export type TreeNode = {
  * Parse a sentence and return all possible parse trees.
  */
 export function parse(sentence: string): TreeNode[] {
-  try {
-    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
-    const tokens = lex(sentence);
-    parser.feed(tokens as unknown as string);
-    return parser.results as TreeNode[];
-  } catch {
-    return [];
-  }
-}
-
-/**
- * Check if a sentence has at least one valid parse.
- */
-export function hasParse(sentence: string): boolean {
-  return parse(sentence).length > 0;
+  const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+  const tokens = lex(sentence);
+  parser.feed(tokens as unknown as string);
+  return parser.results as TreeNode[];
 }
 
 /**

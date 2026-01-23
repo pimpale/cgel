@@ -27,6 +27,7 @@ interface AssertionResult {
     sentence?: string;
     parseCount?: number;
     assertions?: RecordedAssertion[];
+    error?: string;
   };
 }
 
@@ -69,6 +70,8 @@ interface SentenceItem {
   totalCount: number;
   /** True if testing for ungrammaticality (sentence should NOT parse) */
   isUngrammatical?: boolean;
+  /** Parse error message if parsing failed */
+  error?: string;
 }
 
 /** Extract sentences from test results */
@@ -81,6 +84,7 @@ function getSentencesFromTests(): SentenceItem[] {
       const assertions = test.meta?.assertions ?? [];
       const passedCount = assertions.filter(a => a.passed).length;
       const totalCount = assertions.length;
+      const error = test.meta?.error;
       
       // Detect ungrammaticality test: grammatical assertion passes with parseCount: 0
       const grammaticalAssertion = assertions.find(a => a.type === 'grammatical');
@@ -93,6 +97,7 @@ function getSentencesFromTests(): SentenceItem[] {
         passedCount,
         totalCount,
         isUngrammatical,
+        error,
       });
     }
   }
@@ -335,6 +340,11 @@ export default function App() {
                   fontSize: '0.8em',
                 }}
               >
+                {activeSentenceItem?.error && (
+                  <div className="alert alert-danger mb-2 p-2" style={{ fontSize: '0.9em' }}>
+                    <strong>Parse Error:</strong> {activeSentenceItem.error}
+                  </div>
+                )}
                 {activeSentenceItem?.assertions && activeSentenceItem.assertions.length > 0 ? (
                   <pre className="mb-0" style={{ whiteSpace: 'pre-wrap' }}>
                     {JSON.stringify(activeSentenceItem.assertions, null, 2)}

@@ -1,0 +1,17 @@
+{
+    "theft": {
+        "countable_noun": {},
+        "uncountable_noun": {}
+    },
+    "topic": {
+        "countable_noun": {}
+    },
+    "treasurer": {
+        "countable_noun": {
+            "comment": "A person responsible for managing funds.",
+            "examples": [
+                "The treasurer presented the annual budget."
+            ]
+        }
+    }
+}

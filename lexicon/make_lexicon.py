@@ -426,16 +426,16 @@ def extract_verb_categories() -> dict[str, dict[str, None]]:
 
 
 # ---------------------------------------------------------------------------
-# Resolve noun classes via graph reachability
+# Resolve noun classes via graph reachability (structured nouns)
 # ---------------------------------------------------------------------------
 
-NOUNS_DIR = Path("nouns")
+NOUNS_STRUCTURED_DIR = Path("nouns_structured")
 
 
 def load_raw_noun_files() -> dict[str, dict]:
-    """Load every *.json in nouns/ and return mapping of filename -> json dict."""
+    """Load every *.json in nouns_structured/ and return mapping of filename -> json dict."""
     raw = {}
-    for fp in NOUNS_DIR.glob("*.json"):
+    for fp in NOUNS_STRUCTURED_DIR.glob("*.json"):
         raw[fp.name] = json.loads(fp.read_text())
     return raw
 
@@ -496,6 +496,47 @@ def resolve_nouns(raw: dict[str, dict]) -> dict[str, set[str]]:
 
 
 # ---------------------------------------------------------------------------
+# Load unstructured nouns (simpler format, no transitive resolution)
+# ---------------------------------------------------------------------------
+
+NOUNS_UNSTRUCTURED_DIR = Path("noun_unstructured")
+
+
+def load_unstructured_nouns() -> dict[str, dict[str, set[str]]]:
+    """Load all *.json files from noun_unstructured/ directory.
+
+    Returns a dict mapping class names to sets of nouns belonging to that class.
+    Each noun in the unstructured files can belong to multiple classes.
+
+    File format example:
+    {
+        "fish": {
+            "countable": { "comment": "...", "examples": [...] },
+            "uncountable": { "comment": "...", "examples": [...] }
+        }
+    }
+
+    The class names (e.g., "countable", "uncountable", "otherclass") become
+    the keys in the returned dict, with sets of nouns as values.
+    """
+    if not NOUNS_UNSTRUCTURED_DIR.exists():
+        return {}
+
+    # Map: class_name -> set of nouns
+    classes: dict[str, set[str]] = defaultdict(set)
+
+    for fp in sorted(NOUNS_UNSTRUCTURED_DIR.glob("*.json")):
+        data = json.loads(fp.read_text())
+        for noun, class_entries in data.items():
+            if not isinstance(class_entries, dict):
+                continue
+            for class_name in class_entries.keys():
+                classes[class_name].add(noun)
+
+    return dict(classes)
+
+
+# ---------------------------------------------------------------------------
 # Build english_json
 # ---------------------------------------------------------------------------
 
@@ -525,7 +566,7 @@ for fp in ADJECTIVES_DIR.glob("*.json"):
             english_json[cls][w] = None
             adjective_words.add(w)
 
-# 2. Noun classes (from nouns/ folder)
+# 2a. Noun classes (from nouns_structured/ folder - structured format with resolution)
 raw_noun_data = load_raw_noun_files()
 resolved_nouns = resolve_nouns(raw_noun_data)
 
@@ -560,6 +601,27 @@ for fname, words in resolved_nouns.items():
         # Aggregate uncountable nouns
         for w in words:
             english_json["uncountable_noun"][w] = None
+
+# 2b. Noun classes (from noun_unstructured/ folder - simpler alphabetical format)
+unstructured_noun_classes = load_unstructured_nouns()
+
+for class_name, nouns in unstructured_noun_classes.items():
+    # Ensure the class exists in english_json
+    english_json.setdefault(class_name, {})
+
+    for noun in nouns:
+        # Always add singular and plural to the aggregate classes
+        english_json["noun_sg"][noun] = None
+        english_json["noun_pl"][noun_to_noun_pl(noun)] = None
+
+        # Add to the specific class
+        english_json[class_name][noun] = None
+
+        # Handle special "countable_noun" and "uncountable_noun" class names
+        if class_name == "countable_noun":
+            # Add plural form to the class as well
+            english_json[class_name][noun_to_noun_pl(noun)] = None
+        # uncountable_noun: singular only (already added above)
 
 # 3. Verb classes and their inflections
 for kind in verbs:

@@ -6,17 +6,18 @@
  */
 
 import { expect } from 'vitest';
-import { 
-  parse as parseInternal, 
-  checkConstituency, 
+import {
+  parse as parseInternal,
+  checkConstituency,
   checkPartOfSpeech,
-  type TreeNode 
+  type TreeNode
 } from './helpers';
 
 /** Result of parsing a sentence, including the original sentence for metadata */
 export interface ParseResult {
   sentence: string;
   trees: TreeNode[];
+  error?: string;
 }
 
 /** Recorded assertion for a test */
@@ -30,10 +31,19 @@ export interface RecordedAssertion {
  * Parse a sentence and return a result object suitable for matchers.
  */
 export function parse(sentence: string): ParseResult {
-  return {
-    sentence,
-    trees: parseInternal(sentence),
-  };
+
+  try {
+    return {
+      sentence,
+      trees: parseInternal(sentence),
+    };
+  } catch (error: any) {
+    return {
+      sentence,
+      trees: [],
+      error: error.message,
+    };
+  }
 }
 
 /**
@@ -42,14 +52,20 @@ export function parse(sentence: string): ParseResult {
 function recordAssertion(
   task: { meta: Record<string, unknown> } | undefined,
   sentence: string,
-  assertion: RecordedAssertion
+  assertion: RecordedAssertion,
+  error?: string
 ) {
   if (!task) return;
-  
+
   // Set sentence (same for all assertions in a test)
   task.meta.sentence = sentence;
   task.meta.parseCount = assertion.details?.parseCount;
-  
+
+  // Record parse error if present
+  if (error) {
+    task.meta.error = error;
+  }
+
   // Accumulate assertions in an array
   if (!task.meta.assertions) {
     task.meta.assertions = [];
@@ -64,14 +80,14 @@ expect.extend({
    * Use `.not.toBeGrammatical()` to assert ungrammaticality.
    */
   toBeGrammatical(received: ParseResult) {
-    const { sentence, trees } = received;
+    const { sentence, trees, error } = received;
     const pass = trees.length > 0;
 
     recordAssertion(this.task as any, sentence, {
       type: 'grammatical',
       passed: this.isNot ? !pass : pass,
       details: { parseCount: trees.length },
-    });
+    }, error);
 
     return {
       pass,
@@ -90,17 +106,17 @@ expect.extend({
    * expect(result).toHaveConstituent({ in: ['the', 'book'], out: 'read' })
    */
   toHaveConstituent(
-    received: ParseResult, 
+    received: ParseResult,
     { in: constituent, out: excludes }: { in: [string, string]; out: string }
   ) {
-    const { sentence, trees } = received;
+    const { sentence, trees, error } = received;
 
     if (trees.length === 0) {
       recordAssertion(this.task as any, sentence, {
         type: 'constituency',
         passed: false,
         details: { constituent, excludes, parseCount: 0, error: 'no parse' },
-      });
+      }, error);
 
       return {
         pass: false,
@@ -119,7 +135,7 @@ expect.extend({
       type: 'constituency',
       passed: this.isNot ? !pass : pass,
       details: { constituent, excludes, parseCount: trees.length },
-    });
+    }, error);
 
     return {
       pass,
@@ -141,14 +157,14 @@ expect.extend({
     received: ParseResult,
     { word, pos }: { word: string; pos: string }
   ) {
-    const { sentence, trees } = received;
+    const { sentence, trees, error } = received;
 
     if (trees.length === 0) {
       recordAssertion(this.task as any, sentence, {
         type: 'pos',
         passed: false,
         details: { word, pos, parseCount: 0, error: 'no parse' },
-      });
+      }, error);
 
       return {
         pass: false,
@@ -165,7 +181,7 @@ expect.extend({
       type: 'pos',
       passed: this.isNot ? !pass : pass,
       details: { word, pos, parseCount: trees.length },
-    });
+    }, error);
 
     return {
       pass,

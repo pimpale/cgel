@@ -1461,6 +1461,13 @@
     "adenoids": [
         "noun_pl"
     ],
+    "adequate": [
+        "adj"
+    ],
+    "adequately": [
+        "adv",
+        "adv_vp"
+    ],
     "adhere": [
         "inf_prpto_o",
         "vbf_pl_prpto_o",
@@ -19221,6 +19228,14 @@
         "ridable",
         "transportation_vehicles"
     ],
+    "chairman": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "chairmans": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "chairs": [
         "noun_pl"
     ],
@@ -22278,6 +22293,13 @@
         "vbg_o",
         "vbg_o_predcomp"
     ],
+    "clemencies": [
+        "noun_pl"
+    ],
+    "clemency": [
+        "noun_sg",
+        "uncountable_noun"
+    ],
     "clench": [
         "inf_o",
         "vbf_pl_o",
@@ -24404,6 +24426,14 @@
         "vbf_sg_o",
         "vbz_io_vbg_cl",
         "vbz_o"
+    ],
+    "committee": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "committees": [
+        "countable_noun",
+        "noun_pl"
     ],
     "communicate": [
         "inf",
@@ -31083,6 +31113,13 @@
         "noun_sg",
         "uncountable_noun"
     ],
+    "dangerous": [
+        "adj"
+    ],
+    "dangerously": [
+        "adv",
+        "adv_vp"
+    ],
     "dangers": [
         "abstract_concepts_countable",
         "countable_noun",
@@ -36726,6 +36763,14 @@
         "vbg",
         "vbg_o"
     ],
+    "direction": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "directions": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "director": [
         "countable_noun",
         "noun_sg",
@@ -37424,6 +37469,14 @@
         "vbz_o",
         "vbz_o_predcomp",
         "vbz_that_declarative_cl"
+    ],
+    "discrepancies": [
+        "countable_noun",
+        "noun_pl"
+    ],
+    "discrepancy": [
+        "countable_noun",
+        "noun_sg"
     ],
     "discriminate": [
         "inf",
@@ -48306,6 +48359,13 @@
         "vbz_to_inf_cl",
         "vbz_vbg_cl"
     ],
+    "feasible": [
+        "adj"
+    ],
+    "feasibly": [
+        "adv",
+        "adv_vp"
+    ],
     "feast": [
         "inf",
         "vbf_pl",
@@ -49587,7 +49647,9 @@
         "inf",
         "inf_o",
         "noun_sg",
+        "otherclass",
         "ridable",
+        "uncountable_noun",
         "vbf_pl",
         "vbf_pl_o",
         "vbp",
@@ -54291,6 +54353,14 @@
     "geneses": [
         "noun_pl"
     ],
+    "genius": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "geniuses": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "gentrified": [
         "vbd",
         "vbd_o",
@@ -57767,6 +57837,13 @@
         "vbz",
         "vbz_o"
     ],
+    "guidance": [
+        "noun_sg",
+        "uncountable_noun"
+    ],
+    "guidances": [
+        "noun_pl"
+    ],
     "guide": [
         "countable_noun",
         "inf_o",
@@ -59912,6 +59989,13 @@
         "countable_noun",
         "noun_pl",
         "people_occupations"
+    ],
+    "helpful": [
+        "adj"
+    ],
+    "helpfully": [
+        "adv",
+        "adv_vp"
     ],
     "helping": [
         "vbg_bare_inf_cl",
@@ -63375,6 +63459,13 @@
         "vbf_pl_o",
         "vbp_o"
     ],
+    "important": [
+        "adj"
+    ],
+    "importantly": [
+        "adv",
+        "adv_vp"
+    ],
     "imported": [
         "vbd_o",
         "vbf_pl_o",
@@ -63871,6 +63962,13 @@
     "including": [
         "vbg_o"
     ],
+    "incompetent": [
+        "adj"
+    ],
+    "incompetently": [
+        "adv",
+        "adv_vp"
+    ],
     "incorporate": [
         "inf_o",
         "vbf_pl_o",
@@ -63997,6 +64095,13 @@
     ],
     "indigos": [
         "noun_pl"
+    ],
+    "indispensable": [
+        "adj"
+    ],
+    "indispensably": [
+        "adv",
+        "adv_vp"
     ],
     "indium": [
         "elements",
@@ -64632,6 +64737,13 @@
         "countable_noun",
         "noun_pl",
         "people_occupations"
+    ],
+    "innocence": [
+        "noun_sg",
+        "uncountable_noun"
+    ],
+    "innocences": [
+        "noun_pl"
     ],
     "innovate": [
         "inf_o",
@@ -66956,6 +67068,14 @@
         "vbg",
         "vbg_o",
         "vbg_to_inf_cl"
+    ],
+    "item": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "items": [
+        "countable_noun",
+        "noun_pl"
     ],
     "its": [
         "dependent_genitive_pronoun",
@@ -70708,6 +70828,11 @@
         "vbz_io_do",
         "vbz_o"
     ],
+    "length": [
+        "countable_noun",
+        "noun_sg",
+        "uncountable_noun"
+    ],
     "lengthen": [
         "inf",
         "inf_o",
@@ -70735,6 +70860,10 @@
         "vbf_sg_o",
         "vbz",
         "vbz_o"
+    ],
+    "lengths": [
+        "countable_noun",
+        "noun_pl"
     ],
     "lens": [
         "countable_body_parts",
@@ -81958,6 +82087,14 @@
     "operating": [
         "vbg"
     ],
+    "opponent": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "opponents": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "oppose": [
         "inf_o",
         "vbf_pl_o",
@@ -81975,6 +82112,14 @@
     ],
     "opposing": [
         "vbg_o"
+    ],
+    "option": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "options": [
+        "countable_noun",
+        "noun_pl"
     ],
     "or": [
         "or"
@@ -91931,6 +92076,14 @@
     "prophesying": [
         "vbg_o",
         "vbg_that_declarative_cl"
+    ],
+    "proposal": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "proposals": [
+        "countable_noun",
+        "noun_pl"
     ],
     "propose": [
         "inf_bare_declarative_cl",
@@ -107698,6 +107851,13 @@
         "vbf_sg_o",
         "vbz_o"
     ],
+    "serious": [
+        "adj"
+    ],
+    "seriously": [
+        "adv",
+        "adv_vp"
+    ],
     "serotonin": [
         "noun_sg",
         "uncountable_body_parts",
@@ -107728,6 +107888,15 @@
     "serves": [
         "vbf_sg_o",
         "vbz_o"
+    ],
+    "service": [
+        "countable_noun",
+        "noun_sg",
+        "uncountable_noun"
+    ],
+    "services": [
+        "countable_noun",
+        "noun_pl"
     ],
     "serving": [
         "vbg_o"
@@ -120897,6 +121066,13 @@
         "countable_noun",
         "noun_pl"
     ],
+    "successful": [
+        "adj"
+    ],
+    "successfully": [
+        "adv",
+        "adv_vp"
+    ],
     "successor": [
         "countable_noun",
         "noun_sg",
@@ -125781,6 +125957,15 @@
         "location",
         "noun_pl"
     ],
+    "theft": [
+        "countable_noun",
+        "noun_sg",
+        "uncountable_noun"
+    ],
+    "thefts": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "their": [
         "dependent_genitive_pronoun"
     ],
@@ -127913,6 +128098,14 @@
         "vbf_sg_o",
         "vbn_o"
     ],
+    "topic": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "topics": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "toping": [
         "vbg_o"
     ],
@@ -129201,6 +129394,14 @@
         "vbn_o",
         "vbn_that_declarative_cl",
         "vbn_vbg_cl"
+    ],
+    "treasurer": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "treasurers": [
+        "countable_noun",
+        "noun_pl"
     ],
     "treasures": [
         "vbf_sg_io_vbg_cl",
@@ -133313,6 +133514,13 @@
         "countable_noun",
         "location",
         "noun_pl"
+    ],
+    "valuable": [
+        "adj"
+    ],
+    "valuably": [
+        "adv",
+        "adv_vp"
     ],
     "value": [
         "inf_io_vbg_cl",
