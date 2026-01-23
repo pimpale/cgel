@@ -430,5 +430,13 @@
         "VBG": "dwelling",
         "VBZ": "dwells",
         "VBP": "dwell"
+    },
+    "rob": {
+        "VB": "rob",
+        "VBD": "robbed",
+        "VBN": "robbed",
+        "VBG": "robbing",
+        "VBZ": "robs",
+        "VBP": "rob"
     }
 }

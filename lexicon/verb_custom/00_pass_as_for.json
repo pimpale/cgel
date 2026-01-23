@@ -1,0 +1,15 @@
+{
+    "members": [
+        "pass_as",
+        "pass_for"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": [
+                "He passes as a doctor.",
+                "She could pass for a native speaker."
+            ]
+        }
+    ]
+}
