@@ -1,0 +1,11 @@
+{
+    "members": [
+        "let__in_on"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["He let us in on the secret."]
+        }
+    ]
+}

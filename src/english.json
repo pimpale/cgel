@@ -1249,6 +1249,16 @@
         "noun_pl",
         "people_occupations"
     ],
+    "activities": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
+    ],
+    "activity": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
     "actor": [
         "countable_noun",
         "noun_sg",
@@ -4125,6 +4135,16 @@
     ],
     "annihilating": [
         "vbg_o"
+    ],
+    "anniversaries": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
+    ],
+    "anniversary": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
     ],
     "annotate": [
         "inf",
@@ -11052,6 +11072,16 @@
         "noun_sg"
     ],
     "birth-parents": [
+        "noun_pl"
+    ],
+    "birthday": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "birthdays": [
+        "activity_event",
+        "countable_noun",
         "noun_pl"
     ],
     "birthed": [
@@ -45362,6 +45392,16 @@
         "vbz",
         "vbz_o"
     ],
+    "event": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "events": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
+    ],
     "eventuate": [
         "inf",
         "vbf_pl",
@@ -46402,6 +46442,16 @@
         "vbz_o_predcomp",
         "vbz_that_declarative_cl",
         "vbz_to_inf_cl"
+    ],
+    "expedition": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "expeditions": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
     ],
     "expel": [
         "inf_o",
@@ -52930,6 +52980,16 @@
     "functions": [
         "vbf_sg",
         "vbz"
+    ],
+    "funeral": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "funerals": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
     ],
     "fungus": [
         "countable_natural_items",
@@ -60650,6 +60710,16 @@
         "vbz_prpup_o",
         "vbz_that_declarative_cl"
     ],
+    "holiday": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "holidays": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
+    ],
     "holler": [
         "inf",
         "inf_o",
@@ -67733,8 +67803,11 @@
         "people_occupations"
     ],
     "journey": [
+        "activity_event",
+        "countable_noun",
         "inf",
         "inf_o",
+        "noun_sg",
         "vbf_pl",
         "vbf_pl_o",
         "vbp",
@@ -67755,6 +67828,9 @@
         "vbg_o"
     ],
     "journeys": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl",
         "vbf_sg",
         "vbf_sg_o",
         "vbz",
@@ -70615,36 +70691,44 @@
         "inf_io_bare_declarative_cl",
         "inf_io_do",
         "inf_o",
+        "inf_o_prtin_prpon_o",
         "inf_prpgo_o",
         "vbd_io_bare_declarative_cl",
         "vbd_io_do",
         "vbd_o",
+        "vbd_o_prtin_prpon_o",
         "vbd_prpgo_o",
         "vbf_pl_io_bare_declarative_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_o_prtin_prpon_o",
         "vbf_pl_prpgo_o",
         "vbf_sg_io_bare_declarative_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_o_prtin_prpon_o",
         "vbf_sg_prpgo_o",
         "vbn_io_bare_declarative_cl",
         "vbn_io_do",
         "vbn_o",
+        "vbn_o_prtin_prpon_o",
         "vbn_prpgo_o",
         "vbp_io_bare_declarative_cl",
         "vbp_io_do",
         "vbp_o",
+        "vbp_o_prtin_prpon_o",
         "vbp_prpgo_o"
     ],
     "lets": [
         "vbf_sg_io_bare_declarative_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_o_prtin_prpon_o",
         "vbf_sg_prpgo_o",
         "vbz_io_bare_declarative_cl",
         "vbz_io_do",
         "vbz_o",
+        "vbz_o_prtin_prpon_o",
         "vbz_prpgo_o"
     ],
     "letter": [
@@ -70675,6 +70759,7 @@
         "vbg_io_bare_declarative_cl",
         "vbg_io_do",
         "vbg_o",
+        "vbg_o_prtin_prpon_o",
         "vbg_prpgo_o"
     ],
     "level": [
@@ -74580,9 +74665,17 @@
         "vbp_prpwith_o"
     ],
     "meeting": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg",
         "vbg",
         "vbg_o",
         "vbg_prpwith_o"
+    ],
+    "meetings": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
     ],
     "meets": [
         "vbf_sg",
@@ -84387,6 +84480,11 @@
     "particleboards": [
         "noun_pl"
     ],
+    "parties": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
+    ],
     "parting": [
         "vbg",
         "vbg_o"
@@ -84459,6 +84557,11 @@
         "vbf_sg_o",
         "vbz",
         "vbz_o"
+    ],
+    "party": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
     ],
     "pass": [
         "inf",
@@ -127908,7 +128011,10 @@
         "vbz_o"
     ],
     "tour": [
+        "activity_event",
+        "countable_noun",
         "inf_o",
+        "noun_sg",
         "vbf_pl_o",
         "vbp_o"
     ],
@@ -127932,6 +128038,9 @@
         "people_occupations"
     ],
     "tours": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl",
         "vbf_sg_o",
         "vbz_o"
     ],
@@ -129342,8 +129451,11 @@
         "vbz_o"
     ],
     "trip": [
+        "activity_event",
+        "countable_noun",
         "inf",
         "inf_o",
+        "noun_sg",
         "vbf_pl",
         "vbf_pl_o",
         "vbp",
@@ -129399,6 +129511,9 @@
         "vbg_o"
     ],
     "trips": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl",
         "vbf_sg",
         "vbf_sg_o",
         "vbz",
@@ -132898,6 +133013,16 @@
         "vbg",
         "vbg_o"
     ],
+    "vacation": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "vacations": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
+    ],
     "vacillate": [
         "inf",
         "inf_o",
@@ -135941,6 +136066,16 @@
         "vbf_pl_o",
         "vbp",
         "vbp_o"
+    ],
+    "wedding": [
+        "activity_event",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "weddings": [
+        "activity_event",
+        "countable_noun",
+        "noun_pl"
     ],
     "weded": [
         "vbd",
