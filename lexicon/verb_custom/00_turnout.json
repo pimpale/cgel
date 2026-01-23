@@ -1,7 +1,7 @@
 {
     "members": [
-        "turn_out",
-        "work_out"
+        "turn__out",
+        "work__out"
     ],
     "frames": [
         {
@@ -10,7 +10,7 @@
         },
         {
             "primary": ["NP", "V", "ADV"],
-            "examples": ["The meeting turned out well."]
+            "examples": ["The meeting turned out fine."]
         }
     ]
 }

@@ -1,13 +1,13 @@
 {
   "members": [
-    "dwell"
+    "dwell_on"
   ],
   "frames": [
     {
       "primary": [
         "NP",
         "V",
-        "PP.topic"
+        "NP"
       ],
       "examples": [
         "She dwelled on her travels."
@@ -17,7 +17,6 @@
       "primary": [
         "NP",
         "V",
-        "PP.topic",
         "S_ING"
       ],
       "examples": [

@@ -142,85 +142,33 @@ const {vp_type}_io_do = isPoS("{vp_type}_io_do");
 const {vp_type}_prt{particle} = isPoS("{vp_type}_prt{particle}");
 const {vp_type}_prt{particle}_predcomp = isPoS("{vp_type}_prt{particle}_predcomp");
 const {vp_type}_prt{particle}_to_inf_cl = isPoS("{vp_type}_prt{particle}_to_inf_cl");
-const {vp_type}_prt{particle}_bare_inf_cl = isPoS("{vp_type}_prt{particle}_bare_inf_cl");
 const {vp_type}_prt{particle}_vbg_cl = isPoS("{vp_type}_prt{particle}_vbg_cl");
-const {vp_type}_prt{particle}_vbn_cl = isPoS("{vp_type}_prt{particle}_vbn_cl");
-const {vp_type}_prt{particle}_passive_cl = isPoS("{vp_type}_prt{particle}_passive_cl");
 const {vp_type}_prt{particle}_that_declarative_cl = isPoS("{vp_type}_prt{particle}_that_declarative_cl");
 const {vp_type}_prt{particle}_bare_declarative_cl = isPoS("{vp_type}_prt{particle}_bare_declarative_cl");
 const {vp_type}_prt{particle}_interrogative_cl = isPoS("{vp_type}_prt{particle}_interrogative_cl");
-const {vp_type}_prt{particle}_exclamative_cl = isPoS("{vp_type}_prt{particle}_exclamative_cl");
-const {vp_type}_prt{particle}_quot_cl = isPoS("{vp_type}_prt{particle}_quot_cl");
 const {vp_type}_prt{particle}_o = isPoS("{vp_type}_prt{particle}_o");
 const {vp_type}_o_prt{particle}_predcomp = isPoS("{vp_type}_o_prt{particle}_predcomp");
-const {vp_type}_io_prt{particle}_o = isPoS("{vp_type}_o_prt{particle}_o");
-const {vp_type}_intnp_prt{particle}_to_inf_cl = isPoS("{vp_type}_intnp_prt{particle}_to_inf_cl");
-const {vp_type}_intnp_prt{particle}_bare_inf_cl = isPoS("{vp_type}_intnp_prt{particle}_bare_inf_cl");
-const {vp_type}_io_prt{particle}_vbg_cl = isPoS("{vp_type}_io_prt{particle}_vbg_cl");
-const {vp_type}_io_prt{particle}_vbn_cl = isPoS("{vp_type}_io_prt{particle}_vbn_cl");
-const {vp_type}_io_prt{particle}_bare_declarative_cl = isPoS("{vp_type}_io_prt{particle}_bare_declarative_cl");
 const {vp_type}_io_prt{particle}_that_declarative_cl = isPoS("{vp_type}_io_prt{particle}_that_declarative_cl");
-const {vp_type}_io_prt{particle}_interrogative_cl = isPoS("{vp_type}_io_prt{particle}_interrogative_cl");
-const {vp_type}_io_prt{particle}_exclamative_cl = isPoS("{vp_type}_io_prt{particle}_exclamative_cl");
-const {vp_type}_io_prt{particle}_quot_cl = isPoS("{vp_type}_io_prt{particle}_quot_cl");
+const {vp_type}_io_prt{particle}_bare_declarative_cl = isPoS("{vp_type}_io_prt{particle}_bare_declarative_cl");
+const {vp_type}_io_prt{particle}_o = isPoS("{vp_type}_io_prt{particle}_o");
 """
 
     for preposition in prepositions:
         output += f"""
-const {vp_type}_prp{preposition} = isPoS("{vp_type}_prp{preposition}");
 const {vp_type}_prp{preposition}_predcomp = isPoS("{vp_type}_prp{preposition}_predcomp");
-const {vp_type}_prp{preposition}_to_inf_cl = isPoS("{vp_type}_prp{preposition}_to_inf_cl");
-const {vp_type}_prp{preposition}_bare_inf_cl = isPoS("{vp_type}_prp{preposition}_bare_inf_cl");
-const {vp_type}_prp{preposition}_vbg_cl = isPoS("{vp_type}_prp{preposition}_vbg_cl");
-const {vp_type}_prp{preposition}_vbn_cl = isPoS("{vp_type}_prp{preposition}_vbn_cl");
-const {vp_type}_prp{preposition}_passive_cl = isPoS("{vp_type}_prp{preposition}_passive_cl");
-const {vp_type}_prp{preposition}_that_declarative_cl = isPoS("{vp_type}_prp{preposition}_that_declarative_cl");
-const {vp_type}_prp{preposition}_bare_declarative_cl = isPoS("{vp_type}_prp{preposition}_bare_declarative_cl");
-const {vp_type}_prp{preposition}_interrogative_cl = isPoS("{vp_type}_prp{preposition}_interrogative_cl");
-const {vp_type}_prp{preposition}_exclamative_cl = isPoS("{vp_type}_prp{preposition}_exclamative_cl");
-const {vp_type}_prp{preposition}_quot_cl = isPoS("{vp_type}_prp{preposition}_quot_cl");
 const {vp_type}_prp{preposition}_o = isPoS("{vp_type}_prp{preposition}_o");
 const {vp_type}_o_prp{preposition}_predcomp = isPoS("{vp_type}_o_prp{preposition}_predcomp");
-const {vp_type}_io_prp{preposition}_o = isPoS("{vp_type}_o_prp{preposition}_o");
-const {vp_type}_intnp_prp{preposition}_to_inf_cl = isPoS("{vp_type}_intnp_prp{preposition}_to_inf_cl");
-const {vp_type}_intnp_prp{preposition}_bare_inf_cl = isPoS("{vp_type}_intnp_prp{preposition}_bare_inf_cl");
-const {vp_type}_io_prp{preposition}_vbg_cl = isPoS("{vp_type}_io_prp{preposition}_vbg_cl");
-const {vp_type}_io_prp{preposition}_vbn_cl = isPoS("{vp_type}_io_prp{preposition}_vbn_cl");
-const {vp_type}_io_prp{preposition}_bare_declarative_cl = isPoS("{vp_type}_io_prp{preposition}_bare_declarative_cl");
-const {vp_type}_io_prp{preposition}_that_declarative_cl = isPoS("{vp_type}_io_prp{preposition}_that_declarative_cl");
-const {vp_type}_io_prp{preposition}_interrogative_cl = isPoS("{vp_type}_io_prp{preposition}_interrogative_cl");
-const {vp_type}_io_prp{preposition}_exclamative_cl = isPoS("{vp_type}_io_prp{preposition}_exclamative_cl");
-const {vp_type}_io_prp{preposition}_quot_cl = isPoS("{vp_type}_io_prp{preposition}_quot_cl");
+const {vp_type}_io_prp{preposition}_o = isPoS("{vp_type}_io_prp{preposition}_o");
 """
 
     for particle, preposition in particle_preposition_pairs:
         if particle is None or preposition is None:
             continue
         output += f"""
-const {vp_type}_prt{particle}_prp{preposition} = isPoS("{vp_type}_prt{particle}_prp{preposition}");
 const {vp_type}_prt{particle}_prp{preposition}_predcomp = isPoS("{vp_type}_prt{particle}_prp{preposition}_predcomp");
-const {vp_type}_prt{particle}_prp{preposition}_to_inf_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_to_inf_cl");
-const {vp_type}_prt{particle}_prp{preposition}_bare_inf_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_bare_inf_cl");
-const {vp_type}_prt{particle}_prp{preposition}_vbg_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_vbg_cl");
-const {vp_type}_prt{particle}_prp{preposition}_vbn_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_vbn_cl");
-const {vp_type}_prt{particle}_prp{preposition}_passive_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_passive_cl");
-const {vp_type}_prt{particle}_prp{preposition}_that_declarative_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_that_declarative_cl");
-const {vp_type}_prt{particle}_prp{preposition}_bare_declarative_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_bare_declarative_cl");
-const {vp_type}_prt{particle}_prp{preposition}_interrogative_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_interrogative_cl");
-const {vp_type}_prt{particle}_prp{preposition}_exclamative_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_exclamative_cl");
-const {vp_type}_prt{particle}_prp{preposition}_quot_cl = isPoS("{vp_type}_prt{particle}_prp{preposition}_quot_cl");
 const {vp_type}_prt{particle}_prp{preposition}_o = isPoS("{vp_type}_prt{particle}_prp{preposition}_o");
 const {vp_type}_o_prt{particle}_prp{preposition}_predcomp = isPoS("{vp_type}_o_prt{particle}_prp{preposition}_predcomp");
-const {vp_type}_o_prt{particle}_prp{preposition}_o = isPoS("{vp_type}_o_prt{particle}_prp{preposition}_o");
-const {vp_type}_intnp_prt{particle}_prp{preposition}_to_inf_cl = isPoS("{vp_type}_intnp_prt{particle}_prp{preposition}_to_inf_cl");
-const {vp_type}_intnp_prt{particle}_prp{preposition}_bare_inf_cl = isPoS("{vp_type}_intnp_prt{particle}_prp{preposition}_bare_inf_cl");
-const {vp_type}_io_prt{particle}_prp{preposition}_vbg_cl = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_vbg_cl");
-const {vp_type}_io_prt{particle}_prp{preposition}_vbn_cl = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_vbn_cl");
-const {vp_type}_io_prt{particle}_prp{preposition}_bare_declarative_cl = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_bare_declarative_cl");
-const {vp_type}_io_prt{particle}_prp{preposition}_that_declarative_cl = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_that_declarative_cl");
-const {vp_type}_io_prt{particle}_prp{preposition}_interrogative_cl = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_interrogative_cl");
-const {vp_type}_io_prt{particle}_prp{preposition}_exclamative_cl = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_exclamative_cl");
-const {vp_type}_io_prt{particle}_prp{preposition}_quot_cl = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_quot_cl");
+const {vp_type}_io_prt{particle}_prp{preposition}_o = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_o");
 """
 
 # for the finite verbs, we also use them as auxiliaries
@@ -1170,6 +1118,41 @@ def adjunct_list_grammar(mv_type):
             ],
         )
 
+        # Passive of verb – IO – particle – that-declarative clause (alias for o_prt version)
+        # Active: She tipped him off that... → Passive: He was tipped off that...
+        out += serialize_rules(
+            f"adjunct_list_passive_io_prt{particle}_that_declarative_cl{mv_suf}",
+            [
+                # The indirect object is promoted to subject, particle + that-clause + adjuncts remain
+                # Ex: He was tipped off that the police were coming
+                f"prt{particle} that_declarative_cl adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+            ],
+        )
+
+        # Passive of verb – IO – particle – bare declarative clause (alias for o_prt version)
+        # Active: She tipped him off the police were coming → Passive: He was tipped off the police were coming
+        out += serialize_rules(
+            f"adjunct_list_passive_io_prt{particle}_bare_declarative_cl{mv_suf}",
+            [
+                # The indirect object is promoted to subject, particle + bare declarative + adjuncts remain
+                # Ex: He was tipped off the police were coming
+                f"prt{particle} bare_declarative_cl adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+            ],
+        )
+
+        # Passive of Structure III: verb – IO – particle – O (alias for o_prt version)
+        # Active: I ran him off another copy → Passive: He was run off another copy
+        out += serialize_rules(
+            f"adjunct_list_passive_io_prt{particle}_o{mv_suf}",
+            [
+                # The first object is promoted to subject, particle + second object + adjuncts remain
+                # Ex: He was run off another copy
+                # Ex mv_np: I know what he was run off [gap]
+                f"prt{particle} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"prt{particle} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+            ],
+        )
+
     # ##################
     # CGEL 6.1.2: Prepositional verb constructions
     # ##################
@@ -1278,6 +1261,99 @@ def adjunct_list_grammar(mv_type):
                 f"np prt{particle} prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
                 f"np prt{particle} prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
                 f"np{mv_suf} prt{particle} prp{preposition} np adjunct_list" if mv_type != "adjp" else None,
+            ],
+        )
+
+    # ##################
+    # Passive forms for prepositional verb constructions
+    # ##################
+
+    for preposition in prepositions:
+        # Passive of CGEL 6.1.2 Structure I: verb – [prep + O]
+        # Active: I referred to the book → Passive: The book was referred to
+        out += serialize_rules(
+            f"adjunct_list_passive_prp{preposition}_o{mv_suf}",
+            [
+                # The PP object is promoted to subject, preposition is stranded
+                # Ex: The book was referred to yesterday
+                # Ex mv_np: I know what day the book was referred to on [gap]
+                f"prp{preposition} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+            ],
+        )
+
+        # Passive of CGEL 6.1.2 Structure V: verb – O – [prep + PC]
+        # Active: They regard it as successful → Passive: It was regarded as successful
+        out += serialize_rules(
+            f"adjunct_list_passive_o_prp{preposition}_predcomp{mv_suf}",
+            [
+                # The direct object is promoted to subject, [prep + PC] + adjuncts remain
+                # Ex: It was regarded as successful yesterday
+                # Ex mv_np: I know what day it was regarded as successful on [gap]
+                # Ex mv_adjp: I know how successful it was regarded as [gap]
+                f"prp{preposition} predcomp adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"prp{preposition} predcomp{mv_suf} adjunct_list",
+            ],
+        )
+
+        # Passive of CGEL 6.1.2 Structure II: verb – O – [prep + O]
+        # Active: I intended it for Kim → Passive: It was intended for Kim
+        out += serialize_rules(
+            f"adjunct_list_passive_io_prp{preposition}_o{mv_suf}",
+            [
+                # The direct object is promoted to subject, [prep + O] + adjuncts remain
+                # Ex: It was intended for Kim yesterday
+                # Ex mv_np: I know what day it was intended for Kim on [gap]
+                # Ex mv_np: I know who it was intended for [gap]
+                f"prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+            ],
+        )
+
+    # ##################
+    # Passive forms for particle + preposition constructions
+    # ##################
+
+    for particle, preposition in particle_preposition_pairs:
+        if particle is None or preposition is None:
+            continue
+
+        # Passive of CGEL 6.3.2 Structure IV: verb – particle – [prep + O]
+        # Active: We look forward to your visit → Passive: Your visit was looked forward to
+        out += serialize_rules(
+            f"adjunct_list_passive_prt{particle}_prp{preposition}_o{mv_suf}",
+            [
+                # The PP object is promoted to subject, particle + preposition are stranded
+                # Ex: Your visit was looked forward to eagerly
+                # Ex mv_np: I know what day your visit was looked forward to on [gap]
+                f"prt{particle} prp{preposition} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+            ],
+        )
+
+        # Passive of CGEL 6.3.2 Structure VII: verb – O – particle – [prep + PC]
+        # Active: This showed him up as spineless → Passive: He was shown up as spineless
+        out += serialize_rules(
+            f"adjunct_list_passive_o_prt{particle}_prp{preposition}_predcomp{mv_suf}",
+            [
+                # The direct object is promoted to subject, particle + [prep + PC] + adjuncts remain
+                # Ex: He was shown up as spineless yesterday
+                # Ex mv_np: I know what day he was shown up as spineless on [gap]
+                # Ex mv_adjp: I know how spineless he was shown up as [gap]
+                f"prt{particle} prp{preposition} predcomp adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"prt{particle} prp{preposition} predcomp{mv_suf} adjunct_list",
+            ],
+        )
+
+        # Passive of CGEL 6.3.2 Structure V: verb – O – particle – [prep + O]
+        # Active: I let her in on a secret → Passive: She was let in on a secret
+        out += serialize_rules(
+            f"adjunct_list_passive_io_prt{particle}_prp{preposition}_o{mv_suf}",
+            [
+                # The direct object is promoted to subject, particle + [prep + O] + adjuncts remain
+                # Ex: She was let in on a little secret yesterday
+                # Ex mv_np: I know what day she was let in on the secret on [gap]
+                # Ex mv_np: I know what she was let in on [gap]
+                f"prt{particle} prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"prt{particle} prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
             ],
         )
 
@@ -1450,6 +1526,23 @@ passive_cl{mv_suf} ->
     | advp_vp? {vp_type}_io_prt{particle}_bare_declarative_cl adjunct_list_passive_io_prt{particle}_bare_declarative_cl{mv_suf} {{%nt("passive_cl{mv_suf}")%}} # O + particle + bare declarative passive (ex: "He was tipped off...")
     | advp_vp? {vp_type}_io_prt{particle}_o                adjunct_list_passive_io_prt{particle}_o{mv_suf}                   {{%nt("passive_cl{mv_suf}")%}} # Structure III passive (ex: "He was run off another copy")
 """
+
+        for preposition in prepositions:
+            out += f"""
+    | advp_vp? {vp_type}_prp{preposition}_o                  adjunct_list_passive_prp{preposition}_o{mv_suf}                     {{%nt("passive_cl{mv_suf}")%}} # prepositional passive (ex: "The book was referred to")
+    | advp_vp? {vp_type}_o_prp{preposition}_predcomp         adjunct_list_passive_o_prp{preposition}_predcomp{mv_suf}            {{%nt("passive_cl{mv_suf}")%}} # O + [prep + PC] passive (ex: "It was regarded as successful")
+    | advp_vp? {vp_type}_io_prp{preposition}_o               adjunct_list_passive_io_prp{preposition}_o{mv_suf}                  {{%nt("passive_cl{mv_suf}")%}} # O + [prep + O] passive (ex: "It was intended for Kim")
+"""
+
+        for particle, preposition in particle_preposition_pairs:
+            if particle is None or preposition is None:
+                continue
+            out += f"""
+    | advp_vp? {vp_type}_prt{particle}_prp{preposition}_o                  adjunct_list_passive_prt{particle}_prp{preposition}_o{mv_suf}                     {{%nt("passive_cl{mv_suf}")%}} # particle + prepositional passive (ex: "Your visit was looked forward to")
+    | advp_vp? {vp_type}_o_prt{particle}_prp{preposition}_predcomp         adjunct_list_passive_o_prt{particle}_prp{preposition}_predcomp{mv_suf}            {{%nt("passive_cl{mv_suf}")%}} # O + particle + [prep + PC] passive (ex: "He was shown up as spineless")
+    | advp_vp? {vp_type}_io_prt{particle}_prp{preposition}_o               adjunct_list_passive_io_prt{particle}_prp{preposition}_o{mv_suf}                  {{%nt("passive_cl{mv_suf}")%}} # O + particle + [prep + O] passive (ex: "She was let in on a little secret")
+"""
+
     return out
 
 
@@ -2129,85 +2222,33 @@ for vp_type in ["inf", "vbg", "vbn", "vbf_sg", "vbf_pl"]:
 {vp_type}_prt{particle} -> %{vp_type}_prt{particle} {{%t("{vp_type}_prt{particle}")%}}
 {vp_type}_prt{particle}_predcomp -> %{vp_type}_prt{particle}_predcomp {{%t("{vp_type}_prt{particle}_predcomp")%}}
 {vp_type}_prt{particle}_to_inf_cl -> %{vp_type}_prt{particle}_to_inf_cl {{%t("{vp_type}_prt{particle}_to_inf_cl")%}}
-{vp_type}_prt{particle}_bare_inf_cl -> %{vp_type}_prt{particle}_bare_inf_cl {{%t("{vp_type}_prt{particle}_bare_inf_cl")%}}
 {vp_type}_prt{particle}_vbg_cl -> %{vp_type}_prt{particle}_vbg_cl {{%t("{vp_type}_prt{particle}_vbg_cl")%}}
-{vp_type}_prt{particle}_vbn_cl -> %{vp_type}_prt{particle}_vbn_cl {{%t("{vp_type}_prt{particle}_vbn_cl")%}}
-{vp_type}_prt{particle}_passive_cl -> %{vp_type}_prt{particle}_passive_cl {{%t("{vp_type}_prt{particle}_passive_cl")%}}
 {vp_type}_prt{particle}_that_declarative_cl -> %{vp_type}_prt{particle}_that_declarative_cl {{%t("{vp_type}_prt{particle}_that_declarative_cl")%}}
 {vp_type}_prt{particle}_bare_declarative_cl -> %{vp_type}_prt{particle}_bare_declarative_cl {{%t("{vp_type}_prt{particle}_bare_declarative_cl")%}}
 {vp_type}_prt{particle}_interrogative_cl -> %{vp_type}_prt{particle}_interrogative_cl {{%t("{vp_type}_prt{particle}_interrogative_cl")%}}
-{vp_type}_prt{particle}_exclamative_cl -> %{vp_type}_prt{particle}_exclamative_cl {{%t("{vp_type}_prt{particle}_exclamative_cl")%}}
-{vp_type}_prt{particle}_quot_cl -> %{vp_type}_prt{particle}_quot_cl {{%t("{vp_type}_prt{particle}_quot_cl")%}}
 {vp_type}_prt{particle}_o -> %{vp_type}_prt{particle}_o {{%t("{vp_type}_prt{particle}_o")%}}
 {vp_type}_o_prt{particle}_predcomp -> %{vp_type}_o_prt{particle}_predcomp {{%t("{vp_type}_o_prt{particle}_predcomp")%}}
-{vp_type}_io_prt{particle}_o -> %{vp_type}_io_prt{particle}_o {{%t("{vp_type}_io_prt{particle}_o")%}}
-{vp_type}_intnp_prt{particle}_to_inf_cl -> %{vp_type}_intnp_prt{particle}_to_inf_cl {{%t("{vp_type}_intnp_prt{particle}_to_inf_cl")%}}
-{vp_type}_intnp_prt{particle}_bare_inf_cl -> %{vp_type}_intnp_prt{particle}_bare_inf_cl {{%t("{vp_type}_intnp_prt{particle}_bare_inf_cl")%}}
-{vp_type}_io_prt{particle}_vbg_cl -> %{vp_type}_io_prt{particle}_vbg_cl {{%t("{vp_type}_io_prt{particle}_vbg_cl")%}}
-{vp_type}_io_prt{particle}_vbn_cl -> %{vp_type}_io_prt{particle}_vbn_cl {{%t("{vp_type}_io_prt{particle}_vbn_cl")%}}
-{vp_type}_io_prt{particle}_bare_declarative_cl -> %{vp_type}_io_prt{particle}_bare_declarative_cl {{%t("{vp_type}_io_prt{particle}_bare_declarative_cl")%}}
 {vp_type}_io_prt{particle}_that_declarative_cl -> %{vp_type}_io_prt{particle}_that_declarative_cl {{%t("{vp_type}_io_prt{particle}_that_declarative_cl")%}}
-{vp_type}_io_prt{particle}_interrogative_cl -> %{vp_type}_io_prt{particle}_interrogative_cl {{%t("{vp_type}_io_prt{particle}_interrogative_cl")%}}
-{vp_type}_io_prt{particle}_exclamative_cl -> %{vp_type}_io_prt{particle}_exclamative_cl {{%t("{vp_type}_io_prt{particle}_exclamative_cl")%}}
-{vp_type}_io_prt{particle}_quot_cl -> %{vp_type}_io_prt{particle}_quot_cl {{%t("{vp_type}_io_prt{particle}_quot_cl")%}}
+{vp_type}_io_prt{particle}_bare_declarative_cl -> %{vp_type}_io_prt{particle}_bare_declarative_cl {{%t("{vp_type}_io_prt{particle}_bare_declarative_cl")%}}
+{vp_type}_io_prt{particle}_o -> %{vp_type}_io_prt{particle}_o {{%t("{vp_type}_io_prt{particle}_o")%}}
 """
 
     for preposition in prepositions:
         output += f"""
-{vp_type}_prp{preposition} -> %{vp_type}_prp{preposition} {{%t("{vp_type}_prp{preposition}")%}}
 {vp_type}_prp{preposition}_predcomp -> %{vp_type}_prp{preposition}_predcomp {{%t("{vp_type}_prp{preposition}_predcomp")%}}
-{vp_type}_prp{preposition}_to_inf_cl -> %{vp_type}_prp{preposition}_to_inf_cl {{%t("{vp_type}_prp{preposition}_to_inf_cl")%}}
-{vp_type}_prp{preposition}_bare_inf_cl -> %{vp_type}_prp{preposition}_bare_inf_cl {{%t("{vp_type}_prp{preposition}_bare_inf_cl")%}}
-{vp_type}_prp{preposition}_vbg_cl -> %{vp_type}_prp{preposition}_vbg_cl {{%t("{vp_type}_prp{preposition}_vbg_cl")%}}
-{vp_type}_prp{preposition}_vbn_cl -> %{vp_type}_prp{preposition}_vbn_cl {{%t("{vp_type}_prp{preposition}_vbn_cl")%}}
-{vp_type}_prp{preposition}_passive_cl -> %{vp_type}_prp{preposition}_passive_cl {{%t("{vp_type}_prp{preposition}_passive_cl")%}}
-{vp_type}_prp{preposition}_that_declarative_cl -> %{vp_type}_prp{preposition}_that_declarative_cl {{%t("{vp_type}_prp{preposition}_that_declarative_cl")%}}
-{vp_type}_prp{preposition}_bare_declarative_cl -> %{vp_type}_prp{preposition}_bare_declarative_cl {{%t("{vp_type}_prp{preposition}_bare_declarative_cl")%}}
-{vp_type}_prp{preposition}_interrogative_cl -> %{vp_type}_prp{preposition}_interrogative_cl {{%t("{vp_type}_prp{preposition}_interrogative_cl")%}}
-{vp_type}_prp{preposition}_exclamative_cl -> %{vp_type}_prp{preposition}_exclamative_cl {{%t("{vp_type}_prp{preposition}_exclamative_cl")%}}
-{vp_type}_prp{preposition}_quot_cl -> %{vp_type}_prp{preposition}_quot_cl {{%t("{vp_type}_prp{preposition}_quot_cl")%}}
 {vp_type}_prp{preposition}_o -> %{vp_type}_prp{preposition}_o {{%t("{vp_type}_prp{preposition}_o")%}}
 {vp_type}_o_prp{preposition}_predcomp -> %{vp_type}_o_prp{preposition}_predcomp {{%t("{vp_type}_o_prp{preposition}_predcomp")%}}
 {vp_type}_io_prp{preposition}_o -> %{vp_type}_io_prp{preposition}_o {{%t("{vp_type}_io_prp{preposition}_o")%}}
-{vp_type}_intnp_prp{preposition}_to_inf_cl -> %{vp_type}_intnp_prp{preposition}_to_inf_cl {{%t("{vp_type}_intnp_prp{preposition}_to_inf_cl")%}}
-{vp_type}_intnp_prp{preposition}_bare_inf_cl -> %{vp_type}_intnp_prp{preposition}_bare_inf_cl {{%t("{vp_type}_intnp_prp{preposition}_bare_inf_cl")%}}
-{vp_type}_io_prp{preposition}_vbg_cl -> %{vp_type}_io_prp{preposition}_vbg_cl {{%t("{vp_type}_io_prp{preposition}_vbg_cl")%}}
-{vp_type}_io_prp{preposition}_vbn_cl -> %{vp_type}_io_prp{preposition}_vbn_cl {{%t("{vp_type}_io_prp{preposition}_vbn_cl")%}}
-{vp_type}_io_prp{preposition}_bare_declarative_cl -> %{vp_type}_io_prp{preposition}_bare_declarative_cl {{%t("{vp_type}_io_prp{preposition}_bare_declarative_cl")%}}
-{vp_type}_io_prp{preposition}_that_declarative_cl -> %{vp_type}_io_prp{preposition}_that_declarative_cl {{%t("{vp_type}_io_prp{preposition}_that_declarative_cl")%}}
-{vp_type}_io_prp{preposition}_interrogative_cl -> %{vp_type}_io_prp{preposition}_interrogative_cl {{%t("{vp_type}_io_prp{preposition}_interrogative_cl")%}}
-{vp_type}_io_prp{preposition}_exclamative_cl -> %{vp_type}_io_prp{preposition}_exclamative_cl {{%t("{vp_type}_io_prp{preposition}_exclamative_cl")%}}
-{vp_type}_io_prp{preposition}_quot_cl -> %{vp_type}_io_prp{preposition}_quot_cl {{%t("{vp_type}_io_prp{preposition}_quot_cl")%}}
 """
 
     for particle, preposition in particle_preposition_pairs:
         if particle is None or preposition is None:
             continue
         output += f"""
-{vp_type}_prt{particle}_prp{preposition} -> %{vp_type}_prt{particle}_prp{preposition} {{%t("{vp_type}_prt{particle}_prp{preposition}")%}}
 {vp_type}_prt{particle}_prp{preposition}_predcomp -> %{vp_type}_prt{particle}_prp{preposition}_predcomp {{%t("{vp_type}_prt{particle}_prp{preposition}_predcomp")%}}
-{vp_type}_prt{particle}_prp{preposition}_to_inf_cl -> %{vp_type}_prt{particle}_prp{preposition}_to_inf_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_to_inf_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_bare_inf_cl -> %{vp_type}_prt{particle}_prp{preposition}_bare_inf_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_bare_inf_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_vbg_cl -> %{vp_type}_prt{particle}_prp{preposition}_vbg_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_vbg_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_vbn_cl -> %{vp_type}_prt{particle}_prp{preposition}_vbn_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_vbn_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_passive_cl -> %{vp_type}_prt{particle}_prp{preposition}_passive_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_passive_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_that_declarative_cl -> %{vp_type}_prt{particle}_prp{preposition}_that_declarative_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_that_declarative_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_bare_declarative_cl -> %{vp_type}_prt{particle}_prp{preposition}_bare_declarative_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_bare_declarative_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_interrogative_cl -> %{vp_type}_prt{particle}_prp{preposition}_interrogative_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_interrogative_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_exclamative_cl -> %{vp_type}_prt{particle}_prp{preposition}_exclamative_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_exclamative_cl")%}}
-{vp_type}_prt{particle}_prp{preposition}_quot_cl -> %{vp_type}_prt{particle}_prp{preposition}_quot_cl {{%t("{vp_type}_prt{particle}_prp{preposition}_quot_cl")%}}
 {vp_type}_prt{particle}_prp{preposition}_o -> %{vp_type}_prt{particle}_prp{preposition}_o {{%t("{vp_type}_prt{particle}_prp{preposition}_o")%}}
 {vp_type}_o_prt{particle}_prp{preposition}_predcomp -> %{vp_type}_o_prt{particle}_prp{preposition}_predcomp {{%t("{vp_type}_o_prt{particle}_prp{preposition}_predcomp")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_o -> %{vp_type}_o_prt{particle}_prp{preposition}_o {{%t("{vp_type}_o_prt{particle}_prp{preposition}_o")%}}
-{vp_type}_intnp_prt{particle}_prp{preposition}_to_inf_cl -> %{vp_type}_intnp_prt{particle}_prp{preposition}_to_inf_cl {{%t("{vp_type}_intnp_prt{particle}_prp{preposition}_to_inf_cl")%}}
-{vp_type}_intnp_prt{particle}_prp{preposition}_bare_inf_cl -> %{vp_type}_intnp_prt{particle}_prp{preposition}_bare_inf_cl {{%t("{vp_type}_intnp_prt{particle}_prp{preposition}_bare_inf_cl")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_vbg_cl -> %{vp_type}_io_prt{particle}_prp{preposition}_vbg_cl {{%t("{vp_type}_io_prt{particle}_prp{preposition}_vbg_cl")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_vbn_cl -> %{vp_type}_io_prt{particle}_prp{preposition}_vbn_cl {{%t("{vp_type}_io_prt{particle}_prp{preposition}_vbn_cl")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_bare_declarative_cl -> %{vp_type}_io_prt{particle}_prp{preposition}_bare_declarative_cl {{%t("{vp_type}_io_prt{particle}_prp{preposition}_bare_declarative_cl")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_that_declarative_cl -> %{vp_type}_io_prt{particle}_prp{preposition}_that_declarative_cl {{%t("{vp_type}_io_prt{particle}_prp{preposition}_that_declarative_cl")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_interrogative_cl -> %{vp_type}_io_prt{particle}_prp{preposition}_interrogative_cl {{%t("{vp_type}_io_prt{particle}_prp{preposition}_interrogative_cl")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_exclamative_cl -> %{vp_type}_io_prt{particle}_prp{preposition}_exclamative_cl {{%t("{vp_type}_io_prt{particle}_prp{preposition}_exclamative_cl")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_quot_cl -> %{vp_type}_io_prt{particle}_prp{preposition}_quot_cl {{%t("{vp_type}_io_prt{particle}_prp{preposition}_quot_cl")%}}
+{vp_type}_io_prt{particle}_prp{preposition}_o -> %{vp_type}_io_prt{particle}_prp{preposition}_o {{%t("{vp_type}_io_prt{particle}_prp{preposition}_o")%}}
 """
 
 # auxiliary verb terminals (only for finite verbs)

@@ -1,0 +1,17 @@
+{
+    "members": [
+        "dispose_of"
+    ],
+    "frames": [
+        {
+            "primary": [
+                "NP",
+                "V",
+                "NP"
+            ],
+            "examples": [
+                "He disposed of the waste."
+            ]
+        }
+    ]
+}

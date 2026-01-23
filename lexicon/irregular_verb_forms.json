@@ -422,5 +422,13 @@
         "VBG": "tipping",
         "VBZ": "tips",
         "VBP": "tip"
+    },
+    "dwell": {
+        "VB": "dwell",
+        "VBD": "dwelt",
+        "VBN": "dwelt",
+        "VBG": "dwelling",
+        "VBZ": "dwells",
+        "VBP": "dwell"
     }
 }

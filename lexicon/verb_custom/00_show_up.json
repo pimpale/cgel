@@ -1,10 +1,10 @@
 {
     "members": [
-        "show__up"
+        "show__up_as"
     ],
     "frames": [
         {
-            "primary": ["NP", "V", "NP"],
+            "primary": ["NP", "V", "NP", "ADJ"],
             "examples": ["This showed him up as a liar."]
         }
     ]

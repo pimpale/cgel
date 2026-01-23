@@ -4330,8 +4330,11 @@
         "determinative"
     ],
     "answer": [
+        "countable_noun",
         "inf",
         "inf_o",
+        "noun_sg",
+        "speech",
         "vbf_pl",
         "vbf_pl_o",
         "vbp",
@@ -4352,6 +4355,9 @@
         "vbg_o"
     ],
     "answers": [
+        "countable_noun",
+        "noun_pl",
+        "speech",
         "vbf_sg",
         "vbf_sg_o",
         "vbz",
@@ -5461,6 +5467,16 @@
         "vbg_interrogative_cl",
         "vbg_o",
         "vbg_that_declarative_cl"
+    ],
+    "argument": [
+        "countable_noun",
+        "noun_sg",
+        "speech"
+    ],
+    "arguments": [
+        "countable_noun",
+        "noun_pl",
+        "speech"
     ],
     "arise": [
         "inf",
@@ -9907,50 +9923,90 @@
         "noun_pl"
     ],
     "believe": [
+        "inf_io_prpin_vbg_cl",
         "inf_io_vbg_cl",
         "inf_o",
+        "inf_prpin_o",
+        "inf_prpin_that_declarative_cl",
+        "inf_prpin_vbg_cl",
         "inf_that_declarative_cl",
         "inf_vbg_cl",
+        "vbf_pl_io_prpin_vbg_cl",
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_pl_prpin_o",
+        "vbf_pl_prpin_that_declarative_cl",
+        "vbf_pl_prpin_vbg_cl",
         "vbf_pl_that_declarative_cl",
         "vbf_pl_vbg_cl",
+        "vbp_io_prpin_vbg_cl",
         "vbp_io_vbg_cl",
         "vbp_o",
+        "vbp_prpin_o",
+        "vbp_prpin_that_declarative_cl",
+        "vbp_prpin_vbg_cl",
         "vbp_that_declarative_cl",
         "vbp_vbg_cl"
     ],
     "believed": [
+        "vbd_io_prpin_vbg_cl",
         "vbd_io_vbg_cl",
         "vbd_o",
+        "vbd_prpin_o",
+        "vbd_prpin_that_declarative_cl",
+        "vbd_prpin_vbg_cl",
         "vbd_that_declarative_cl",
         "vbd_vbg_cl",
+        "vbf_pl_io_prpin_vbg_cl",
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_pl_prpin_o",
+        "vbf_pl_prpin_that_declarative_cl",
+        "vbf_pl_prpin_vbg_cl",
         "vbf_pl_that_declarative_cl",
         "vbf_pl_vbg_cl",
+        "vbf_sg_io_prpin_vbg_cl",
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbf_sg_prpin_o",
+        "vbf_sg_prpin_that_declarative_cl",
+        "vbf_sg_prpin_vbg_cl",
         "vbf_sg_that_declarative_cl",
         "vbf_sg_vbg_cl",
+        "vbn_io_prpin_vbg_cl",
         "vbn_io_vbg_cl",
         "vbn_o",
+        "vbn_prpin_o",
+        "vbn_prpin_that_declarative_cl",
+        "vbn_prpin_vbg_cl",
         "vbn_that_declarative_cl",
         "vbn_vbg_cl"
     ],
     "believes": [
+        "vbf_sg_io_prpin_vbg_cl",
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbf_sg_prpin_o",
+        "vbf_sg_prpin_that_declarative_cl",
+        "vbf_sg_prpin_vbg_cl",
         "vbf_sg_that_declarative_cl",
         "vbf_sg_vbg_cl",
+        "vbz_io_prpin_vbg_cl",
         "vbz_io_vbg_cl",
         "vbz_o",
+        "vbz_prpin_o",
+        "vbz_prpin_that_declarative_cl",
+        "vbz_prpin_vbg_cl",
         "vbz_that_declarative_cl",
         "vbz_vbg_cl"
     ],
     "believing": [
+        "vbg_io_prpin_vbg_cl",
         "vbg_io_vbg_cl",
         "vbg_o",
+        "vbg_prpin_o",
+        "vbg_prpin_that_declarative_cl",
+        "vbg_prpin_vbg_cl",
         "vbg_that_declarative_cl",
         "vbg_vbg_cl"
     ],
@@ -31590,12 +31646,15 @@
         "vbg_o"
     ],
     "debate": [
+        "countable_noun",
         "inf",
         "inf_bare_declarative_cl",
         "inf_exclamative_cl",
         "inf_interrogative_cl",
         "inf_o",
         "inf_that_declarative_cl",
+        "noun_sg",
+        "speech",
         "vbf_pl",
         "vbf_pl_bare_declarative_cl",
         "vbf_pl_exclamative_cl",
@@ -31636,6 +31695,9 @@
         "vbn_that_declarative_cl"
     ],
     "debates": [
+        "countable_noun",
+        "noun_pl",
+        "speech",
         "vbf_sg",
         "vbf_sg_bare_declarative_cl",
         "vbf_sg_exclamative_cl",
@@ -33997,6 +34059,16 @@
     "demobilizing": [
         "vbg_o"
     ],
+    "democracies": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_pl"
+    ],
+    "democracy": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_sg"
+    ],
     "democratize": [
         "inf",
         "inf_o",
@@ -36181,6 +36253,16 @@
         "vbg_io_do",
         "vbg_o"
     ],
+    "dictatorship": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_sg"
+    ],
+    "dictatorships": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_pl"
+    ],
     "dictionaries": [
         "noun_pl"
     ],
@@ -38329,21 +38411,31 @@
     ],
     "dispose": [
         "inf_io_vbg_cl",
+        "inf_prpof_o",
         "vbf_pl_io_vbg_cl",
-        "vbp_io_vbg_cl"
+        "vbf_pl_prpof_o",
+        "vbp_io_vbg_cl",
+        "vbp_prpof_o"
     ],
     "disposed": [
         "vbd_io_vbg_cl",
+        "vbd_prpof_o",
         "vbf_pl_io_vbg_cl",
+        "vbf_pl_prpof_o",
         "vbf_sg_io_vbg_cl",
-        "vbn_io_vbg_cl"
+        "vbf_sg_prpof_o",
+        "vbn_io_vbg_cl",
+        "vbn_prpof_o"
     ],
     "disposes": [
         "vbf_sg_io_vbg_cl",
-        "vbz_io_vbg_cl"
+        "vbf_sg_prpof_o",
+        "vbz_io_vbg_cl",
+        "vbz_prpof_o"
     ],
     "disposing": [
-        "vbg_io_vbg_cl"
+        "vbg_io_vbg_cl",
+        "vbg_prpof_o"
     ],
     "dispossess": [
         "inf_o",
@@ -41238,21 +41330,17 @@
     ],
     "dwell": [
         "inf",
+        "inf_prpon_o",
+        "inf_prpon_vbg_cl",
         "inf_vbg_cl",
         "vbf_pl",
+        "vbf_pl_prpon_o",
+        "vbf_pl_prpon_vbg_cl",
         "vbf_pl_vbg_cl",
         "vbp",
+        "vbp_prpon_o",
+        "vbp_prpon_vbg_cl",
         "vbp_vbg_cl"
-    ],
-    "dwelled": [
-        "vbd",
-        "vbd_vbg_cl",
-        "vbf_pl",
-        "vbf_pl_vbg_cl",
-        "vbf_sg",
-        "vbf_sg_vbg_cl",
-        "vbn",
-        "vbn_vbg_cl"
     ],
     "dweller": [
         "countable_noun",
@@ -41266,13 +41354,37 @@
     ],
     "dwelling": [
         "vbg",
+        "vbg_prpon_o",
+        "vbg_prpon_vbg_cl",
         "vbg_vbg_cl"
     ],
     "dwells": [
         "vbf_sg",
+        "vbf_sg_prpon_o",
+        "vbf_sg_prpon_vbg_cl",
         "vbf_sg_vbg_cl",
         "vbz",
+        "vbz_prpon_o",
+        "vbz_prpon_vbg_cl",
         "vbz_vbg_cl"
+    ],
+    "dwelt": [
+        "vbd",
+        "vbd_prpon_o",
+        "vbd_prpon_vbg_cl",
+        "vbd_vbg_cl",
+        "vbf_pl",
+        "vbf_pl_prpon_o",
+        "vbf_pl_prpon_vbg_cl",
+        "vbf_pl_vbg_cl",
+        "vbf_sg",
+        "vbf_sg_prpon_o",
+        "vbf_sg_prpon_vbg_cl",
+        "vbf_sg_vbg_cl",
+        "vbn",
+        "vbn_prpon_o",
+        "vbn_prpon_vbg_cl",
+        "vbn_vbg_cl"
     ],
     "dwindle": [
         "inf",
@@ -44964,6 +45076,16 @@
     "espying": [
         "vbg_o"
     ],
+    "essay": [
+        "countable_noun",
+        "noun_sg",
+        "speech"
+    ],
+    "essays": [
+        "countable_noun",
+        "noun_pl",
+        "speech"
+    ],
     "establish": [
         "inf_exclamative_cl",
         "inf_interrogative_cl",
@@ -45478,7 +45600,10 @@
         "vbz_o"
     ],
     "evidence": [
+        "abstract_concepts_uncountable",
         "inf_o",
+        "noun_sg",
+        "uncountable_noun",
         "vbf_pl_o",
         "vbp_o"
     ],
@@ -45489,6 +45614,7 @@
         "vbn_o"
     ],
     "evidences": [
+        "noun_pl",
         "vbf_sg_o",
         "vbz_o"
     ],
@@ -77073,6 +77199,16 @@
     "moments": [
         "noun_pl"
     ],
+    "monarchies": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_pl"
+    ],
+    "monarchy": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_sg"
+    ],
     "monday": [
         "bare_time_nouns",
         "daysofweek",
@@ -84223,6 +84359,16 @@
         "vbg",
         "vbg_o"
     ],
+    "paragraph": [
+        "countable_noun",
+        "noun_sg",
+        "speech"
+    ],
+    "paragraphs": [
+        "countable_noun",
+        "noun_pl",
+        "speech"
+    ],
     "paralyze": [
         "inf_o",
         "vbf_pl_o",
@@ -86438,12 +86584,14 @@
     "phrase": [
         "countable_noun",
         "grammatical_objects",
-        "noun_sg"
+        "noun_sg",
+        "speech"
     ],
     "phrases": [
         "countable_noun",
         "grammatical_objects",
-        "noun_pl"
+        "noun_pl",
+        "speech"
     ],
     "physicist": [
         "countable_noun",
@@ -93706,7 +93854,10 @@
         "vbg_o_predcomp"
     ],
     "question": [
+        "countable_noun",
         "inf_o",
+        "noun_sg",
+        "speech",
         "vbf_pl_o",
         "vbp_o"
     ],
@@ -93720,6 +93871,9 @@
         "vbg_o"
     ],
     "questions": [
+        "countable_noun",
+        "noun_pl",
+        "speech",
         "vbf_sg_o",
         "vbz_o"
     ],
@@ -98746,6 +98900,7 @@
         "vbg_o"
     ],
     "remark": [
+        "countable_noun",
         "inf",
         "inf_bare_declarative_cl",
         "inf_exclamative_cl",
@@ -98754,6 +98909,8 @@
         "inf_quot_cl",
         "inf_that_declarative_cl",
         "inf_vbg_cl",
+        "noun_sg",
+        "speech",
         "vbf_pl",
         "vbf_pl_bare_declarative_cl",
         "vbf_pl_exclamative_cl",
@@ -98816,6 +98973,9 @@
         "vbg_vbg_cl"
     ],
     "remarks": [
+        "countable_noun",
+        "noun_pl",
+        "speech",
         "vbf_sg",
         "vbf_sg_bare_declarative_cl",
         "vbf_sg_exclamative_cl",
@@ -107446,12 +107606,14 @@
     "sentence": [
         "countable_noun",
         "grammatical_objects",
-        "noun_sg"
+        "noun_sg",
+        "speech"
     ],
     "sentences": [
         "countable_noun",
         "grammatical_objects",
-        "noun_pl"
+        "noun_pl",
+        "speech"
     ],
     "separate": [
         "inf",
@@ -109097,8 +109259,8 @@
         "inf_io_that_declarative_cl",
         "inf_io_vbg_cl",
         "inf_o",
+        "inf_o_prtup_prpas_predcomp",
         "inf_prtup",
-        "inf_prtup_o",
         "vbf_pl",
         "vbf_pl_exclamative_cl",
         "vbf_pl_interrogative_cl",
@@ -109110,8 +109272,8 @@
         "vbf_pl_io_that_declarative_cl",
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_pl_o_prtup_prpas_predcomp",
         "vbf_pl_prtup",
-        "vbf_pl_prtup_o",
         "vbp",
         "vbp_exclamative_cl",
         "vbp_interrogative_cl",
@@ -109123,8 +109285,8 @@
         "vbp_io_that_declarative_cl",
         "vbp_io_vbg_cl",
         "vbp_o",
-        "vbp_prtup",
-        "vbp_prtup_o"
+        "vbp_o_prtup_prpas_predcomp",
+        "vbp_prtup"
     ],
     "showed": [
         "vbd",
@@ -109138,8 +109300,8 @@
         "vbd_io_that_declarative_cl",
         "vbd_io_vbg_cl",
         "vbd_o",
+        "vbd_o_prtup_prpas_predcomp",
         "vbd_prtup",
-        "vbd_prtup_o",
         "vbf_pl",
         "vbf_pl_exclamative_cl",
         "vbf_pl_interrogative_cl",
@@ -109151,8 +109313,8 @@
         "vbf_pl_io_that_declarative_cl",
         "vbf_pl_io_vbg_cl",
         "vbf_pl_o",
+        "vbf_pl_o_prtup_prpas_predcomp",
         "vbf_pl_prtup",
-        "vbf_pl_prtup_o",
         "vbf_sg",
         "vbf_sg_exclamative_cl",
         "vbf_sg_interrogative_cl",
@@ -109164,8 +109326,8 @@
         "vbf_sg_io_that_declarative_cl",
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbf_sg_o_prtup_prpas_predcomp",
         "vbf_sg_prtup",
-        "vbf_sg_prtup_o",
         "vbn",
         "vbn_exclamative_cl",
         "vbn_interrogative_cl",
@@ -109177,8 +109339,8 @@
         "vbn_io_that_declarative_cl",
         "vbn_io_vbg_cl",
         "vbn_o",
-        "vbn_prtup",
-        "vbn_prtup_o"
+        "vbn_o_prtup_prpas_predcomp",
+        "vbn_prtup"
     ],
     "shower": [
         "countable_household_items",
@@ -109228,8 +109390,8 @@
         "vbg_io_that_declarative_cl",
         "vbg_io_vbg_cl",
         "vbg_o",
-        "vbg_prtup",
-        "vbg_prtup_o"
+        "vbg_o_prtup_prpas_predcomp",
+        "vbg_prtup"
     ],
     "shows": [
         "vbf_sg",
@@ -109243,8 +109405,8 @@
         "vbf_sg_io_that_declarative_cl",
         "vbf_sg_io_vbg_cl",
         "vbf_sg_o",
+        "vbf_sg_o_prtup_prpas_predcomp",
         "vbf_sg_prtup",
-        "vbf_sg_prtup_o",
         "vbz",
         "vbz_exclamative_cl",
         "vbz_interrogative_cl",
@@ -109256,8 +109418,8 @@
         "vbz_io_that_declarative_cl",
         "vbz_io_vbg_cl",
         "vbz_o",
-        "vbz_prtup",
-        "vbz_prtup_o"
+        "vbz_o_prtup_prpas_predcomp",
+        "vbz_prtup"
     ],
     "showtime": [
         "bare_time_nouns",
@@ -117991,6 +118153,16 @@
         "vbn_quot_cl",
         "vbn_that_declarative_cl"
     ],
+    "statement": [
+        "countable_noun",
+        "noun_sg",
+        "speech"
+    ],
+    "statements": [
+        "countable_noun",
+        "noun_pl",
+        "speech"
+    ],
     "states": [
         "countable_noun",
         "location",
@@ -121101,6 +121273,16 @@
         "vbg_o",
         "vbg_quot_cl",
         "vbg_that_declarative_cl"
+    ],
+    "suggestion": [
+        "countable_noun",
+        "noun_sg",
+        "speech"
+    ],
+    "suggestions": [
+        "countable_noun",
+        "noun_pl",
+        "speech"
     ],
     "suggests": [
         "vbf_sg_bare_declarative_cl",
@@ -125611,6 +125793,16 @@
     "then": [
         "adv",
         "adv_vp"
+    ],
+    "theocracies": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_pl"
+    ],
+    "theocracy": [
+        "abstract_concepts_countable",
+        "countable_noun",
+        "noun_sg"
     ],
     "theorize": [
         "inf",
@@ -130259,7 +130451,6 @@
         "inf_o",
         "inf_o_predcomp",
         "inf_predcomp",
-        "inf_prpout_to_inf_cl",
         "inf_prpup_predcomp",
         "inf_prtaway_o",
         "inf_prtback_o",
@@ -130270,6 +130461,7 @@
         "inf_prton",
         "inf_prton_o",
         "inf_prtout_o",
+        "inf_prtout_to_inf_cl",
         "inf_prtup_o",
         "inf_vbg_cl",
         "noun_sg",
@@ -130279,7 +130471,6 @@
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
         "vbf_pl_predcomp",
-        "vbf_pl_prpout_to_inf_cl",
         "vbf_pl_prpup_predcomp",
         "vbf_pl_prtaway_o",
         "vbf_pl_prtback_o",
@@ -130290,6 +130481,7 @@
         "vbf_pl_prton",
         "vbf_pl_prton_o",
         "vbf_pl_prtout_o",
+        "vbf_pl_prtout_to_inf_cl",
         "vbf_pl_prtup_o",
         "vbf_pl_vbg_cl",
         "vbp",
@@ -130297,7 +130489,6 @@
         "vbp_o",
         "vbp_o_predcomp",
         "vbp_predcomp",
-        "vbp_prpout_to_inf_cl",
         "vbp_prpup_predcomp",
         "vbp_prtaway_o",
         "vbp_prtback_o",
@@ -130308,6 +130499,7 @@
         "vbp_prton",
         "vbp_prton_o",
         "vbp_prtout_o",
+        "vbp_prtout_to_inf_cl",
         "vbp_prtup_o",
         "vbp_vbg_cl"
     ],
@@ -130317,7 +130509,6 @@
         "vbd_o",
         "vbd_o_predcomp",
         "vbd_predcomp",
-        "vbd_prpout_to_inf_cl",
         "vbd_prpup_predcomp",
         "vbd_prtaway_o",
         "vbd_prtback_o",
@@ -130328,6 +130519,7 @@
         "vbd_prton",
         "vbd_prton_o",
         "vbd_prtout_o",
+        "vbd_prtout_to_inf_cl",
         "vbd_prtup_o",
         "vbd_vbg_cl",
         "vbf_pl",
@@ -130335,7 +130527,6 @@
         "vbf_pl_o",
         "vbf_pl_o_predcomp",
         "vbf_pl_predcomp",
-        "vbf_pl_prpout_to_inf_cl",
         "vbf_pl_prpup_predcomp",
         "vbf_pl_prtaway_o",
         "vbf_pl_prtback_o",
@@ -130346,6 +130537,7 @@
         "vbf_pl_prton",
         "vbf_pl_prton_o",
         "vbf_pl_prtout_o",
+        "vbf_pl_prtout_to_inf_cl",
         "vbf_pl_prtup_o",
         "vbf_pl_vbg_cl",
         "vbf_sg",
@@ -130353,7 +130545,6 @@
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
         "vbf_sg_predcomp",
-        "vbf_sg_prpout_to_inf_cl",
         "vbf_sg_prpup_predcomp",
         "vbf_sg_prtaway_o",
         "vbf_sg_prtback_o",
@@ -130364,6 +130555,7 @@
         "vbf_sg_prton",
         "vbf_sg_prton_o",
         "vbf_sg_prtout_o",
+        "vbf_sg_prtout_to_inf_cl",
         "vbf_sg_prtup_o",
         "vbf_sg_vbg_cl",
         "vbn",
@@ -130371,7 +130563,6 @@
         "vbn_o",
         "vbn_o_predcomp",
         "vbn_predcomp",
-        "vbn_prpout_to_inf_cl",
         "vbn_prpup_predcomp",
         "vbn_prtaway_o",
         "vbn_prtback_o",
@@ -130382,6 +130573,7 @@
         "vbn_prton",
         "vbn_prton_o",
         "vbn_prtout_o",
+        "vbn_prtout_to_inf_cl",
         "vbn_prtup_o",
         "vbn_vbg_cl"
     ],
@@ -130391,7 +130583,6 @@
         "vbg_o",
         "vbg_o_predcomp",
         "vbg_predcomp",
-        "vbg_prpout_to_inf_cl",
         "vbg_prpup_predcomp",
         "vbg_prtaway_o",
         "vbg_prtback_o",
@@ -130402,6 +130593,7 @@
         "vbg_prton",
         "vbg_prton_o",
         "vbg_prtout_o",
+        "vbg_prtout_to_inf_cl",
         "vbg_prtup_o",
         "vbg_vbg_cl"
     ],
@@ -130414,7 +130606,6 @@
         "vbf_sg_o",
         "vbf_sg_o_predcomp",
         "vbf_sg_predcomp",
-        "vbf_sg_prpout_to_inf_cl",
         "vbf_sg_prpup_predcomp",
         "vbf_sg_prtaway_o",
         "vbf_sg_prtback_o",
@@ -130425,6 +130616,7 @@
         "vbf_sg_prton",
         "vbf_sg_prton_o",
         "vbf_sg_prtout_o",
+        "vbf_sg_prtout_to_inf_cl",
         "vbf_sg_prtup_o",
         "vbf_sg_vbg_cl",
         "vbz",
@@ -130432,7 +130624,6 @@
         "vbz_o",
         "vbz_o_predcomp",
         "vbz_predcomp",
-        "vbz_prpout_to_inf_cl",
         "vbz_prpup_predcomp",
         "vbz_prtaway_o",
         "vbz_prtback_o",
@@ -130443,6 +130634,7 @@
         "vbz_prton",
         "vbz_prton_o",
         "vbz_prtout_o",
+        "vbz_prtout_to_inf_cl",
         "vbz_prtup_o",
         "vbz_vbg_cl"
     ],
@@ -132943,6 +133135,16 @@
         "vbp_interrogative_cl",
         "vbp_o",
         "vbp_quot_cl"
+    ],
+    "utterance": [
+        "countable_noun",
+        "noun_sg",
+        "speech"
+    ],
+    "utterances": [
+        "countable_noun",
+        "noun_pl",
+        "speech"
     ],
     "uttered": [
         "vbd_bare_declarative_cl",
@@ -138592,41 +138794,43 @@
     "word": [
         "countable_noun",
         "grammatical_objects",
-        "noun_sg"
+        "noun_sg",
+        "speech"
     ],
     "words": [
         "countable_noun",
         "grammatical_objects",
-        "noun_pl"
+        "noun_pl",
+        "speech"
     ],
     "work": [
         "abstract_concepts_uncountable",
         "inf",
         "inf_intnp_to_inf_cl",
         "inf_o",
-        "inf_prpout_to_inf_cl",
         "inf_prtout_exclamative_cl",
         "inf_prtout_interrogative_cl",
         "inf_prtout_o",
         "inf_prtout_that_declarative_cl",
+        "inf_prtout_to_inf_cl",
         "noun_sg",
         "uncountable_noun",
         "vbf_pl",
         "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbf_pl_prpout_to_inf_cl",
         "vbf_pl_prtout_exclamative_cl",
         "vbf_pl_prtout_interrogative_cl",
         "vbf_pl_prtout_o",
         "vbf_pl_prtout_that_declarative_cl",
+        "vbf_pl_prtout_to_inf_cl",
         "vbp",
         "vbp_intnp_to_inf_cl",
         "vbp_o",
-        "vbp_prpout_to_inf_cl",
         "vbp_prtout_exclamative_cl",
         "vbp_prtout_interrogative_cl",
         "vbp_prtout_o",
-        "vbp_prtout_that_declarative_cl"
+        "vbp_prtout_that_declarative_cl",
+        "vbp_prtout_to_inf_cl"
     ],
     "workbench": [
         "countable_noun",
@@ -138642,35 +138846,35 @@
         "vbd",
         "vbd_intnp_to_inf_cl",
         "vbd_o",
-        "vbd_prpout_to_inf_cl",
         "vbd_prtout_exclamative_cl",
         "vbd_prtout_interrogative_cl",
         "vbd_prtout_o",
         "vbd_prtout_that_declarative_cl",
+        "vbd_prtout_to_inf_cl",
         "vbf_pl",
         "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_o",
-        "vbf_pl_prpout_to_inf_cl",
         "vbf_pl_prtout_exclamative_cl",
         "vbf_pl_prtout_interrogative_cl",
         "vbf_pl_prtout_o",
         "vbf_pl_prtout_that_declarative_cl",
+        "vbf_pl_prtout_to_inf_cl",
         "vbf_sg",
         "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbf_sg_prpout_to_inf_cl",
         "vbf_sg_prtout_exclamative_cl",
         "vbf_sg_prtout_interrogative_cl",
         "vbf_sg_prtout_o",
         "vbf_sg_prtout_that_declarative_cl",
+        "vbf_sg_prtout_to_inf_cl",
         "vbn",
         "vbn_intnp_to_inf_cl",
         "vbn_o",
-        "vbn_prpout_to_inf_cl",
         "vbn_prtout_exclamative_cl",
         "vbn_prtout_interrogative_cl",
         "vbn_prtout_o",
-        "vbn_prtout_that_declarative_cl"
+        "vbn_prtout_that_declarative_cl",
+        "vbn_prtout_to_inf_cl"
     ],
     "worker": [
         "countable_noun",
@@ -138686,11 +138890,11 @@
         "vbg",
         "vbg_intnp_to_inf_cl",
         "vbg_o",
-        "vbg_prpout_to_inf_cl",
         "vbg_prtout_exclamative_cl",
         "vbg_prtout_interrogative_cl",
         "vbg_prtout_o",
-        "vbg_prtout_that_declarative_cl"
+        "vbg_prtout_that_declarative_cl",
+        "vbg_prtout_to_inf_cl"
     ],
     "workplace": [
         "at_location",
@@ -138708,19 +138912,19 @@
         "vbf_sg",
         "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_o",
-        "vbf_sg_prpout_to_inf_cl",
         "vbf_sg_prtout_exclamative_cl",
         "vbf_sg_prtout_interrogative_cl",
         "vbf_sg_prtout_o",
         "vbf_sg_prtout_that_declarative_cl",
+        "vbf_sg_prtout_to_inf_cl",
         "vbz",
         "vbz_intnp_to_inf_cl",
         "vbz_o",
-        "vbz_prpout_to_inf_cl",
         "vbz_prtout_exclamative_cl",
         "vbz_prtout_interrogative_cl",
         "vbz_prtout_o",
-        "vbz_prtout_that_declarative_cl"
+        "vbz_prtout_that_declarative_cl",
+        "vbz_prtout_to_inf_cl"
     ],
     "worm": [
         "animals",

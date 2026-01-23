@@ -42,6 +42,10 @@
         "chaos": null,
         "order": null,
         "freedom": null,
-        "responsibility": null
+        "responsibility": null,
+        "democracy": null,
+        "dictatorship": null,
+        "monarchy": null,
+        "theocracy": null
     }
 } 

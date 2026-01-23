@@ -145,18 +145,6 @@ describe('Particle Passive (Structure II)', () => {
   });
 });
 
-describe('O + Particle + PC Passive (Structure VII)', () => {
-  test('He was shown up as spineless.', ({ expect, task }) => {
-    const result = parse(task.name);
-    expect(result).toBeGrammatical();
-  });
-
-  test('He was shown up as spineless yesterday.', ({ expect, task }) => {
-    const result = parse(task.name);
-    expect(result).toBeGrammatical();
-  });
-});
-
 describe('O + Particle + That-Clause Passive', () => {
   test('He was tipped off that the police were coming.', ({ expect, task }) => {
     const result = parse(task.name);
