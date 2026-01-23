@@ -10,10 +10,11 @@ from collections import defaultdict
 # ---------------------------------------------------------------------------
 parser = argparse.ArgumentParser(description="Generate english.json lexicon")
 parser.add_argument(
-    "-o", "--output",
+    "-o",
+    "--output",
     type=Path,
     default=Path("english.json"),
-    help="Output path for the generated JSON (default: english.json)"
+    help="Output path for the generated JSON (default: english.json)",
 )
 args = parser.parse_args()
 
@@ -38,16 +39,23 @@ def noun_to_noun_pl(singular: str) -> str:
         return singular[:-1] + "ies"
     return singular + "s"
 
+
 # Adjective inflection helpers ----------------------------------------------------
+
 
 def adjective_to_adverb(adjective: str) -> str:
     if adjective.endswith("y"):
         return adjective[:-1] + "ily"
-    if adjective.endswith("le") or adjective.endswith("able") or adjective.endswith("ible"):
+    if (
+        adjective.endswith("le")
+        or adjective.endswith("able")
+        or adjective.endswith("ible")
+    ):
         return adjective[:-2] + "ly"
     if adjective.endswith("ic"):
         return adjective + "ally"
     return adjective + "ly"
+
 
 # Verb inflection helpers ----------------------------------------------------
 
@@ -58,6 +66,7 @@ def dict_to_inf(verb: str) -> str | None:  # base form
     if verb in irregular_verbs:
         return irregular_verbs[verb]["VB"]
     return verb
+
 
 def dict_to_vbd(verb: str) -> str | None:  # preterite
     if verb in irregular_verbs:
@@ -101,6 +110,7 @@ def dict_to_vbp(verb: str) -> str | None:  # 3rd-person-plural (eg "they go")
     # usually just the same as VB
     return verb
 
+
 # ---------------------------------------------------------------------------
 # Extract verb categories from local VerbNet JSON dump
 # ---------------------------------------------------------------------------
@@ -125,111 +135,255 @@ def _normalize_primary(primary):
 # ---------------------------------------------------------------------------
 
 
-def cat_from_primary(slots: list[str]) -> str | None:
-    """Return one of our verb category names given *slots* sequence, or None."""
-    if slots == ["NP", "V"]:
-        return "vb"
-    if slots == ["It", "V"]:
+def cat_from_primary(
+    slots: list[str], particle: str | None = None, preposition: str | None = None
+) -> str | None:
+    """Return one of our verb category names given *slots* sequence, particle, and preposition or None."""
+    if slots == ["NP", "V"] or slots == ["It", "V"]:
+        # preposition must have a complement of some sort
+        if preposition is not None:
+            return None
+
+        # CGEL 6.3.2 Structure I
+        if particle is not None:
+            return f"vb_prt{particle}"
+
         return "vb"
     if slots == ["NP", "V", "ADJ"]:
+        if particle is not None and preposition is not None:
+            # CGEL 6.3.2 Structure VI (with as)
+            return f"vb_prt{particle}_prp{preposition}_predcomp"
+        elif particle is not None:
+            # CGEL 6.3.2 Structure VI (without as)
+            return f"vb_prt{particle}_predcomp"
+        elif preposition is not None:
+            # CGEL 6.1.2 Structure IV
+            return f"vb_prp{preposition}_predcomp"
+
         return "vb_predcomp"
     if slots == ["NP", "V", "S_INF"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_to_inf_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_to_inf_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_to_inf_cl"
+
         return "vb_to_inf_cl"
     if slots == ["NP", "V", "S_BARE_INF"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_bare_inf_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_bare_inf_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_bare_inf_cl"
+
         return "vb_bare_inf_cl"
     if slots == ["NP", "V", "S_ING"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_vbg_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_vbg_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_vbg_cl"
+
         return "vb_vbg_cl"
     if slots == ["NP", "V", "VP_VBN"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_vbn_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_vbn_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_vbn_cl"
         return "vb_vbn_cl"
     if slots == ["NP", "V", "PASSIVE_CL"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_passive_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_passive_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_passive_cl"
         return "vb_passive_cl"
     if slots == ["NP", "V", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_bare_declarative_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_bare_declarative_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_bare_declarative_cl"
         return "vb_bare_declarative_cl"
     if slots == ["NP", "V", "that", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_that_declarative_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_that_declarative_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_that_declarative_cl"
         return "vb_that_declarative_cl"
     if slots == ["NP", "V", "what", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_interrogative_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_interrogative_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_interrogative_cl"
         return "vb_interrogative_cl"
     if slots == ["NP", "V", "how", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_exclamative_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_exclamative_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_exclamative_cl"
         return "vb_exclamative_cl"
     if slots == ["NP", "V", "S-Quote"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_prt{particle}_prp{preposition}_quot_cl"
+        elif particle is not None:
+            return f"vb_prt{particle}_quot_cl"
+        elif preposition is not None:
+            return f"vb_prp{preposition}_quot_cl"
         return "vb_quot_cl"
-    if slots == ["NP", "V", "NP"]:
+    if slots == ["NP", "V", "NP"] or slots == ["It", "V", "NP"]:
+        if particle is not None and preposition is not None:
+            # CGEL 6.3.2 Structure V
+            return f"vb_prt{particle}_prp{preposition}_o"
+        elif particle is not None:
+            # CGEL 6.3.2 Structure II
+            return f"vb_prt{particle}_o"
+        elif preposition is not None:
+            # CGEL 6.1.2 Structure I
+            return f"vb_prp{preposition}_o"
+
         return "vb_o"
-    if slots == ["It", "V", "NP"]:
-        return "vb_it_np"
-    if slots == ["NP", "V", "NP", "NP"]:
-        return "vb_io_do"
     if slots == ["NP", "V", "NP", "ADJ"]:
+        if particle is not None and preposition is not None:
+            # CGEL 6.3.2 Structure VII
+            return f"vb_o_prt{particle}_prp{preposition}_predcomp"
+        elif particle is not None:
+            # Not attested in general, but we allow it for completeness
+            return f"vb_o_prt{particle}_predcomp"
+        elif preposition is not None:
+            # CGEL 6.1.2 Structure V
+            return f"vb_o_prp{preposition}_predcomp"
         return "vb_o_predcomp"
     if slots == ["NP", "V", "NP", "S_INF"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_intnp_prt{particle}_prp{preposition}_to_inf_cl"
+        elif particle is not None:
+            return f"vb_intnp_prt{particle}_to_inf_cl"
+        elif preposition is not None:
+            return f"vb_intnp_prp{preposition}_to_inf_cl"
         return "vb_intnp_to_inf_cl"
     if slots == ["NP", "V", "NP", "S_BARE_INF"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_intnp_prt{particle}_prp{preposition}_bare_inf_cl"
+        elif particle is not None:
+            return f"vb_intnp_prt{particle}_bare_inf_cl"
+        elif preposition is not None:
+            return f"vb_intnp_prp{preposition}_bare_inf_cl"
         return "vb_intnp_bare_inf_cl"
     if slots == ["NP", "V", "NP", "S_ING"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_io_prt{particle}_prp{preposition}_vbg_cl"
+        elif particle is not None:
+            return f"vb_io_prt{particle}_vbg_cl"
+        elif preposition is not None:
+            return f"vb_io_prp{preposition}_vbg_cl"
         return "vb_io_vbg_cl"
     if slots == ["NP", "V", "NP", "VP_VBN"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_io_prt{particle}_prp{preposition}_vbn_cl"
+        elif particle is not None:
+            return f"vb_io_prt{particle}_vbn_cl"
+        elif preposition is not None:
+            return f"vb_io_prp{preposition}_vbn_cl"
         return "vb_io_vbn_cl"
     if slots == ["NP", "V", "NP", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_io_prt{particle}_prp{preposition}_bare_declarative_cl"
+        elif particle is not None:
+            return f"vb_io_prt{particle}_bare_declarative_cl"
+        elif preposition is not None:
+            return f"vb_io_prp{preposition}_bare_declarative_cl"
         return "vb_io_bare_declarative_cl"
     if slots == ["NP", "V", "NP", "that", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_io_prt{particle}_prp{preposition}_that_declarative_cl"
+        elif particle is not None:
+            return f"vb_io_prt{particle}_that_declarative_cl"
+        elif preposition is not None:
+            return f"vb_io_prp{preposition}_that_declarative_cl"
         return "vb_io_that_declarative_cl"
     if slots == ["NP", "V", "NP", "what", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_io_prt{particle}_prp{preposition}_interrogative_cl"
+        elif particle is not None:
+            return f"vb_io_prt{particle}_interrogative_cl"
+        elif preposition is not None:
+            return f"vb_io_prp{preposition}_interrogative_cl"
         return "vb_io_interrogative_cl"
     if slots == ["NP", "V", "NP", "how", "S"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_io_prt{particle}_prp{preposition}_exclamative_cl"
+        elif particle is not None:
+            return f"vb_io_prt{particle}_exclamative_cl"
+        elif preposition is not None:
+            return f"vb_io_prp{preposition}_exclamative_cl"
         return "vb_io_exclamative_cl"
     if slots == ["NP", "V", "NP", "S-Quote"]:
+        # not attested in CGEL, but we allow it for completeness
+        if particle is not None and preposition is not None:
+            return f"vb_io_prt{particle}_prp{preposition}_quot_cl"
+        elif particle is not None:
+            return f"vb_io_prt{particle}_quot_cl"
+        elif preposition is not None:
+            return f"vb_io_prp{preposition}_quot_cl"
         return "vb_io_quot_cl"
+    if slots == ["NP", "V", "NP", "NP"]:
+        if particle is not None and preposition is not None:
+            # CGEL 6.3.2 Structure V
+            return f"vb_o_prt{particle}_prp{preposition}_o"
+        elif particle is not None:
+            # CGEL 6.3.2 Structure III
+            return f"vb_o_prt{particle}_o"
+        elif preposition is not None:
+            # CGEL 6.1.2 Structure II
+            return f"vb_o_prp{preposition}_o"
+        return "vb_io_do"
     return None
 
-def add_particle_to_category(cat: str, particle: str) -> str | None:
-    """Transform a regular verb category to its particle version.
-    
-    For intransitive/simple patterns, particle comes right after 'vb' (vb_prt_...).
-    For transitive patterns with complements, particle comes after '_o' (vb_o_prt_...).
-    Returns None if there's no particle equivalent for this category.
-    """
-    mappings = {
-        # Intransitive / simple patterns: vb -> vb_prt
-        "vb": f"vb_prt{particle}",
-        "vb_predcomp": f"vb_prt{particle}_predcomp",
-        "vb_to_inf_cl": f"vb_prt{particle}_to_inf_cl",
-        "vb_bare_inf_cl": f"vb_prt{particle}_bare_inf_cl",
-        "vb_vbg_cl": f"vb_prt{particle}_vbg_cl",
-        "vb_vbn_cl": f"vb_prt{particle}_vbn_cl",
-        "vb_passive_cl": f"vb_prt{particle}_passive_cl",
-        "vb_that_declarative_cl": f"vb_prt{particle}_that_declarative_cl",
-        "vb_bare_declarative_cl": f"vb_prt{particle}_bare_declarative_cl",
-        "vb_exclamative_cl": f"vb_prt{particle}_exclamative_cl",
-        "vb_interrogative_cl": f"vb_prt{particle}_interrogative_cl",
-        # Transitive pattern: vb_o -> vb_prt_o
-        "vb_o": f"vb_prt{particle}_o",
-        # Transitive with complements: particle after object
-        "vb_io_do": f"vb_o_prt{particle}_o",
-        "vb_o_predcomp": f"vb_o_prt{particle}_predcomp",
-        "vb_io_that_declarative_cl": f"vb_o_prt{particle}_that_declarative_cl",
-        "vb_io_bare_declarative_cl": f"vb_o_prt{particle}_bare_declarative_cl",
-        "vb_io_interrogative_cl": f"vb_o_prt{particle}_interrogative_cl",
-        "vb_intnp_to_inf_cl": f"vb_prt{particle}_intnp_to_inf_cl",
-        "vb_intnp_bare_inf_cl": f"vb_prt{particle}_intnp_bare_inf_cl",
-    }
-    return mappings.get(cat)
 
-
-def extract_particle_and_verb_categories() -> tuple[dict[str, None], dict[str, dict[str, None]]]:
+def extract_verb_categories() -> dict[str, dict[str, None]]:
     """Parse all VerbNet JSON files under each directory in *VERBNET_DIRS* and
     build verb sets per coarse syntactic category compatible with our grammar.
-    
+
     Phrasal verbs (containing double underscores like "sign__up") are split into:
-    - main verb: "sign" 
+    - main verb: "sign"
     - particle: "up"
     The particle is collected separately, and the verb category is transformed
     to its particle variant (e.g., vb_to_inf_cl -> vb_prt_to_inf_cl).
     """
     # Use defaultdict so categories appear lazily when first encountered
     categories: dict[str, set[str]] = defaultdict(set)
-
-    # particles (just plain dictionary)
-    particles: dict[str, None] = {}
 
     for verb_dir in VERBNET_DIRS:
         if not verb_dir.exists():
@@ -241,34 +395,34 @@ def extract_particle_and_verb_categories() -> tuple[dict[str, None], dict[str, d
             members = [m.lower() for m in data.get("members", [])]
             for frame in data.get("frames", []):
                 slots = _normalize_primary(frame["primary"])
-                cat = cat_from_primary(slots)
-                if cat is None:
-                    continue
 
                 for verb in members:
-                    if "__" in verb:
-                        # Phrasal verb: split into main verb and particle
-                        parts = verb.split("__", 1)  # Split only on first double underscore
-                        main_verb = parts[0]
-                        particle = parts[1]
-                        
-                        # Add particle to particles dict
-                        particles[particle] = None
-                        
-                        # Transform category to particle version
-                        prt_cat = add_particle_to_category(cat, particle)
-                        if prt_cat is not None:
-                            categories[prt_cat].add(main_verb)
-                        # If no particle category mapping exists, skip this verb/frame combo
-                    else:
-                        # Regular verb: add to category as-is
-                        categories[cat].add(verb)
+                    main_verb = None
+                    particle = None
+                    preposition = None
+
+                    # split by double underscore and then by single underscore
+                    # Ex: "let__in_on" -> [["let"], ["in", "on"]]
+                    match [x.split("_") for x in verb.split("__")]:
+                        case [[main_verb], [particle, preposition]]:
+                            pass
+                        case [[main_verb], [particle]]:
+                            pass
+                        case [[main_verb, preposition]]:
+                            pass
+                        case [[main_verb]]:
+                            pass
+
+                    if main_verb is not None:
+                        cat = cat_from_primary(slots, particle, preposition)
+                        if cat is not None:
+                            categories[cat].add(main_verb)
 
     # Convert to regular dict[cat] -> {verb: None, ...}
     # Any category that never received members simply won't appear.
     verbs = {cat: {v: None for v in sorted(vset)} for cat, vset in categories.items()}
 
-    return particles, verbs
+    return verbs
 
 
 # ---------------------------------------------------------------------------
@@ -346,8 +500,9 @@ def resolve_nouns(raw: dict[str, dict]) -> dict[str, set[str]]:
 # ---------------------------------------------------------------------------
 
 indeclinable = json.loads(Path("indeclinable.json").read_text())
+
 # Derive verb categories from VerbNet
-particles, verbs = extract_particle_and_verb_categories()
+verbs = extract_verb_categories()
 
 english_json: dict[str, dict[str, None]] = {}
 
@@ -355,8 +510,6 @@ english_json: dict[str, dict[str, None]] = {}
 for kind in indeclinable:
     english_json[kind] = deepcopy(indeclinable[kind])
 
-# 1b. Particles extracted from phrasal verbs
-english_json["particle"] = {p: None for p in sorted(particles.keys())}
 
 # ---------------------------------------------------------------------------
 # 1c. Adjective classes (from adjectives/ folder)
@@ -430,8 +583,14 @@ for kind in verbs:
         dict_to_vbp(v): None for v in verbs[kind] if dict_to_vbp(v) is not None
     }
     # combine finite forms for convenience
-    english_json[kind.replace("vb", "vbf_sg", 1)] = english_json[kind.replace("vb", "vbd", 1)] | english_json[kind.replace("vb", "vbz", 1)]
-    english_json[kind.replace("vb", "vbf_pl", 1)] = english_json[kind.replace("vb", "vbd", 1)] | english_json[kind.replace("vb", "vbp", 1)]
+    english_json[kind.replace("vb", "vbf_sg", 1)] = (
+        english_json[kind.replace("vb", "vbd", 1)]
+        | english_json[kind.replace("vb", "vbz", 1)]
+    )
+    english_json[kind.replace("vb", "vbf_pl", 1)] = (
+        english_json[kind.replace("vb", "vbd", 1)]
+        | english_json[kind.replace("vb", "vbp", 1)]
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -481,7 +640,9 @@ for kind, words in english_json.items():
         transposed.setdefault(word.lower(), set()).add(kind)
 
 # Convert each set to a sorted list and sort words alphabetically for consistent JSON output
-transposed = {word: sorted(list(classes)) for word, classes in sorted(transposed.items())}
+transposed = {
+    word: sorted(list(classes)) for word, classes in sorted(transposed.items())
+}
 
 # Write output
 args.output.write_text(json.dumps(transposed, indent=4))
