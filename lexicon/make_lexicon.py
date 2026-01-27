@@ -257,13 +257,13 @@ def cat_from_primary(
     if slots == ["NP", "V", "NP"] or slots == ["It", "V", "NP"]:
         if particle is not None and preposition is not None:
             # CGEL 6.3.2 Structure V
-            return f"vb_prt{particle}_prp{preposition}_o"
+            return f"vb_prt{particle}_prp{preposition}_np"
         elif particle is not None:
             # CGEL 6.3.2 Structure II
             return f"vb_prt{particle}_o"
         elif preposition is not None:
             # CGEL 6.1.2 Structure I
-            return f"vb_prp{preposition}_o"
+            return f"vb_prp{preposition}_np"
 
         return "vb_o"
     if slots == ["NP", "V", "NP", "ADJ"]:
@@ -361,13 +361,13 @@ def cat_from_primary(
     if slots == ["NP", "V", "NP", "NP"]:
         if particle is not None and preposition is not None:
             # CGEL 6.3.2 Structure V
-            return f"vb_io_prt{particle}_prp{preposition}_o"
+            return f"vb_o_prt{particle}_prp{preposition}_np"
         elif particle is not None:
             # CGEL 6.3.2 Structure III
             return f"vb_io_prt{particle}_o"
         elif preposition is not None:
             # CGEL 6.1.2 Structure II
-            return f"vb_io_prp{preposition}_o"
+            return f"vb_o_prp{preposition}_np"
         return "vb_io_do"
     return None
 

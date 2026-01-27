@@ -6,19 +6,26 @@ import re
 with open("english.json", "r") as f:
     english = json.load(f)
     classes_set = set(x for classes in english.values() for x in classes)    
-    # Extract unique (particle, preposition) pairs from each class
+    # Extract unique (particle, (preposition, constituent)) pairs from each class
     # Either may be None if not present in the class
-    particle_preposition_pairs = sorted(set(
+    # pp is captured as a tuple (preposition, constituent) e.g. ("for", "np"), ("as", "predcomp")
+    # constituent can have underscores (e.g. "to_inf_cl"), so we capture till end of string
+    particle_pp_pairs = sorted(set(
         (
             prt_match.group(1) if (prt_match := re.search(r'_prt([a-z]+)', cls)) else None,
-            prp_match.group(1) if (prp_match := re.search(r'_prp([a-z]+)', cls)) else None
+            (prp_match.group(1), prp_match.group(2)) if (prp_match := re.search(r'_prp([a-z]+)_(.+)$', cls)) else None
         )
         for cls in classes_set
         if re.search(r'_prt[a-z]|_prp[a-z]', cls)  # only include classes with at least one
-    ), key=lambda x: (x[0] or '', x[1] or ''))
+    ), key=lambda x: (x[0] or '', x[1] or ('', '')))
 
-    particles = sorted(set(x[0] for x in particle_preposition_pairs if x[0] is not None))
-    prepositions = sorted(set(x[1] for x in particle_preposition_pairs if x[1] is not None))
+
+    # extract particles
+    particles = sorted(set(x[0] for x in particle_pp_pairs if x[0] is not None))
+    # extract unique (preposition, constituent) tuples, e.g. ("for", "np"), ("as", "predcomp")
+    pps = sorted(set(x[1] for x in particle_pp_pairs if x[1] is not None))
+    # extract just the prepositions
+    prepositions = sorted(set(pp[0] for pp in pps))
 
 
 output = ""
@@ -153,22 +160,19 @@ const {vp_type}_io_prt{particle}_bare_declarative_cl = isPoS("{vp_type}_io_prt{p
 const {vp_type}_io_prt{particle}_o = isPoS("{vp_type}_io_prt{particle}_o");
 """
 
-    for preposition in prepositions:
+    for preposition, constituent in pps:
         output += f"""
-const {vp_type}_prp{preposition}_predcomp = isPoS("{vp_type}_prp{preposition}_predcomp");
-const {vp_type}_prp{preposition}_o = isPoS("{vp_type}_prp{preposition}_o");
-const {vp_type}_o_prp{preposition}_predcomp = isPoS("{vp_type}_o_prp{preposition}_predcomp");
-const {vp_type}_io_prp{preposition}_o = isPoS("{vp_type}_io_prp{preposition}_o");
+const {vp_type}_prp{preposition}_{constituent} = isPoS("{vp_type}_prp{preposition}_{constituent}");
+const {vp_type}_o_prp{preposition}_{constituent} = isPoS("{vp_type}_o_prp{preposition}_{constituent}");
 """
 
-    for particle, preposition in particle_preposition_pairs:
-        if particle is None or preposition is None:
+    for particle, pp in particle_pp_pairs:
+        if particle is None or pp is None:
             continue
+        preposition, constituent = pp
         output += f"""
-const {vp_type}_prt{particle}_prp{preposition}_predcomp = isPoS("{vp_type}_prt{particle}_prp{preposition}_predcomp");
-const {vp_type}_prt{particle}_prp{preposition}_o = isPoS("{vp_type}_prt{particle}_prp{preposition}_o");
-const {vp_type}_o_prt{particle}_prp{preposition}_predcomp = isPoS("{vp_type}_o_prt{particle}_prp{preposition}_predcomp");
-const {vp_type}_io_prt{particle}_prp{preposition}_o = isPoS("{vp_type}_io_prt{particle}_prp{preposition}_o");
+const {vp_type}_prt{particle}_prp{preposition}_{constituent} = isPoS("{vp_type}_prt{particle}_prp{preposition}_{constituent}");
+const {vp_type}_o_prt{particle}_prp{preposition}_{constituent} = isPoS("{vp_type}_o_prt{particle}_prp{preposition}_{constituent}");
 """
 
 # for the finite verbs, we also use them as auxiliaries
@@ -1157,205 +1161,285 @@ def adjunct_list_grammar(mv_type):
     # CGEL 6.1.2: Prepositional verb constructions
     # ##################
 
-    for preposition in prepositions:
-        # CGEL 6.1.2 Structure IV: verb – [prep + PC], as in "count as too short"
-        out += serialize_rules(
-            f"adjunct_list_prp{preposition}_predcomp{mv_suf}",
-            [
-                # Ex: It counts as too short
-                # Ex mv_np: I know what it counts as [gap] (preposition stranding - marginal)
-                # Ex mv_adjp: I know how short it counts as [gap]
-                f"prp{preposition} predcomp adjunct_list{mv_suf}",
-                f"prp{preposition} predcomp{mv_suf} adjunct_list",
-            ],
-        )
+    for preposition, constituent in pps:
+        if constituent == "np":
+            # CGEL 6.1.2 Structure I: verb – [prep + O] (e.g., "refer to the book")
+            out += serialize_rules(
+                f"adjunct_list_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: I referred to the book yesterday
+                    # Ex mv_np: I know what I referred to [gap] yesterday
+                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
 
-        # CGEL 6.1.2 Structure I: verb – [prep + O], as in "refer to the book"
-        out += serialize_rules(
-            f"adjunct_list_prp{preposition}_o{mv_suf}",
-            [
-                # Ex: I referred to the book yesterday
-                # Ex mv_np: I know what I referred to [gap] yesterday
-                f"prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            # CGEL 6.1.2 Structure II: verb – O – [prep + O] (e.g., "intend it for Kim")
+            out += serialize_rules(
+                f"adjunct_list_o_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: I intended it for Kim yesterday
+                    # Ex mv_np: I know what I intended [gap] for Kim
+                    # Ex mv_np: I know who I intended it for [gap]
+                    f"np pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"np{mv_suf} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+        elif constituent == "predcomp":
+            # CGEL 6.1.2 Structure IV: verb – [prep + PC] (e.g., "count as too short")
+            out += serialize_rules(
+                f"adjunct_list_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: It counts as too short
+                    # Ex mv_adjp: I know how short it counts as [gap]
+                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
 
-        # CGEL 6.1.2 Structure V: verb – O – [prep + PC], as in "regard it as successful"
-        out += serialize_rules(
-            f"adjunct_list_o_prp{preposition}_predcomp{mv_suf}",
-            [
-                # Ex: They regard it as successful
-                # Ex mv_np: I know what they regard [gap] as successful
-                # Ex mv_adjp: I know how successful they regard it as [gap]
-                f"np prp{preposition} predcomp adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"np prp{preposition} predcomp{mv_suf} adjunct_list",
-                f"np{mv_suf} prp{preposition} predcomp adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            # CGEL 6.1.2 Structure V: verb – O – [prep + PC] (e.g., "regard it as successful")
+            out += serialize_rules(
+                f"adjunct_list_o_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: They regard it as successful
+                    # Ex mv_np: I know what they regard [gap] as successful
+                    # Ex mv_adjp: I know how successful they regard it as [gap]
+                    f"np pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+        else:
+            # Generic case for other constituents
+            out += serialize_rules(
+                f"adjunct_list_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
 
-        # CGEL 6.1.2 Structure II: verb – O – [prep + O], as in "intend it for Kim"
-        out += serialize_rules(
-            f"adjunct_list_io_prp{preposition}_o{mv_suf}",
-            [
-                # Ex: I intended it for Kim yesterday
-                # Ex mv_np: I know what I intended [gap] for Kim
-                # Ex mv_np: I know who I intended it for [gap]
-                f"np prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"np prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-                f"np{mv_suf} prp{preposition} np adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            out += serialize_rules(
+                f"adjunct_list_o_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"np pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"np pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} pp{preposition}_{constituent} adjunct_list",
+                ],
+            )
 
     # ##################
     # CGEL 6.3.2: Particle + preposition constructions
     # ##################
 
-    for particle, preposition in particle_preposition_pairs:
-        if particle is None or preposition is None:
+    for particle, pp in particle_pp_pairs:
+        if particle is None or pp is None:
             continue
+        preposition, constituent = pp
 
-        # CGEL 6.3.2 Structure VI (with as): verb – particle – [prep + PC], as in "end up as captain"
-        out += serialize_rules(
-            f"adjunct_list_prt{particle}_prp{preposition}_predcomp{mv_suf}",
-            [
-                # Ex: She ended up as captain
-                # Ex mv_np: I know what she ended up as [gap] (marginal)
-                # Ex mv_adjp: I know how successful she ended up as [gap]
-                f"prt{particle} prp{preposition} predcomp adjunct_list{mv_suf}",
-                f"prt{particle} prp{preposition} predcomp{mv_suf} adjunct_list",
-            ],
-        )
+        if constituent == "np":
+            # CGEL 6.3.2 Structure IV: verb – particle – [prep + O] (e.g., "look forward to your visit")
+            out += serialize_rules(
+                f"adjunct_list_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: We look forward to your visit eagerly
+                    # Ex mv_np: I know what we look forward to [gap]
+                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
 
-        # CGEL 6.3.2 Structure IV: verb – particle – [prep + O], as in "look forward to your visit"
-        out += serialize_rules(
-            f"adjunct_list_prt{particle}_prp{preposition}_o{mv_suf}",
-            [
-                # Ex: We look forward to your visit eagerly
-                # Ex mv_np: I know what we look forward to [gap]
-                f"prt{particle} prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"prt{particle} prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            # CGEL 6.3.2 Structure V: verb – O – particle – [prep + O] (e.g., "let her in on a secret")
+            out += serialize_rules(
+                f"adjunct_list_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: I let her in on a little secret yesterday
+                    # Ex mv_np: I know who I let [gap] in on the secret
+                    # Ex mv_np: I know what I let her in on [gap]
+                    f"np prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"np{mv_suf} prt{particle} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+        elif constituent == "predcomp":
+            # CGEL 6.3.2 Structure VI: verb – particle – [prep + PC] (e.g., "end up as captain")
+            out += serialize_rules(
+                f"adjunct_list_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: She ended up as captain
+                    # Ex mv_adjp: I know how successful she ended up as [gap]
+                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
 
-        # CGEL 6.3.2 Structure VII: verb – O – particle – [prep + PC], as in "show him up as spineless"
-        out += serialize_rules(
-            f"adjunct_list_o_prt{particle}_prp{preposition}_predcomp{mv_suf}",
-            [
-                # Ex: This showed him up as spineless
-                # Ex mv_np: I know who this showed [gap] up as spineless
-                # Ex mv_adjp: I know how spineless this showed him up as [gap]
-                f"np prt{particle} prp{preposition} predcomp adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"np prt{particle} prp{preposition} predcomp{mv_suf} adjunct_list",
-                f"np{mv_suf} prt{particle} prp{preposition} predcomp adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            # CGEL 6.3.2 Structure VII: verb – O – particle – [prep + PC] (e.g., "show him up as spineless")
+            out += serialize_rules(
+                f"adjunct_list_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: This showed him up as spineless
+                    # Ex mv_np: I know who this showed [gap] up as spineless
+                    # Ex mv_adjp: I know how spineless this showed him up as [gap]
+                    f"np prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} prt{particle} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+        else:
+            # Generic case for other constituents
+            out += serialize_rules(
+                f"adjunct_list_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
 
-        # CGEL 6.3.2 Structure V: verb – O – particle – [prep + O], as in "let her in on a secret"
-        out += serialize_rules(
-            f"adjunct_list_io_prt{particle}_prp{preposition}_o{mv_suf}",
-            [
-                # Ex: I let her in on a little secret yesterday
-                # Ex mv_np: I know who I let [gap] in on the secret
-                # Ex mv_np: I know what I let her in on [gap]
-                f"np prt{particle} prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"np prt{particle} prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-                f"np{mv_suf} prt{particle} prp{preposition} np adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            out += serialize_rules(
+                f"adjunct_list_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"np prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"np prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} prt{particle} pp{preposition}_{constituent} adjunct_list",
+                ],
+            )
 
     # ##################
     # Passive forms for prepositional verb constructions
     # ##################
 
-    for preposition in prepositions:
-        # Passive of CGEL 6.1.2 Structure I: verb – [prep + O]
-        # Active: I referred to the book → Passive: The book was referred to
-        out += serialize_rules(
-            f"adjunct_list_passive_prp{preposition}_o{mv_suf}",
-            [
-                # The PP object is promoted to subject, preposition is stranded
-                # Ex: The book was referred to yesterday
-                # Ex mv_np: I know what day the book was referred to on [gap]
-                f"prp{preposition} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-            ],
-        )
+    for preposition, constituent in pps:
+        if constituent == "np":
+            # Passive of CGEL 6.1.2 Structure I: verb – [prep + O] (e.g., "The book was referred to")
+            # PP object promoted to subject, preposition stranded
+            out += serialize_rules(
+                f"adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: The book was referred to yesterday
+                    f"pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                ],
+            )
 
-        # Passive of CGEL 6.1.2 Structure V: verb – O – [prep + PC]
-        # Active: They regard it as successful → Passive: It was regarded as successful
-        out += serialize_rules(
-            f"adjunct_list_passive_o_prp{preposition}_predcomp{mv_suf}",
-            [
-                # The direct object is promoted to subject, [prep + PC] + adjuncts remain
-                # Ex: It was regarded as successful yesterday
-                # Ex mv_np: I know what day it was regarded as successful on [gap]
-                # Ex mv_adjp: I know how successful it was regarded as [gap]
-                f"prp{preposition} predcomp adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"prp{preposition} predcomp{mv_suf} adjunct_list",
-            ],
-        )
+            # Passive of CGEL 6.1.2 Structure II: verb – O – [prep + O] (e.g., "It was intended for Kim")
+            # Direct object promoted to subject, [prep + O] + adjuncts remain
+            out += serialize_rules(
+                f"adjunct_list_passive_o_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: It was intended for Kim yesterday
+                    # Ex mv_np: I know who it was intended for [gap]
+                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+        elif constituent == "predcomp":
+            # Passive of CGEL 6.1.2 Structure IV: verb – [prep + PC] with adjp extraction
+            # (e.g., "How short does it count as?")
+            out += serialize_rules(
+                f"adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex mv_adjp: I know how short it counts as [gap]
+                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "np" else None,
+                ],
+            )
 
-        # Passive of CGEL 6.1.2 Structure II: verb – O – [prep + O]
-        # Active: I intended it for Kim → Passive: It was intended for Kim
-        out += serialize_rules(
-            f"adjunct_list_passive_io_prp{preposition}_o{mv_suf}",
-            [
-                # The direct object is promoted to subject, [prep + O] + adjuncts remain
-                # Ex: It was intended for Kim yesterday
-                # Ex mv_np: I know what day it was intended for Kim on [gap]
-                # Ex mv_np: I know who it was intended for [gap]
-                f"prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            # Passive of CGEL 6.1.2 Structure V: verb – O – [prep + PC] (e.g., "It was regarded as successful")
+            # Direct object promoted to subject, [prep + PC] + adjuncts remain
+            out += serialize_rules(
+                f"adjunct_list_passive_o_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: It was regarded as successful yesterday
+                    # Ex mv_adjp: I know how successful it was regarded as [gap]
+                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
+        else:
+            # Generic case for other constituents
+            out += serialize_rules(
+                f"adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}",
+                ],
+            )
+
+            out += serialize_rules(
+                f"adjunct_list_passive_o_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
 
     # ##################
     # Passive forms for particle + preposition constructions
     # ##################
 
-    for particle, preposition in particle_preposition_pairs:
-        if particle is None or preposition is None:
+    for particle, pp in particle_pp_pairs:
+        if particle is None or pp is None:
             continue
+        preposition, constituent = pp
 
-        # Passive of CGEL 6.3.2 Structure IV: verb – particle – [prep + O]
-        # Active: We look forward to your visit → Passive: Your visit was looked forward to
-        out += serialize_rules(
-            f"adjunct_list_passive_prt{particle}_prp{preposition}_o{mv_suf}",
-            [
-                # The PP object is promoted to subject, particle + preposition are stranded
-                # Ex: Your visit was looked forward to eagerly
-                # Ex mv_np: I know what day your visit was looked forward to on [gap]
-                f"prt{particle} prp{preposition} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-            ],
-        )
+        if constituent == "np":
+            # Passive of CGEL 6.3.2 Structure IV: verb – particle – [prep + O] (e.g., "Your visit was looked forward to")
+            # PP object promoted to subject, particle + preposition stranded
+            out += serialize_rules(
+                f"adjunct_list_passive_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: Your visit was looked forward to eagerly
+                    f"prt{particle} pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                ],
+            )
 
-        # Passive of CGEL 6.3.2 Structure VII: verb – O – particle – [prep + PC]
-        # Active: This showed him up as spineless → Passive: He was shown up as spineless
-        out += serialize_rules(
-            f"adjunct_list_passive_o_prt{particle}_prp{preposition}_predcomp{mv_suf}",
-            [
-                # The direct object is promoted to subject, particle + [prep + PC] + adjuncts remain
-                # Ex: He was shown up as spineless yesterday
-                # Ex mv_np: I know what day he was shown up as spineless on [gap]
-                # Ex mv_adjp: I know how spineless he was shown up as [gap]
-                f"prt{particle} prp{preposition} predcomp adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"prt{particle} prp{preposition} predcomp{mv_suf} adjunct_list",
-            ],
-        )
+            # Passive of CGEL 6.3.2 Structure V: verb – O – particle – [prep + O] (e.g., "She was let in on a secret")
+            # Direct object promoted to subject, particle + [prep + O] + adjuncts remain
+            out += serialize_rules(
+                f"adjunct_list_passive_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: She was let in on a little secret yesterday
+                    # Ex mv_np: I know what she was let in on [gap]
+                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+        elif constituent == "predcomp":
+            # Passive of CGEL 6.3.2 Structure VI: verb – particle – [prep + PC] with adjp extraction
+            # (e.g., "How successful did she end up as?")
+            out += serialize_rules(
+                f"adjunct_list_passive_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex mv_adjp: I know how successful she ended up as [gap]
+                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "np" else None,
+                ],
+            )
 
-        # Passive of CGEL 6.3.2 Structure V: verb – O – particle – [prep + O]
-        # Active: I let her in on a secret → Passive: She was let in on a secret
-        out += serialize_rules(
-            f"adjunct_list_passive_io_prt{particle}_prp{preposition}_o{mv_suf}",
-            [
-                # The direct object is promoted to subject, particle + [prep + O] + adjuncts remain
-                # Ex: She was let in on a little secret yesterday
-                # Ex mv_np: I know what day she was let in on the secret on [gap]
-                # Ex mv_np: I know what she was let in on [gap]
-                f"prt{particle} prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"prt{particle} prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+            # Passive of CGEL 6.3.2 Structure VII: verb – O – particle – [prep + PC] (e.g., "He was shown up as spineless")
+            # Direct object promoted to subject, particle + [prep + PC] + adjuncts remain
+            out += serialize_rules(
+                f"adjunct_list_passive_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: He was shown up as spineless yesterday
+                    # Ex mv_adjp: I know how spineless he was shown up as [gap]
+                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
+        else:
+            # Generic case for other constituents
+            out += serialize_rules(
+                f"adjunct_list_passive_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"prt{particle} pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}",
+                ],
+            )
+
+            out += serialize_rules(
+                f"adjunct_list_passive_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
 
     return out
 
@@ -1478,22 +1562,20 @@ def vp_grammar(vp_type: str, mv_type: str | None = None):
     | advp_vp? {vp_type}_io_prt{particle}_o                adjunct_list_io_prt{particle}_o{mv_suf}                  {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.3.2 III: verb + O + particle + O (ex: "I ran him off another copy")
 """
 
-    for preposition in prepositions:
+    for (preposition, constituent) in pps:
         out += f"""
-    | advp_vp? {vp_type}_prp{preposition}_predcomp           adjunct_list_prp{preposition}_predcomp{mv_suf}             {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 IV: verb + [preposition + PC] (ex: "It counts as too short")
-    | advp_vp? {vp_type}_prp{preposition}_o                  adjunct_list_prp{preposition}_o{mv_suf}                    {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 I: verb + [preposition + O] (ex: "I referred to the book")
-    | advp_vp? {vp_type}_o_prp{preposition}_predcomp         adjunct_list_o_prp{preposition}_predcomp{mv_suf}           {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 V: verb + O + [preposition + PC] (ex: "They regard it as successful")
-    | advp_vp? {vp_type}_io_prp{preposition}_o               adjunct_list_io_prp{preposition}_o{mv_suf}                  {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 II: verb + O + [preposition + O] (ex: "I intended it for Kim")
+    | advp_vp? {vp_type}_prp{preposition}_{constituent}           adjunct_list_prp{preposition}_{constituent}{mv_suf}             {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 I: verb + [preposition + O] (ex: "I referred to the book") / CGEL 6.1.2 IV: verb + [preposition + PC] (ex: "It counts as too short")
+    | advp_vp? {vp_type}_o_prp{preposition}_{constituent}         adjunct_list_o_prp{preposition}_{constituent}{mv_suf}           {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 V: verb + O + [preposition + PC] (ex: "They regard it as successful") /  CGEL 6.1.2 II: verb + O + [preposition + O] (ex: "I intended it for Kim")
 
 """
-    for particle, preposition in particle_preposition_pairs:
-        if particle is None or preposition is None:
+    for particle, pp in particle_pp_pairs:
+        if particle is None or pp is None:
             continue
+        preposition, constituent = pp
+
         out += f"""
-    | advp_vp? {vp_type}_prt{particle}_prp{preposition}_predcomp           adjunct_list_prt{particle}_prp{preposition}_predcomp{mv_suf}             {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.3.2 VI (with as): verb + particle + [preposition + PC] (ex: "She ended up as captain")
-    | advp_vp? {vp_type}_prt{particle}_prp{preposition}_o                  adjunct_list_prt{particle}_prp{preposition}_o{mv_suf}                    {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.3.2 IV: verb + particle + [preposition + O] (ex: "We look forward to your visit")
-    | advp_vp? {vp_type}_o_prt{particle}_prp{preposition}_predcomp         adjunct_list_o_prt{particle}_prp{preposition}_predcomp{mv_suf}           {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.3.2 VII: verb + O + particle + [preposition + PC] (ex: "This showed him up as spineless")
-    | advp_vp? {vp_type}_io_prt{particle}_prp{preposition}_o               adjunct_list_io_prt{particle}_prp{preposition}_o{mv_suf}                  {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.3.2 V: verb + O + particle + [preposition + O] (ex: "I let her in on a little secret")
+    | advp_vp? {vp_type}_prt{particle}_prp{preposition}_{constituent}           adjunct_list_prt{particle}_prp{preposition}_{constituent}{mv_suf}          {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.3.2 IV: verb + particle + [preposition + O] (ex: "We look forward to your visit") / CGEL 6.3.2 VI (with as): verb + particle + [preposition + PC] (ex: "She ended up as captain")
+    | advp_vp? {vp_type}_o_prt{particle}_prp{preposition}_{constituent}         adjunct_list_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}        {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.3.2 V: verb + O + particle + [preposition + O] (ex: "I let her in on a little secret") / CGEL 6.3.2 VII: verb + O + particle + [preposition + PC] (ex: "This showed him up as spineless")
 """
 
     if vp_type == "vbn":
@@ -1527,20 +1609,19 @@ passive_cl{mv_suf} ->
     | advp_vp? {vp_type}_io_prt{particle}_o                adjunct_list_passive_io_prt{particle}_o{mv_suf}                   {{%nt("passive_cl{mv_suf}")%}} # Structure III passive (ex: "He was run off another copy")
 """
 
-        for preposition in prepositions:
+        for preposition, constituent in pps:
             out += f"""
-    | advp_vp? {vp_type}_prp{preposition}_o                  adjunct_list_passive_prp{preposition}_o{mv_suf}                     {{%nt("passive_cl{mv_suf}")%}} # prepositional passive (ex: "The book was referred to")
-    | advp_vp? {vp_type}_o_prp{preposition}_predcomp         adjunct_list_passive_o_prp{preposition}_predcomp{mv_suf}            {{%nt("passive_cl{mv_suf}")%}} # O + [prep + PC] passive (ex: "It was regarded as successful")
-    | advp_vp? {vp_type}_io_prp{preposition}_o               adjunct_list_passive_io_prp{preposition}_o{mv_suf}                  {{%nt("passive_cl{mv_suf}")%}} # O + [prep + O] passive (ex: "It was intended for Kim")
+    | advp_vp? {vp_type}_prp{preposition}_{constituent}           adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}       {{%nt("passive_cl{mv_suf}")%}} # prepositional passive (ex: "The book was referred to")
+    | advp_vp? {vp_type}_o_prp{preposition}_{constituent}         adjunct_list_passive_o_prp{preposition}_{constituent}{mv_suf}     {{%nt("passive_cl{mv_suf}")%}} # O + [prep + O] passive (ex: "It was intended for Kim") / O + [prep + PC] passive (ex: "It was regarded as successful")
 """
 
-        for particle, preposition in particle_preposition_pairs:
-            if particle is None or preposition is None:
+        for particle, pp in particle_pp_pairs:
+            if particle is None or pp is None:
                 continue
+            preposition, constituent = pp
             out += f"""
-    | advp_vp? {vp_type}_prt{particle}_prp{preposition}_o                  adjunct_list_passive_prt{particle}_prp{preposition}_o{mv_suf}                     {{%nt("passive_cl{mv_suf}")%}} # particle + prepositional passive (ex: "Your visit was looked forward to")
-    | advp_vp? {vp_type}_o_prt{particle}_prp{preposition}_predcomp         adjunct_list_passive_o_prt{particle}_prp{preposition}_predcomp{mv_suf}            {{%nt("passive_cl{mv_suf}")%}} # O + particle + [prep + PC] passive (ex: "He was shown up as spineless")
-    | advp_vp? {vp_type}_io_prt{particle}_prp{preposition}_o               adjunct_list_passive_io_prt{particle}_prp{preposition}_o{mv_suf}                  {{%nt("passive_cl{mv_suf}")%}} # O + particle + [prep + O] passive (ex: "She was let in on a little secret")
+    | advp_vp? {vp_type}_prt{particle}_prp{preposition}_{constituent}           adjunct_list_passive_prt{particle}_prp{preposition}_{constituent}{mv_suf}       {{%nt("passive_cl{mv_suf}")%}} # particle + prepositional passive (ex: "Your visit was looked forward to")
+    | advp_vp? {vp_type}_o_prt{particle}_prp{preposition}_{constituent}         adjunct_list_passive_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}     {{%nt("passive_cl{mv_suf}")%}} # O + particle + [prep + PC] passive (ex: "He was shown up as spineless") / O + particle + [prep + O] passive (ex: "She was let in on a little secret")
 """
 
     return out
@@ -2031,9 +2112,34 @@ pp -> preposition                                         {%nt("pp")%}
     | preposition_advp                advp                {%nt("pp")%}
     | preposition_bare_declarative_cl bare_declarative_cl {%nt("pp")%}
 
+
+
+# here we note down some extraction islands:
+vbg_cl_minus_np -> impossible {%nt("vbg_cl_minus_np")%}
+vbg_cl_minus_adjp -> impossible {%nt("vbg_cl_minus_adjp")%}
+exclamative_cl_minus_np -> impossible {%nt("exclamative_cl_minus_np")%}
+exclamative_cl_minus_adjp -> impossible {%nt("exclamative_cl_minus_adjp")%}
+interrogative_cl_minus_np -> impossible {%nt("interrogative_cl_minus_np")%}
+interrogative_cl_minus_adjp -> impossible {%nt("interrogative_cl_minus_adjp")%}
+quot_cl_minus_np -> impossible {%nt("quot_cl_minus_np")%}
+quot_cl_minus_adjp -> impossible {%nt("quot_cl_minus_adjp")%}
+
 # a prepositional phrase with np moved
 # NOTE: you cannot move out of prepositional clauses: https://en.wikipedia.org/wiki/Wh-movement#Extraction_islands
 pp_minus_np ->      preposition_np             {%nt("pp_minus_np")%}
+
+"""
+# Specific PP rules for each (preposition, constituent) pair
+# These allow grammar rules to reference specific PP types like ppfor_np, ppas_predcomp
+for preposition, constituent in pps:
+    output += f"""
+pp{preposition}_{constituent} -> prp{preposition} {constituent} {{%nt("pp{preposition}_{constituent}")%}}
+pp{preposition}_{constituent}_minus_np -> prp{preposition} {{%nt("pp{preposition}_{constituent}_minus_np")%}}
+pp{preposition}_{constituent}_minus_adjp -> prp{preposition} {constituent}_minus_adjp {{%nt("pp{preposition}_{constituent}_minus_adjp")%}}
+"""
+
+
+output += """
 
 # a predcomp (predicative complement)
 # comma-separated list for syndetic coordination (requires 2+ items to avoid ambiguity with binary)
@@ -2233,22 +2339,19 @@ for vp_type in ["inf", "vbg", "vbn", "vbf_sg", "vbf_pl"]:
 {vp_type}_io_prt{particle}_o -> %{vp_type}_io_prt{particle}_o {{%t("{vp_type}_io_prt{particle}_o")%}}
 """
 
-    for preposition in prepositions:
+    for preposition, constituent in pps:
         output += f"""
-{vp_type}_prp{preposition}_predcomp -> %{vp_type}_prp{preposition}_predcomp {{%t("{vp_type}_prp{preposition}_predcomp")%}}
-{vp_type}_prp{preposition}_o -> %{vp_type}_prp{preposition}_o {{%t("{vp_type}_prp{preposition}_o")%}}
-{vp_type}_o_prp{preposition}_predcomp -> %{vp_type}_o_prp{preposition}_predcomp {{%t("{vp_type}_o_prp{preposition}_predcomp")%}}
-{vp_type}_io_prp{preposition}_o -> %{vp_type}_io_prp{preposition}_o {{%t("{vp_type}_io_prp{preposition}_o")%}}
+{vp_type}_prp{preposition}_{constituent} -> %{vp_type}_prp{preposition}_{constituent} {{%t("{vp_type}_prp{preposition}_{constituent}")%}}
+{vp_type}_o_prp{preposition}_{constituent} -> %{vp_type}_o_prp{preposition}_{constituent} {{%t("{vp_type}_o_prp{preposition}_{constituent}")%}}
 """
 
-    for particle, preposition in particle_preposition_pairs:
-        if particle is None or preposition is None:
+    for particle, pp in particle_pp_pairs:
+        if particle is None or pp is None:
             continue
+        preposition, constituent = pp
         output += f"""
-{vp_type}_prt{particle}_prp{preposition}_predcomp -> %{vp_type}_prt{particle}_prp{preposition}_predcomp {{%t("{vp_type}_prt{particle}_prp{preposition}_predcomp")%}}
-{vp_type}_prt{particle}_prp{preposition}_o -> %{vp_type}_prt{particle}_prp{preposition}_o {{%t("{vp_type}_prt{particle}_prp{preposition}_o")%}}
-{vp_type}_o_prt{particle}_prp{preposition}_predcomp -> %{vp_type}_o_prt{particle}_prp{preposition}_predcomp {{%t("{vp_type}_o_prt{particle}_prp{preposition}_predcomp")%}}
-{vp_type}_io_prt{particle}_prp{preposition}_o -> %{vp_type}_io_prt{particle}_prp{preposition}_o {{%t("{vp_type}_io_prt{particle}_prp{preposition}_o")%}}
+{vp_type}_prt{particle}_prp{preposition}_{constituent} -> %{vp_type}_prt{particle}_prp{preposition}_{constituent} {{%t("{vp_type}_prt{particle}_prp{preposition}_{constituent}")%}}
+{vp_type}_o_prt{particle}_prp{preposition}_{constituent} -> %{vp_type}_o_prt{particle}_prp{preposition}_{constituent} {{%t("{vp_type}_o_prt{particle}_prp{preposition}_{constituent}")%}}
 """
 
 # auxiliary verb terminals (only for finite verbs)
