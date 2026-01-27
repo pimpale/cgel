@@ -882,6 +882,13 @@
         "vbg",
         "vbg_o"
     ],
+    "accurate": [
+        "adj"
+    ],
+    "accurately": [
+        "adv",
+        "adv_vp"
+    ],
     "accuse": [
         "inf_o_prpof_np",
         "vbf_pl_o_prpof_np",
@@ -1283,6 +1290,13 @@
         "vbg",
         "vbg_o"
     ],
+    "active": [
+        "adj"
+    ],
+    "actively": [
+        "adv",
+        "adv_vp"
+    ],
     "activist": [
         "countable_noun",
         "noun_sg",
@@ -1469,6 +1483,13 @@
         "vbg_interrogative_cl",
         "vbg_o",
         "vbg_quot_cl"
+    ],
+    "additional": [
+        "adj"
+    ],
+    "additionally": [
+        "adv",
+        "adv_vp"
     ],
     "address": [
         "inf_o",
@@ -11465,6 +11486,7 @@
         "vbz_that_declarative_cl"
     ],
     "black": [
+        "adj",
         "colors_as_nouns",
         "inf_o",
         "noun_sg",
@@ -11543,6 +11565,10 @@
     ],
     "blackjacks": [
         "noun_pl"
+    ],
+    "blackly": [
+        "adv",
+        "adv_vp"
     ],
     "blackmail": [
         "inf_io_vbg_cl",
@@ -12471,6 +12497,7 @@
         "vbz_o"
     ],
     "blue": [
+        "adj",
         "colors_as_nouns",
         "noun_sg"
     ],
@@ -12483,6 +12510,10 @@
         "countable_noun",
         "food_countable",
         "noun_sg"
+    ],
+    "bluely": [
+        "adv",
+        "adv_vp"
     ],
     "blues": [
         "noun_pl"
@@ -15272,6 +15303,7 @@
         "vbz_o_predcomp"
     ],
     "brown": [
+        "adj",
         "colors_as_nouns",
         "inf",
         "inf_o",
@@ -15294,6 +15326,10 @@
     "browning": [
         "vbg",
         "vbg_o"
+    ],
+    "brownly": [
+        "adv",
+        "adv_vp"
     ],
     "browns": [
         "noun_pl",
@@ -22260,6 +22296,7 @@
         "vbg_o"
     ],
     "clear": [
+        "adj",
         "inf",
         "inf_io_do",
         "inf_io_vbg_cl",
@@ -22296,6 +22333,10 @@
         "vbg_io_do",
         "vbg_io_vbg_cl",
         "vbg_o"
+    ],
+    "clearly": [
+        "adv",
+        "adv_vp"
     ],
     "clears": [
         "vbf_sg",
@@ -42068,6 +42109,13 @@
     "effacing": [
         "vbg_o"
     ],
+    "effective": [
+        "adj"
+    ],
+    "effectively": [
+        "adv",
+        "adv_vp"
+    ],
     "effeminate": [
         "inf",
         "inf_o",
@@ -45739,6 +45787,13 @@
         "activity_event",
         "countable_noun",
         "noun_pl"
+    ],
+    "eventual": [
+        "adj"
+    ],
+    "eventually": [
+        "adv",
+        "adv_vp"
     ],
     "eventuate": [
         "inf",
@@ -52120,6 +52175,13 @@
         "vbp",
         "vbp_o"
     ],
+    "formal": [
+        "adj"
+    ],
+    "formally": [
+        "adv",
+        "adv_vp"
+    ],
     "format": [
         "inf_o",
         "vbf_pl_o",
@@ -56455,6 +56517,10 @@
         "vbf_sg_o",
         "vbz_o"
     ],
+    "graily": [
+        "adv",
+        "adv_vp"
+    ],
     "grandchild": [
         "familial_roles",
         "noun_sg"
@@ -56824,6 +56890,7 @@
         "vbz_o"
     ],
     "gray": [
+        "adj",
         "colors_as_nouns",
         "inf",
         "inf_o",
@@ -56992,6 +57059,7 @@
         "adv_vp"
     ],
     "green": [
+        "adj",
         "colors_as_nouns",
         "inf",
         "noun_sg",
@@ -57006,6 +57074,10 @@
     ],
     "greening": [
         "vbg"
+    ],
+    "greenly": [
+        "adv",
+        "adv_vp"
     ],
     "greens": [
         "noun_pl",
@@ -82218,6 +82290,14 @@
     "on": [
         "preposition_np"
     ],
+    "one": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "ones": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "onesie": [
         "clothing_countable",
         "noun_sg"
@@ -82363,11 +82443,16 @@
         "or"
     ],
     "orange": [
+        "adj",
         "colors_as_nouns",
         "countable_natural_items",
         "countable_noun",
         "food_countable",
         "noun_sg"
+    ],
+    "orangely": [
+        "adv",
+        "adv_vp"
     ],
     "oranges": [
         "countable_noun",
@@ -87542,6 +87627,7 @@
         "vbz_o"
     ],
     "pink": [
+        "adj",
         "colors_as_nouns",
         "inf",
         "inf_o",
@@ -87564,6 +87650,10 @@
     "pinking": [
         "vbg",
         "vbg_o"
+    ],
+    "pinkly": [
+        "adv",
+        "adv_vp"
     ],
     "pinks": [
         "noun_pl",
@@ -92892,6 +92982,10 @@
     "publicizing": [
         "vbg_o"
     ],
+    "publicly": [
+        "adv",
+        "adv_vp"
+    ],
     "publish": [
         "inf_o",
         "vbf_pl_o",
@@ -93512,6 +93606,7 @@
         "vbz_o"
     ],
     "purple": [
+        "adj",
         "colors_as_nouns",
         "inf",
         "inf_o",
@@ -93541,6 +93636,10 @@
     "purpling": [
         "vbg",
         "vbg_o"
+    ],
+    "purply": [
+        "adv",
+        "adv_vp"
     ],
     "purpose": [
         "inf_bare_declarative_cl",
@@ -97615,6 +97714,7 @@
         "noun_pl"
     ],
     "red": [
+        "adj",
         "colors_as_nouns",
         "noun_sg"
     ],
@@ -97699,6 +97799,10 @@
     "redeems": [
         "vbf_sg_o",
         "vbz_o"
+    ],
+    "redly": [
+        "adv",
+        "adv_vp"
     ],
     "redouble": [
         "inf",
@@ -115871,6 +115975,9 @@
         "vbf_sg_o",
         "vbz_o"
     ],
+    "special": [
+        "adj"
+    ],
     "specialist": [
         "countable_noun",
         "noun_sg",
@@ -115880,6 +115987,17 @@
         "countable_noun",
         "noun_pl",
         "people_occupations"
+    ],
+    "specially": [
+        "adv",
+        "adv_vp"
+    ],
+    "specific": [
+        "adj"
+    ],
+    "specifically": [
+        "adv",
+        "adv_vp"
     ],
     "specified": [
         "vbd_io_vbg_cl",
@@ -132720,6 +132838,13 @@
         "vbg",
         "vbg_o"
     ],
+    "unique": [
+        "adj"
+    ],
+    "uniquely": [
+        "adv",
+        "adv_vp"
+    ],
     "unitard": [
         "clothing_countable",
         "noun_sg"
@@ -132754,6 +132879,13 @@
     "uniting": [
         "vbg",
         "vbg_o"
+    ],
+    "universal": [
+        "adj"
+    ],
+    "universally": [
+        "adv",
+        "adv_vp"
     ],
     "universities": [
         "countable_noun",
@@ -137988,10 +138120,15 @@
         "vbg_to_inf_cl"
     ],
     "white": [
+        "adj",
         "colors_as_nouns",
         "noun_sg",
         "uncountable_body_parts",
         "uncountable_noun"
+    ],
+    "whitely": [
+        "adv",
+        "adv_vp"
     ],
     "whiten": [
         "inf",
@@ -140570,6 +140707,7 @@
         "vbg_to_inf_cl"
     ],
     "yellow": [
+        "adj",
         "colors_as_nouns",
         "inf",
         "inf_o",
@@ -140592,6 +140730,10 @@
     "yellowing": [
         "vbg",
         "vbg_o"
+    ],
+    "yellowly": [
+        "adv",
+        "adv_vp"
     ],
     "yellows": [
         "noun_pl",

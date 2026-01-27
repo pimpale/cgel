@@ -1169,8 +1169,8 @@ def adjunct_list_grammar(mv_type):
                 [
                     # Ex: I referred to the book yesterday
                     # Ex mv_np: I know what I referred to [gap] yesterday
-                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
 
@@ -1181,9 +1181,9 @@ def adjunct_list_grammar(mv_type):
                     # Ex: I intended it for Kim yesterday
                     # Ex mv_np: I know what I intended [gap] for Kim
                     # Ex mv_np: I know who I intended it for [gap]
-                    f"np pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"np pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-                    f"np{mv_suf} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                    f"np adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"np{mv_suf} adjunct? pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
         elif constituent == "predcomp":
@@ -1193,8 +1193,8 @@ def adjunct_list_grammar(mv_type):
                 [
                     # Ex: It counts as too short
                     # Ex mv_adjp: I know how short it counts as [gap]
-                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}",
-                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
                 ],
             )
 
@@ -1205,9 +1205,9 @@ def adjunct_list_grammar(mv_type):
                     # Ex: They regard it as successful
                     # Ex mv_np: I know what they regard [gap] as successful
                     # Ex mv_adjp: I know how successful they regard it as [gap]
-                    f"np pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"np pp{preposition}_{constituent}{mv_suf} adjunct_list",
-                    f"np{mv_suf} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                    f"np adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} adjunct? pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
         else:
@@ -1215,17 +1215,17 @@ def adjunct_list_grammar(mv_type):
             out += serialize_rules(
                 f"adjunct_list_prp{preposition}_{constituent}{mv_suf}",
                 [
-                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}",
-                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
                 ],
             )
 
             out += serialize_rules(
                 f"adjunct_list_o_prp{preposition}_{constituent}{mv_suf}",
                 [
-                    f"np pp{preposition}_{constituent} adjunct_list{mv_suf}",
-                    f"np pp{preposition}_{constituent}{mv_suf} adjunct_list",
-                    f"np{mv_suf} pp{preposition}_{constituent} adjunct_list",
+                    f"np adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"np adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} adjunct? pp{preposition}_{constituent} adjunct_list",
                 ],
             )
 
@@ -1245,8 +1245,8 @@ def adjunct_list_grammar(mv_type):
                 [
                     # Ex: We look forward to your visit eagerly
                     # Ex mv_np: I know what we look forward to [gap]
-                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"prt{particle} adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
 
@@ -1257,9 +1257,9 @@ def adjunct_list_grammar(mv_type):
                     # Ex: I let her in on a little secret yesterday
                     # Ex mv_np: I know who I let [gap] in on the secret
                     # Ex mv_np: I know what I let her in on [gap]
-                    f"np prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"np prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-                    f"np{mv_suf} prt{particle} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                    f"np prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np prt{particle} adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"np{mv_suf} prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
         elif constituent == "predcomp":
@@ -1269,8 +1269,8 @@ def adjunct_list_grammar(mv_type):
                 [
                     # Ex: She ended up as captain
                     # Ex mv_adjp: I know how successful she ended up as [gap]
-                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}",
-                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"prt{particle} adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
                 ],
             )
 
@@ -1281,9 +1281,9 @@ def adjunct_list_grammar(mv_type):
                     # Ex: This showed him up as spineless
                     # Ex mv_np: I know who this showed [gap] up as spineless
                     # Ex mv_adjp: I know how spineless this showed him up as [gap]
-                    f"np prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"np prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
-                    f"np{mv_suf} prt{particle} pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
+                    f"np prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np prt{particle} adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
         else:
@@ -1291,17 +1291,17 @@ def adjunct_list_grammar(mv_type):
             out += serialize_rules(
                 f"adjunct_list_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
                 [
-                    f"prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}",
-                    f"prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"prt{particle} adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
                 ],
             )
 
             out += serialize_rules(
                 f"adjunct_list_o_prt{particle}_prp{preposition}_{constituent}{mv_suf}",
                 [
-                    f"np prt{particle} pp{preposition}_{constituent} adjunct_list{mv_suf}",
-                    f"np prt{particle} pp{preposition}_{constituent}{mv_suf} adjunct_list",
-                    f"np{mv_suf} prt{particle} pp{preposition}_{constituent} adjunct_list",
+                    f"np prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"np prt{particle} adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"np{mv_suf} prt{particle} adjunct? pp{preposition}_{constituent} adjunct_list",
                 ],
             )
 
@@ -1317,7 +1317,7 @@ def adjunct_list_grammar(mv_type):
                 f"adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}",
                 [
                     # Ex: The book was referred to yesterday
-                    f"pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"adjunct? pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
                 ],
             )
 
@@ -1328,8 +1328,8 @@ def adjunct_list_grammar(mv_type):
                 [
                     # Ex: It was intended for Kim yesterday
                     # Ex mv_np: I know who it was intended for [gap]
-                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
         elif constituent == "predcomp":
@@ -1339,7 +1339,7 @@ def adjunct_list_grammar(mv_type):
                 f"adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}",
                 [
                     # Ex mv_adjp: I know how short it counts as [gap]
-                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "np" else None,
+                    f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "np" else None,
                 ],
             )
 
@@ -1350,8 +1350,8 @@ def adjunct_list_grammar(mv_type):
                 [
                     # Ex: It was regarded as successful yesterday
                     # Ex mv_adjp: I know how successful it was regarded as [gap]
-                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
                 ],
             )
         else:
@@ -1359,15 +1359,15 @@ def adjunct_list_grammar(mv_type):
             out += serialize_rules(
                 f"adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}",
                 [
-                    f"pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}",
+                    f"adjunct? pp{preposition}_{constituent}_minus_np adjunct_list{mv_suf}",
                 ],
             )
 
             out += serialize_rules(
                 f"adjunct_list_passive_o_prp{preposition}_{constituent}{mv_suf}",
                 [
-                    f"pp{preposition}_{constituent} adjunct_list{mv_suf}",
-                    f"pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                    f"adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
+                    f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
                 ],
             )
 
@@ -2092,6 +2092,9 @@ adjunct ->
 # ===== terminal rules =====
     | pp             {%nt("adjunct")%} # a prepositional phrase adjunct (ex: "in the house")
     | advp_vp        {%nt("adjunct")%} # an adverb phrase adjunct compatible with verb use (ex: "quickly")
+
+adjunct? -> adjunct {%nt("adjunct?")%}
+         | null   {%nt("adjunct?")%}
 
 adjunct_minus_np ->
       pp_minus_np   {%nt("adjunct")%}
