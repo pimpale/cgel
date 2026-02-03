@@ -1,0 +1,15 @@
+{
+    "members": [
+        "give__up"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V"],
+            "examples": ["She gave up."]
+        },
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["She gave up her fear."]
+        }
+    ]
+}

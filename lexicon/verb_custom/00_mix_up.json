@@ -1,0 +1,11 @@
+{
+    "members": [
+        "mix__up"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["He mixed up the letters."]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "members": [
+        "have"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "S_INF"],
+            "examples": ["I have to go."]
+        }
+    ]
+}

@@ -438,5 +438,29 @@
         "VBG": "robbing",
         "VBZ": "robs",
         "VBP": "rob"
+    },
+    "repay": {
+        "VB": "repay",
+        "VBD": "repaid",
+        "VBN": "repaid",
+        "VBG": "repaying",
+        "VBZ": "repays",
+        "VBP": "repay"
+    },
+    "grow": {
+        "VB": "grow",
+        "VBD": "grew",
+        "VBN": "grown",
+        "VBG": "growing",
+        "VBZ": "grows",
+        "VBP": "grow"
+    },
+    "wind": {
+        "VB": "wind",
+        "VBD": "wound",
+        "VBN": "wound",
+        "VBG": "winding",
+        "VBZ": "winds",
+        "VBP": "wind"
     }
 }

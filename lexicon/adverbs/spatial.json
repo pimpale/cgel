@@ -7,8 +7,8 @@
         "somewhere": null,
         "anywhere": null,
         "nowhere": null,
-        "up": null,
-        "down": null
+        "_up": null,
+        "_down": null
     },
     "classes": [
         "adv_vp",

@@ -203,6 +203,17 @@
         "safebox": null,
         "scholarship": null,
         "label": null,
-        "thing": null
+        "thing": null,
+        "form": null,
+        "document": null,
+        "ticket": null,
+        "receipt": null,
+        "invoice": null,
+        "bill": null,
+        "check": null,
+        "card": null,
+        "certificate": null,
+        "diploma": null,
+        "license": null
     }
 }

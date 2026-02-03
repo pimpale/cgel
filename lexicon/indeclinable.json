@@ -55,7 +55,9 @@
         "an": null,
         "the": null,
         "some": null,
-        "another": null
+        "another": null,
+        "this": null,
+        "that": null
     },
     "pronoun_sg": {
         "he": null,

@@ -3,14 +3,20 @@
     "become",
     "come",
     "come__out",
+    "come__out_as",
+    "wind__up",
+    "wind__up_as",
     "end__up",
+    "end__up_as",
+    "finish__up",
+    "finish__up_as",
     "fall",
     "get",
     "go",
     "grow",
     "leave",
     "turn",
-    "turn_up"
+    "turn__up"
   ],
   "frames": [
     {

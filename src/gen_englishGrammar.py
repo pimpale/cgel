@@ -917,7 +917,17 @@ def adjunct_list_grammar(mv_type):
                 f"np prt{particle} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
                 f"np prt{particle} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
                 # First NP extracted (rare but possible)
+                # Ex mv_np: I know who I ran [gap] off another copy
                 f"np{mv_suf} prt{particle} np adjunct_list" if mv_type != "adjp" else None,
+
+                # particle-first order: I still have to pay back my father that loan
+                # Ex mv_np: I know what I still have to pay back [gap]
+                f"prt{particle} np np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"prt{particle} np np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                # particle-after order: I still have to pay my father that loan back
+                # Ex mv_np: I know what I still have to pay back [gap]
+                f"np np prt{particle} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"np np{mv_suf} prt{particle} adjunct_list" if mv_type != "adjp" else None,
             ],
         )
 
@@ -1109,18 +1119,7 @@ def adjunct_list_grammar(mv_type):
             ],
         )
 
-        # Passive of Structure III: verb – O – particle – O
-        # Active: I ran him off another copy → Passive: He was run off another copy
-        out += serialize_rules(
-            f"adjunct_list_passive_o_prt{particle}_o{mv_suf}",
-            [
-                # The first object is promoted to subject, particle + second object + adjuncts remain
-                # Ex: He was run off another copy
-                # Ex mv_np: I know what he was run off [gap]
-                f"prt{particle} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
-                f"prt{particle} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
-            ],
-        )
+
 
         # Passive of verb – IO – particle – that-declarative clause (alias for o_prt version)
         # Active: She tipped him off that... → Passive: He was tipped off that...
@@ -1154,6 +1153,11 @@ def adjunct_list_grammar(mv_type):
                 # Ex mv_np: I know what he was run off [gap]
                 f"prt{particle} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
                 f"prt{particle} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+
+                # particle-after order: My father was paid that loan back
+                # Ex mv_np: I know what my father was paid [gap] back
+                f"np prt{particle} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                f"np{mv_suf} prt{particle} adjunct_list" if mv_type != "adjp" else None,
             ],
         )
 
