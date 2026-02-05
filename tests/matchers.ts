@@ -27,15 +27,58 @@ export interface RecordedAssertion {
   details?: Record<string, unknown>;
 }
 
+/** Constituent Test */
+export interface ConstituentTest {
+  in: [string, string];
+  out: string;
+}
+
+/** Has POS Test */
+export interface HasPOSTest {
+  word: string;
+  pos: string;
+}
+
+/**
+ * Type guard to check if a filter is a ConstituentTest.
+ */
+function isConstituentTest(filter: ConstituentTest | HasPOSTest): filter is ConstituentTest {
+  return 'in' in filter && 'out' in filter;
+}
+
+/**
+ * Type guard to check if a filter is a HasPOSTest.
+ */
+function isHasPOSTest(filter: ConstituentTest | HasPOSTest): filter is HasPOSTest {
+  return 'word' in filter && 'pos' in filter;
+}
+
 /**
  * Parse a sentence and return a result object suitable for matchers.
+ * If filters are provided, only trees matching ALL filters are returned.
  */
-export function parse(sentence: string): ParseResult {
+export function parse(sentence: string, filters?: Array<ConstituentTest | HasPOSTest>): ParseResult {
 
   try {
+    let trees = parseInternal(sentence);
+
+    // Apply filters if provided - keep only trees that match ALL filters
+    if (filters && filters.length > 0) {
+      trees = trees.filter(tree => {
+        return filters.every(filter => {
+          if (isConstituentTest(filter)) {
+            return checkConstituency(tree, filter.in[0], filter.in[1], filter.out);
+          } else if (isHasPOSTest(filter)) {
+            return checkPartOfSpeech(tree, filter.word, filter.pos);
+          }
+          return true;
+        });
+      });
+    }
+
     return {
       sentence,
-      trees: parseInternal(sentence),
+      trees,
     };
   } catch (error: any) {
     return {
@@ -107,7 +150,7 @@ expect.extend({
    */
   toHaveConstituent(
     received: ParseResult,
-    { in: constituent, out: excludes }: { in: [string, string]; out: string }
+    { in: constituent, out: excludes }: ConstituentTest
   ) {
     const { sentence, trees, error } = received;
 
@@ -155,7 +198,7 @@ expect.extend({
    */
   toHavePOS(
     received: ParseResult,
-    { word, pos }: { word: string; pos: string }
+    { word, pos }: HasPOSTest
   ) {
     const { sentence, trees, error } = received;
 

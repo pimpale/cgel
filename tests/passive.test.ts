@@ -166,6 +166,19 @@ describe('Structure III Passive', () => {
   });
 });
 
+describe('Structure III Passive (Particle-After Order)', () => {
+  // Active: I paid my father that loan back → Passive: My father was paid that loan back
+  test('My father was paid that loan back.', ({ expect, task }) => {
+    const result = parse(task.name);
+    expect(result).toBeGrammatical();
+  });
+
+  test('She was run another copy off.', ({ expect, task }) => {
+    const result = parse(task.name);
+    expect(result).toBeGrammatical();
+  });
+});
+
 describe('Reduced Relative Passive Clauses', () => {
   test('The horse raced past the barn fell.', ({ expect, task }) => {
     const result = parse(task.name);

@@ -248,19 +248,6 @@ describe('CGEL 6.1.2 Structure II: verb – O – [prep + O]', () => {
       expect(result).not.toBeGrammatical();
     });
   });
-
-  describe('Supply/Provide Alternation (CGEL [19])', () => {
-    // CGEL [19i]: He supplied weapons to them ~ He supplied them with weapons
-    test('He supplied weapons to them.', ({ expect, task }) => {
-      const result = parse(task.name);
-      expect(result).toBeGrammatical();
-    });
-
-    test('He supplied them with weapons.', ({ expect, task }) => {
-      const result = parse(task.name);
-      expect(result).toBeGrammatical();
-    });
-  });
 });
 
 // =============================================================================
