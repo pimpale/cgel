@@ -56,10 +56,10 @@
     "nearley"
   ],
   "devDependencies": {
-    "@vitest/ui": "^4.0.16",
+    "@vitest/ui": "^4.1.6",
     "nearley": "git+https://github.com/pimpale/nearley-patched.git",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.16"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.6"
   },
   "peerDependencies": {
     "nearley": "^2.20.1"
