@@ -7,6 +7,38 @@
         "VBZ": "goes",
         "VBP": "go"
     },
+    "fly": {
+        "VB": "fly",
+        "VBD": "flew",
+        "VBN": "flown",
+        "VBG": "flying",
+        "VBZ": "flies",
+        "VBP": "fly"
+    },
+    "swim": {
+        "VB": "swim",
+        "VBD": "swam",
+        "VBN": "swum",
+        "VBG": "swimming",
+        "VBZ": "swims",
+        "VBP": "swim"
+    },
+    "sleep": {
+        "VB": "sleep",
+        "VBD": "slept",
+        "VBN": "slept",
+        "VBG": "sleeping",
+        "VBZ": "sleeps",
+        "VBP": "sleep"
+    },
+    "stand": {
+        "VB": "stand",
+        "VBD": "stood",
+        "VBN": "stood",
+        "VBG": "standing",
+        "VBZ": "stands",
+        "VBP": "stand"
+    },
     "speak": {
         "VB": "speak",
         "VBD": "spoke",

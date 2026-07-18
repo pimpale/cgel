@@ -1,6 +1,7 @@
 # %%
 import argparse
 import json
+import re
 from copy import deepcopy
 from pathlib import Path
 from collections import defaultdict
@@ -136,9 +137,18 @@ def _normalize_primary(primary):
 
 
 def cat_from_primary(
-    slots: list[str], particle: str | None = None, preposition: str | None = None
+    slots: list[str],
+    particle: str | None = None,
+    preposition: str | None = None,
+    fossilized: bool = False,
 ) -> str | None:
-    """Return one of our verb category names given *slots* sequence, particle, and preposition or None."""
+    """Return one of our verb category names given *slots* sequence, particle, and preposition or None.
+
+    *fossilized* marks a fossilised specified preposition (CGEL 6.1.1): only
+    supported for Structure I (verb + [prep + O]), where it yields a distinct
+    `vb_fprp{preposition}_np` category so the grammar can restrict the mobility
+    processes that fossilised combinations block.
+    """
     if slots == ["NP", "V"] or slots == ["It", "V"]:
         # preposition must have a complement of some sort
         if preposition is not None:
@@ -263,6 +273,9 @@ def cat_from_primary(
             return f"vb_prt{particle}_o"
         elif preposition is not None:
             # CGEL 6.1.2 Structure I
+            if fossilized:
+                # Fossilised specified preposition (e.g. "come across").
+                return f"vb_fprp{preposition}_np"
             return f"vb_prp{preposition}_np"
 
         return "vb_o"
@@ -400,10 +413,18 @@ def extract_verb_categories() -> dict[str, dict[str, None]]:
                     main_verb = None
                     particle = None
                     preposition = None
+                    # CGEL 4.6.1.1: a specified preposition is either "mobile" (default,
+                    # written "verb_prep") or "fossilised" (written "verb+prep"). A
+                    # fossilised combination blocks the syntactic processes (prep
+                    # repetition in coordination, pied-piping/fronting, adjunct
+                    # insertion) that a mobile one permits. "+" separates like "_",
+                    # so it just flips this flag.
+                    fossilized = "+" in verb
 
-                    # split by double underscore and then by single underscore
-                    # Ex: "let__in_on" -> [["let"], ["in", "on"]]
-                    match [x.split("_") for x in verb.split("__")]:
+                    # split by double underscore (verb vs particle group), then by
+                    # single underscore or "+" within each group.
+                    # Ex: "let__in_on" -> [["let"], ["in", "on"]]; "come+across" -> [["come", "across"]]
+                    match [re.split(r"[_+]", x) for x in verb.split("__")]:
                         case [[main_verb], [particle, preposition]]:
                             pass
                         case [[main_verb], [particle]]:
@@ -414,7 +435,9 @@ def extract_verb_categories() -> dict[str, dict[str, None]]:
                             pass
 
                     if main_verb is not None:
-                        cat = cat_from_primary(slots, particle, preposition)
+                        cat = cat_from_primary(
+                            slots, particle, preposition, fossilized
+                        )
                         if cat is not None:
                             categories[cat].add(main_verb)
 

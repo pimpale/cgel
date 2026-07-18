@@ -5,7 +5,8 @@
  * via task.meta for visualization in the playground.
  */
 
-import { expect } from 'vitest';
+import { expect, test } from 'vitest';
+import type { TestContext } from 'vitest';
 import {
   parse as parseInternal,
   checkConstituency,
@@ -236,3 +237,34 @@ expect.extend({
     };
   },
 });
+
+/**
+ * Register a test as a KNOWN LIMITATION: a case that CGEL says should hold (or
+ * not hold) but that the grammar does not yet handle. These are documented gaps,
+ * not regressions.
+ *
+ * Built on vitest's `test.fails`, so the assertion body is expected to fail:
+ *   - While the limitation stands (the assertion fails), vitest counts the test
+ *     as PASSED — it does not turn the suite red — and the playground renders it
+ *     YELLOW.
+ *   - Once the grammar is fixed (the assertion now passes), `test.fails` flips the
+ *     result to FAILED, nagging you to promote it to a plain `test`; the playground
+ *     renders it BLUE.
+ *
+ * The body still runs, so `task.meta` (sentence, assertions) is recorded for the
+ * playground exactly as with a normal test; we additionally tag `knownLimitation`.
+ *
+ * Usage mirrors `test`:
+ *   knownLimitation('It was to her book that I referred.', ({ expect, task }) => {
+ *     expect(parse(task.name)).toBeGrammatical();
+ *   });
+ */
+export function knownLimitation(
+  name: string,
+  fn: (context: TestContext) => void | Promise<void>,
+): void {
+  test.fails(name, async (context) => {
+    (context.task.meta as Record<string, unknown>).knownLimitation = true;
+    await fn(context);
+  });
+}

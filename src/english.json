@@ -3993,6 +3993,13 @@
     "analyzing": [
         "vbg_o"
     ],
+    "anatomies": [
+        "noun_pl"
+    ],
+    "anatomy": [
+        "noun_sg",
+        "uncountable_noun"
+    ],
     "ancestor": [
         "countable_noun",
         "familial_roles",
@@ -17356,20 +17363,20 @@
     ],
     "came": [
         "vbd",
+        "vbd_fprpacross_np",
         "vbd_predcomp",
-        "vbd_prpacross_np",
         "vbd_prparound_vbg_cl",
         "vbd_prtout_predcomp",
         "vbd_prtout_prpas_predcomp",
         "vbf_pl",
+        "vbf_pl_fprpacross_np",
         "vbf_pl_predcomp",
-        "vbf_pl_prpacross_np",
         "vbf_pl_prparound_vbg_cl",
         "vbf_pl_prtout_predcomp",
         "vbf_pl_prtout_prpas_predcomp",
         "vbf_sg",
+        "vbf_sg_fprpacross_np",
         "vbf_sg_predcomp",
-        "vbf_sg_prpacross_np",
         "vbf_sg_prparound_vbg_cl",
         "vbf_sg_prtout_predcomp",
         "vbf_sg_prtout_prpas_predcomp"
@@ -24124,40 +24131,40 @@
     ],
     "come": [
         "inf",
+        "inf_fprpacross_np",
         "inf_predcomp",
-        "inf_prpacross_np",
         "inf_prparound_vbg_cl",
         "inf_prtout_predcomp",
         "inf_prtout_prpas_predcomp",
         "vbf_pl",
+        "vbf_pl_fprpacross_np",
         "vbf_pl_predcomp",
-        "vbf_pl_prpacross_np",
         "vbf_pl_prparound_vbg_cl",
         "vbf_pl_prtout_predcomp",
         "vbf_pl_prtout_prpas_predcomp",
         "vbn",
+        "vbn_fprpacross_np",
         "vbn_predcomp",
-        "vbn_prpacross_np",
         "vbn_prparound_vbg_cl",
         "vbn_prtout_predcomp",
         "vbn_prtout_prpas_predcomp",
         "vbp",
+        "vbp_fprpacross_np",
         "vbp_predcomp",
-        "vbp_prpacross_np",
         "vbp_prparound_vbg_cl",
         "vbp_prtout_predcomp",
         "vbp_prtout_prpas_predcomp"
     ],
     "comes": [
         "vbf_sg",
+        "vbf_sg_fprpacross_np",
         "vbf_sg_predcomp",
-        "vbf_sg_prpacross_np",
         "vbf_sg_prparound_vbg_cl",
         "vbf_sg_prtout_predcomp",
         "vbf_sg_prtout_prpas_predcomp",
         "vbz",
+        "vbz_fprpacross_np",
         "vbz_predcomp",
-        "vbz_prpacross_np",
         "vbz_prparound_vbg_cl",
         "vbz_prtout_predcomp",
         "vbz_prtout_prpas_predcomp"
@@ -24225,8 +24232,8 @@
     ],
     "coming": [
         "vbg",
+        "vbg_fprpacross_np",
         "vbg_predcomp",
-        "vbg_prpacross_np",
         "vbg_prparound_vbg_cl",
         "vbg_prtout_predcomp",
         "vbg_prtout_prpas_predcomp"
@@ -50636,6 +50643,14 @@
     "fleshes": [
         "noun_pl"
     ],
+    "flew": [
+        "vbd",
+        "vbd_o",
+        "vbf_pl",
+        "vbf_pl_o",
+        "vbf_sg",
+        "vbf_sg_o"
+    ],
     "flex": [
         "inf",
         "inf_o",
@@ -50729,16 +50744,6 @@
         "vbf_sg_o",
         "vbz_io_do",
         "vbz_o"
-    ],
-    "flied": [
-        "vbd",
-        "vbd_o",
-        "vbf_pl",
-        "vbf_pl_o",
-        "vbf_sg",
-        "vbf_sg_o",
-        "vbn",
-        "vbn_o"
     ],
     "flies": [
         "animals",
@@ -51256,6 +51261,10 @@
     "flowing": [
         "vbg",
         "vbg_o"
+    ],
+    "flown": [
+        "vbn",
+        "vbn_o"
     ],
     "flows": [
         "vbf_sg",
@@ -53301,6 +53310,13 @@
         "vbf_sg_o",
         "vbz",
         "vbz_o"
+    ],
+    "frozen": [
+        "adj"
+    ],
+    "frozenly": [
+        "adv",
+        "adv_vp"
     ],
     "fructified": [
         "vbd",
@@ -67298,9 +67314,14 @@
         "vbn_o"
     ],
     "ironing": [
+        "noun_sg",
+        "uncountable_noun",
         "vbg",
         "vbg_io_do",
         "vbg_o"
+    ],
+    "ironings": [
+        "noun_pl"
     ],
     "irons": [
         "noun_pl",
@@ -80575,6 +80596,9 @@
         "adv",
         "adv_vp"
     ],
+    "new": [
+        "adj"
+    ],
     "new york": [
         "proper_noun_sg"
     ],
@@ -80587,6 +80611,10 @@
         "countable_noun",
         "noun_pl",
         "people_occupations"
+    ],
+    "newly": [
+        "adv",
+        "adv_vp"
     ],
     "newspaper": [
         "countable_household_items",
@@ -80606,6 +80634,10 @@
         "countable_noun",
         "noun_pl",
         "ridable"
+    ],
+    "next": [
+        "adv",
+        "adv_vp"
     ],
     "nibble": [
         "inf",
@@ -82567,6 +82599,14 @@
     "operating": [
         "vbg"
     ],
+    "ophthalmologist": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "ophthalmologists": [
+        "countable_noun",
+        "noun_pl"
+    ],
     "opponent": [
         "countable_noun",
         "noun_sg"
@@ -82598,6 +82638,14 @@
         "noun_sg"
     ],
     "options": [
+        "countable_noun",
+        "noun_pl"
+    ],
+    "optometrist": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "optometrists": [
         "countable_noun",
         "noun_pl"
     ],
@@ -82941,6 +82989,14 @@
     ],
     "ostracizing": [
         "vbg_o"
+    ],
+    "other": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "others": [
+        "countable_noun",
+        "noun_pl"
     ],
     "otter": [
         "animals",
@@ -87234,7 +87290,9 @@
         "vbg_o"
     ],
     "photograph": [
+        "countable_noun",
         "inf_o",
+        "noun_sg",
         "vbf_pl_o",
         "vbp_o"
     ],
@@ -87258,6 +87316,8 @@
         "vbg_o"
     ],
     "photographs": [
+        "countable_noun",
+        "noun_pl",
         "vbf_sg_o",
         "vbz_o"
     ],
@@ -100368,6 +100428,10 @@
         "vbn_to_inf_cl",
         "vbn_vbg_cl"
     ],
+    "repeatedly": [
+        "adv",
+        "adv_vp"
+    ],
     "repeating": [
         "vbg",
         "vbg_bare_declarative_cl",
@@ -108655,6 +108719,9 @@
         "vbp",
         "vbp_o"
     ],
+    "several": [
+        "determinative"
+    ],
     "severed": [
         "vbd",
         "vbd_o",
@@ -112707,16 +112774,6 @@
         "vbp",
         "vbp_o"
     ],
-    "sleeped": [
-        "vbd",
-        "vbd_o",
-        "vbf_pl",
-        "vbf_pl_o",
-        "vbf_sg",
-        "vbf_sg_o",
-        "vbn",
-        "vbn_o"
-    ],
     "sleeping": [
         "vbg",
         "vbg_o"
@@ -112832,6 +112889,16 @@
         "vbz",
         "vbz_o",
         "vbz_o_predcomp"
+    ],
+    "slept": [
+        "vbd",
+        "vbd_o",
+        "vbf_pl",
+        "vbf_pl_o",
+        "vbf_sg",
+        "vbf_sg_o",
+        "vbn",
+        "vbn_o"
     ],
     "slice": [
         "inf_o",
@@ -118649,28 +118716,6 @@
         "vbg",
         "vbg_o"
     ],
-    "standed": [
-        "vbd",
-        "vbd_io_vbg_cl",
-        "vbd_o",
-        "vbd_that_declarative_cl",
-        "vbd_vbg_cl",
-        "vbf_pl",
-        "vbf_pl_io_vbg_cl",
-        "vbf_pl_o",
-        "vbf_pl_that_declarative_cl",
-        "vbf_pl_vbg_cl",
-        "vbf_sg",
-        "vbf_sg_io_vbg_cl",
-        "vbf_sg_o",
-        "vbf_sg_that_declarative_cl",
-        "vbf_sg_vbg_cl",
-        "vbn",
-        "vbn_io_vbg_cl",
-        "vbn_o",
-        "vbn_that_declarative_cl",
-        "vbn_vbg_cl"
-    ],
     "standing": [
         "vbg",
         "vbg_io_vbg_cl",
@@ -120081,6 +120126,28 @@
     "stoning": [
         "vbg_o",
         "vbg_o_predcomp"
+    ],
+    "stood": [
+        "vbd",
+        "vbd_io_vbg_cl",
+        "vbd_o",
+        "vbd_that_declarative_cl",
+        "vbd_vbg_cl",
+        "vbf_pl",
+        "vbf_pl_io_vbg_cl",
+        "vbf_pl_o",
+        "vbf_pl_that_declarative_cl",
+        "vbf_pl_vbg_cl",
+        "vbf_sg",
+        "vbf_sg_io_vbg_cl",
+        "vbf_sg_o",
+        "vbf_sg_that_declarative_cl",
+        "vbf_sg_vbg_cl",
+        "vbn",
+        "vbn_io_vbg_cl",
+        "vbn_o",
+        "vbn_that_declarative_cl",
+        "vbn_vbg_cl"
     ],
     "stool": [
         "countable_household_items",
@@ -121812,6 +121879,7 @@
         "vbz"
     ],
     "such": [
+        "determinative",
         "precore_emphatic_modifier"
     ],
     "suck": [
@@ -123300,6 +123368,14 @@
         "vbz",
         "vbz_o"
     ],
+    "swam": [
+        "vbd",
+        "vbd_o",
+        "vbf_pl",
+        "vbf_pl_o",
+        "vbf_sg",
+        "vbf_sg_o"
+    ],
     "swan": [
         "animals",
         "countable_noun",
@@ -123724,17 +123800,7 @@
         "vbp",
         "vbp_o"
     ],
-    "swimed": [
-        "vbd",
-        "vbd_o",
-        "vbf_pl",
-        "vbf_pl_o",
-        "vbf_sg",
-        "vbf_sg_o",
-        "vbn",
-        "vbn_o"
-    ],
-    "swiming": [
+    "swimming": [
         "vbg",
         "vbg_o"
     ],
@@ -124051,6 +124117,10 @@
         "countable_noun",
         "noun_pl",
         "ridable"
+    ],
+    "swum": [
+        "vbn",
+        "vbn_o"
     ],
     "symbol": [
         "countable_noun",
@@ -126435,7 +126505,9 @@
         "uncountable_noun"
     ],
     "test": [
+        "countable_noun",
         "inf_o",
+        "noun_sg",
         "vbf_pl_o",
         "vbp_o"
     ],
@@ -126485,6 +126557,8 @@
         "noun_pl"
     ],
     "tests": [
+        "countable_noun",
+        "noun_pl",
         "vbf_sg_o",
         "vbz_o"
     ],
@@ -126698,6 +126772,7 @@
         "noun_pl"
     ],
     "these": [
+        "determinative",
         "pronoun_pl"
     ],
     "they": [
@@ -126876,6 +126951,7 @@
         "noun_pl"
     ],
     "those": [
+        "determinative",
         "pronoun_pl"
     ],
     "thought": [
@@ -127123,6 +127199,9 @@
     "throttling": [
         "vbg_o",
         "vbg_o_predcomp"
+    ],
+    "through": [
+        "preposition_np"
     ],
     "throw": [
         "inf_io_do",
@@ -141243,6 +141322,14 @@
     ],
     "yoking": [
         "vbg_o"
+    ],
+    "york": [
+        "countable_noun",
+        "noun_sg"
+    ],
+    "yorks": [
+        "countable_noun",
+        "noun_pl"
     ],
     "you": [
         "pronoun_pl"

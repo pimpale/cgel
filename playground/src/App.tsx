@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
+import { Group, Panel, Separator, useDefaultLayout } from 'react-resizable-panels';
 import nearley from 'nearley';
 import { lex, grammar } from '@pimpale/cgel';
 import { DndProvider } from 'react-dnd';
@@ -28,6 +29,8 @@ interface AssertionResult {
     parseCount?: number;
     assertions?: RecordedAssertion[];
     error?: string;
+    /** True if this test is a documented known limitation (see knownLimitation()) */
+    knownLimitation?: boolean;
   };
 }
 
@@ -72,6 +75,8 @@ interface SentenceItem {
   isUngrammatical?: boolean;
   /** Parse error message if parsing failed */
   error?: string;
+  /** True if this is a documented known limitation (rendered blue when passing, yellow when failing) */
+  knownLimitation?: boolean;
 }
 
 /** Extract sentences from test results */
@@ -98,6 +103,7 @@ function getSentencesFromTests(): SentenceItem[] {
         totalCount,
         isUngrammatical,
         error,
+        knownLimitation: test.meta?.knownLimitation,
       });
     }
   }
@@ -213,6 +219,28 @@ function SyntaxTree({ showNulls, tree }: { showNulls: boolean; tree: TreeNode })
   );
 }
 
+/**
+ * Styled resize separator. `orientation` is the parent Group's orientation:
+ * a horizontal group needs a vertical bar (col-resize), and vice versa.
+ */
+function ResizeHandle({ orientation }: { orientation: 'horizontal' | 'vertical' }) {
+  const isHorizontal = orientation === 'horizontal';
+  return (
+    <Separator
+      className="cgel-resize-handle"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: isHorizontal ? 'col-resize' : 'row-resize',
+        ...(isHorizontal ? { width: 12, alignSelf: 'stretch' } : { height: 12, width: '100%' }),
+      }}
+    >
+      <div className="cgel-resize-grip" style={isHorizontal ? { width: 3, height: 32 } : { height: 3, width: 32 }} />
+    </Separator>
+  );
+}
+
 // Main App
 export default function App() {
   // Initialize sentences from test results
@@ -267,12 +295,30 @@ export default function App() {
 
   const canDeleteCurrent = input.trim() !== '' && sentences.some(s => s.sentence === input.trim());
 
-  // Summary stats
-  const summary = useMemo(() => ({
-    passed: testResults.numPassedTests,
-    failed: testResults.numFailedTests,
-    total: testResults.numTotalTests,
-  }), []);
+  // Persist each split's layout in localStorage across reloads.
+  const mainLayout = useDefaultLayout({ id: 'cgel-main', panelIds: ['sidebar', 'main'], storage: localStorage });
+  const sidebarLayout = useDefaultLayout({ id: 'cgel-sidebar', panelIds: ['sentences', 'assertions'], storage: localStorage });
+
+  // Summary stats. Known-limitation tests use `test.fails`, so a *standing*
+  // limitation reports as vitest-"passed" (its assertion still fails) while a
+  // *fixed* one reports as vitest-"failed" (nagging you to promote it). We pull
+  // standing limitations out of the passed count and surface them separately.
+  const summary = useMemo(() => {
+    let knownLimitations = 0;
+    for (const file of testResults.testResults) {
+      for (const test of file.assertionResults) {
+        if (test.meta?.knownLimitation && test.status === 'passed') {
+          knownLimitations += 1;
+        }
+      }
+    }
+    return {
+      passed: testResults.numPassedTests - knownLimitations,
+      failed: testResults.numFailedTests,
+      knownLimitations,
+      total: testResults.numTotalTests,
+    };
+  }, []);
 
   return (
     <div className="container-fluid py-4">
@@ -281,6 +327,7 @@ export default function App() {
         <div>
           <span className="badge bg-success me-1">{summary.passed}</span> passed
           <span className="badge bg-danger mx-1">{summary.failed}</span> failed
+          <span className="badge bg-warning text-dark ms-1">{summary.knownLimitations}</span> known limitations
         </div>
       </div>
       
@@ -289,15 +336,25 @@ export default function App() {
         Press <kbd>Ctrl+Enter</kbd> or click Parse.
       </p>
 
-      <div className="row">
-        {/* Left sidebar - split into sentences list and assertions */}
-        <div className="col-md-4">
-          <div 
-            className="position-sticky d-flex flex-column"
-            style={{ top: '1rem', height: 'calc(100vh - 180px)' }}
+      <Group
+        orientation="horizontal"
+        id="cgel-main"
+        style={{ height: 'calc(100vh - 180px)' }}
+        defaultLayout={mainLayout.defaultLayout}
+        onLayoutChanged={mainLayout.onLayoutChanged}
+      >
+        {/* Left sidebar - itself a vertical split of sentences / assertions */}
+        <Panel id="sidebar" defaultSize="33%" minSize="15%">
+          <Group
+            orientation="vertical"
+            id="cgel-sidebar"
+            style={{ height: '100%' }}
+            defaultLayout={sidebarLayout.defaultLayout}
+            onLayoutChanged={sidebarLayout.onLayoutChanged}
           >
-            {/* Top half: Sentence list */}
-            <div className="flex-grow-1 d-flex flex-column" style={{ minHeight: 0 }}>
+            {/* Top: Sentence list */}
+            <Panel id="sentences" defaultSize="60%" minSize="15%">
+              <div className="d-flex flex-column h-100" style={{ minHeight: 0, paddingRight: '0.5rem' }}>
               <div className="d-flex justify-content-between align-items-center mb-2">
                 <h5 className="mb-0">Sentences</h5>
                 {isModified && (
@@ -323,26 +380,32 @@ export default function App() {
                       passedCount={item.passedCount}
                       totalCount={item.totalCount}
                       isUngrammatical={item.isUngrammatical}
+                      knownLimitation={item.knownLimitation}
                     />
                   ))}
                 </DndProvider>
               </div>
-            </div>
+              </div>
+            </Panel>
 
-            {/* Bottom half: Assertions for active sentence */}
-            <div className="mt-3" style={{ maxHeight: '40%', minHeight: '20vh' }}>
-              <h6 className="mb-2">Assertions</h6>
-              <div 
-                className="rounded p-2 border"
-                style={{ 
-                  overflowY: 'auto', 
-                  height: 'calc(100% - 30px)',
-                  fontSize: '0.8em',
-                }}
-              >
+            <ResizeHandle orientation="vertical" />
+
+            {/* Bottom: Assertions for active sentence */}
+            <Panel id="assertions" defaultSize="40%" minSize="10%">
+              <div className="d-flex flex-column h-100" style={{ minHeight: 0, paddingTop: '0.5rem', paddingRight: '0.5rem' }}>
+                <h6 className="mb-2">Assertions</h6>
+                <div
+                  className="rounded p-2 border flex-grow-1"
+                  style={{
+                    overflowY: 'auto',
+                    minHeight: 0,
+                    fontSize: '0.8em',
+                  }}
+                >
                 {activeSentenceItem?.error && (
                   <div className="alert alert-danger mb-2 p-2" style={{ fontSize: '0.9em' }}>
-                    <strong>Parse Error:</strong> {activeSentenceItem.error}
+                    <strong>Parse Error:</strong>
+                    <div style={{ whiteSpace: 'pre-wrap' }}>{activeSentenceItem.error}</div>
                   </div>
                 )}
                 {activeSentenceItem?.assertions && activeSentenceItem.assertions.length > 0 ? (
@@ -356,11 +419,15 @@ export default function App() {
                 )}
               </div>
             </div>
-          </div>
-        </div>
+            </Panel>
+          </Group>
+        </Panel>
+
+        <ResizeHandle orientation="horizontal" />
 
         {/* Main content */}
-        <div className="col-md-8">
+        <Panel id="main" minSize="30%">
+          <div className="h-100" style={{ overflowY: 'auto', paddingLeft: '0.75rem' }}>
           <textarea
             className="form-control"
             style={{ width: '100%', height: '120px', fontFamily: 'monospace' }}
@@ -425,7 +492,8 @@ export default function App() {
             )}
           </div>
         </div>
-      </div>
+        </Panel>
+      </Group>
     </div>
   );
 }

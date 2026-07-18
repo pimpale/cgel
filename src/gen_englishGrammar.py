@@ -10,22 +10,39 @@ with open("english.json", "r") as f:
     # Either may be None if not present in the class
     # pp is captured as a tuple (preposition, constituent) e.g. ("for", "np"), ("as", "predcomp")
     # constituent can have underscores (e.g. "to_inf_cl"), so we capture till end of string
+    # A specified preposition may be mobile ("_prp...") or fossilised ("_fprp...");
+    # both share the same prp{prep} word matcher but generate different phrase rules.
+    # Note: the mobile pattern "_prp..." deliberately does not match fossilised
+    # "_fprp..." classes (there is no "_prp" substring in "_fprp..."); those are
+    # collected separately into fossilized_pps below.
     particle_pp_pairs = sorted(set(
         (
             prt_match.group(1) if (prt_match := re.search(r'_prt([a-z]+)', cls)) else None,
             (prp_match.group(1), prp_match.group(2)) if (prp_match := re.search(r'_prp([a-z]+)_(.+)$', cls)) else None
         )
         for cls in classes_set
-        if re.search(r'_prt[a-z]|_prp[a-z]', cls)  # only include classes with at least one
+        if re.search(r'_prt[a-z]|_prp[a-z]|_fprp[a-z]', cls)  # only include classes with at least one
     ), key=lambda x: (x[0] or '', x[1] or ('', '')))
-
 
     # extract particles
     particles = sorted(set(x[0] for x in particle_pp_pairs if x[0] is not None))
     # extract unique (preposition, constituent) tuples, e.g. ("for", "np"), ("as", "predcomp")
+    # These are the *mobile* prepositional phrases (fossilised ones are collected below).
     pps = sorted(set(x[1] for x in particle_pp_pairs if x[1] is not None))
-    # extract just the prepositions
-    prepositions = sorted(set(pp[0] for pp in pps))
+
+    # fossilised specified prepositions (CGEL 6.1.1) as (preposition, constituent)
+    # tuples, extracted from "_fprp{prep}_{constituent}" classes. Only Structure I
+    # (constituent == "np") is currently supported.
+    fossilized_pps = sorted(set(
+        (fprp_match.group(1), fprp_match.group(2))
+        for cls in classes_set
+        if (fprp_match := re.search(r'_fprp([a-z]+)_(.+)$', cls))
+    ))
+
+    # extract just the prepositions (both mobile and fossilised share word matchers)
+    prepositions = sorted(set(
+        [pp[0] for pp in pps] + [fpp[0] for fpp in fossilized_pps]
+    ))
 
 
 output = ""
@@ -35,12 +52,17 @@ output += """@preprocessor module
 @{%
 import english from './english.json';
 
+function matcher(test, label) {
+  test.toString = () => label;
+  return {test};
+}
+
 function isPoS(pos) {
-  return {test: word => (english[word] ?? ["proper_noun_sg"]).includes(pos)}
+  return matcher(word => (english[word] ?? ["proper_noun_sg"]).includes(pos), `isPoS(${JSON.stringify(pos)})`);
 }
 
 function isAllOfPoS(pos_arr) {
-  return {test: word => pos_arr.every(pos => (english[word]??["proper_noun_sg"]).includes(pos))}
+  return matcher(word => pos_arr.every(pos => (english[word]??["proper_noun_sg"]).includes(pos)), `isAllOfPoS(${JSON.stringify(pos_arr)})`);
 }
 
 // parts of speech
@@ -108,12 +130,12 @@ const modal = isPoS("modal");
 
 for particle in particles:
     output += f"""
-const prt{particle} = {{ test: word => word == "{particle}" }};
+const prt{particle} = matcher(word => word == "{particle}", "prt{particle}");
 """
 
 for preposition in prepositions:
     output += f"""
-const prp{preposition} = {{ test: word => word == "{preposition}" }};
+const prp{preposition} = matcher(word => word == "{preposition}", "prp{preposition}");
 """
 
 # define the verbs
@@ -166,6 +188,11 @@ const {vp_type}_prp{preposition}_{constituent} = isPoS("{vp_type}_prp{prepositio
 const {vp_type}_o_prp{preposition}_{constituent} = isPoS("{vp_type}_o_prp{preposition}_{constituent}");
 """
 
+    for preposition, constituent in fossilized_pps:
+        output += f"""
+const {vp_type}_fprp{preposition}_{constituent} = isPoS("{vp_type}_fprp{preposition}_{constituent}");
+"""
+
     for particle, pp in particle_pp_pairs:
         if particle is None or pp is None:
             continue
@@ -190,7 +217,7 @@ output += """
 // certain nouns with special treatment
 const times = isPoS("times");
 const cardinal_number_eng = isPoS("cardinal_number_eng");
-const digits = { test: word => !isNaN(word) };
+const digits = matcher(word => !isNaN(word), "digits");
 const fraction_denominator = isPoS("fraction_denominator");
 
 // adjectives
@@ -1234,6 +1261,27 @@ def adjunct_list_grammar(mv_type):
             )
 
     # ##################
+    # CGEL 6.1.1: Fossilised prepositional verbs (Structure I only)
+    # ##################
+    # A fossilised combination (e.g. "come across") has a positionally fixed
+    # preposition: it blocks preposition repetition in coordination, pied-piping /
+    # fronting of the PP, and adjunct insertion before the preposition. We model
+    # this with a restricted complement list — no leading `adjunct?`, no `pp{...}`
+    # constituent (hence no PP coordination or pied-piping) — while still allowing
+    # ordinary NP-object extraction (stranding: "the letters he came across").
+    for preposition, constituent in fossilized_pps:
+        if constituent == "np":
+            out += serialize_rules(
+                f"adjunct_list_fprp{preposition}_{constituent}{mv_suf}",
+                [
+                    # Ex: I came across some old letters yesterday
+                    f"prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    # Ex mv_np (stranding): the letters that I came across [gap]
+                    f"prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+
+    # ##################
     # CGEL 6.3.2: Particle + preposition constructions
     # ##################
 
@@ -1571,6 +1619,10 @@ def vp_grammar(vp_type: str, mv_type: str | None = None):
     | advp_vp? {vp_type}_prp{preposition}_{constituent}           adjunct_list_prp{preposition}_{constituent}{mv_suf}             {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 I: verb + [preposition + O] (ex: "I referred to the book") / CGEL 6.1.2 IV: verb + [preposition + PC] (ex: "It counts as too short")
     | advp_vp? {vp_type}_o_prp{preposition}_{constituent}         adjunct_list_o_prp{preposition}_{constituent}{mv_suf}           {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 V: verb + O + [preposition + PC] (ex: "They regard it as successful") /  CGEL 6.1.2 II: verb + O + [preposition + O] (ex: "I intended it for Kim")
 
+"""
+    for (preposition, constituent) in fossilized_pps:
+        out += f"""
+    | advp_vp? {vp_type}_fprp{preposition}_{constituent}          adjunct_list_fprp{preposition}_{constituent}{mv_suf}            {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.1 fossilised: verb + [preposition + O] with fixed preposition (ex: "I came across some old letters")
 """
     for particle, pp in particle_pp_pairs:
         if particle is None or pp is None:
@@ -2138,11 +2190,51 @@ pp_minus_np ->      preposition_np             {%nt("pp_minus_np")%}
 """
 # Specific PP rules for each (preposition, constituent) pair
 # These allow grammar rules to reference specific PP types like ppfor_np, ppas_predcomp
+#
+# Mobile specified prepositions coordinate with the preposition repeated (CGEL 6.1.1):
+# "referred [to her book] and [to her article]". We therefore give each specific PP
+# its own coordination rules (a core and/or subset, mirroring `predcomp`). Note that
+# NP-internal coordination with a shared preposition ("to her book and her article")
+# is already handled by `np` coordination inside the terminal rule. The extraction
+# variants (_minus_np / _minus_adjp) stay terminal — coordinated PPs are islands.
 for preposition, constituent in pps:
+    ppname = f"pp{preposition}_{constituent}"
     output += f"""
-pp{preposition}_{constituent} -> prp{preposition} {constituent} {{%nt("pp{preposition}_{constituent}")%}}
-pp{preposition}_{constituent}_minus_np -> prp{preposition} {{%nt("pp{preposition}_{constituent}_minus_np")%}}
-pp{preposition}_{constituent}_minus_adjp -> prp{preposition} {constituent}_minus_adjp {{%nt("pp{preposition}_{constituent}_minus_adjp")%}}
+# comma / and / or coordlists for {ppname} (require 2+ items to avoid ambiguity with binary)
+{ppname}_coordlist -> {ppname}_coordlist_item {ppname}_coordlist_ {{%nt("{ppname}_coordlist")%}}
+{ppname}_coordlist_ -> {ppname}_coordlist_item:+ {{%nonterminal_unpack("{ppname}_coordlist_")%}}
+{ppname}_coordlist_item -> {ppname} comma {{%nt("{ppname}_coordlist_item")%}}
+
+{ppname}_and_coordlist -> {ppname}_and_coordlist_item {ppname}_and_coordlist_ {{%nt("{ppname}_and_coordlist")%}}
+{ppname}_and_coordlist_ -> {ppname}_and_coordlist_item:+ {{%nonterminal_unpack("{ppname}_and_coordlist_")%}}
+{ppname}_and_coordlist_item -> {ppname} and {{%nt("{ppname}_and_coordlist_item")%}}
+
+{ppname}_or_coordlist -> {ppname}_or_coordlist_item {ppname}_or_coordlist_ {{%nt("{ppname}_or_coordlist")%}}
+{ppname}_or_coordlist_ -> {ppname}_or_coordlist_item:+ {{%nonterminal_unpack("{ppname}_or_coordlist_")%}}
+{ppname}_or_coordlist_item -> {ppname} or {{%nt("{ppname}_or_coordlist_item")%}}
+
+{ppname} ->
+# ===== AND =====
+#   asyndetic: "to her book, to her article"
+      {ppname}_coordlist {ppname} {{%nt("{ppname}")%}}
+#   binary: "to her book and to her article"
+    | {ppname} and {ppname} {{%nt("{ppname}")%}}
+#   list: "to her book, to her article, and to her essay"
+    | {ppname}_coordlist and {ppname} {{%nt("{ppname}")%}}
+#   polysyndetic: "to her book and to her article and to her essay"
+    | {ppname}_and_coordlist {ppname} {{%nt("{ppname}")%}}
+# ===== OR =====
+#   binary: "to her book or to her article"
+    | {ppname} or {ppname} {{%nt("{ppname}")%}}
+#   list: "to her book, to her article, or to her essay"
+    | {ppname}_coordlist or {ppname} {{%nt("{ppname}")%}}
+#   polysyndetic: "to her book or to her article or to her essay"
+    | {ppname}_or_coordlist {ppname} {{%nt("{ppname}")%}}
+# ===== terminal =====
+    | prp{preposition} {constituent} {{%nt("{ppname}")%}}
+
+{ppname}_minus_np -> prp{preposition} {{%nt("{ppname}_minus_np")%}}
+{ppname}_minus_adjp -> prp{preposition} {constituent}_minus_adjp {{%nt("{ppname}_minus_adjp")%}}
 """
 
 
@@ -2350,6 +2442,11 @@ for vp_type in ["inf", "vbg", "vbn", "vbf_sg", "vbf_pl"]:
         output += f"""
 {vp_type}_prp{preposition}_{constituent} -> %{vp_type}_prp{preposition}_{constituent} {{%t("{vp_type}_prp{preposition}_{constituent}")%}}
 {vp_type}_o_prp{preposition}_{constituent} -> %{vp_type}_o_prp{preposition}_{constituent} {{%t("{vp_type}_o_prp{preposition}_{constituent}")%}}
+"""
+
+    for preposition, constituent in fossilized_pps:
+        output += f"""
+{vp_type}_fprp{preposition}_{constituent} -> %{vp_type}_fprp{preposition}_{constituent} {{%t("{vp_type}_fprp{preposition}_{constituent}")%}}
 """
 
     for particle, pp in particle_pp_pairs:

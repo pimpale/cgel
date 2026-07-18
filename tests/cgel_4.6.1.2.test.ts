@@ -1,5 +1,5 @@
 /**
- * Test file for CGEL 6.1.2: Prepositional Verb Constructions
+ * Test file for CGEL 4.6.1.2: Prepositional Verb Constructions
  * 
  * Based on the Cambridge Grammar of the English Language's analysis
  * of prepositional verbs and their complementation patterns.
@@ -26,7 +26,7 @@ import { parse } from './matchers';
 // Structure I: verb – [prep + O], as in "refer [to her book]"
 // =============================================================================
 
-describe('CGEL 6.1.2 Structure I: verb – [prep + O]', () => {
+describe('CGEL 4.6.1.2 Structure I: verb – [prep + O]', () => {
   
   describe('Plain Declaratives', () => {
     test('I referred to the book.', ({ expect, task }) => {
@@ -144,7 +144,7 @@ describe('CGEL 6.1.2 Structure I: verb – [prep + O]', () => {
 // Structure II: verb – O – [prep + O], as in "intend it [for Kim]"
 // =============================================================================
 
-describe('CGEL 6.1.2 Structure II: verb – O – [prep + O]', () => {
+describe('CGEL 4.6.1.2 Structure II: verb – O – [prep + O]', () => {
   
   describe('Plain Declaratives', () => {
     test('I intended it for Kim.', ({ expect, task }) => {
@@ -254,7 +254,7 @@ describe('CGEL 6.1.2 Structure II: verb – O – [prep + O]', () => {
 // Structure III: verb – [prep + O] – [prep + O], as in "look [to her] [for guidance]"
 // =============================================================================
 
-describe('CGEL 6.1.2 Structure III: verb – [prep + O] – [prep + O]', () => {
+describe('CGEL 4.6.1.2 Structure III: verb – [prep + O] – [prep + O]', () => {
   
   describe('Plain Declaratives', () => {
     test('He looked to her for guidance.', ({ expect, task }) => {
@@ -319,7 +319,7 @@ describe('CGEL 6.1.2 Structure III: verb – [prep + O] – [prep + O]', () => {
 // Structure IV: verb – [prep + PC], as in "count [as too short]"
 // =============================================================================
 
-describe('CGEL 6.1.2 Structure IV: verb – [prep + PC]', () => {
+describe('CGEL 4.6.1.2 Structure IV: verb – [prep + PC]', () => {
   
   describe('Plain Declaratives (with AdjP predicative)', () => {
     test('It counts as too short.', ({ expect, task }) => {
@@ -403,7 +403,7 @@ describe('CGEL 6.1.2 Structure IV: verb – [prep + PC]', () => {
 // Structure V: verb – O – [prep + PC], as in "regard it [as successful]"
 // =============================================================================
 
-describe('CGEL 6.1.2 Structure V: verb – O – [prep + PC]', () => {
+describe('CGEL 4.6.1.2 Structure V: verb – O – [prep + PC]', () => {
   
   describe('Plain Declaratives (with AdjP predicative)', () => {
     test('They regard it as successful.', ({ expect, task }) => {
@@ -533,7 +533,7 @@ describe('CGEL 6.1.2 Structure V: verb – O – [prep + PC]', () => {
 // Structure VI: verb – [prep + O] – [prep + PC], as in "think [of it] [as indispensable]"
 // =============================================================================
 
-describe('CGEL 6.1.2 Structure VI: verb – [prep + O] – [prep + PC]', () => {
+describe('CGEL 4.6.1.2 Structure VI: verb – [prep + O] – [prep + PC]', () => {
   
   describe('Plain Declaratives', () => {
     // Predicand of PC is complement of first preposition (it → indispensable)
@@ -608,7 +608,7 @@ describe('CGEL 6.1.2 Structure VI: verb – [prep + O] – [prep + PC]', () => {
 // Additional Tests: Preposition Fronting and Stranding
 // =============================================================================
 
-describe('CGEL 6.1.2 PP Fronting and Stranding', () => {
+describe('CGEL 4.6.1.2 PP Fronting and Stranding', () => {
   
   describe('Fronting in Relative Clauses (non-fossilised)', () => {
     // CGEL [6a]: the book to which I referred
@@ -658,7 +658,7 @@ describe('CGEL 6.1.2 PP Fronting and Stranding', () => {
 // Additional Tests: Fossilisation Effects
 // =============================================================================
 
-describe('CGEL 6.1.2 Fossilised Prepositional Verbs', () => {
+describe('CGEL 4.6.1.2 Fossilised Prepositional Verbs', () => {
   
   describe('Fixed Preposition Position (Fossilised)', () => {
     // These verbs resist separation - tested as grammatical in base form
@@ -708,7 +708,7 @@ describe('CGEL 6.1.2 Fossilised Prepositional Verbs', () => {
 // Contrast: Prepositional Verbs vs Particles
 // =============================================================================
 
-describe('CGEL 6.2 Contrast: Prepositional Verbs vs Particles', () => {
+describe('CGEL 4.6.2 Contrast: Prepositional Verbs vs Particles', () => {
   
   describe('Particle: Can Follow Object', () => {
     // CGEL [27]: She took off the label ~ She took the label off
@@ -780,7 +780,7 @@ describe('CGEL 6.2 Contrast: Prepositional Verbs vs Particles', () => {
 // Homonymous Sequences (Same word as particle or preposition)
 // =============================================================================
 
-describe('CGEL 6.2 Homonymous Sequences', () => {
+describe('CGEL 4.6.2 Homonymous Sequences', () => {
   
   describe('Same Word, Different Structures', () => {
     // CGEL [32i]: He shouted down his opponent (particle) vs He shouted down the phone (prep)

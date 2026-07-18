@@ -2,7 +2,7 @@
   "members": [
     "chance_across",
     "chance_upon",
-    "come_across",
+    "come+across",
     "discover",
     "encounter",
     "find",

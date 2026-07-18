@@ -24,6 +24,8 @@ export interface CardProps {
   totalCount?: number;
   /** True if testing for ungrammaticality */
   isUngrammatical?: boolean;
+  /** True if this is a documented known limitation (blue when passing, yellow when failing) */
+  knownLimitation?: boolean;
 }
 
 interface DragItem {
@@ -32,7 +34,7 @@ interface DragItem {
   type: string;
 }
 
-const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, isActive, passedCount, totalCount, isUngrammatical }) => {
+const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, isActive, passedCount, totalCount, isUngrammatical, knownLimitation }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [{ handlerId }, drop] = useDrop<DragItem, void, { handlerId: Identifier | null }>(() => ({
@@ -81,11 +83,15 @@ const DragAndDropCard: FC<CardProps> = ({ id, text, index, moveCard, onClick, is
 
   drag(drop(ref));
 
-  // Determine badge color based on pass ratio
+  // Determine badge color based on pass ratio.
+  // Known limitations get their own scale: blue when they (now) pass, yellow while
+  // they still fail — never red/green, since a standing limitation is not a failure.
   const hasTests = totalCount !== undefined && totalCount > 0;
   let badgeClass = 'bg-secondary';
   if (hasTests) {
-    if (passedCount === totalCount) {
+    if (knownLimitation) {
+      badgeClass = passedCount === totalCount ? 'bg-primary' : 'bg-warning text-dark';
+    } else if (passedCount === totalCount) {
       badgeClass = 'bg-success';
     } else if (passedCount === 0) {
       badgeClass = 'bg-danger';

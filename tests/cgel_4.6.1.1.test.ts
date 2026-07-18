@@ -1,0 +1,267 @@
+/**
+ * Test file for CGEL 4.6.1.1 (Chapter 4, §6.1.1):
+ * "Comparison between constructions with specified and unspecified prepositions"
+ * (pp. 275–277).
+ *
+ * CGEL contrasts clauses with prepositional verbs (specified prepositions, the [a]
+ * examples) against free verb + PP combinations (unspecified prepositions, [b]).
+ * Among specified prepositions it distinguishes two types by four diagnostics:
+ *
+ *     mobile (e.g. "refer to")  — behaves just like an unspecified preposition
+ *     fixed / fossilised (e.g. "come across") — blocks those same processes
+ *
+ * The four diagnostics, each its own subsection below:
+ *   (a) fronting of the preposition + its NP (relatives, interrogatives, it-clefts)
+ *   (b) coordination of PPs (preposition repeated)
+ *   (c) position of adjuncts (adjunct inserted before the preposition)
+ *   (d) prepositional passives
+ *
+ * Each example is asserted with CGEL's own verdict. Where the grammar already
+ * agrees, we use `test`; where it does not yet (a documented gap, not a
+ * regression), we use `knownLimitation`, which renders yellow while the gap
+ * stands and flips to a failure — nagging us to promote it — once it is fixed.
+ *
+ * NP-only examples ("the book to which I referred") are embedded in a minimal
+ * copular frame, following the convention of cgel_4.6.1.2.test.ts.
+ */
+
+import { describe, test } from 'vitest';
+import { parse, knownLimitation } from './matchers';
+
+describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
+
+  // ===========================================================================
+  // [4] Prepositional verbs (specified) alongside free combinations (unspecified)
+  // ===========================================================================
+  describe('[4] Prepositional verbs and free combinations', () => {
+    // [4i] a. specified   b. unspecified
+    test('I referred to her book.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('I flew to Boston.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [4ii]
+    test('I came across some old letters.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('I swam across the river.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [4iii]
+    test('I skated over the problem.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('I skated over the frozen pond.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [4iv]
+    test('I waded through my ironing.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('I waded through the mud.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+  });
+
+  // ===========================================================================
+  // (a) Fronting of the preposition + NP
+  // ===========================================================================
+  describe('(a) Fronting of the preposition + NP', () => {
+
+    // [5] Unspecified preposition: fronting is freely available.
+    describe('[5] Unspecified preposition (baseline)', () => {
+      // [5i] relative
+      knownLimitation('The city to which I flew was Boston.', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+      // [5ii] open interrogative
+      test('To which city did you fly?', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+      // [5iii] it-cleft
+      knownLimitation('It was to Boston that I flew.', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+    });
+
+    // [6] Mobile ([a], grammatical) vs fixed ([b], ungrammatical).
+    describe('[6] Mobile vs fixed specified preposition', () => {
+      // [6i] a. mobile relative / b. *fixed relative
+      knownLimitation('The book to which I referred was helpful.', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+      test('The letters across which I came were valuable.', ({ expect, task }) => {
+        // *the letters across which I came — fixed preposition cannot be fronted
+        expect(parse(task.name)).not.toBeGrammatical();
+      });
+      // [6ii] a. mobile interrogative / b. *fixed interrogative
+      knownLimitation('To which book did you refer?', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+      knownLimitation('Across which letters did you come?', ({ expect, task }) => {
+        // *Across which letters did you come? — CGEL rejects the fronted fixed
+        // preposition, but the grammar accepts it via the free motion reading of
+        // "come across", so this currently over-generates.
+        expect(parse(task.name)).not.toBeGrammatical();
+      });
+      // [6iii] a. mobile it-cleft / b. *fixed it-cleft
+      knownLimitation('It was to her book that I referred.', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+      test('It was across these letters that I came.', ({ expect, task }) => {
+        // *It was across these letters that I came.
+        expect(parse(task.name)).not.toBeGrammatical();
+      });
+    });
+
+    // The fixed preposition is fine when STRANDED (CGEL, after [6]).
+    describe('Stranded preposition (always admissible)', () => {
+      test('The letters which I came across were valuable.', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+      test('Which letters did you come across?', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+      test('It was these letters that I came across.', ({ expect, task }) => {
+        expect(parse(task.name)).toBeGrammatical();
+      });
+    });
+  });
+
+  // ===========================================================================
+  // (b) Coordination of PPs
+  // ===========================================================================
+  describe('(b) Coordination of PPs', () => {
+    // [7] Unspecified prepositions readily repeat in coordination.
+    test('I flew to Boston and to New York.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [8] a. mobile (repetition OK) / b. *fixed (repetition blocked)
+    test('I referred to her book and to several others.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('I came across these letters and across some family photographs.', ({ expect, task }) => {
+      // *I came across these letters and across some family photographs.
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+  });
+
+  // ===========================================================================
+  // (c) Position of adjuncts
+  // ===========================================================================
+  describe('(c) Position of adjuncts', () => {
+    // [9] Unspecified: adjunct freely inserted before the preposition.
+    test('I flew regularly to Boston.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [10] a. mobile (insertion OK) / b. *fixed (insertion blocked)
+    test('I referred repeatedly to her book.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    knownLimitation('I came eventually across these letters.', ({ expect, task }) => {
+      // *I came eventually across these letters. — CGEL blocks the inserted
+      // adjunct for the fixed combination, but the grammar accepts it via the
+      // free motion reading of "come across", so this currently over-generates.
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+  });
+
+  // ===========================================================================
+  // (d) Prepositional passives
+  // ===========================================================================
+  describe('(d) Prepositional passives', () => {
+    // [11i] unspecified: a. *blocked / b. admissible
+    knownLimitation('Boston was flown to next.', ({ expect, task }) => {
+      // *Boston was flown to next. — CGEL rejects the unspecified prepositional
+      // passive here, but the grammar's generic prepositional passive accepts it.
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+    test('This bed has been slept in.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [11ii] mobile specified: a. *blocked (–P verb) / b. admissible
+    test('Such principles were stood for.', ({ expect, task }) => {
+      // *Such principles were stood for. ("stand for" is marked –P)
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+    test('Her book was referred to.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [11iii] fixed specified: a. *blocked (–P verb) / b. admissible
+    knownLimitation('Some old letters were come across.', ({ expect, task }) => {
+      // *Some old letters were come across. ("come across" is –P). The grammar's
+      // generic prepositional passive still accepts it; blocking it needs the –P
+      // flag, which is not yet modelled.
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+    test('These matters must be seen to.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+  });
+
+  // ===========================================================================
+  // [12] The mobile/fixed distinction also applies in transitive clauses
+  //      (verb – O – [prep + O]): mobile "refer ... to" vs fixed "get ... through"
+  // ===========================================================================
+  describe('[12] Transitive clauses: mobile vs fixed', () => {
+    // [12i] base clauses
+    knownLimitation('He referred me to a specialist.', ({ expect, task }) => {
+      // Transitive "refer O to O" (Structure II) is not yet in the lexicon.
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    knownLimitation('He got me through the biology test.', ({ expect, task }) => {
+      // Transitive idiom "get O through O" is not yet in the lexicon.
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    // [12ii] a. mobile relative / b. *fixed relative
+    knownLimitation('The specialist to whom he referred me was kind.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('The test through which he got me was hard.', ({ expect, task }) => {
+      // *the test through which he got me
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+    // [12iii] a. mobile interrogative / b. *fixed interrogative
+    knownLimitation('To whom did he refer you?', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    knownLimitation('Through which test did he get you?', ({ expect, task }) => {
+      // *Through which test did he get you? — CGEL rejects the fronted fixed
+      // preposition, but "get" (transitive) plus a fronted generic PP adjunct is
+      // currently accepted, so this over-generates.
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+    // [12iv] a. mobile it-cleft / b. *fixed it-cleft
+    knownLimitation('It was to an optometrist that he referred me.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('It was through the biology test that he got me.', ({ expect, task }) => {
+      // *It wasn't through the biology test that he got me.
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+    // [12v] a. mobile coordination / b. *fixed coordination
+    knownLimitation('He referred me to an optometrist, but not to an ophthalmologist.', ({ expect, task }) => {
+      expect(parse(task.name)).toBeGrammatical();
+    });
+    test('He got me through the biology test, but not through the anatomy one.', ({ expect, task }) => {
+      // *He got me through the biology test, but not through the anatomy one.
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+  });
+
+  // ===========================================================================
+  // [15] Constituent structure: fossilisation is not a verb+object reanalysis,
+  //      so an adjunct may NOT be placed before the (heavy) object NP.
+  // ===========================================================================
+  describe('[15] No adjunct before the NP (fossilisation is not verb + object)', () => {
+    // [15i] *He came across later that morning a letter she wrote just before her marriage.
+    test('He came across later that morning a letter.', ({ expect, task }) => {
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+    // [15ii] *We must see to immediately the various matters that your father raised.
+    test('We must see to immediately the various matters.', ({ expect, task }) => {
+      expect(parse(task.name)).not.toBeGrammatical();
+    });
+  });
+});

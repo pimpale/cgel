@@ -41,3 +41,13 @@ $container-max-widths: (
 
 
 @import "bootstrap/scss/bootstrap";
+
+.cgel-resize-grip {
+  background: $gray-500;
+  border-radius: 2px;
+  transition: background-color 0.15s ease;
+}
+.cgel-resize-handle:hover .cgel-resize-grip,
+.cgel-resize-handle:active .cgel-resize-grip {
+  background: $blue;
+}

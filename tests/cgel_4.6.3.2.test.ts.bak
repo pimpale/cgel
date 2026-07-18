@@ -1,5 +1,5 @@
 /**
- * Test file for CGEL 6.3.2: Constructions containing verb + intransitive preposition idioms
+ * Test file for CGEL 4.6.3.2: Constructions containing verb + intransitive preposition idioms
  * 
  * Based on the Cambridge Grammar of the English Language's analysis
  * of verbal idioms containing intransitive prepositions (particles).
@@ -13,7 +13,7 @@
  *   VI.   verb – prep – (as) PC                 : She ended up [(as) captain]
  *   VII.  verb – O – prep – [as + PC]           : This showed [him] up [as spineless]
  * 
- * Also includes tests from 6.3.1 on fossilisation:
+ * Also includes tests from 4.6.3.1 on fossilisation:
  *   - Preposing (locative inversion)
  *   - Adjunct insertion
  *   - Order alternation (particle movement)
@@ -32,7 +32,7 @@ import { parse } from './matchers';
 // Structure I: verb – prep (intransitive), as in "give in"
 // =============================================================================
 
-describe('CGEL 6.3.2 Structure I: verb – prep (intransitive)', () => {
+describe('CGEL 4.6.3.2 Structure I: verb – prep (intransitive)', () => {
   
   describe('Plain Declaratives', () => {
     test('He gave in.', ({ expect, task }) => {
@@ -113,7 +113,7 @@ describe('CGEL 6.3.2 Structure I: verb – prep (intransitive)', () => {
 // Structure II: verb – prep – O, as in "mix up [the tickets]"
 // =============================================================================
 
-describe('CGEL 6.3.2 Structure II: verb – prep – O', () => {
+describe('CGEL 4.6.3.2 Structure II: verb – prep – O', () => {
   
   describe('Plain Declaratives (Particle-First Order)', () => {
     test('She mixed up the tickets.', ({ expect, task }) => {
@@ -302,7 +302,7 @@ describe('CGEL 6.3.2 Structure II: verb – prep – O', () => {
 // Structure III: verb – O^i – prep – O^d, as in "run [him] off [another copy]"
 // =============================================================================
 
-describe('CGEL 6.3.2 Structure III: verb – O^i – prep – O^d (ditransitive with particle)', () => {
+describe('CGEL 4.6.3.2 Structure III: verb – O^i – prep – O^d (ditransitive with particle)', () => {
   
   describe('Plain Declaratives', () => {
     // The most usual order: [Oi – PP – Od]
@@ -375,7 +375,7 @@ describe('CGEL 6.3.2 Structure III: verb – O^i – prep – O^d (ditransitive 
 // Structure IV: verb – prep – transitive PP, as in "look forward [to your visit]"
 // =============================================================================
 
-describe('CGEL 6.3.2 Structure IV: verb – prep – transitive PP', () => {
+describe('CGEL 4.6.3.2 Structure IV: verb – prep – transitive PP', () => {
   
   describe('Plain Declaratives', () => {
     test('We look forward to your visit.', ({ expect, task }) => {
@@ -470,7 +470,7 @@ describe('CGEL 6.3.2 Structure IV: verb – prep – transitive PP', () => {
 // Structure V: verb – O – prep – transitive PP, as in "let [her] in [on a secret]"
 // =============================================================================
 
-describe('CGEL 6.3.2 Structure V: verb – O – prep – transitive PP', () => {
+describe('CGEL 4.6.3.2 Structure V: verb – O – prep – transitive PP', () => {
   
   describe('Plain Declaratives', () => {
     test('I let her in on a little secret.', ({ expect, task }) => {
@@ -550,7 +550,7 @@ describe('CGEL 6.3.2 Structure V: verb – O – prep – transitive PP', () => 
 // Structure VI: verb – prep – (as) PC, as in "end up [(as) captain]"
 // =============================================================================
 
-describe('CGEL 6.3.2 Structure VI: verb – prep – (as) PC', () => {
+describe('CGEL 4.6.3.2 Structure VI: verb – prep – (as) PC', () => {
   
   describe('Plain Declaratives with AdjP Predicative', () => {
     // With AdjP, "as" does not occur
@@ -635,7 +635,7 @@ describe('CGEL 6.3.2 Structure VI: verb – prep – (as) PC', () => {
 // Structure VII: verb – O – prep – [as + PC], as in "show [him] up [as spineless]"
 // =============================================================================
 
-describe('CGEL 6.3.2 Structure VII: verb – O – prep – [as + PC]', () => {
+describe('CGEL 4.6.3.2 Structure VII: verb – O – prep – [as + PC]', () => {
   
   describe('Plain Declaratives', () => {
     test('This showed him up as spineless.', ({ expect, task }) => {
@@ -715,10 +715,10 @@ describe('CGEL 6.3.2 Structure VII: verb – O – prep – [as + PC]', () => {
 });
 
 // =============================================================================
-// CGEL 6.3.1: Fossilisation Effects
+// CGEL 4.6.3.1: Fossilisation Effects
 // =============================================================================
 
-describe('CGEL 6.3.1 Fossilisation: Preposing (Locative Inversion)', () => {
+describe('CGEL 4.6.3.1 Fossilisation: Preposing (Locative Inversion)', () => {
   
   describe('Grammatical: Free Combinations Allow Preposing', () => {
     // CGEL [38i]: Down it went. Off came his shirt. Up go the ratings.
@@ -770,7 +770,7 @@ describe('CGEL 6.3.1 Fossilisation: Preposing (Locative Inversion)', () => {
   });
 });
 
-describe('CGEL 6.3.1 Fossilisation: Adjunct Insertion', () => {
+describe('CGEL 4.6.3.1 Fossilisation: Adjunct Insertion', () => {
   
   describe('Grammatical: Free Combinations Allow Adjunct Insertion', () => {
     // CGEL [39i]: She climbed slowly up. She led him triumphantly out.
@@ -823,7 +823,7 @@ describe('CGEL 6.3.1 Fossilisation: Adjunct Insertion', () => {
   });
 });
 
-describe('CGEL 6.3.1 Fossilisation: Order Alternation', () => {
+describe('CGEL 4.6.3.1 Fossilisation: Order Alternation', () => {
   
   describe('Grammatical: Both Orders Possible (literal meaning)', () => {
     // CGEL [40i,iii]: He carried out the chairs ~ He carried the chairs out
@@ -937,7 +937,7 @@ describe('CGEL 6.3.1 Fossilisation: Order Alternation', () => {
 // Additional: Aspectual Particles
 // =============================================================================
 
-describe('CGEL 6.3.1 Aspectual Particles', () => {
+describe('CGEL 4.6.3.1 Aspectual Particles', () => {
   
   describe('Completive/Perfective Aspect', () => {
     // CGEL [37i]: break up, eat up, fill up, give up, etc.
@@ -995,7 +995,7 @@ describe('CGEL 6.3.1 Aspectual Particles', () => {
 // Additional: Polysemous Verb + Particle Combinations
 // =============================================================================
 
-describe('CGEL 6.3.1 Polysemous Combinations (take in)', () => {
+describe('CGEL 4.6.3.1 Polysemous Combinations (take in)', () => {
   
   describe('Different Senses of "take in"', () => {
     // CGEL [36]: Seven different senses of "take in"
