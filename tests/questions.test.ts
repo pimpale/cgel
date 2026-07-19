@@ -147,6 +147,7 @@ describe('Degree How-Questions (AdjP Extraction)', () => {
   test('How happy did Mary become?', ({ expect, task }) => {
     const result = parse(task.name);
     expect(result).toBeGrammatical();
+    expect(JSON.stringify(result)).toContain('"kind":"ip_adjp"');
   });
 
   test('How is he?', ({ expect, task }) => {

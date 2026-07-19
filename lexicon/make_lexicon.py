@@ -145,10 +145,11 @@ def cat_from_primary(
 ) -> str | None:
     """Return one of our verb category names given *slots* sequence, particle, and preposition or None.
 
-    *fossilized* marks a fossilised specified preposition (CGEL 6.1.1): only
-    supported for Structure I (verb + [prep + O]), where it yields a distinct
-    `vb_fprp{preposition}_np` category so the grammar can restrict the mobility
-    processes that fossilised combinations block.
+    *fossilized* marks a fossilised specified preposition (CGEL 6.1.1). In
+    Structure I (verb + [prep + O]) it yields `vb_fprp{preposition}_np`; in
+    Structure II (verb + O + [prep + O]) it yields
+    `vb_o_fprp{preposition}_np`. These distinct categories let the grammar block
+    the mobility processes that fossilised combinations resist.
 
     *preposition2* is a second specified preposition (CGEL Structure III, verb –
     [prep + O] – [prep + O], and VI, verb – [prep + O] – [prep + PC]). When present
@@ -394,6 +395,8 @@ def cat_from_primary(
             return f"vb_io_prt{particle}_o"
         elif preposition is not None:
             # CGEL 6.1.2 Structure II
+            if fossilized:
+                return f"vb_o_fprp{preposition}_np"
             return f"vb_o_prp{preposition}_np"
         return "vb_io_do"
     return None

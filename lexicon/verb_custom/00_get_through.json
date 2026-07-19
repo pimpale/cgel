@@ -1,0 +1,11 @@
+{
+    "members": [
+        "get+through"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["He got me through the biology test."]
+        }
+    ]
+}

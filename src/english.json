@@ -55064,6 +55064,7 @@
         "inf_intnp_to_inf_cl",
         "inf_io_do",
         "inf_o",
+        "inf_o_fprpthrough_np",
         "inf_passive_cl",
         "inf_predcomp",
         "inf_prpahold_np",
@@ -55080,6 +55081,7 @@
         "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_o_fprpthrough_np",
         "vbf_pl_passive_cl",
         "vbf_pl_predcomp",
         "vbf_pl_prpahold_np",
@@ -55096,6 +55098,7 @@
         "vbp_intnp_to_inf_cl",
         "vbp_io_do",
         "vbp_o",
+        "vbp_o_fprpthrough_np",
         "vbp_passive_cl",
         "vbp_predcomp",
         "vbp_prpahold_np",
@@ -55114,6 +55117,7 @@
         "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_o_fprpthrough_np",
         "vbf_sg_passive_cl",
         "vbf_sg_predcomp",
         "vbf_sg_prpahold_np",
@@ -55130,6 +55134,7 @@
         "vbz_intnp_to_inf_cl",
         "vbz_io_do",
         "vbz_o",
+        "vbz_o_fprpthrough_np",
         "vbz_passive_cl",
         "vbz_predcomp",
         "vbz_prpahold_np",
@@ -55148,6 +55153,7 @@
         "vbg_intnp_to_inf_cl",
         "vbg_io_do",
         "vbg_o",
+        "vbg_o_fprpthrough_np",
         "vbg_passive_cl",
         "vbg_predcomp",
         "vbg_prpahold_np",
@@ -56576,6 +56582,7 @@
         "vbd_intnp_to_inf_cl",
         "vbd_io_do",
         "vbd_o",
+        "vbd_o_fprpthrough_np",
         "vbd_passive_cl",
         "vbd_predcomp",
         "vbd_prpahold_np",
@@ -56592,6 +56599,7 @@
         "vbf_pl_intnp_to_inf_cl",
         "vbf_pl_io_do",
         "vbf_pl_o",
+        "vbf_pl_o_fprpthrough_np",
         "vbf_pl_passive_cl",
         "vbf_pl_predcomp",
         "vbf_pl_prpahold_np",
@@ -56608,6 +56616,7 @@
         "vbf_sg_intnp_to_inf_cl",
         "vbf_sg_io_do",
         "vbf_sg_o",
+        "vbf_sg_o_fprpthrough_np",
         "vbf_sg_passive_cl",
         "vbf_sg_predcomp",
         "vbf_sg_prpahold_np",
@@ -56626,6 +56635,7 @@
         "vbn_intnp_to_inf_cl",
         "vbn_io_do",
         "vbn_o",
+        "vbn_o_fprpthrough_np",
         "vbn_passive_cl",
         "vbn_predcomp",
         "vbn_prpahold_np",
@@ -98468,10 +98478,13 @@
         "vbz_o"
     ],
     "refer": [
+        "inf_o_prpto_np",
         "inf_prpto_np",
         "inf_prpto_np_prpas_np",
+        "vbf_pl_o_prpto_np",
         "vbf_pl_prpto_np",
         "vbf_pl_prpto_np_prpas_np",
+        "vbp_o_prpto_np",
         "vbp_prpto_np",
         "vbp_prpto_np_prpas_np"
     ],
@@ -98500,22 +98513,29 @@
         "vbg_o"
     ],
     "referred": [
+        "vbd_o_prpto_np",
         "vbd_prpto_np",
         "vbd_prpto_np_prpas_np",
+        "vbf_pl_o_prpto_np",
         "vbf_pl_prpto_np",
         "vbf_pl_prpto_np_prpas_np",
+        "vbf_sg_o_prpto_np",
         "vbf_sg_prpto_np",
         "vbf_sg_prpto_np_prpas_np",
+        "vbn_o_prpto_np",
         "vbn_prpto_np",
         "vbn_prpto_np_prpas_np"
     ],
     "referring": [
+        "vbg_o_prpto_np",
         "vbg_prpto_np",
         "vbg_prpto_np_prpas_np"
     ],
     "refers": [
+        "vbf_sg_o_prpto_np",
         "vbf_sg_prpto_np",
         "vbf_sg_prpto_np_prpas_np",
+        "vbz_o_prpto_np",
         "vbz_prpto_np",
         "vbz_prpto_np_prpas_np"
     ],
@@ -138782,6 +138802,9 @@
     ],
     "whoever": [
         "whoever"
+    ],
+    "whom": [
+        "who"
     ],
     "whomp": [
         "inf_o",

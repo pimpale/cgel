@@ -15,13 +15,17 @@ with open("english.json", "r") as f:
     # each class into exactly one bucket. Classes are examined two-preposition first,
     # then fossilised, then single-preposition/particle, so the patterns don't overlap.
     particle_pp_pairs_set = set()  # (particle | None, (prep, const) | None)
-    fossilized_pps_set = set()     # (prep, const)
+    fossilized_pps_set = set()     # Structure I: (prep, const)
+    fossilized_o_pps_set = set()   # Structure II: O + (prep, const)
     prp_prp_triples_set = set()    # (prep1, prep2, const2)  — first constituent is always np
 
     for cls in classes_set:
         if (m := re.search(r'_prp([a-z]+)_np_prp([a-z]+)_(.+)$', cls)):
             # two specified prepositions: verb – [p1 + O] – [p2 + O/PC]
             prp_prp_triples_set.add((m.group(1), m.group(2), m.group(3)))
+            continue
+        if (m := re.search(r'_o_fprp([a-z]+)_(.+)$', cls)):
+            fossilized_o_pps_set.add((m.group(1), m.group(2)))
             continue
         if (m := re.search(r'_fprp([a-z]+)_(.+)$', cls)):
             fossilized_pps_set.add((m.group(1), m.group(2)))
@@ -43,6 +47,8 @@ with open("english.json", "r") as f:
     pps = sorted(set(x[1] for x in particle_pp_pairs if x[1] is not None))
     # fossilised specified prepositions (CGEL 6.1.1), Structure I only (constituent "np")
     fossilized_pps = sorted(fossilized_pps_set)
+    # fossilised Structure II prepositions (verb + O + [prep + O])
+    fossilized_o_pps = sorted(fossilized_o_pps_set)
     # two-preposition combos (CGEL 6.1.2 III / VI) as (prep1, prep2, constituent2)
     prp_prp_triples = sorted(prp_prp_triples_set)
 
@@ -58,6 +64,7 @@ with open("english.json", "r") as f:
     prepositions = sorted(set(
         [pp[0] for pp in pps]
         + [fpp[0] for fpp in fossilized_pps]
+        + [fpp[0] for fpp in fossilized_o_pps]
         + [p for (p1, p2, _c2) in prp_prp_triples for p in (p1, p2)]
     ))
 
@@ -221,6 +228,11 @@ const {vp_type}_o_prp{preposition}_{constituent} = isPoS("{vp_type}_o_prp{prepos
 const {vp_type}_fprp{preposition}_{constituent} = isPoS("{vp_type}_fprp{preposition}_{constituent}");
 """
 
+    for preposition, constituent in fossilized_o_pps:
+        output += f"""
+const {vp_type}_o_fprp{preposition}_{constituent} = isPoS("{vp_type}_o_fprp{preposition}_{constituent}");
+"""
+
     for p1, p2, c2 in prp_prp_triples:
         output += f"""
 const {vp_type}_prp{p1}_np_prp{p2}_{c2} = isPoS("{vp_type}_prp{p1}_np_prp{p2}_{c2}");
@@ -267,7 +279,7 @@ const precorenp_modifier = isPoS("precorenp_modifier");
 const postcorenp_modifier = isPoS("postcorenp_modifier");
 const quantificational_modifier = isPoS("quantificational_modifier");
 const precore_emphatic_modifier = isPoS("precore_emphatic_modifier");
-const precore_emphatic_modifier_adjp  = isPoS("precore_emphatic_modifier_adjp ");
+const precore_emphatic_modifier_adjp = isPoS("precore_emphatic_modifier_adjp");
 
 // define postprocessors
 
@@ -379,7 +391,7 @@ displaced_quot_cl -> null {%nt("displaced_quot_cl")%}
 
 
 
-quot_cl -> quotation_mark text quotation_mark {%nt("quot")%}
+quot_cl -> quotation_mark text quotation_mark {%nt("quot_cl")%}
 
 # a question clause
 question_cl ->
@@ -1295,7 +1307,7 @@ def adjunct_list_grammar(mv_type):
             )
 
     # ##################
-    # CGEL 6.1.1: Fossilised prepositional verbs (Structure I only)
+    # CGEL 6.1.1: Fossilised prepositional verbs
     # ##################
     # A fossilised combination (e.g. "come across") has a positionally fixed
     # preposition: it blocks preposition repetition in coordination, pied-piping /
@@ -1312,6 +1324,22 @@ def adjunct_list_grammar(mv_type):
                     f"prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
                     # Ex mv_np (stranding): the letters that I came across [gap]
                     f"prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                ],
+            )
+
+    # Fossilised Structure II (e.g. "get me through the test") has a direct
+    # object followed by a positionally fixed preposition and its NP object. As
+    # in Structure I, the PP cannot be pied-piped or coordinated and no adjunct
+    # can intervene before the preposition. Ordinary NP extraction still permits
+    # stranding ("the test he got me through").
+    for preposition, constituent in fossilized_o_pps:
+        if constituent == "np":
+            out += serialize_rules(
+                f"adjunct_list_o_fprp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"np prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"np prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
+                    f"np{mv_suf} prp{preposition} np adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
 
@@ -1437,6 +1465,7 @@ def adjunct_list_grammar(mv_type):
                     f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
+
         elif constituent == "predcomp":
             # Passive of CGEL 6.1.2 Structure IV: verb – [prep + PC] with adjp extraction
             # (e.g., "How short does it count as?")
@@ -1473,6 +1502,18 @@ def adjunct_list_grammar(mv_type):
                 [
                     f"adjunct? pp{preposition}_{constituent} adjunct_list{mv_suf}",
                     f"adjunct? pp{preposition}_{constituent}{mv_suf} adjunct_list",
+                ],
+            )
+
+    # Passive of fossilised Structure II: the verb's direct object is promoted,
+    # while the fixed preposition and its NP object remain together.
+    for preposition, constituent in fossilized_o_pps:
+        if constituent == "np":
+            out += serialize_rules(
+                f"adjunct_list_passive_o_fprp{preposition}_{constituent}{mv_suf}",
+                [
+                    f"prp{preposition} np adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                    f"prp{preposition} np{mv_suf} adjunct_list" if mv_type != "adjp" else None,
                 ],
             )
 
@@ -1677,6 +1718,10 @@ def vp_grammar(vp_type: str, mv_type: str | None = None):
         out += f"""
     | advp_vp? {vp_type}_fprp{preposition}_{constituent}          adjunct_list_fprp{preposition}_{constituent}{mv_suf}            {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.1 fossilised: verb + [preposition + O] with fixed preposition (ex: "I came across some old letters")
 """
+    for (preposition, constituent) in fossilized_o_pps:
+        out += f"""
+    | advp_vp? {vp_type}_o_fprp{preposition}_{constituent}        adjunct_list_o_fprp{preposition}_{constituent}{mv_suf}          {{%nt("{vp_type}_vp{mv_suf}")%}} # fossilised Structure II: verb + O + fixed [preposition + O] (ex: "He got me through the test")
+"""
     for (p1, p2, c2) in prp_prp_triples:
         out += f"""
     | advp_vp? {vp_type}_prp{p1}_np_prp{p2}_{c2}          adjunct_list_prp{p1}_np_prp{p2}_{c2}{mv_suf}            {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 III/VI: verb + [prep + O] + [prep + O/PC] (ex: "He looked to her for guidance", "I think of it as indispensable")
@@ -1726,6 +1771,11 @@ passive_cl{mv_suf} ->
             out += f"""
     | advp_vp? {vp_type}_prp{preposition}_{constituent}           adjunct_list_passive_prp{preposition}_{constituent}{mv_suf}       {{%nt("passive_cl{mv_suf}")%}} # prepositional passive (ex: "The book was referred to")
     | advp_vp? {vp_type}_o_prp{preposition}_{constituent}         adjunct_list_passive_o_prp{preposition}_{constituent}{mv_suf}     {{%nt("passive_cl{mv_suf}")%}} # O + [prep + O] passive (ex: "It was intended for Kim") / O + [prep + PC] passive (ex: "It was regarded as successful")
+"""
+
+        for preposition, constituent in fossilized_o_pps:
+            out += f"""
+    | advp_vp? {vp_type}_o_fprp{preposition}_{constituent}       adjunct_list_passive_o_fprp{preposition}_{constituent}{mv_suf} {{%nt("passive_cl{mv_suf}")%}} # fossilised Structure II passive
 """
 
         for particle, pp in particle_pp_pairs:
@@ -1818,8 +1868,8 @@ dative_to_minus_adjp -> to np_minus_adjp {%nt("dative_to_minus_adjp")%}
 
 ip_advp_vp -> how advp_vp {%nt("ip_advp_vp")%}
             | how         {%nt("ip_advp_vp")%}
-ip_adjp ->  how adjp      {%nt("ip_advp_vp")%}
-            | how         {%nt("ip_advp_vp")%}
+ip_adjp ->  how adjp      {%nt("ip_adjp")%}
+            | how         {%nt("ip_adjp")%}
 
 # a content clause with some np moved
 bare_declarative_cl_minus_np ->
@@ -1912,6 +1962,10 @@ fused_rel_ip_det -> whichever  {%nt("fused_rel_ip_det")%}
 np -> np_sg {%nt("np")%}
     | np_pl {%nt("np")%}
 
+# Singular common nouns can premodify a following nominal head (e.g. "biology
+# test"). The final noun still determines the number of the whole NP.
+noun_modifier_list -> noun_sg:* {%nonterminal_unpack("noun_modifier_list")%}
+
 
 # core noun phrase (either singular or plural)
 core_np -> core_np_sg {%nt("core_np")%}
@@ -1996,7 +2050,7 @@ core_np_sg ->
     |                                               proper_noun_sg                                  {%nt("core_np_sg")%}  # a singular proper noun (ex: "John", "Mary")
     |                                               pronoun_sg                                      {%nt("core_np_sg")%}  # a singular pronoun (ex: "he", "she", "it")
     |                                               independent_genitive_pronoun                    {%nt("core_np_sg")%}  # a possessive pronoun (ex: "mine", "yours")
-    | predeterminer_modifier? determiner? adjp_list noun_sg                      n_modifier_list_sg {%nt("core_np_sg")%}  # determiner phrase followed by a singular nominal (ex: "the lovely apple")
+    | predeterminer_modifier? determiner? adjp_list noun_modifier_list noun_sg   n_modifier_list_sg {%nt("core_np_sg")%}  # determiner phrase followed by a singular nominal (ex: "the biology test")
     |                                               fused_relative_clause_sg                        {%nt("core_np_sg")%}  # a singular fused relative clause (ex: "what i was mailed")
 
 # a core plural noun phrase without peripheral modifiers
@@ -2052,15 +2106,15 @@ core_np_pl ->
     |                                               proper_noun_pl                                  {%nt("core_np_pl")%}  # a plural proper noun (ex: "the Smiths")
     |                                               pronoun_pl                                      {%nt("core_np_pl")%}  # a plural pronoun (ex: "we", "they")
     |                                               independent_genitive_pronoun                    {%nt("core_np_pl")%}  # a possessive pronoun (ex: "mine", "yours")
-    | predeterminer_modifier? determiner? adjp_list noun_pl                      n_modifier_list_pl {%nt("core_np_pl")%}  # determiner phrase followed by a plural nominal (ex: "the lovely apples")
+    | predeterminer_modifier? determiner? adjp_list noun_modifier_list noun_pl   n_modifier_list_pl {%nt("core_np_pl")%}  # determiner phrase followed by a plural nominal (ex: "the biology tests")
     |                                               fused_relative_clause_pl                        {%nt("core_np_pl")%}  # a plural fused relative clause (ex: "whatever things happen")
 
 # I know which country she serves as [prime minister of]
 core_np_sg_minus_np -> 
-      predeterminer_modifier? determiner? adjp_list noun_sg                      n_modifier_list_minus_np {%nt("core_np_sg_minus_np")%}
+      predeterminer_modifier? determiner? adjp_list noun_modifier_list noun_sg   n_modifier_list_minus_np {%nt("core_np_sg_minus_np")%}
 
 core_np_pl_minus_np -> 
-      predeterminer_modifier? determiner? adjp_list noun_pl                      n_modifier_list_minus_np {%nt("core_np_pl_minus_np")%}
+      predeterminer_modifier? determiner? adjp_list noun_modifier_list noun_pl   n_modifier_list_minus_np {%nt("core_np_pl_minus_np")%}
 
 number -> digits | cardinal_number_eng {%nt("number")%}
 
@@ -2068,12 +2122,12 @@ quantificational_expression -> quantificational_modifier                        
                              | number                     fraction_denominator  {%nt("quantificational_expression")%}
                              | number                     times                 {%nt("quantificational_expression")%}
 
-precore_emphatic_expression -> precore_emphatic_modifier         {%nt("precore_emphatic_modifier")%} # such a disaster 
-                             | precore_emphatic_modifier_adjp  adjp  {%nt("precore_emphatic_modifier")%} # too risky a venture
+precore_emphatic_expression -> precore_emphatic_modifier          {%nt("precore_emphatic_expression")%} # such a disaster
+                             | precore_emphatic_modifier_adjp adjp {%nt("precore_emphatic_expression")%} # too risky a venture
 
-predeterminer_modifier? -> null                        {%nt("predeterminer_modifier")%}
-                        | quantificational_expression  {%nt("predeterminer_modifier")%}
-                        | precore_emphatic_expression  {%nt("predeterminer_modifier")%}
+predeterminer_modifier? -> null                        {%nt("predeterminer_modifier?")%}
+                        | quantificational_expression  {%nt("predeterminer_modifier?")%}
+                        | precore_emphatic_expression  {%nt("predeterminer_modifier?")%}
 
 # the lawyer [who] defended her
 # the dog [which] bit him
@@ -2089,9 +2143,9 @@ relative_ip_np_subj ->
 # a key [] she found
 # a problem [the answer to which] she found online
 relative_ip_np_obj ->
-    null   {%nt("relative_ip_np_")%}
-  | that   {%nt("relative_ip_np_")%}
-  | ip_np  {%nt("relative_ip_np_")%}
+    null   {%nt("relative_ip_np_obj")%}
+  | that   {%nt("relative_ip_np_obj")%}
+  | ip_np  {%nt("relative_ip_np_obj")%}
 
 # restrictive clause (singular) - the head noun is singular, so when the relative pronoun is subject, verb is singular
 # ex: "box that is on the table"
@@ -2126,9 +2180,9 @@ n_modifier_list_pl -> n_modifier_pl:* {%nonterminal_unpack("n_modifier_list_pl")
 n_modifier_list_minus_np -> pp_minus_np {%nonterminal_unpack("n_modifier_list_minus_np")%}
 
 # a determiner phrase suitable for countable nouns only
-determiner? -> null                 {%nt("determiner")%} # null determiner
-             | dp                   {%nt("determiner")%} # the, a, an, some, this, that
-             | genitive_np          {%nt("determiner")%} # a noun phrase followed by a possessive suffix (ex: "John's")
+determiner? -> null                 {%nt("determiner?")%} # null determiner
+             | dp                   {%nt("determiner?")%} # the, a, an, some, this, that
+             | genitive_np          {%nt("determiner?")%} # a noun phrase followed by a possessive suffix (ex: "John's")
 
 genitive_np -> np s                         {%nt("genitive_np")%}
              | dependent_genitive_pronoun   {%nt("genitive_np")%}
@@ -2210,7 +2264,7 @@ adjunct? -> adjunct {%nt("adjunct?")%}
          | null   {%nt("adjunct?")%}
 
 adjunct_minus_np ->
-      pp_minus_np   {%nt("adjunct")%}
+      pp_minus_np   {%nt("adjunct_minus_np")%}
 
 adjunct_minus_adjp ->
       null    {%nt("adjunct_minus_adjp")%}
@@ -2290,6 +2344,9 @@ for preposition, constituent in pp_pairs_all:
     | {ppname}_coordlist or {ppname} {{%nt("{ppname}")%}}
 #   polysyndetic: "to her book or to her article or to her essay"
     | {ppname}_or_coordlist {ppname} {{%nt("{ppname}")%}}
+# ===== BUT NOT =====
+#   contrastive supplement: "to an optometrist, but not to an ophthalmologist"
+    | {ppname} comma but not {ppname} {{%nt("{ppname}")%}}
 # ===== terminal =====
     | prp{preposition} {constituent} {{%nt("{ppname}")%}}
 
@@ -2358,7 +2415,7 @@ interrogative_cl -> ip_pp{p} np_sg vbf_sg_vp{s} {{%nt("interrogative_cl")%}}
 # complement gap. This is the relative/cleft analogue of the existing `ip_pp`
 # interrogative rule.
 output += """
-relative_ip_pp_gen -> preposition_np ip_np {%nt("relative_ip_pp")%}
+relative_ip_pp_gen -> preposition_np ip_np {%nt("relative_ip_pp_gen")%}
 restrictive_cl_sg -> relative_ip_pp_gen np_sg vbf_sg_vp {%nt("restrictive_cl_sg")%}
                    | relative_ip_pp_gen np_pl vbf_pl_vp {%nt("restrictive_cl_sg")%}
 restrictive_cl_pl -> relative_ip_pp_gen np_sg vbf_sg_vp {%nt("restrictive_cl_pl")%}
@@ -2491,7 +2548,7 @@ determinative -> %determinative {%t("determinative")%}
 dp_modifier -> %dp_modifier {%t("dp_modifier")%}
 pronoun_sg -> %pronoun_sg {%t("pronoun_sg")%}
 pronoun_pl -> %pronoun_pl {%t("pronoun_pl")%}
-it -> %it {%t("pronoun_sg")%}
+it -> %it {%t("it")%}
 dependent_genitive_pronoun -> %dependent_genitive_pronoun {%t("dependent_genitive_pronoun")%}
 independent_genitive_pronoun -> %independent_genitive_pronoun {%t("independent_genitive_pronoun")%}
 proper_noun_sg -> %proper_noun_sg {%t("proper_noun_sg")%}
@@ -2579,6 +2636,11 @@ for vp_type in ["inf", "vbg", "vbn", "vbf_sg", "vbf_pl"]:
 {vp_type}_fprp{preposition}_{constituent} -> %{vp_type}_fprp{preposition}_{constituent} {{%t("{vp_type}_fprp{preposition}_{constituent}")%}}
 """
 
+    for preposition, constituent in fossilized_o_pps:
+        output += f"""
+{vp_type}_o_fprp{preposition}_{constituent} -> %{vp_type}_o_fprp{preposition}_{constituent} {{%t("{vp_type}_o_fprp{preposition}_{constituent}")%}}
+"""
+
     for p1, p2, c2 in prp_prp_triples:
         output += f"""
 {vp_type}_prp{p1}_np_prp{p2}_{c2} -> %{vp_type}_prp{p1}_np_prp{p2}_{c2} {{%t("{vp_type}_prp{p1}_np_prp{p2}_{c2}")%}}
@@ -2627,7 +2689,7 @@ else -> %else_word {%t("else")%}
 precorenp_modifier -> %precorenp_modifier {%t("precorenp_modifier")%}
 postcorenp_modifier -> %postcorenp_modifier {%t("postcorenp_modifier")%}
 precore_emphatic_modifier -> %precore_emphatic_modifier {%t("precore_emphatic_modifier")%}
-precore_emphatic_modifier_adjp  -> %precore_emphatic_modifier_adjp  {%t("precore_emphatic_modifier_adjp ")%}
+precore_emphatic_modifier_adjp -> %precore_emphatic_modifier_adjp {%t("precore_emphatic_modifier_adjp")%}
 quantificational_modifier -> %quantificational_modifier {%t("quantificational_modifier")%}
 either -> %either {%t("either")%}
 neither -> %neither {%t("neither")%}

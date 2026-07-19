@@ -122,6 +122,7 @@ describe('Quotation Clauses', () => {
   test('Bob said "I am happy.".', ({ expect, task }) => {
     const result = parse(task.name);
     expect(result).toBeGrammatical();
+    expect(JSON.stringify(result)).toContain('"kind":"quot_cl"');
   });
   test('Bob said, "I am happy.".', ({ expect, task }) => {
     const result = parse(task.name);

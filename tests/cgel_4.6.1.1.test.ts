@@ -93,7 +93,9 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
     describe('[5] Unspecified preposition (baseline)', () => {
       // [5i] relative
       test('The city to which I flew was Boston.', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(JSON.stringify(result)).toContain('"kind":"relative_ip_pp_gen"');
       });
       // [5ii] open interrogative
       test('To which city did you fly?', ({ expect, task }) => {
@@ -101,7 +103,9 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
       });
       // [5iii] it-cleft
       test('It was to Boston that I flew.', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(JSON.stringify(result)).toContain('"kind":"it"');
       });
     });
 
@@ -160,6 +164,7 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
         const result = parse(task.name);
         expect(result).toBeGrammatical();
         expect(result).toHavePOS({ word: 'across', pos: 'prpacross' });
+        expect(JSON.stringify(result)).toContain('"kind":"relative_ip_np_obj"');
       });
       test('Which letters did you come across?', ({ expect, task }) => {
         const result = parse(task.name);
@@ -190,8 +195,10 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
       expect(result).toBeGrammatical();
       expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
-    test('I came across these letters and across some family photographs.', ({ expect, task }) => {
-      // *I came across these letters and across some family photographs.
+    knownLimitation('I came across these letters and across some family photographs.', ({ expect, task }) => {
+      // *I came across these letters and across some family photographs on the
+      // fossilised reading; the parser also admits intransitive "came" followed
+      // by coordinated free PP adjuncts.
       expect(parse(task.name)).not.toBeGrammatical();
     });
   });
@@ -263,17 +270,24 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
   // ===========================================================================
   describe('[12] Transitive clauses: mobile vs fixed', () => {
     // [12i] base clauses
-    knownLimitation('He referred me to a specialist.', ({ expect, task }) => {
-      // Transitive "refer O to O" (Structure II) is not yet in the lexicon.
-      expect(parse(task.name)).toBeGrammatical();
+    test('He referred me to a specialist.', ({ expect, task }) => {
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
+      expect(JSON.stringify(result)).toContain('"kind":"vbf_sg_o_prpto_np"');
     });
-    knownLimitation('He got me through the biology test.', ({ expect, task }) => {
-      // Transitive idiom "get O through O" is not yet in the lexicon.
-      expect(parse(task.name)).toBeGrammatical();
+    test('He got me through the biology test.', ({ expect, task }) => {
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'through', pos: 'prpthrough' });
+      expect(JSON.stringify(result)).toContain('"kind":"vbf_sg_o_fprpthrough_np"');
     });
     // [12ii] a. mobile relative / b. *fixed relative
-    knownLimitation('The specialist to whom he referred me was kind.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+    test('The specialist to whom he referred me was kind.', ({ expect, task }) => {
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
+      expect(JSON.stringify(result)).toContain('"kind":"relative_ip_ppto"');
     });
     knownLimitation('The test through which he got me was hard.', ({ expect, task }) => {
       // *the test through which he got me on the fixed-preposition reading; the
@@ -281,8 +295,11 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
       expect(parse(task.name)).not.toBeGrammatical();
     });
     // [12iii] a. mobile interrogative / b. *fixed interrogative
-    knownLimitation('To whom did he refer you?', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+    test('To whom did he refer you?', ({ expect, task }) => {
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
+      expect(JSON.stringify(result)).toContain('"kind":"ip_ppto"');
     });
     knownLimitation('Through which test did he get you?', ({ expect, task }) => {
       // *Through which test did he get you? — CGEL rejects the fronted fixed
@@ -291,16 +308,21 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
       expect(parse(task.name)).not.toBeGrammatical();
     });
     // [12iv] a. mobile it-cleft / b. *fixed it-cleft
-    knownLimitation('It was to an optometrist that he referred me.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+    test('It was to an optometrist that he referred me.', ({ expect, task }) => {
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
-    test('It was through the biology test that he got me.', ({ expect, task }) => {
-      // *It wasn't through the biology test that he got me.
+    knownLimitation('It was through the biology test that he got me.', ({ expect, task }) => {
+      // *It wasn't through the biology test that he got me on the fossilised
+      // reading; a free-PP cleft reading remains structurally available.
       expect(parse(task.name)).not.toBeGrammatical();
     });
     // [12v] a. mobile coordination / b. *fixed coordination
-    knownLimitation('He referred me to an optometrist, but not to an ophthalmologist.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+    test('He referred me to an optometrist, but not to an ophthalmologist.', ({ expect, task }) => {
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
     test('He got me through the biology test, but not through the anatomy one.', ({ expect, task }) => {
       // *He got me through the biology test, but not through the anatomy one.

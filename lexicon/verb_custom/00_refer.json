@@ -6,6 +6,10 @@
         {
             "primary": ["NP", "V", "NP"],
             "examples": ["He referred to the book."]
+        },
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["He referred me to a specialist."]
         }
     ]
 }
