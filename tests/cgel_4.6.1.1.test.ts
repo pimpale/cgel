@@ -92,7 +92,7 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
     // [5] Unspecified preposition: fronting is freely available.
     describe('[5] Unspecified preposition (baseline)', () => {
       // [5i] relative
-      knownLimitation('The city to which I flew was Boston.', ({ expect, task }) => {
+      test('The city to which I flew was Boston.', ({ expect, task }) => {
         expect(parse(task.name)).toBeGrammatical();
       });
       // [5ii] open interrogative
@@ -100,7 +100,7 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
         expect(parse(task.name)).toBeGrammatical();
       });
       // [5iii] it-cleft
-      knownLimitation('It was to Boston that I flew.', ({ expect, task }) => {
+      test('It was to Boston that I flew.', ({ expect, task }) => {
         expect(parse(task.name)).toBeGrammatical();
       });
     });
@@ -108,16 +108,24 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
     // [6] Mobile ([a], grammatical) vs fixed ([b], ungrammatical).
     describe('[6] Mobile vs fixed specified preposition', () => {
       // [6i] a. mobile relative / b. *fixed relative
-      knownLimitation('The book to which I referred was helpful.', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+      test('The book to which I referred was helpful.', ({ expect, task }) => {
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
+        expect(JSON.stringify(result)).toContain('"kind":"relative_ip_ppto"');
       });
-      test('The letters across which I came were valuable.', ({ expect, task }) => {
+      knownLimitation('The letters across which I came were valuable.', ({ expect, task }) => {
         // *the letters across which I came — fixed preposition cannot be fronted
+        // on its idiomatic reading. The grammar also finds the structurally valid
+        // free-PP reading with intransitive "came".
         expect(parse(task.name)).not.toBeGrammatical();
       });
       // [6ii] a. mobile interrogative / b. *fixed interrogative
-      knownLimitation('To which book did you refer?', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+      test('To which book did you refer?', ({ expect, task }) => {
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
+        expect(JSON.stringify(result)).toContain('"kind":"ip_ppto"');
       });
       knownLimitation('Across which letters did you come?', ({ expect, task }) => {
         // *Across which letters did you come? — CGEL rejects the fronted fixed
@@ -126,11 +134,22 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
         expect(parse(task.name)).not.toBeGrammatical();
       });
       // [6iii] a. mobile it-cleft / b. *fixed it-cleft
-      knownLimitation('It was to her book that I referred.', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+      test('It was to her book that I referred.', ({ expect, task }) => {
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
       });
-      test('It was across these letters that I came.', ({ expect, task }) => {
-        // *It was across these letters that I came.
+      knownLimitation('It was across these letters that I came.', ({ expect, task }) => {
+        // *It was across these letters that I came on the fixed-preposition
+        // reading; the parser also permits a free directional-PP reading.
+        expect(parse(task.name)).not.toBeGrammatical();
+      });
+
+      // A fronted specified PP must match the preposition selected by the verb.
+      test('The book for which I referred was helpful.', ({ expect, task }) => {
+        expect(parse(task.name)).not.toBeGrammatical();
+      });
+      test('For which did you refer?', ({ expect, task }) => {
         expect(parse(task.name)).not.toBeGrammatical();
       });
     });
@@ -256,8 +275,9 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
     knownLimitation('The specialist to whom he referred me was kind.', ({ expect, task }) => {
       expect(parse(task.name)).toBeGrammatical();
     });
-    test('The test through which he got me was hard.', ({ expect, task }) => {
-      // *the test through which he got me
+    knownLimitation('The test through which he got me was hard.', ({ expect, task }) => {
+      // *the test through which he got me on the fixed-preposition reading; the
+      // parser also admits transitive "got me" plus a free PP adjunct.
       expect(parse(task.name)).not.toBeGrammatical();
     });
     // [12iii] a. mobile interrogative / b. *fixed interrogative

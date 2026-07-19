@@ -61,6 +61,16 @@ with open("english.json", "r") as f:
         + [p for (p1, p2, _c2) in prp_prp_triples for p in (p1, p2)]
     ))
 
+    # Prepositions eligible for PIED-PIPING (fronting the whole specified PP, as in
+    # "the book [to which] I referred"). Each yields a typed movement gap
+    # "_minus_pp{prep}"; because a specified PP only ever appears as a prepositional
+    # verb's complement, the gap can only be hosted there, so pairing the fronted
+    # "{prep} which" with a "_minus_pp{prep}" clause enforces the preposition match
+    # for free. Only mobile (non-fossilised) single prepositions participate.
+    pied_prepositions = sorted(set(p for (p, _c) in pps))
+    # (prep, constituent) pairs whose specific PP can be the fronted gap
+    pied_pp_pairs = sorted(set(pp for pp in pps if pp[0] in pied_prepositions))
+
 
 output = ""
 
@@ -126,6 +136,7 @@ const what = isPoS("what");
 const where = isPoS("where");
 const when = isPoS("when");
 const which = isPoS("which");
+const it = matcher(word => word == "it", "it");
 
 const else_word = isPoS("else");
 const whatever = isPoS("whatever");
@@ -352,6 +363,7 @@ fin_cl ->
     | not_only subj_aux_inv_cl comma but fin_cl {%nt("fin_cl")%}
     | not_only subj_aux_inv_cl comma fin_cl {%nt("fin_cl")%}
 # ===== terminal rules =====
+    | it_cleft {%nt("fin_cl")%}
     | precl_adjunct_list np_sg vbf_sg_vp {%nt("fin_cl")%}
     | precl_adjunct_list np_pl vbf_pl_vp {%nt("fin_cl")%}
 
@@ -1728,7 +1740,7 @@ passive_cl{mv_suf} ->
     return out
 
 
-for mv_type in [None, "np", "adjp"]:
+for mv_type in [None, "np", "adjp"] + [f"pp{p}" for p in pied_prepositions]:
     output += adjunct_list_grammar(mv_type)
     for vp_type in ["vbf_sg", "vbf_pl", "inf", "vbg", "vbn"]:
         output += vp_grammar(vp_type, mv_type)
@@ -2286,6 +2298,75 @@ for preposition, constituent in pp_pairs_all:
 """
 
 
+# ---------------------------------------------------------------------------
+# Pied-piping: typed specified-PP gaps, fillers, and it-clefts
+# ---------------------------------------------------------------------------
+for p in pied_prepositions:
+    s = f"_minus_pp{p}"
+
+    # A typed PP gap can only replace an NP-complement PP with the same specified
+    # preposition. Every other leaf is an island for this movement type.
+    for prep2, const2 in pp_pairs_all:
+        rhs = "null" if (prep2 == p and const2 == "np") else "impossible"
+        ppname = f"pp{prep2}_{const2}"
+        output += f'{ppname}{s} -> {rhs} {{%nt("{ppname}{s}")%}}\n'
+
+    for leaf in [
+        "np", "adjp", "predcomp", "adjunct", "pp", "core_np_sg", "core_np_pl",
+        "dative_to", "n_modifier_list", "exclamative_cl", "interrogative_cl", "quot_cl",
+    ]:
+        output += f'{leaf}{s} -> impossible {{%nt("{leaf}{s}")%}}\n'
+
+    # Thread the typed gap through clause and auxiliary layers. VP and adjunct
+    # list variants are emitted by the main movement-generation loop above.
+    output += f'''
+bare_declarative_cl{s} -> np_sg vbf_sg_vp{s} {{%nt("bare_declarative_cl{s}")%}}
+                        | np_pl vbf_pl_vp{s} {{%nt("bare_declarative_cl{s}")%}}
+that_declarative_cl{s} -> that bare_declarative_cl{s} {{%nt("that_declarative_cl{s}")%}}
+to_inf_cl{s} -> to inf_vp{s} {{%nt("to_inf_cl{s}")%}}
+bare_inf_cl{s} -> inf_vp{s} {{%nt("bare_inf_cl{s}")%}}
+vbg_cl{s} -> vbg_vp{s} {{%nt("vbg_cl{s}")%}}
+vbn_cl{s} -> vbn_vp{s} {{%nt("vbn_cl{s}")%}}
+subj_aux_inv_cl{s} ->
+      modal                    np    adjunct_list_bare_inf_cl{s} {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_sg_vbg_cl        np_sg vbg_cl{s}                   {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_sg_vbn_cl        np_sg vbn_cl{s}                   {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_sg_passive_cl    np_sg passive_cl{s}               {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_sg_bare_inf_cl   np_sg adjunct_list_bare_inf_cl{s} {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_pl_vbg_cl        np_pl vbg_cl{s}                   {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_pl_vbn_cl        np_pl vbn_cl{s}                   {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_pl_passive_cl    np_pl passive_cl{s}               {{%nt("subj_aux_inv_cl{s}")%}}
+    | aux_vbf_pl_bare_inf_cl   np_pl adjunct_list_bare_inf_cl{s} {{%nt("subj_aux_inv_cl{s}")%}}
+
+relative_ip_pp{p} -> prp{p} ip_np {{%nt("relative_ip_pp{p}")%}}
+ip_pp{p} -> prp{p} ip_np {{%nt("ip_pp{p}")%}}
+restrictive_cl_sg -> relative_ip_pp{p} np_sg vbf_sg_vp{s} {{%nt("restrictive_cl_sg")%}}
+                   | relative_ip_pp{p} np_pl vbf_pl_vp{s} {{%nt("restrictive_cl_sg")%}}
+restrictive_cl_pl -> relative_ip_pp{p} np_sg vbf_sg_vp{s} {{%nt("restrictive_cl_pl")%}}
+                   | relative_ip_pp{p} np_pl vbf_pl_vp{s} {{%nt("restrictive_cl_pl")%}}
+question_cl -> ip_pp{p} subj_aux_inv_cl{s} {{%nt("question_cl")%}}
+interrogative_cl -> ip_pp{p} np_sg vbf_sg_vp{s} {{%nt("interrogative_cl")%}}
+                  | ip_pp{p} np_pl vbf_pl_vp{s} {{%nt("interrogative_cl")%}}
+'''
+
+    if (p, "np") in pied_pp_pairs:
+        output += f'''it_cleft -> it aux_vbf_sg_predcomp pp{p}_np that bare_declarative_cl{s} {{%nt("it_cleft")%}}
+'''
+
+
+# A free (unspecified) fronted PP leaves a complete clause rather than a typed
+# complement gap. This is the relative/cleft analogue of the existing `ip_pp`
+# interrogative rule.
+output += """
+relative_ip_pp_gen -> preposition_np ip_np {%nt("relative_ip_pp")%}
+restrictive_cl_sg -> relative_ip_pp_gen np_sg vbf_sg_vp {%nt("restrictive_cl_sg")%}
+                   | relative_ip_pp_gen np_pl vbf_pl_vp {%nt("restrictive_cl_sg")%}
+restrictive_cl_pl -> relative_ip_pp_gen np_sg vbf_sg_vp {%nt("restrictive_cl_pl")%}
+                   | relative_ip_pp_gen np_pl vbf_pl_vp {%nt("restrictive_cl_pl")%}
+it_cleft -> it aux_vbf_sg_predcomp pp that bare_declarative_cl {%nt("it_cleft")%}
+"""
+
+
 output += """
 
 # a predcomp (predicative complement)
@@ -2410,6 +2491,7 @@ determinative -> %determinative {%t("determinative")%}
 dp_modifier -> %dp_modifier {%t("dp_modifier")%}
 pronoun_sg -> %pronoun_sg {%t("pronoun_sg")%}
 pronoun_pl -> %pronoun_pl {%t("pronoun_pl")%}
+it -> %it {%t("pronoun_sg")%}
 dependent_genitive_pronoun -> %dependent_genitive_pronoun {%t("dependent_genitive_pronoun")%}
 independent_genitive_pronoun -> %independent_genitive_pronoun {%t("independent_genitive_pronoun")%}
 proper_noun_sg -> %proper_noun_sg {%t("proper_noun_sg")%}

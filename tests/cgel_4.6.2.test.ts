@@ -117,8 +117,7 @@ describe('CGEL 4.6.2 (c) Fronting / foregrounding [29]', () => {
     expect(parse(task.name)).not.toBeGrammatical();
   });
 
-  knownLimitation('The wall off which she jumped was high.', ({ expect, task }) => {
-    // Pied-piped fronting of a transitive preposition is not yet supported.
+  test('The wall off which she jumped was high.', ({ expect, task }) => {
     expect(parse(task.name)).toBeGrammatical();
   });
 
