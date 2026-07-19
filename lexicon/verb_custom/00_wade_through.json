@@ -1,0 +1,11 @@
+{
+    "members": [
+        "wade_through"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["I waded through my ironing."]
+        }
+    ]
+}

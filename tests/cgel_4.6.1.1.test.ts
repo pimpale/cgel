@@ -34,30 +34,50 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
   // [4] Prepositional verbs (specified) alongside free combinations (unspecified)
   // ===========================================================================
   describe('[4] Prepositional verbs and free combinations', () => {
-    // [4i] a. specified   b. unspecified
+    // In each pair the [a] verb specifies its preposition (a prepositional verb,
+    // so the preposition is parsed as `prp{prep}`), while the [b] verb takes a
+    // free directional/locative PP (general `preposition_np`). Where the [a]/[b]
+    // contrast is the *same* verb + preposition differing only in sense
+    // (skate over, wade through), both readings are available, and the [a] test
+    // asserts `prp` to select the idiomatic one while the [b] test only checks
+    // grammaticality.
+
+    // [4i] a. specified "refer to"  /  b. unspecified "fly to"
     test('I referred to her book.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
     test('I flew to Boston.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).not.toHavePOS({ word: 'to', pos: 'prpto' });
     });
-    // [4ii]
+    // [4ii] a. specified "come across"  /  b. unspecified "swim across"
     test('I came across some old letters.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'across', pos: 'prpacross' });
     });
     test('I swam across the river.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).not.toHavePOS({ word: 'across', pos: 'prpacross' });
     });
-    // [4iii]
+    // [4iii] a. idiomatic "skate over" (gloss over)  /  b. literal (same verb+prep)
     test('I skated over the problem.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'over', pos: 'prpover' });
     });
     test('I skated over the frozen pond.', ({ expect, task }) => {
       expect(parse(task.name)).toBeGrammatical();
     });
-    // [4iv]
+    // [4iv] a. idiomatic "wade through" (labour through)  /  b. literal (same verb+prep)
     test('I waded through my ironing.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'through', pos: 'prpthrough' });
     });
     test('I waded through the mud.', ({ expect, task }) => {
       expect(parse(task.name)).toBeGrammatical();
@@ -118,13 +138,19 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
     // The fixed preposition is fine when STRANDED (CGEL, after [6]).
     describe('Stranded preposition (always admissible)', () => {
       test('The letters which I came across were valuable.', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(result).toHavePOS({ word: 'across', pos: 'prpacross' });
       });
       test('Which letters did you come across?', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(result).toHavePOS({ word: 'across', pos: 'prpacross' });
       });
       test('It was these letters that I came across.', ({ expect, task }) => {
-        expect(parse(task.name)).toBeGrammatical();
+        const result = parse(task.name);
+        expect(result).toBeGrammatical();
+        expect(result).toHavePOS({ word: 'across', pos: 'prpacross' });
       });
     });
   });
@@ -135,11 +161,15 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
   describe('(b) Coordination of PPs', () => {
     // [7] Unspecified prepositions readily repeat in coordination.
     test('I flew to Boston and to New York.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).not.toHavePOS({ word: 'to', pos: 'prpto' });
     });
     // [8] a. mobile (repetition OK) / b. *fixed (repetition blocked)
     test('I referred to her book and to several others.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
     test('I came across these letters and across some family photographs.', ({ expect, task }) => {
       // *I came across these letters and across some family photographs.
@@ -153,11 +183,15 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
   describe('(c) Position of adjuncts', () => {
     // [9] Unspecified: adjunct freely inserted before the preposition.
     test('I flew regularly to Boston.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).not.toHavePOS({ word: 'to', pos: 'prpto' });
     });
     // [10] a. mobile (insertion OK) / b. *fixed (insertion blocked)
     test('I referred repeatedly to her book.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
     knownLimitation('I came eventually across these letters.', ({ expect, task }) => {
       // *I came eventually across these letters. — CGEL blocks the inserted
@@ -186,7 +220,9 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
       expect(parse(task.name)).not.toBeGrammatical();
     });
     test('Her book was referred to.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
     // [11iii] fixed specified: a. *blocked (–P verb) / b. admissible
     knownLimitation('Some old letters were come across.', ({ expect, task }) => {
@@ -196,7 +232,9 @@ describe('CGEL 4.6.1.1 Specified vs Unspecified Prepositions', () => {
       expect(parse(task.name)).not.toBeGrammatical();
     });
     test('These matters must be seen to.', ({ expect, task }) => {
-      expect(parse(task.name)).toBeGrammatical();
+      const result = parse(task.name);
+      expect(result).toBeGrammatical();
+      expect(result).toHavePOS({ word: 'to', pos: 'prpto' });
     });
   });
 

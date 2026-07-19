@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import { Group, Panel, Separator, useDefaultLayout } from 'react-resizable-panels';
 import nearley from 'nearley';
-import { lex, grammar } from '@pimpale/cgel';
+import { lex, grammar, treeId } from '@pimpale/cgel';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DragAndDropCard from './components/DragAndDropCard';
@@ -31,6 +31,12 @@ interface AssertionResult {
     error?: string;
     /** True if this test is a documented known limitation (see knownLimitation()) */
     knownLimitation?: boolean;
+    /** Total number of parses the sentence had at test time */
+    treeCount?: number;
+    /** Indices (into the test-time parse list) of parses satisfying every assertion */
+    survivingIndices?: number[];
+    /** Structural ids of the surviving parses (order-independent matching) */
+    survivingTreeIds?: string[];
   };
 }
 
@@ -77,6 +83,10 @@ interface SentenceItem {
   error?: string;
   /** True if this is a documented known limitation (rendered blue when passing, yellow when failing) */
   knownLimitation?: boolean;
+  /** Total parses at test time */
+  treeCount?: number;
+  /** Structural ids of parses that satisfied every assertion (the "surviving" set) */
+  survivingTreeIds?: string[];
 }
 
 /** Extract sentences from test results */
@@ -104,6 +114,8 @@ function getSentencesFromTests(): SentenceItem[] {
         isUngrammatical,
         error,
         knownLimitation: test.meta?.knownLimitation,
+        treeCount: test.meta?.treeCount,
+        survivingTreeIds: test.meta?.survivingTreeIds,
       });
     }
   }
@@ -255,6 +267,16 @@ export default function App() {
   const activeSentenceItem = useMemo(() => {
     return sentences.find(s => s.sentence === input);
   }, [sentences, input]);
+
+  // Structural ids of the parses that satisfied every test assertion, so we can
+  // highlight exactly those in the tree list below. Null when the sentence has
+  // no recorded test (e.g. a user-typed one), in which case nothing is dimmed.
+  const survivingSet = useMemo(
+    () => activeSentenceItem?.survivingTreeIds
+      ? new Set(activeSentenceItem.survivingTreeIds)
+      : null,
+    [activeSentenceItem]
+  );
 
   const handleExampleClick = (sentence: string) => {
     setInput(sentence);
@@ -480,14 +502,31 @@ export default function App() {
                 {output.length > 1 && (
                   <div className="alert alert-warning">
                     ⚠️ This sentence has {output.length} possible parses (ambiguous).
+                    {survivingSet && survivingSet.size < output.length && (
+                      <> {survivingSet.size} of them satisfy every test assertion (highlighted below).</>
+                    )}
                   </div>
                 )}
-                {output.map((tree, i) => (
-                  <div key={i} className="mt-3">
-                    {output.length > 1 && <h5 className="mb-2">Parse {i + 1}</h5>}
-                    <SyntaxTree showNulls={showNulls} tree={tree} />
-                  </div>
-                ))}
+                {output.map((tree, i) => {
+                  // Match this re-parsed tree to the test-time survivors by identity.
+                  const surviving = survivingSet ? survivingSet.has(treeId(tree)) : null;
+                  return (
+                    <div
+                      key={i}
+                      className={`mt-3 p-2 rounded ${surviving === true ? 'border border-success border-2' : ''}`}
+                      style={surviving === false ? { opacity: 0.45 } : undefined}
+                    >
+                      {output.length > 1 && (
+                        <h5 className="mb-2 d-flex align-items-center gap-2">
+                          <span>Parse {i + 1}</span>
+                          {surviving === true && <span className="badge bg-success">satisfies assertions</span>}
+                          {surviving === false && <span className="badge bg-secondary">excluded by assertions</span>}
+                        </h5>
+                      )}
+                      <SyntaxTree showNulls={showNulls} tree={tree} />
+                    </div>
+                  );
+                })}
               </>
             )}
           </div>

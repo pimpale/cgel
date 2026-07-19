@@ -1,0 +1,11 @@
+{
+    "members": [
+        "skate_over"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["I skated over the problem."]
+        }
+    ]
+}

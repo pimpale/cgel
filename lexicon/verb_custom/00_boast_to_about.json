@@ -1,0 +1,11 @@
+{
+    "members": [
+        "boast_to_about"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["He boasted to everyone about his success."]
+        }
+    ]
+}

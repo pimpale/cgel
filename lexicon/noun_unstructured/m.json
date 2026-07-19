@@ -2,5 +2,8 @@
     "matter": {
         "countable_noun": {},
         "uncountable_noun": {}
+    },
+    "message": {
+        "countable_noun": {}
     }
 }

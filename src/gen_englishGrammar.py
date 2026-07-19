@@ -10,38 +10,55 @@ with open("english.json", "r") as f:
     # Either may be None if not present in the class
     # pp is captured as a tuple (preposition, constituent) e.g. ("for", "np"), ("as", "predcomp")
     # constituent can have underscores (e.g. "to_inf_cl"), so we capture till end of string
-    # A specified preposition may be mobile ("_prp...") or fossilised ("_fprp...");
-    # both share the same prp{prep} word matcher but generate different phrase rules.
-    # Note: the mobile pattern "_prp..." deliberately does not match fossilised
-    # "_fprp..." classes (there is no "_prp" substring in "_fprp..."); those are
-    # collected separately into fossilized_pps below.
-    particle_pp_pairs = sorted(set(
-        (
-            prt_match.group(1) if (prt_match := re.search(r'_prt([a-z]+)', cls)) else None,
-            (prp_match.group(1), prp_match.group(2)) if (prp_match := re.search(r'_prp([a-z]+)_(.+)$', cls)) else None
-        )
-        for cls in classes_set
-        if re.search(r'_prt[a-z]|_prp[a-z]|_fprp[a-z]', cls)  # only include classes with at least one
-    ), key=lambda x: (x[0] or '', x[1] or ('', '')))
+    # A verb may specify one preposition (mobile "_prp..." or fossilised "_fprp..."),
+    # or TWO (CGEL Structures III/VI, "_prp{p1}_np_prp{p2}_{np|predcomp}"). We sort
+    # each class into exactly one bucket. Classes are examined two-preposition first,
+    # then fossilised, then single-preposition/particle, so the patterns don't overlap.
+    particle_pp_pairs_set = set()  # (particle | None, (prep, const) | None)
+    fossilized_pps_set = set()     # (prep, const)
+    prp_prp_triples_set = set()    # (prep1, prep2, const2)  — first constituent is always np
 
+    for cls in classes_set:
+        if (m := re.search(r'_prp([a-z]+)_np_prp([a-z]+)_(.+)$', cls)):
+            # two specified prepositions: verb – [p1 + O] – [p2 + O/PC]
+            prp_prp_triples_set.add((m.group(1), m.group(2), m.group(3)))
+            continue
+        if (m := re.search(r'_fprp([a-z]+)_(.+)$', cls)):
+            fossilized_pps_set.add((m.group(1), m.group(2)))
+            continue
+        prt = re.search(r'_prt([a-z]+)', cls)
+        prp = re.search(r'_prp([a-z]+)_(.+)$', cls)
+        if prt or prp:
+            particle_pp_pairs_set.add((
+                prt.group(1) if prt else None,
+                (prp.group(1), prp.group(2)) if prp else None,
+            ))
+
+    particle_pp_pairs = sorted(
+        particle_pp_pairs_set, key=lambda x: (x[0] or '', x[1] or ('', ''))
+    )
     # extract particles
     particles = sorted(set(x[0] for x in particle_pp_pairs if x[0] is not None))
-    # extract unique (preposition, constituent) tuples, e.g. ("for", "np"), ("as", "predcomp")
-    # These are the *mobile* prepositional phrases (fossilised ones are collected below).
+    # single mobile (preposition, constituent) tuples, e.g. ("for", "np"), ("as", "predcomp")
     pps = sorted(set(x[1] for x in particle_pp_pairs if x[1] is not None))
+    # fossilised specified prepositions (CGEL 6.1.1), Structure I only (constituent "np")
+    fossilized_pps = sorted(fossilized_pps_set)
+    # two-preposition combos (CGEL 6.1.2 III / VI) as (prep1, prep2, constituent2)
+    prp_prp_triples = sorted(prp_prp_triples_set)
 
-    # fossilised specified prepositions (CGEL 6.1.1) as (preposition, constituent)
-    # tuples, extracted from "_fprp{prep}_{constituent}" classes. Only Structure I
-    # (constituent == "np") is currently supported.
-    fossilized_pps = sorted(set(
-        (fprp_match.group(1), fprp_match.group(2))
-        for cls in classes_set
-        if (fprp_match := re.search(r'_fprp([a-z]+)_(.+)$', cls))
-    ))
+    # Every (preposition, constituent) pair that needs a pp{prep}_{const} rule: the
+    # single-preposition ones plus both halves of each two-preposition combo.
+    pp_pairs_all = sorted(
+        set(pps)
+        | {(p1, "np") for (p1, _p2, _c2) in prp_prp_triples}
+        | {(p2, c2) for (_p1, p2, c2) in prp_prp_triples}
+    )
 
-    # extract just the prepositions (both mobile and fossilised share word matchers)
+    # every preposition needing a prp{prep} word matcher
     prepositions = sorted(set(
-        [pp[0] for pp in pps] + [fpp[0] for fpp in fossilized_pps]
+        [pp[0] for pp in pps]
+        + [fpp[0] for fpp in fossilized_pps]
+        + [p for (p1, p2, _c2) in prp_prp_triples for p in (p1, p2)]
     ))
 
 
@@ -191,6 +208,11 @@ const {vp_type}_o_prp{preposition}_{constituent} = isPoS("{vp_type}_o_prp{prepos
     for preposition, constituent in fossilized_pps:
         output += f"""
 const {vp_type}_fprp{preposition}_{constituent} = isPoS("{vp_type}_fprp{preposition}_{constituent}");
+"""
+
+    for p1, p2, c2 in prp_prp_triples:
+        output += f"""
+const {vp_type}_prp{p1}_np_prp{p2}_{c2} = isPoS("{vp_type}_prp{p1}_np_prp{p2}_{c2}");
 """
 
     for particle, pp in particle_pp_pairs:
@@ -1282,6 +1304,25 @@ def adjunct_list_grammar(mv_type):
             )
 
     # ##################
+    # CGEL 6.1.2 Structures III & VI: verb – [prep + O] – [prep + O/PC]
+    # ##################
+    # Two selected prepositions (e.g. "look to her for guidance", "think of it as
+    # indispensable"). An adjunct may be inserted before either preposition, and the
+    # object of either may be extracted (analogous to Structure II).
+    for p1, p2, c2 in prp_prp_triples:
+        out += serialize_rules(
+            f"adjunct_list_prp{p1}_np_prp{p2}_{c2}{mv_suf}",
+            [
+                # Ex: He looked to her for guidance yesterday
+                f"adjunct? pp{p1}_np adjunct? pp{p2}_{c2} adjunct_list{mv_suf}" if mv_type != "adjp" else None,
+                # extraction from the second PP (Ex mv_np: what he looked to her for [gap])
+                f"adjunct? pp{p1}_np adjunct? pp{p2}_{c2}{mv_suf} adjunct_list",
+                # extraction from the first PP (Ex mv_np: who he looked to [gap] for guidance)
+                f"adjunct? pp{p1}_np{mv_suf} adjunct? pp{p2}_{c2} adjunct_list" if mv_type != "adjp" else None,
+            ],
+        )
+
+    # ##################
     # CGEL 6.3.2: Particle + preposition constructions
     # ##################
 
@@ -1623,6 +1664,10 @@ def vp_grammar(vp_type: str, mv_type: str | None = None):
     for (preposition, constituent) in fossilized_pps:
         out += f"""
     | advp_vp? {vp_type}_fprp{preposition}_{constituent}          adjunct_list_fprp{preposition}_{constituent}{mv_suf}            {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.1 fossilised: verb + [preposition + O] with fixed preposition (ex: "I came across some old letters")
+"""
+    for (p1, p2, c2) in prp_prp_triples:
+        out += f"""
+    | advp_vp? {vp_type}_prp{p1}_np_prp{p2}_{c2}          adjunct_list_prp{p1}_np_prp{p2}_{c2}{mv_suf}            {{%nt("{vp_type}_vp{mv_suf}")%}} # CGEL 6.1.2 III/VI: verb + [prep + O] + [prep + O/PC] (ex: "He looked to her for guidance", "I think of it as indispensable")
 """
     for particle, pp in particle_pp_pairs:
         if particle is None or pp is None:
@@ -2197,7 +2242,10 @@ pp_minus_np ->      preposition_np             {%nt("pp_minus_np")%}
 # NP-internal coordination with a shared preposition ("to her book and her article")
 # is already handled by `np` coordination inside the terminal rule. The extraction
 # variants (_minus_np / _minus_adjp) stay terminal — coordinated PPs are islands.
-for preposition, constituent in pps:
+#
+# We generate a rule for every pair used anywhere, including the two halves of each
+# two-preposition (Structure III/VI) combo, not just the single-preposition ones.
+for preposition, constituent in pp_pairs_all:
     ppname = f"pp{preposition}_{constituent}"
     output += f"""
 # comma / and / or coordlists for {ppname} (require 2+ items to avoid ambiguity with binary)
@@ -2447,6 +2495,11 @@ for vp_type in ["inf", "vbg", "vbn", "vbf_sg", "vbf_pl"]:
     for preposition, constituent in fossilized_pps:
         output += f"""
 {vp_type}_fprp{preposition}_{constituent} -> %{vp_type}_fprp{preposition}_{constituent} {{%t("{vp_type}_fprp{preposition}_{constituent}")%}}
+"""
+
+    for p1, p2, c2 in prp_prp_triples:
+        output += f"""
+{vp_type}_prp{p1}_np_prp{p2}_{c2} -> %{vp_type}_prp{p1}_np_prp{p2}_{c2} {{%t("{vp_type}_prp{p1}_np_prp{p2}_{c2}")%}}
 """
 
     for particle, pp in particle_pp_pairs:

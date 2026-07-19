@@ -2,7 +2,13 @@
     "photograph": {
         "countable_noun": {}
     },
+    "project": {
+        "countable_noun": {}
+    },
     "proposal": {
+        "countable_noun": {}
+    },
+    "prospectus": {
         "countable_noun": {}
     }
 }

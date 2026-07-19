@@ -1,0 +1,11 @@
+{
+    "members": [
+        "bring__down"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["She brought down the bed."]
+        }
+    ]
+}

@@ -141,6 +141,7 @@ def cat_from_primary(
     particle: str | None = None,
     preposition: str | None = None,
     fossilized: bool = False,
+    preposition2: str | None = None,
 ) -> str | None:
     """Return one of our verb category names given *slots* sequence, particle, and preposition or None.
 
@@ -148,6 +149,12 @@ def cat_from_primary(
     supported for Structure I (verb + [prep + O]), where it yields a distinct
     `vb_fprp{preposition}_np` category so the grammar can restrict the mobility
     processes that fossilised combinations block.
+
+    *preposition2* is a second specified preposition (CGEL Structure III, verb –
+    [prep + O] – [prep + O], and VI, verb – [prep + O] – [prep + PC]). When present
+    it yields a two-preposition category `vb_prp{p1}_np_prp{p2}_{np|predcomp}`,
+    the final constituent taken from the frame's last slot (NP -> np, ADJ ->
+    predcomp).
     """
     if slots == ["NP", "V"] or slots == ["It", "V"]:
         # preposition must have a complement of some sort
@@ -280,6 +287,9 @@ def cat_from_primary(
 
         return "vb_o"
     if slots == ["NP", "V", "NP", "ADJ"]:
+        if preposition is not None and preposition2 is not None:
+            # CGEL 6.1.2 Structure VI: verb – [prep + O] – [prep + PC] (AdjP predicative)
+            return f"vb_prp{preposition}_np_prp{preposition2}_predcomp"
         if particle is not None and preposition is not None:
             # CGEL 6.3.2 Structure VII
             return f"vb_o_prt{particle}_prp{preposition}_predcomp"
@@ -372,6 +382,10 @@ def cat_from_primary(
             return f"vb_io_prp{preposition}_quot_cl"
         return "vb_io_quot_cl"
     if slots == ["NP", "V", "NP", "NP"]:
+        if preposition is not None and preposition2 is not None:
+            # CGEL 6.1.2 Structure III: verb – [prep + O] – [prep + O]
+            # (also VI where the predicative is a role NP, e.g. "refer to it as the solution")
+            return f"vb_prp{preposition}_np_prp{preposition2}_np"
         if particle is not None and preposition is not None:
             # CGEL 6.3.2 Structure V
             return f"vb_o_prt{particle}_prp{preposition}_np"
@@ -413,6 +427,7 @@ def extract_verb_categories() -> dict[str, dict[str, None]]:
                     main_verb = None
                     particle = None
                     preposition = None
+                    preposition2 = None
                     # CGEL 4.6.1.1: a specified preposition is either "mobile" (default,
                     # written "verb_prep") or "fossilised" (written "verb+prep"). A
                     # fossilised combination blocks the syntactic processes (prep
@@ -429,14 +444,20 @@ def extract_verb_categories() -> dict[str, dict[str, None]]:
                             pass
                         case [[main_verb], [particle]]:
                             pass
+                        case [[main_verb, preposition, preposition2]]:
+                            # two specified prepositions (CGEL Structure III / VI),
+                            # e.g. "look_to_for", "think_of_as"
+                            pass
                         case [[main_verb, preposition]]:
                             pass
                         case [[main_verb]]:
                             pass
+                        case _:
+                            print(f"warning: could not parse verb idiom member {verb!r}")
 
                     if main_verb is not None:
                         cat = cat_from_primary(
-                            slots, particle, preposition, fossilized
+                            slots, particle, preposition, fossilized, preposition2
                         )
                         if cat is not None:
                             categories[cat].add(main_verb)

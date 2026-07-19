@@ -1,0 +1,11 @@
+{
+    "members": [
+        "protect_from"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "NP"],
+            "examples": ["She protected the child from danger."]
+        }
+    ]
+}

@@ -111,6 +111,8 @@ const prpacross = matcher(word => word == "across", "prpacross");
 
 const prpafter = matcher(word => word == "after", "prpafter");
 
+const prpahold = matcher(word => word == "ahold", "prpahold");
+
 const prpapart = matcher(word => word == "apart", "prpapart");
 
 const prparound = matcher(word => word == "around", "prparound");
@@ -125,11 +127,17 @@ const prpby = matcher(word => word == "by", "prpby");
 
 const prpdown = matcher(word => word == "down", "prpdown");
 
+const prpfault = matcher(word => word == "fault", "prpfault");
+
 const prpfor = matcher(word => word == "for", "prpfor");
 
 const prpforth = matcher(word => word == "forth", "prpforth");
 
+const prpfrom = matcher(word => word == "from", "prpfrom");
+
 const prpgo = matcher(word => word == "go", "prpgo");
+
+const prphold = matcher(word => word == "hold", "prphold");
 
 const prpin = matcher(word => word == "in", "prpin");
 
@@ -150,6 +158,8 @@ const prpover = matcher(word => word == "over", "prpover");
 const prppooh = matcher(word => word == "pooh", "prppooh");
 
 const prptell = matcher(word => word == "tell", "prptell");
+
+const prpthe = matcher(word => word == "the", "prpthe");
 
 const prpthrough = matcher(word => word == "through", "prpthrough");
 
@@ -377,6 +387,9 @@ const inf_o_prpacross_that_declarative_cl = isPoS("inf_o_prpacross_that_declarat
 const inf_prpafter_np = isPoS("inf_prpafter_np");
 const inf_o_prpafter_np = isPoS("inf_o_prpafter_np");
 
+const inf_prpahold_np = isPoS("inf_prpahold_np");
+const inf_o_prpahold_np = isPoS("inf_o_prpahold_np");
+
 const inf_prpapart_np = isPoS("inf_prpapart_np");
 const inf_o_prpapart_np = isPoS("inf_o_prpapart_np");
 
@@ -413,8 +426,14 @@ const inf_o_prpdown_np = isPoS("inf_o_prpdown_np");
 const inf_prpdown_vbg_cl = isPoS("inf_prpdown_vbg_cl");
 const inf_o_prpdown_vbg_cl = isPoS("inf_o_prpdown_vbg_cl");
 
+const inf_prpfault_np = isPoS("inf_prpfault_np");
+const inf_o_prpfault_np = isPoS("inf_o_prpfault_np");
+
 const inf_prpfor_np = isPoS("inf_prpfor_np");
 const inf_o_prpfor_np = isPoS("inf_o_prpfor_np");
+
+const inf_prpfor_predcomp = isPoS("inf_prpfor_predcomp");
+const inf_o_prpfor_predcomp = isPoS("inf_o_prpfor_predcomp");
 
 const inf_prpfor_vbg_cl = isPoS("inf_prpfor_vbg_cl");
 const inf_o_prpfor_vbg_cl = isPoS("inf_o_prpfor_vbg_cl");
@@ -425,8 +444,14 @@ const inf_o_prpforth_bare_declarative_cl = isPoS("inf_o_prpforth_bare_declarativ
 const inf_prpforth_np = isPoS("inf_prpforth_np");
 const inf_o_prpforth_np = isPoS("inf_o_prpforth_np");
 
+const inf_prpfrom_np = isPoS("inf_prpfrom_np");
+const inf_o_prpfrom_np = isPoS("inf_o_prpfrom_np");
+
 const inf_prpgo_np = isPoS("inf_prpgo_np");
 const inf_o_prpgo_np = isPoS("inf_o_prpgo_np");
+
+const inf_prphold_np = isPoS("inf_prphold_np");
+const inf_o_prphold_np = isPoS("inf_o_prphold_np");
 
 const inf_prpin_exclamative_cl = isPoS("inf_prpin_exclamative_cl");
 const inf_o_prpin_exclamative_cl = isPoS("inf_o_prpin_exclamative_cl");
@@ -527,6 +552,9 @@ const inf_o_prptell_np = isPoS("inf_o_prptell_np");
 const inf_prptell_that_declarative_cl = isPoS("inf_prptell_that_declarative_cl");
 const inf_o_prptell_that_declarative_cl = isPoS("inf_o_prptell_that_declarative_cl");
 
+const inf_prpthe_np = isPoS("inf_prpthe_np");
+const inf_o_prpthe_np = isPoS("inf_o_prpthe_np");
+
 const inf_prpthrough_np = isPoS("inf_prpthrough_np");
 const inf_o_prpthrough_np = isPoS("inf_o_prpthrough_np");
 
@@ -576,6 +604,20 @@ const inf_prpwith_np = isPoS("inf_prpwith_np");
 const inf_o_prpwith_np = isPoS("inf_o_prpwith_np");
 
 const inf_fprpacross_np = isPoS("inf_fprpacross_np");
+
+const inf_prpof_np_prpas_predcomp = isPoS("inf_prpof_np_prpas_predcomp");
+
+const inf_prpon_np_prpas_np = isPoS("inf_prpon_np_prpas_np");
+
+const inf_prpto_np_prpabout_np = isPoS("inf_prpto_np_prpabout_np");
+
+const inf_prpto_np_prpas_np = isPoS("inf_prpto_np_prpas_np");
+
+const inf_prpto_np_prpfor_np = isPoS("inf_prpto_np_prpfor_np");
+
+const inf_prpupon_np_prpas_np = isPoS("inf_prpupon_np_prpas_np");
+
+const inf_prpwith_np_prpabout_np = isPoS("inf_prpwith_np_prpabout_np");
 
 const inf_prtin_prpon_np = isPoS("inf_prtin_prpon_np");
 const inf_o_prtin_prpon_np = isPoS("inf_o_prtin_prpon_np");
@@ -805,6 +847,9 @@ const vbg_o_prpacross_that_declarative_cl = isPoS("vbg_o_prpacross_that_declarat
 const vbg_prpafter_np = isPoS("vbg_prpafter_np");
 const vbg_o_prpafter_np = isPoS("vbg_o_prpafter_np");
 
+const vbg_prpahold_np = isPoS("vbg_prpahold_np");
+const vbg_o_prpahold_np = isPoS("vbg_o_prpahold_np");
+
 const vbg_prpapart_np = isPoS("vbg_prpapart_np");
 const vbg_o_prpapart_np = isPoS("vbg_o_prpapart_np");
 
@@ -841,8 +886,14 @@ const vbg_o_prpdown_np = isPoS("vbg_o_prpdown_np");
 const vbg_prpdown_vbg_cl = isPoS("vbg_prpdown_vbg_cl");
 const vbg_o_prpdown_vbg_cl = isPoS("vbg_o_prpdown_vbg_cl");
 
+const vbg_prpfault_np = isPoS("vbg_prpfault_np");
+const vbg_o_prpfault_np = isPoS("vbg_o_prpfault_np");
+
 const vbg_prpfor_np = isPoS("vbg_prpfor_np");
 const vbg_o_prpfor_np = isPoS("vbg_o_prpfor_np");
+
+const vbg_prpfor_predcomp = isPoS("vbg_prpfor_predcomp");
+const vbg_o_prpfor_predcomp = isPoS("vbg_o_prpfor_predcomp");
 
 const vbg_prpfor_vbg_cl = isPoS("vbg_prpfor_vbg_cl");
 const vbg_o_prpfor_vbg_cl = isPoS("vbg_o_prpfor_vbg_cl");
@@ -853,8 +904,14 @@ const vbg_o_prpforth_bare_declarative_cl = isPoS("vbg_o_prpforth_bare_declarativ
 const vbg_prpforth_np = isPoS("vbg_prpforth_np");
 const vbg_o_prpforth_np = isPoS("vbg_o_prpforth_np");
 
+const vbg_prpfrom_np = isPoS("vbg_prpfrom_np");
+const vbg_o_prpfrom_np = isPoS("vbg_o_prpfrom_np");
+
 const vbg_prpgo_np = isPoS("vbg_prpgo_np");
 const vbg_o_prpgo_np = isPoS("vbg_o_prpgo_np");
+
+const vbg_prphold_np = isPoS("vbg_prphold_np");
+const vbg_o_prphold_np = isPoS("vbg_o_prphold_np");
 
 const vbg_prpin_exclamative_cl = isPoS("vbg_prpin_exclamative_cl");
 const vbg_o_prpin_exclamative_cl = isPoS("vbg_o_prpin_exclamative_cl");
@@ -955,6 +1012,9 @@ const vbg_o_prptell_np = isPoS("vbg_o_prptell_np");
 const vbg_prptell_that_declarative_cl = isPoS("vbg_prptell_that_declarative_cl");
 const vbg_o_prptell_that_declarative_cl = isPoS("vbg_o_prptell_that_declarative_cl");
 
+const vbg_prpthe_np = isPoS("vbg_prpthe_np");
+const vbg_o_prpthe_np = isPoS("vbg_o_prpthe_np");
+
 const vbg_prpthrough_np = isPoS("vbg_prpthrough_np");
 const vbg_o_prpthrough_np = isPoS("vbg_o_prpthrough_np");
 
@@ -1004,6 +1064,20 @@ const vbg_prpwith_np = isPoS("vbg_prpwith_np");
 const vbg_o_prpwith_np = isPoS("vbg_o_prpwith_np");
 
 const vbg_fprpacross_np = isPoS("vbg_fprpacross_np");
+
+const vbg_prpof_np_prpas_predcomp = isPoS("vbg_prpof_np_prpas_predcomp");
+
+const vbg_prpon_np_prpas_np = isPoS("vbg_prpon_np_prpas_np");
+
+const vbg_prpto_np_prpabout_np = isPoS("vbg_prpto_np_prpabout_np");
+
+const vbg_prpto_np_prpas_np = isPoS("vbg_prpto_np_prpas_np");
+
+const vbg_prpto_np_prpfor_np = isPoS("vbg_prpto_np_prpfor_np");
+
+const vbg_prpupon_np_prpas_np = isPoS("vbg_prpupon_np_prpas_np");
+
+const vbg_prpwith_np_prpabout_np = isPoS("vbg_prpwith_np_prpabout_np");
 
 const vbg_prtin_prpon_np = isPoS("vbg_prtin_prpon_np");
 const vbg_o_prtin_prpon_np = isPoS("vbg_o_prtin_prpon_np");
@@ -1233,6 +1307,9 @@ const vbn_o_prpacross_that_declarative_cl = isPoS("vbn_o_prpacross_that_declarat
 const vbn_prpafter_np = isPoS("vbn_prpafter_np");
 const vbn_o_prpafter_np = isPoS("vbn_o_prpafter_np");
 
+const vbn_prpahold_np = isPoS("vbn_prpahold_np");
+const vbn_o_prpahold_np = isPoS("vbn_o_prpahold_np");
+
 const vbn_prpapart_np = isPoS("vbn_prpapart_np");
 const vbn_o_prpapart_np = isPoS("vbn_o_prpapart_np");
 
@@ -1269,8 +1346,14 @@ const vbn_o_prpdown_np = isPoS("vbn_o_prpdown_np");
 const vbn_prpdown_vbg_cl = isPoS("vbn_prpdown_vbg_cl");
 const vbn_o_prpdown_vbg_cl = isPoS("vbn_o_prpdown_vbg_cl");
 
+const vbn_prpfault_np = isPoS("vbn_prpfault_np");
+const vbn_o_prpfault_np = isPoS("vbn_o_prpfault_np");
+
 const vbn_prpfor_np = isPoS("vbn_prpfor_np");
 const vbn_o_prpfor_np = isPoS("vbn_o_prpfor_np");
+
+const vbn_prpfor_predcomp = isPoS("vbn_prpfor_predcomp");
+const vbn_o_prpfor_predcomp = isPoS("vbn_o_prpfor_predcomp");
 
 const vbn_prpfor_vbg_cl = isPoS("vbn_prpfor_vbg_cl");
 const vbn_o_prpfor_vbg_cl = isPoS("vbn_o_prpfor_vbg_cl");
@@ -1281,8 +1364,14 @@ const vbn_o_prpforth_bare_declarative_cl = isPoS("vbn_o_prpforth_bare_declarativ
 const vbn_prpforth_np = isPoS("vbn_prpforth_np");
 const vbn_o_prpforth_np = isPoS("vbn_o_prpforth_np");
 
+const vbn_prpfrom_np = isPoS("vbn_prpfrom_np");
+const vbn_o_prpfrom_np = isPoS("vbn_o_prpfrom_np");
+
 const vbn_prpgo_np = isPoS("vbn_prpgo_np");
 const vbn_o_prpgo_np = isPoS("vbn_o_prpgo_np");
+
+const vbn_prphold_np = isPoS("vbn_prphold_np");
+const vbn_o_prphold_np = isPoS("vbn_o_prphold_np");
 
 const vbn_prpin_exclamative_cl = isPoS("vbn_prpin_exclamative_cl");
 const vbn_o_prpin_exclamative_cl = isPoS("vbn_o_prpin_exclamative_cl");
@@ -1383,6 +1472,9 @@ const vbn_o_prptell_np = isPoS("vbn_o_prptell_np");
 const vbn_prptell_that_declarative_cl = isPoS("vbn_prptell_that_declarative_cl");
 const vbn_o_prptell_that_declarative_cl = isPoS("vbn_o_prptell_that_declarative_cl");
 
+const vbn_prpthe_np = isPoS("vbn_prpthe_np");
+const vbn_o_prpthe_np = isPoS("vbn_o_prpthe_np");
+
 const vbn_prpthrough_np = isPoS("vbn_prpthrough_np");
 const vbn_o_prpthrough_np = isPoS("vbn_o_prpthrough_np");
 
@@ -1432,6 +1524,20 @@ const vbn_prpwith_np = isPoS("vbn_prpwith_np");
 const vbn_o_prpwith_np = isPoS("vbn_o_prpwith_np");
 
 const vbn_fprpacross_np = isPoS("vbn_fprpacross_np");
+
+const vbn_prpof_np_prpas_predcomp = isPoS("vbn_prpof_np_prpas_predcomp");
+
+const vbn_prpon_np_prpas_np = isPoS("vbn_prpon_np_prpas_np");
+
+const vbn_prpto_np_prpabout_np = isPoS("vbn_prpto_np_prpabout_np");
+
+const vbn_prpto_np_prpas_np = isPoS("vbn_prpto_np_prpas_np");
+
+const vbn_prpto_np_prpfor_np = isPoS("vbn_prpto_np_prpfor_np");
+
+const vbn_prpupon_np_prpas_np = isPoS("vbn_prpupon_np_prpas_np");
+
+const vbn_prpwith_np_prpabout_np = isPoS("vbn_prpwith_np_prpabout_np");
 
 const vbn_prtin_prpon_np = isPoS("vbn_prtin_prpon_np");
 const vbn_o_prtin_prpon_np = isPoS("vbn_o_prtin_prpon_np");
@@ -1661,6 +1767,9 @@ const vbf_sg_o_prpacross_that_declarative_cl = isPoS("vbf_sg_o_prpacross_that_de
 const vbf_sg_prpafter_np = isPoS("vbf_sg_prpafter_np");
 const vbf_sg_o_prpafter_np = isPoS("vbf_sg_o_prpafter_np");
 
+const vbf_sg_prpahold_np = isPoS("vbf_sg_prpahold_np");
+const vbf_sg_o_prpahold_np = isPoS("vbf_sg_o_prpahold_np");
+
 const vbf_sg_prpapart_np = isPoS("vbf_sg_prpapart_np");
 const vbf_sg_o_prpapart_np = isPoS("vbf_sg_o_prpapart_np");
 
@@ -1697,8 +1806,14 @@ const vbf_sg_o_prpdown_np = isPoS("vbf_sg_o_prpdown_np");
 const vbf_sg_prpdown_vbg_cl = isPoS("vbf_sg_prpdown_vbg_cl");
 const vbf_sg_o_prpdown_vbg_cl = isPoS("vbf_sg_o_prpdown_vbg_cl");
 
+const vbf_sg_prpfault_np = isPoS("vbf_sg_prpfault_np");
+const vbf_sg_o_prpfault_np = isPoS("vbf_sg_o_prpfault_np");
+
 const vbf_sg_prpfor_np = isPoS("vbf_sg_prpfor_np");
 const vbf_sg_o_prpfor_np = isPoS("vbf_sg_o_prpfor_np");
+
+const vbf_sg_prpfor_predcomp = isPoS("vbf_sg_prpfor_predcomp");
+const vbf_sg_o_prpfor_predcomp = isPoS("vbf_sg_o_prpfor_predcomp");
 
 const vbf_sg_prpfor_vbg_cl = isPoS("vbf_sg_prpfor_vbg_cl");
 const vbf_sg_o_prpfor_vbg_cl = isPoS("vbf_sg_o_prpfor_vbg_cl");
@@ -1709,8 +1824,14 @@ const vbf_sg_o_prpforth_bare_declarative_cl = isPoS("vbf_sg_o_prpforth_bare_decl
 const vbf_sg_prpforth_np = isPoS("vbf_sg_prpforth_np");
 const vbf_sg_o_prpforth_np = isPoS("vbf_sg_o_prpforth_np");
 
+const vbf_sg_prpfrom_np = isPoS("vbf_sg_prpfrom_np");
+const vbf_sg_o_prpfrom_np = isPoS("vbf_sg_o_prpfrom_np");
+
 const vbf_sg_prpgo_np = isPoS("vbf_sg_prpgo_np");
 const vbf_sg_o_prpgo_np = isPoS("vbf_sg_o_prpgo_np");
+
+const vbf_sg_prphold_np = isPoS("vbf_sg_prphold_np");
+const vbf_sg_o_prphold_np = isPoS("vbf_sg_o_prphold_np");
 
 const vbf_sg_prpin_exclamative_cl = isPoS("vbf_sg_prpin_exclamative_cl");
 const vbf_sg_o_prpin_exclamative_cl = isPoS("vbf_sg_o_prpin_exclamative_cl");
@@ -1811,6 +1932,9 @@ const vbf_sg_o_prptell_np = isPoS("vbf_sg_o_prptell_np");
 const vbf_sg_prptell_that_declarative_cl = isPoS("vbf_sg_prptell_that_declarative_cl");
 const vbf_sg_o_prptell_that_declarative_cl = isPoS("vbf_sg_o_prptell_that_declarative_cl");
 
+const vbf_sg_prpthe_np = isPoS("vbf_sg_prpthe_np");
+const vbf_sg_o_prpthe_np = isPoS("vbf_sg_o_prpthe_np");
+
 const vbf_sg_prpthrough_np = isPoS("vbf_sg_prpthrough_np");
 const vbf_sg_o_prpthrough_np = isPoS("vbf_sg_o_prpthrough_np");
 
@@ -1860,6 +1984,20 @@ const vbf_sg_prpwith_np = isPoS("vbf_sg_prpwith_np");
 const vbf_sg_o_prpwith_np = isPoS("vbf_sg_o_prpwith_np");
 
 const vbf_sg_fprpacross_np = isPoS("vbf_sg_fprpacross_np");
+
+const vbf_sg_prpof_np_prpas_predcomp = isPoS("vbf_sg_prpof_np_prpas_predcomp");
+
+const vbf_sg_prpon_np_prpas_np = isPoS("vbf_sg_prpon_np_prpas_np");
+
+const vbf_sg_prpto_np_prpabout_np = isPoS("vbf_sg_prpto_np_prpabout_np");
+
+const vbf_sg_prpto_np_prpas_np = isPoS("vbf_sg_prpto_np_prpas_np");
+
+const vbf_sg_prpto_np_prpfor_np = isPoS("vbf_sg_prpto_np_prpfor_np");
+
+const vbf_sg_prpupon_np_prpas_np = isPoS("vbf_sg_prpupon_np_prpas_np");
+
+const vbf_sg_prpwith_np_prpabout_np = isPoS("vbf_sg_prpwith_np_prpabout_np");
 
 const vbf_sg_prtin_prpon_np = isPoS("vbf_sg_prtin_prpon_np");
 const vbf_sg_o_prtin_prpon_np = isPoS("vbf_sg_o_prtin_prpon_np");
@@ -2089,6 +2227,9 @@ const vbf_pl_o_prpacross_that_declarative_cl = isPoS("vbf_pl_o_prpacross_that_de
 const vbf_pl_prpafter_np = isPoS("vbf_pl_prpafter_np");
 const vbf_pl_o_prpafter_np = isPoS("vbf_pl_o_prpafter_np");
 
+const vbf_pl_prpahold_np = isPoS("vbf_pl_prpahold_np");
+const vbf_pl_o_prpahold_np = isPoS("vbf_pl_o_prpahold_np");
+
 const vbf_pl_prpapart_np = isPoS("vbf_pl_prpapart_np");
 const vbf_pl_o_prpapart_np = isPoS("vbf_pl_o_prpapart_np");
 
@@ -2125,8 +2266,14 @@ const vbf_pl_o_prpdown_np = isPoS("vbf_pl_o_prpdown_np");
 const vbf_pl_prpdown_vbg_cl = isPoS("vbf_pl_prpdown_vbg_cl");
 const vbf_pl_o_prpdown_vbg_cl = isPoS("vbf_pl_o_prpdown_vbg_cl");
 
+const vbf_pl_prpfault_np = isPoS("vbf_pl_prpfault_np");
+const vbf_pl_o_prpfault_np = isPoS("vbf_pl_o_prpfault_np");
+
 const vbf_pl_prpfor_np = isPoS("vbf_pl_prpfor_np");
 const vbf_pl_o_prpfor_np = isPoS("vbf_pl_o_prpfor_np");
+
+const vbf_pl_prpfor_predcomp = isPoS("vbf_pl_prpfor_predcomp");
+const vbf_pl_o_prpfor_predcomp = isPoS("vbf_pl_o_prpfor_predcomp");
 
 const vbf_pl_prpfor_vbg_cl = isPoS("vbf_pl_prpfor_vbg_cl");
 const vbf_pl_o_prpfor_vbg_cl = isPoS("vbf_pl_o_prpfor_vbg_cl");
@@ -2137,8 +2284,14 @@ const vbf_pl_o_prpforth_bare_declarative_cl = isPoS("vbf_pl_o_prpforth_bare_decl
 const vbf_pl_prpforth_np = isPoS("vbf_pl_prpforth_np");
 const vbf_pl_o_prpforth_np = isPoS("vbf_pl_o_prpforth_np");
 
+const vbf_pl_prpfrom_np = isPoS("vbf_pl_prpfrom_np");
+const vbf_pl_o_prpfrom_np = isPoS("vbf_pl_o_prpfrom_np");
+
 const vbf_pl_prpgo_np = isPoS("vbf_pl_prpgo_np");
 const vbf_pl_o_prpgo_np = isPoS("vbf_pl_o_prpgo_np");
+
+const vbf_pl_prphold_np = isPoS("vbf_pl_prphold_np");
+const vbf_pl_o_prphold_np = isPoS("vbf_pl_o_prphold_np");
 
 const vbf_pl_prpin_exclamative_cl = isPoS("vbf_pl_prpin_exclamative_cl");
 const vbf_pl_o_prpin_exclamative_cl = isPoS("vbf_pl_o_prpin_exclamative_cl");
@@ -2239,6 +2392,9 @@ const vbf_pl_o_prptell_np = isPoS("vbf_pl_o_prptell_np");
 const vbf_pl_prptell_that_declarative_cl = isPoS("vbf_pl_prptell_that_declarative_cl");
 const vbf_pl_o_prptell_that_declarative_cl = isPoS("vbf_pl_o_prptell_that_declarative_cl");
 
+const vbf_pl_prpthe_np = isPoS("vbf_pl_prpthe_np");
+const vbf_pl_o_prpthe_np = isPoS("vbf_pl_o_prpthe_np");
+
 const vbf_pl_prpthrough_np = isPoS("vbf_pl_prpthrough_np");
 const vbf_pl_o_prpthrough_np = isPoS("vbf_pl_o_prpthrough_np");
 
@@ -2288,6 +2444,20 @@ const vbf_pl_prpwith_np = isPoS("vbf_pl_prpwith_np");
 const vbf_pl_o_prpwith_np = isPoS("vbf_pl_o_prpwith_np");
 
 const vbf_pl_fprpacross_np = isPoS("vbf_pl_fprpacross_np");
+
+const vbf_pl_prpof_np_prpas_predcomp = isPoS("vbf_pl_prpof_np_prpas_predcomp");
+
+const vbf_pl_prpon_np_prpas_np = isPoS("vbf_pl_prpon_np_prpas_np");
+
+const vbf_pl_prpto_np_prpabout_np = isPoS("vbf_pl_prpto_np_prpabout_np");
+
+const vbf_pl_prpto_np_prpas_np = isPoS("vbf_pl_prpto_np_prpas_np");
+
+const vbf_pl_prpto_np_prpfor_np = isPoS("vbf_pl_prpto_np_prpfor_np");
+
+const vbf_pl_prpupon_np_prpas_np = isPoS("vbf_pl_prpupon_np_prpas_np");
+
+const vbf_pl_prpwith_np_prpabout_np = isPoS("vbf_pl_prpwith_np_prpabout_np");
 
 const vbf_pl_prtin_prpon_np = isPoS("vbf_pl_prtin_prpon_np");
 const vbf_pl_o_prtin_prpon_np = isPoS("vbf_pl_o_prtin_prpon_np");
@@ -2802,6 +2972,8 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpacross_that_declarative_cl", "symbols": ["np", "adjunct?", "ppacross_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpacross_that_declarative_cl")},
     {"name": "adjunct_list_prpafter_np", "symbols": ["adjunct?", "ppafter_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpafter_np")},
     {"name": "adjunct_list_o_prpafter_np", "symbols": ["np", "adjunct?", "ppafter_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpafter_np")},
+    {"name": "adjunct_list_prpahold_np", "symbols": ["adjunct?", "ppahold_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpahold_np")},
+    {"name": "adjunct_list_o_prpahold_np", "symbols": ["np", "adjunct?", "ppahold_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpahold_np")},
     {"name": "adjunct_list_prpapart_np", "symbols": ["adjunct?", "ppapart_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpapart_np")},
     {"name": "adjunct_list_o_prpapart_np", "symbols": ["np", "adjunct?", "ppapart_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpapart_np")},
     {"name": "adjunct_list_prparound_np", "symbols": ["adjunct?", "pparound_np", "adjunct_list"], "postprocess": nt("adjunct_list_prparound_np")},
@@ -2826,16 +2998,24 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpdown_np", "symbols": ["np", "adjunct?", "ppdown_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpdown_np")},
     {"name": "adjunct_list_prpdown_vbg_cl", "symbols": ["adjunct?", "ppdown_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_prpdown_vbg_cl")},
     {"name": "adjunct_list_o_prpdown_vbg_cl", "symbols": ["np", "adjunct?", "ppdown_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpdown_vbg_cl")},
+    {"name": "adjunct_list_prpfault_np", "symbols": ["adjunct?", "ppfault_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfault_np")},
+    {"name": "adjunct_list_o_prpfault_np", "symbols": ["np", "adjunct?", "ppfault_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfault_np")},
     {"name": "adjunct_list_prpfor_np", "symbols": ["adjunct?", "ppfor_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_np")},
     {"name": "adjunct_list_o_prpfor_np", "symbols": ["np", "adjunct?", "ppfor_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_np")},
+    {"name": "adjunct_list_prpfor_predcomp", "symbols": ["adjunct?", "ppfor_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_predcomp")},
+    {"name": "adjunct_list_o_prpfor_predcomp", "symbols": ["np", "adjunct?", "ppfor_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_predcomp")},
     {"name": "adjunct_list_prpfor_vbg_cl", "symbols": ["adjunct?", "ppfor_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_vbg_cl")},
     {"name": "adjunct_list_o_prpfor_vbg_cl", "symbols": ["np", "adjunct?", "ppfor_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_vbg_cl")},
     {"name": "adjunct_list_prpforth_bare_declarative_cl", "symbols": ["adjunct?", "ppforth_bare_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_prpforth_bare_declarative_cl")},
     {"name": "adjunct_list_o_prpforth_bare_declarative_cl", "symbols": ["np", "adjunct?", "ppforth_bare_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpforth_bare_declarative_cl")},
     {"name": "adjunct_list_prpforth_np", "symbols": ["adjunct?", "ppforth_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpforth_np")},
     {"name": "adjunct_list_o_prpforth_np", "symbols": ["np", "adjunct?", "ppforth_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpforth_np")},
+    {"name": "adjunct_list_prpfrom_np", "symbols": ["adjunct?", "ppfrom_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfrom_np")},
+    {"name": "adjunct_list_o_prpfrom_np", "symbols": ["np", "adjunct?", "ppfrom_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfrom_np")},
     {"name": "adjunct_list_prpgo_np", "symbols": ["adjunct?", "ppgo_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpgo_np")},
     {"name": "adjunct_list_o_prpgo_np", "symbols": ["np", "adjunct?", "ppgo_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpgo_np")},
+    {"name": "adjunct_list_prphold_np", "symbols": ["adjunct?", "pphold_np", "adjunct_list"], "postprocess": nt("adjunct_list_prphold_np")},
+    {"name": "adjunct_list_o_prphold_np", "symbols": ["np", "adjunct?", "pphold_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prphold_np")},
     {"name": "adjunct_list_prpin_exclamative_cl", "symbols": ["adjunct?", "ppin_exclamative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_prpin_exclamative_cl")},
     {"name": "adjunct_list_o_prpin_exclamative_cl", "symbols": ["np", "adjunct?", "ppin_exclamative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpin_exclamative_cl")},
     {"name": "adjunct_list_prpin_interrogative_cl", "symbols": ["adjunct?", "ppin_interrogative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_prpin_interrogative_cl")},
@@ -2902,6 +3082,8 @@ let ParserRules = [
     {"name": "adjunct_list_o_prptell_np", "symbols": ["np", "adjunct?", "pptell_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prptell_np")},
     {"name": "adjunct_list_prptell_that_declarative_cl", "symbols": ["adjunct?", "pptell_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_prptell_that_declarative_cl")},
     {"name": "adjunct_list_o_prptell_that_declarative_cl", "symbols": ["np", "adjunct?", "pptell_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prptell_that_declarative_cl")},
+    {"name": "adjunct_list_prpthe_np", "symbols": ["adjunct?", "ppthe_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpthe_np")},
+    {"name": "adjunct_list_o_prpthe_np", "symbols": ["np", "adjunct?", "ppthe_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpthe_np")},
     {"name": "adjunct_list_prpthrough_np", "symbols": ["adjunct?", "ppthrough_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpthrough_np")},
     {"name": "adjunct_list_o_prpthrough_np", "symbols": ["np", "adjunct?", "ppthrough_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpthrough_np")},
     {"name": "adjunct_list_prpthrough_vbg_cl", "symbols": ["adjunct?", "ppthrough_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_prpthrough_vbg_cl")},
@@ -2935,6 +3117,13 @@ let ParserRules = [
     {"name": "adjunct_list_prpwith_np", "symbols": ["adjunct?", "ppwith_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpwith_np")},
     {"name": "adjunct_list_o_prpwith_np", "symbols": ["np", "adjunct?", "ppwith_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpwith_np")},
     {"name": "adjunct_list_fprpacross_np", "symbols": ["prpacross", "np", "adjunct_list"], "postprocess": nt("adjunct_list_fprpacross_np")},
+    {"name": "adjunct_list_prpof_np_prpas_predcomp", "symbols": ["adjunct?", "ppof_np", "adjunct?", "ppas_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_prpof_np_prpas_predcomp")},
+    {"name": "adjunct_list_prpon_np_prpas_np", "symbols": ["adjunct?", "ppon_np", "adjunct?", "ppas_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpon_np_prpas_np")},
+    {"name": "adjunct_list_prpto_np_prpabout_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppabout_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpabout_np")},
+    {"name": "adjunct_list_prpto_np_prpas_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppas_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpas_np")},
+    {"name": "adjunct_list_prpto_np_prpfor_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppfor_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpfor_np")},
+    {"name": "adjunct_list_prpupon_np_prpas_np", "symbols": ["adjunct?", "ppupon_np", "adjunct?", "ppas_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpupon_np_prpas_np")},
+    {"name": "adjunct_list_prpwith_np_prpabout_np", "symbols": ["adjunct?", "ppwith_np", "adjunct?", "ppabout_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpwith_np_prpabout_np")},
     {"name": "adjunct_list_prtin_prpon_np", "symbols": ["prtin", "adjunct?", "ppon_np", "adjunct_list"], "postprocess": nt("adjunct_list_prtin_prpon_np")},
     {"name": "adjunct_list_o_prtin_prpon_np", "symbols": ["np", "prtin", "adjunct?", "ppon_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prtin_prpon_np")},
     {"name": "adjunct_list_prtout_prpas_predcomp", "symbols": ["prtout", "adjunct?", "ppas_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_prtout_prpas_predcomp")},
@@ -2959,6 +3148,8 @@ let ParserRules = [
     {"name": "adjunct_list_passive_o_prpacross_that_declarative_cl", "symbols": ["adjunct?", "ppacross_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpacross_that_declarative_cl")},
     {"name": "adjunct_list_passive_prpafter_np", "symbols": ["adjunct?", "ppafter_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpafter_np")},
     {"name": "adjunct_list_passive_o_prpafter_np", "symbols": ["adjunct?", "ppafter_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpafter_np")},
+    {"name": "adjunct_list_passive_prpahold_np", "symbols": ["adjunct?", "ppahold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpahold_np")},
+    {"name": "adjunct_list_passive_o_prpahold_np", "symbols": ["adjunct?", "ppahold_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpahold_np")},
     {"name": "adjunct_list_passive_prpapart_np", "symbols": ["adjunct?", "ppapart_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpapart_np")},
     {"name": "adjunct_list_passive_o_prpapart_np", "symbols": ["adjunct?", "ppapart_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpapart_np")},
     {"name": "adjunct_list_passive_prparound_np", "symbols": ["adjunct?", "pparound_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prparound_np")},
@@ -2983,16 +3174,24 @@ let ParserRules = [
     {"name": "adjunct_list_passive_o_prpdown_np", "symbols": ["adjunct?", "ppdown_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpdown_np")},
     {"name": "adjunct_list_passive_prpdown_vbg_cl", "symbols": ["adjunct?", "ppdown_vbg_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpdown_vbg_cl")},
     {"name": "adjunct_list_passive_o_prpdown_vbg_cl", "symbols": ["adjunct?", "ppdown_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpdown_vbg_cl")},
+    {"name": "adjunct_list_passive_prpfault_np", "symbols": ["adjunct?", "ppfault_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpfault_np")},
+    {"name": "adjunct_list_passive_o_prpfault_np", "symbols": ["adjunct?", "ppfault_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfault_np")},
     {"name": "adjunct_list_passive_prpfor_np", "symbols": ["adjunct?", "ppfor_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpfor_np")},
     {"name": "adjunct_list_passive_o_prpfor_np", "symbols": ["adjunct?", "ppfor_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_np")},
+    {"name": "adjunct_list_passive_prpfor_predcomp", "symbols": ["adjunct?", "ppfor_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpfor_predcomp")},
+    {"name": "adjunct_list_passive_o_prpfor_predcomp", "symbols": ["adjunct?", "ppfor_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_predcomp")},
     {"name": "adjunct_list_passive_prpfor_vbg_cl", "symbols": ["adjunct?", "ppfor_vbg_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpfor_vbg_cl")},
     {"name": "adjunct_list_passive_o_prpfor_vbg_cl", "symbols": ["adjunct?", "ppfor_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_vbg_cl")},
     {"name": "adjunct_list_passive_prpforth_bare_declarative_cl", "symbols": ["adjunct?", "ppforth_bare_declarative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpforth_bare_declarative_cl")},
     {"name": "adjunct_list_passive_o_prpforth_bare_declarative_cl", "symbols": ["adjunct?", "ppforth_bare_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpforth_bare_declarative_cl")},
     {"name": "adjunct_list_passive_prpforth_np", "symbols": ["adjunct?", "ppforth_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpforth_np")},
     {"name": "adjunct_list_passive_o_prpforth_np", "symbols": ["adjunct?", "ppforth_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpforth_np")},
+    {"name": "adjunct_list_passive_prpfrom_np", "symbols": ["adjunct?", "ppfrom_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpfrom_np")},
+    {"name": "adjunct_list_passive_o_prpfrom_np", "symbols": ["adjunct?", "ppfrom_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfrom_np")},
     {"name": "adjunct_list_passive_prpgo_np", "symbols": ["adjunct?", "ppgo_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpgo_np")},
     {"name": "adjunct_list_passive_o_prpgo_np", "symbols": ["adjunct?", "ppgo_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpgo_np")},
+    {"name": "adjunct_list_passive_prphold_np", "symbols": ["adjunct?", "pphold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prphold_np")},
+    {"name": "adjunct_list_passive_o_prphold_np", "symbols": ["adjunct?", "pphold_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prphold_np")},
     {"name": "adjunct_list_passive_prpin_exclamative_cl", "symbols": ["adjunct?", "ppin_exclamative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpin_exclamative_cl")},
     {"name": "adjunct_list_passive_o_prpin_exclamative_cl", "symbols": ["adjunct?", "ppin_exclamative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpin_exclamative_cl")},
     {"name": "adjunct_list_passive_prpin_interrogative_cl", "symbols": ["adjunct?", "ppin_interrogative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpin_interrogative_cl")},
@@ -3059,6 +3258,8 @@ let ParserRules = [
     {"name": "adjunct_list_passive_o_prptell_np", "symbols": ["adjunct?", "pptell_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prptell_np")},
     {"name": "adjunct_list_passive_prptell_that_declarative_cl", "symbols": ["adjunct?", "pptell_that_declarative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prptell_that_declarative_cl")},
     {"name": "adjunct_list_passive_o_prptell_that_declarative_cl", "symbols": ["adjunct?", "pptell_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prptell_that_declarative_cl")},
+    {"name": "adjunct_list_passive_prpthe_np", "symbols": ["adjunct?", "ppthe_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpthe_np")},
+    {"name": "adjunct_list_passive_o_prpthe_np", "symbols": ["adjunct?", "ppthe_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpthe_np")},
     {"name": "adjunct_list_passive_prpthrough_np", "symbols": ["adjunct?", "ppthrough_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpthrough_np")},
     {"name": "adjunct_list_passive_o_prpthrough_np", "symbols": ["adjunct?", "ppthrough_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpthrough_np")},
     {"name": "adjunct_list_passive_prpthrough_vbg_cl", "symbols": ["adjunct?", "ppthrough_vbg_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpthrough_vbg_cl")},
@@ -3311,6 +3512,8 @@ let ParserRules = [
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpafter_np", "adjunct_list_prpafter_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpafter_np", "adjunct_list_o_prpafter_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpahold_np", "adjunct_list_prpahold_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpahold_np", "adjunct_list_o_prpahold_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpapart_np", "adjunct_list_prpapart_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpapart_np", "adjunct_list_o_prpapart_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prparound_np", "adjunct_list_prparound_np"], "postprocess": nt("vbf_sg_vp")},
@@ -3335,16 +3538,24 @@ let ParserRules = [
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpdown_np", "adjunct_list_o_prpdown_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpfault_np", "adjunct_list_prpfault_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpfault_np", "adjunct_list_o_prpfault_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpfor_np", "adjunct_list_prpfor_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_np", "adjunct_list_o_prpfor_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpfor_predcomp", "adjunct_list_prpfor_predcomp"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpforth_np", "adjunct_list_prpforth_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpforth_np", "adjunct_list_o_prpforth_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpfrom_np", "adjunct_list_prpfrom_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpfrom_np", "adjunct_list_o_prpfrom_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpgo_np", "adjunct_list_prpgo_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpgo_np", "adjunct_list_o_prpgo_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prphold_np", "adjunct_list_prphold_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prphold_np", "adjunct_list_o_prphold_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl"], "postprocess": nt("vbf_sg_vp")},
@@ -3411,6 +3622,8 @@ let ParserRules = [
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prptell_np", "adjunct_list_o_prptell_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpthe_np", "adjunct_list_prpthe_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpthe_np", "adjunct_list_o_prpthe_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpthrough_np", "adjunct_list_prpthrough_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpthrough_np", "adjunct_list_o_prpthrough_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl"], "postprocess": nt("vbf_sg_vp")},
@@ -3444,6 +3657,13 @@ let ParserRules = [
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpwith_np", "adjunct_list_prpwith_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prpwith_np", "adjunct_list_o_prpwith_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_fprpacross_np", "adjunct_list_fprpacross_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np"], "postprocess": nt("vbf_sg_vp")},
+    {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prtin_prpon_np", "adjunct_list_prtin_prpon_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np"], "postprocess": nt("vbf_sg_vp")},
     {"name": "vbf_sg_vp", "symbols": ["advp_vp?", "vbf_sg_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp"], "postprocess": nt("vbf_sg_vp")},
@@ -3664,6 +3884,8 @@ let ParserRules = [
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpafter_np", "adjunct_list_prpafter_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpafter_np", "adjunct_list_o_prpafter_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpahold_np", "adjunct_list_prpahold_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpahold_np", "adjunct_list_o_prpahold_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpapart_np", "adjunct_list_prpapart_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpapart_np", "adjunct_list_o_prpapart_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prparound_np", "adjunct_list_prparound_np"], "postprocess": nt("vbf_pl_vp")},
@@ -3688,16 +3910,24 @@ let ParserRules = [
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpdown_np", "adjunct_list_o_prpdown_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpfault_np", "adjunct_list_prpfault_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpfault_np", "adjunct_list_o_prpfault_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpfor_np", "adjunct_list_prpfor_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_np", "adjunct_list_o_prpfor_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpfor_predcomp", "adjunct_list_prpfor_predcomp"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpforth_np", "adjunct_list_prpforth_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpforth_np", "adjunct_list_o_prpforth_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpfrom_np", "adjunct_list_prpfrom_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpfrom_np", "adjunct_list_o_prpfrom_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpgo_np", "adjunct_list_prpgo_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpgo_np", "adjunct_list_o_prpgo_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prphold_np", "adjunct_list_prphold_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prphold_np", "adjunct_list_o_prphold_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl"], "postprocess": nt("vbf_pl_vp")},
@@ -3764,6 +3994,8 @@ let ParserRules = [
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prptell_np", "adjunct_list_o_prptell_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpthe_np", "adjunct_list_prpthe_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpthe_np", "adjunct_list_o_prpthe_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpthrough_np", "adjunct_list_prpthrough_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpthrough_np", "adjunct_list_o_prpthrough_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl"], "postprocess": nt("vbf_pl_vp")},
@@ -3797,6 +4029,13 @@ let ParserRules = [
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpwith_np", "adjunct_list_prpwith_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prpwith_np", "adjunct_list_o_prpwith_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_fprpacross_np", "adjunct_list_fprpacross_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np"], "postprocess": nt("vbf_pl_vp")},
+    {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prtin_prpon_np", "adjunct_list_prtin_prpon_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np"], "postprocess": nt("vbf_pl_vp")},
     {"name": "vbf_pl_vp", "symbols": ["advp_vp?", "vbf_pl_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp"], "postprocess": nt("vbf_pl_vp")},
@@ -4016,6 +4255,8 @@ let ParserRules = [
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpafter_np", "adjunct_list_prpafter_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpafter_np", "adjunct_list_o_prpafter_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpahold_np", "adjunct_list_prpahold_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpahold_np", "adjunct_list_o_prpahold_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpapart_np", "adjunct_list_prpapart_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpapart_np", "adjunct_list_o_prpapart_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prparound_np", "adjunct_list_prparound_np"], "postprocess": nt("inf_vp")},
@@ -4040,16 +4281,24 @@ let ParserRules = [
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpdown_np", "adjunct_list_o_prpdown_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpfault_np", "adjunct_list_prpfault_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpfault_np", "adjunct_list_o_prpfault_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpfor_np", "adjunct_list_prpfor_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpfor_np", "adjunct_list_o_prpfor_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpfor_predcomp", "adjunct_list_prpfor_predcomp"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpforth_np", "adjunct_list_prpforth_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpforth_np", "adjunct_list_o_prpforth_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpfrom_np", "adjunct_list_prpfrom_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpfrom_np", "adjunct_list_o_prpfrom_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpgo_np", "adjunct_list_prpgo_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpgo_np", "adjunct_list_o_prpgo_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prphold_np", "adjunct_list_prphold_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prphold_np", "adjunct_list_o_prphold_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl"], "postprocess": nt("inf_vp")},
@@ -4116,6 +4365,8 @@ let ParserRules = [
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prptell_np", "adjunct_list_o_prptell_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpthe_np", "adjunct_list_prpthe_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpthe_np", "adjunct_list_o_prpthe_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpthrough_np", "adjunct_list_prpthrough_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpthrough_np", "adjunct_list_o_prpthrough_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl"], "postprocess": nt("inf_vp")},
@@ -4149,6 +4400,13 @@ let ParserRules = [
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpwith_np", "adjunct_list_prpwith_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prpwith_np", "adjunct_list_o_prpwith_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_fprpacross_np", "adjunct_list_fprpacross_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np"], "postprocess": nt("inf_vp")},
+    {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prtin_prpon_np", "adjunct_list_prtin_prpon_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np"], "postprocess": nt("inf_vp")},
     {"name": "inf_vp", "symbols": ["advp_vp?", "inf_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp"], "postprocess": nt("inf_vp")},
@@ -4368,6 +4626,8 @@ let ParserRules = [
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpafter_np", "adjunct_list_prpafter_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpafter_np", "adjunct_list_o_prpafter_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpahold_np", "adjunct_list_prpahold_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpahold_np", "adjunct_list_o_prpahold_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpapart_np", "adjunct_list_prpapart_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpapart_np", "adjunct_list_o_prpapart_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prparound_np", "adjunct_list_prparound_np"], "postprocess": nt("vbg_vp")},
@@ -4392,16 +4652,24 @@ let ParserRules = [
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpdown_np", "adjunct_list_o_prpdown_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpfault_np", "adjunct_list_prpfault_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpfault_np", "adjunct_list_o_prpfault_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpfor_np", "adjunct_list_prpfor_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpfor_np", "adjunct_list_o_prpfor_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpfor_predcomp", "adjunct_list_prpfor_predcomp"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpforth_np", "adjunct_list_prpforth_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpforth_np", "adjunct_list_o_prpforth_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpfrom_np", "adjunct_list_prpfrom_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpfrom_np", "adjunct_list_o_prpfrom_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpgo_np", "adjunct_list_prpgo_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpgo_np", "adjunct_list_o_prpgo_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prphold_np", "adjunct_list_prphold_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prphold_np", "adjunct_list_o_prphold_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl"], "postprocess": nt("vbg_vp")},
@@ -4468,6 +4736,8 @@ let ParserRules = [
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prptell_np", "adjunct_list_o_prptell_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpthe_np", "adjunct_list_prpthe_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpthe_np", "adjunct_list_o_prpthe_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpthrough_np", "adjunct_list_prpthrough_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpthrough_np", "adjunct_list_o_prpthrough_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl"], "postprocess": nt("vbg_vp")},
@@ -4501,6 +4771,13 @@ let ParserRules = [
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpwith_np", "adjunct_list_prpwith_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prpwith_np", "adjunct_list_o_prpwith_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_fprpacross_np", "adjunct_list_fprpacross_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np"], "postprocess": nt("vbg_vp")},
+    {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prtin_prpon_np", "adjunct_list_prtin_prpon_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np"], "postprocess": nt("vbg_vp")},
     {"name": "vbg_vp", "symbols": ["advp_vp?", "vbg_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp"], "postprocess": nt("vbg_vp")},
@@ -4720,6 +4997,8 @@ let ParserRules = [
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpafter_np", "adjunct_list_prpafter_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpafter_np", "adjunct_list_o_prpafter_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpahold_np", "adjunct_list_prpahold_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpahold_np", "adjunct_list_o_prpahold_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpapart_np", "adjunct_list_prpapart_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpapart_np", "adjunct_list_o_prpapart_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prparound_np", "adjunct_list_prparound_np"], "postprocess": nt("vbn_vp")},
@@ -4744,16 +5023,24 @@ let ParserRules = [
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpdown_np", "adjunct_list_o_prpdown_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpfault_np", "adjunct_list_prpfault_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpfault_np", "adjunct_list_o_prpfault_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpfor_np", "adjunct_list_prpfor_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpfor_np", "adjunct_list_o_prpfor_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpfor_predcomp", "adjunct_list_prpfor_predcomp"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpforth_np", "adjunct_list_prpforth_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpforth_np", "adjunct_list_o_prpforth_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpfrom_np", "adjunct_list_prpfrom_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpfrom_np", "adjunct_list_o_prpfrom_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpgo_np", "adjunct_list_prpgo_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpgo_np", "adjunct_list_o_prpgo_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prphold_np", "adjunct_list_prphold_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prphold_np", "adjunct_list_o_prphold_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl"], "postprocess": nt("vbn_vp")},
@@ -4820,6 +5107,8 @@ let ParserRules = [
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prptell_np", "adjunct_list_o_prptell_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpthe_np", "adjunct_list_prpthe_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpthe_np", "adjunct_list_o_prpthe_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpthrough_np", "adjunct_list_prpthrough_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpthrough_np", "adjunct_list_o_prpthrough_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl"], "postprocess": nt("vbn_vp")},
@@ -4853,6 +5142,13 @@ let ParserRules = [
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpwith_np", "adjunct_list_prpwith_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prpwith_np", "adjunct_list_o_prpwith_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_fprpacross_np", "adjunct_list_fprpacross_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np"], "postprocess": nt("vbn_vp")},
+    {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prtin_prpon_np", "adjunct_list_prtin_prpon_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np"], "postprocess": nt("vbn_vp")},
     {"name": "vbn_vp", "symbols": ["advp_vp?", "vbn_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp"], "postprocess": nt("vbn_vp")},
@@ -4953,6 +5249,8 @@ let ParserRules = [
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpacross_that_declarative_cl", "adjunct_list_passive_o_prpacross_that_declarative_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpafter_np", "adjunct_list_passive_prpafter_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpafter_np", "adjunct_list_passive_o_prpafter_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpahold_np", "adjunct_list_passive_prpahold_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpahold_np", "adjunct_list_passive_o_prpahold_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpapart_np", "adjunct_list_passive_prpapart_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpapart_np", "adjunct_list_passive_o_prpapart_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prparound_np", "adjunct_list_passive_prparound_np"], "postprocess": nt("passive_cl")},
@@ -4977,16 +5275,24 @@ let ParserRules = [
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpdown_np", "adjunct_list_passive_o_prpdown_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpdown_vbg_cl", "adjunct_list_passive_prpdown_vbg_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpdown_vbg_cl", "adjunct_list_passive_o_prpdown_vbg_cl"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpfault_np", "adjunct_list_passive_prpfault_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpfault_np", "adjunct_list_passive_o_prpfault_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpfor_np", "adjunct_list_passive_prpfor_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpfor_np", "adjunct_list_passive_o_prpfor_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpfor_predcomp", "adjunct_list_passive_prpfor_predcomp"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpfor_predcomp", "adjunct_list_passive_o_prpfor_predcomp"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpfor_vbg_cl", "adjunct_list_passive_prpfor_vbg_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpfor_vbg_cl", "adjunct_list_passive_o_prpfor_vbg_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpforth_bare_declarative_cl", "adjunct_list_passive_prpforth_bare_declarative_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpforth_bare_declarative_cl", "adjunct_list_passive_o_prpforth_bare_declarative_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpforth_np", "adjunct_list_passive_prpforth_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpforth_np", "adjunct_list_passive_o_prpforth_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpfrom_np", "adjunct_list_passive_prpfrom_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpfrom_np", "adjunct_list_passive_o_prpfrom_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpgo_np", "adjunct_list_passive_prpgo_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpgo_np", "adjunct_list_passive_o_prpgo_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prphold_np", "adjunct_list_passive_prphold_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prphold_np", "adjunct_list_passive_o_prphold_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpin_exclamative_cl", "adjunct_list_passive_prpin_exclamative_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpin_exclamative_cl", "adjunct_list_passive_o_prpin_exclamative_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpin_interrogative_cl", "adjunct_list_passive_prpin_interrogative_cl"], "postprocess": nt("passive_cl")},
@@ -5053,6 +5359,8 @@ let ParserRules = [
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prptell_np", "adjunct_list_passive_o_prptell_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prptell_that_declarative_cl", "adjunct_list_passive_prptell_that_declarative_cl"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prptell_that_declarative_cl", "adjunct_list_passive_o_prptell_that_declarative_cl"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpthe_np", "adjunct_list_passive_prpthe_np"], "postprocess": nt("passive_cl")},
+    {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpthe_np", "adjunct_list_passive_o_prpthe_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpthrough_np", "adjunct_list_passive_prpthrough_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_o_prpthrough_np", "adjunct_list_passive_o_prpthrough_np"], "postprocess": nt("passive_cl")},
     {"name": "passive_cl", "symbols": ["advp_vp?", "vbn_prpthrough_vbg_cl", "adjunct_list_passive_prpthrough_vbg_cl"], "postprocess": nt("passive_cl")},
@@ -5714,6 +6022,11 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpafter_np_minus_np", "symbols": ["np", "adjunct?", "ppafter_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpafter_np_minus_np")},
     {"name": "adjunct_list_o_prpafter_np_minus_np", "symbols": ["np", "adjunct?", "ppafter_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpafter_np_minus_np")},
     {"name": "adjunct_list_o_prpafter_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppafter_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpafter_np_minus_np")},
+    {"name": "adjunct_list_prpahold_np_minus_np", "symbols": ["adjunct?", "ppahold_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpahold_np_minus_np")},
+    {"name": "adjunct_list_prpahold_np_minus_np", "symbols": ["adjunct?", "ppahold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpahold_np_minus_np")},
+    {"name": "adjunct_list_o_prpahold_np_minus_np", "symbols": ["np", "adjunct?", "ppahold_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpahold_np_minus_np")},
+    {"name": "adjunct_list_o_prpahold_np_minus_np", "symbols": ["np", "adjunct?", "ppahold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpahold_np_minus_np")},
+    {"name": "adjunct_list_o_prpahold_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppahold_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpahold_np_minus_np")},
     {"name": "adjunct_list_prpapart_np_minus_np", "symbols": ["adjunct?", "ppapart_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpapart_np_minus_np")},
     {"name": "adjunct_list_prpapart_np_minus_np", "symbols": ["adjunct?", "ppapart_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpapart_np_minus_np")},
     {"name": "adjunct_list_o_prpapart_np_minus_np", "symbols": ["np", "adjunct?", "ppapart_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpapart_np_minus_np")},
@@ -5774,11 +6087,21 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpdown_vbg_cl_minus_np", "symbols": ["np", "adjunct?", "ppdown_vbg_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpdown_vbg_cl_minus_np")},
     {"name": "adjunct_list_o_prpdown_vbg_cl_minus_np", "symbols": ["np", "adjunct?", "ppdown_vbg_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpdown_vbg_cl_minus_np")},
     {"name": "adjunct_list_o_prpdown_vbg_cl_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppdown_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpdown_vbg_cl_minus_np")},
+    {"name": "adjunct_list_prpfault_np_minus_np", "symbols": ["adjunct?", "ppfault_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpfault_np_minus_np")},
+    {"name": "adjunct_list_prpfault_np_minus_np", "symbols": ["adjunct?", "ppfault_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfault_np_minus_np")},
+    {"name": "adjunct_list_o_prpfault_np_minus_np", "symbols": ["np", "adjunct?", "ppfault_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpfault_np_minus_np")},
+    {"name": "adjunct_list_o_prpfault_np_minus_np", "symbols": ["np", "adjunct?", "ppfault_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfault_np_minus_np")},
+    {"name": "adjunct_list_o_prpfault_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppfault_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfault_np_minus_np")},
     {"name": "adjunct_list_prpfor_np_minus_np", "symbols": ["adjunct?", "ppfor_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpfor_np_minus_np")},
     {"name": "adjunct_list_prpfor_np_minus_np", "symbols": ["adjunct?", "ppfor_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_np_minus_np")},
     {"name": "adjunct_list_o_prpfor_np_minus_np", "symbols": ["np", "adjunct?", "ppfor_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpfor_np_minus_np")},
     {"name": "adjunct_list_o_prpfor_np_minus_np", "symbols": ["np", "adjunct?", "ppfor_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_np_minus_np")},
     {"name": "adjunct_list_o_prpfor_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppfor_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_np_minus_np")},
+    {"name": "adjunct_list_prpfor_predcomp_minus_np", "symbols": ["adjunct?", "ppfor_predcomp", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpfor_predcomp_minus_np")},
+    {"name": "adjunct_list_prpfor_predcomp_minus_np", "symbols": ["adjunct?", "ppfor_predcomp_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_predcomp_minus_np")},
+    {"name": "adjunct_list_o_prpfor_predcomp_minus_np", "symbols": ["np", "adjunct?", "ppfor_predcomp", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpfor_predcomp_minus_np")},
+    {"name": "adjunct_list_o_prpfor_predcomp_minus_np", "symbols": ["np", "adjunct?", "ppfor_predcomp_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_predcomp_minus_np")},
+    {"name": "adjunct_list_o_prpfor_predcomp_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppfor_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_predcomp_minus_np")},
     {"name": "adjunct_list_prpfor_vbg_cl_minus_np", "symbols": ["adjunct?", "ppfor_vbg_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpfor_vbg_cl_minus_np")},
     {"name": "adjunct_list_prpfor_vbg_cl_minus_np", "symbols": ["adjunct?", "ppfor_vbg_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_vbg_cl_minus_np")},
     {"name": "adjunct_list_o_prpfor_vbg_cl_minus_np", "symbols": ["np", "adjunct?", "ppfor_vbg_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpfor_vbg_cl_minus_np")},
@@ -5794,11 +6117,21 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpforth_np_minus_np", "symbols": ["np", "adjunct?", "ppforth_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpforth_np_minus_np")},
     {"name": "adjunct_list_o_prpforth_np_minus_np", "symbols": ["np", "adjunct?", "ppforth_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpforth_np_minus_np")},
     {"name": "adjunct_list_o_prpforth_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppforth_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpforth_np_minus_np")},
+    {"name": "adjunct_list_prpfrom_np_minus_np", "symbols": ["adjunct?", "ppfrom_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpfrom_np_minus_np")},
+    {"name": "adjunct_list_prpfrom_np_minus_np", "symbols": ["adjunct?", "ppfrom_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpfrom_np_minus_np")},
+    {"name": "adjunct_list_o_prpfrom_np_minus_np", "symbols": ["np", "adjunct?", "ppfrom_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpfrom_np_minus_np")},
+    {"name": "adjunct_list_o_prpfrom_np_minus_np", "symbols": ["np", "adjunct?", "ppfrom_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfrom_np_minus_np")},
+    {"name": "adjunct_list_o_prpfrom_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppfrom_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfrom_np_minus_np")},
     {"name": "adjunct_list_prpgo_np_minus_np", "symbols": ["adjunct?", "ppgo_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpgo_np_minus_np")},
     {"name": "adjunct_list_prpgo_np_minus_np", "symbols": ["adjunct?", "ppgo_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpgo_np_minus_np")},
     {"name": "adjunct_list_o_prpgo_np_minus_np", "symbols": ["np", "adjunct?", "ppgo_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpgo_np_minus_np")},
     {"name": "adjunct_list_o_prpgo_np_minus_np", "symbols": ["np", "adjunct?", "ppgo_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpgo_np_minus_np")},
     {"name": "adjunct_list_o_prpgo_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppgo_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpgo_np_minus_np")},
+    {"name": "adjunct_list_prphold_np_minus_np", "symbols": ["adjunct?", "pphold_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prphold_np_minus_np")},
+    {"name": "adjunct_list_prphold_np_minus_np", "symbols": ["adjunct?", "pphold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prphold_np_minus_np")},
+    {"name": "adjunct_list_o_prphold_np_minus_np", "symbols": ["np", "adjunct?", "pphold_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prphold_np_minus_np")},
+    {"name": "adjunct_list_o_prphold_np_minus_np", "symbols": ["np", "adjunct?", "pphold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prphold_np_minus_np")},
+    {"name": "adjunct_list_o_prphold_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "pphold_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prphold_np_minus_np")},
     {"name": "adjunct_list_prpin_exclamative_cl_minus_np", "symbols": ["adjunct?", "ppin_exclamative_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpin_exclamative_cl_minus_np")},
     {"name": "adjunct_list_prpin_exclamative_cl_minus_np", "symbols": ["adjunct?", "ppin_exclamative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpin_exclamative_cl_minus_np")},
     {"name": "adjunct_list_o_prpin_exclamative_cl_minus_np", "symbols": ["np", "adjunct?", "ppin_exclamative_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpin_exclamative_cl_minus_np")},
@@ -5964,6 +6297,11 @@ let ParserRules = [
     {"name": "adjunct_list_o_prptell_that_declarative_cl_minus_np", "symbols": ["np", "adjunct?", "pptell_that_declarative_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prptell_that_declarative_cl_minus_np")},
     {"name": "adjunct_list_o_prptell_that_declarative_cl_minus_np", "symbols": ["np", "adjunct?", "pptell_that_declarative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prptell_that_declarative_cl_minus_np")},
     {"name": "adjunct_list_o_prptell_that_declarative_cl_minus_np", "symbols": ["np_minus_np", "adjunct?", "pptell_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prptell_that_declarative_cl_minus_np")},
+    {"name": "adjunct_list_prpthe_np_minus_np", "symbols": ["adjunct?", "ppthe_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpthe_np_minus_np")},
+    {"name": "adjunct_list_prpthe_np_minus_np", "symbols": ["adjunct?", "ppthe_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpthe_np_minus_np")},
+    {"name": "adjunct_list_o_prpthe_np_minus_np", "symbols": ["np", "adjunct?", "ppthe_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpthe_np_minus_np")},
+    {"name": "adjunct_list_o_prpthe_np_minus_np", "symbols": ["np", "adjunct?", "ppthe_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpthe_np_minus_np")},
+    {"name": "adjunct_list_o_prpthe_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppthe_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpthe_np_minus_np")},
     {"name": "adjunct_list_prpthrough_np_minus_np", "symbols": ["adjunct?", "ppthrough_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpthrough_np_minus_np")},
     {"name": "adjunct_list_prpthrough_np_minus_np", "symbols": ["adjunct?", "ppthrough_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpthrough_np_minus_np")},
     {"name": "adjunct_list_o_prpthrough_np_minus_np", "symbols": ["np", "adjunct?", "ppthrough_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prpthrough_np_minus_np")},
@@ -6046,6 +6384,27 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpwith_np_minus_np", "symbols": ["np_minus_np", "adjunct?", "ppwith_np", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpwith_np_minus_np")},
     {"name": "adjunct_list_fprpacross_np_minus_np", "symbols": ["prpacross", "np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_fprpacross_np_minus_np")},
     {"name": "adjunct_list_fprpacross_np_minus_np", "symbols": ["prpacross", "np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_fprpacross_np_minus_np")},
+    {"name": "adjunct_list_prpof_np_prpas_predcomp_minus_np", "symbols": ["adjunct?", "ppof_np", "adjunct?", "ppas_predcomp", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpof_np_prpas_predcomp_minus_np")},
+    {"name": "adjunct_list_prpof_np_prpas_predcomp_minus_np", "symbols": ["adjunct?", "ppof_np", "adjunct?", "ppas_predcomp_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpof_np_prpas_predcomp_minus_np")},
+    {"name": "adjunct_list_prpof_np_prpas_predcomp_minus_np", "symbols": ["adjunct?", "ppof_np_minus_np", "adjunct?", "ppas_predcomp", "adjunct_list"], "postprocess": nt("adjunct_list_prpof_np_prpas_predcomp_minus_np")},
+    {"name": "adjunct_list_prpon_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppon_np", "adjunct?", "ppas_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpon_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpon_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppon_np", "adjunct?", "ppas_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpon_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpon_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppon_np_minus_np", "adjunct?", "ppas_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpon_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpabout_np_minus_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppabout_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpto_np_prpabout_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpabout_np_minus_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppabout_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpabout_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpabout_np_minus_np", "symbols": ["adjunct?", "ppto_np_minus_np", "adjunct?", "ppabout_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpabout_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppas_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpto_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppas_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppto_np_minus_np", "adjunct?", "ppas_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpfor_np_minus_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppfor_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpto_np_prpfor_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpfor_np_minus_np", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppfor_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpfor_np_minus_np")},
+    {"name": "adjunct_list_prpto_np_prpfor_np_minus_np", "symbols": ["adjunct?", "ppto_np_minus_np", "adjunct?", "ppfor_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpfor_np_minus_np")},
+    {"name": "adjunct_list_prpupon_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppupon_np", "adjunct?", "ppas_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpupon_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpupon_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppupon_np", "adjunct?", "ppas_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpupon_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpupon_np_prpas_np_minus_np", "symbols": ["adjunct?", "ppupon_np_minus_np", "adjunct?", "ppas_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpupon_np_prpas_np_minus_np")},
+    {"name": "adjunct_list_prpwith_np_prpabout_np_minus_np", "symbols": ["adjunct?", "ppwith_np", "adjunct?", "ppabout_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prpwith_np_prpabout_np_minus_np")},
+    {"name": "adjunct_list_prpwith_np_prpabout_np_minus_np", "symbols": ["adjunct?", "ppwith_np", "adjunct?", "ppabout_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpwith_np_prpabout_np_minus_np")},
+    {"name": "adjunct_list_prpwith_np_prpabout_np_minus_np", "symbols": ["adjunct?", "ppwith_np_minus_np", "adjunct?", "ppabout_np", "adjunct_list"], "postprocess": nt("adjunct_list_prpwith_np_prpabout_np_minus_np")},
     {"name": "adjunct_list_prtin_prpon_np_minus_np", "symbols": ["prtin", "adjunct?", "ppon_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_prtin_prpon_np_minus_np")},
     {"name": "adjunct_list_prtin_prpon_np_minus_np", "symbols": ["prtin", "adjunct?", "ppon_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_prtin_prpon_np_minus_np")},
     {"name": "adjunct_list_o_prtin_prpon_np_minus_np", "symbols": ["np", "prtin", "adjunct?", "ppon_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_o_prtin_prpon_np_minus_np")},
@@ -6090,6 +6449,9 @@ let ParserRules = [
     {"name": "adjunct_list_passive_prpafter_np_minus_np", "symbols": ["adjunct?", "ppafter_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpafter_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpafter_np_minus_np", "symbols": ["adjunct?", "ppafter_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpafter_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpafter_np_minus_np", "symbols": ["adjunct?", "ppafter_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpafter_np_minus_np")},
+    {"name": "adjunct_list_passive_prpahold_np_minus_np", "symbols": ["adjunct?", "ppahold_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpahold_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpahold_np_minus_np", "symbols": ["adjunct?", "ppahold_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpahold_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpahold_np_minus_np", "symbols": ["adjunct?", "ppahold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpahold_np_minus_np")},
     {"name": "adjunct_list_passive_prpapart_np_minus_np", "symbols": ["adjunct?", "ppapart_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpapart_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpapart_np_minus_np", "symbols": ["adjunct?", "ppapart_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpapart_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpapart_np_minus_np", "symbols": ["adjunct?", "ppapart_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpapart_np_minus_np")},
@@ -6126,9 +6488,15 @@ let ParserRules = [
     {"name": "adjunct_list_passive_prpdown_vbg_cl_minus_np", "symbols": ["adjunct?", "ppdown_vbg_cl_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpdown_vbg_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prpdown_vbg_cl_minus_np", "symbols": ["adjunct?", "ppdown_vbg_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpdown_vbg_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prpdown_vbg_cl_minus_np", "symbols": ["adjunct?", "ppdown_vbg_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpdown_vbg_cl_minus_np")},
+    {"name": "adjunct_list_passive_prpfault_np_minus_np", "symbols": ["adjunct?", "ppfault_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpfault_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpfault_np_minus_np", "symbols": ["adjunct?", "ppfault_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpfault_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpfault_np_minus_np", "symbols": ["adjunct?", "ppfault_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfault_np_minus_np")},
     {"name": "adjunct_list_passive_prpfor_np_minus_np", "symbols": ["adjunct?", "ppfor_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpfor_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpfor_np_minus_np", "symbols": ["adjunct?", "ppfor_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpfor_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpfor_np_minus_np", "symbols": ["adjunct?", "ppfor_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_np_minus_np")},
+    {"name": "adjunct_list_passive_prpfor_predcomp_minus_np", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_o_prpfor_predcomp_minus_np", "symbols": ["adjunct?", "ppfor_predcomp", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpfor_predcomp_minus_np")},
+    {"name": "adjunct_list_passive_o_prpfor_predcomp_minus_np", "symbols": ["adjunct?", "ppfor_predcomp_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_predcomp_minus_np")},
     {"name": "adjunct_list_passive_prpfor_vbg_cl_minus_np", "symbols": ["adjunct?", "ppfor_vbg_cl_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpfor_vbg_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prpfor_vbg_cl_minus_np", "symbols": ["adjunct?", "ppfor_vbg_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpfor_vbg_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prpfor_vbg_cl_minus_np", "symbols": ["adjunct?", "ppfor_vbg_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_vbg_cl_minus_np")},
@@ -6138,9 +6506,15 @@ let ParserRules = [
     {"name": "adjunct_list_passive_prpforth_np_minus_np", "symbols": ["adjunct?", "ppforth_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpforth_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpforth_np_minus_np", "symbols": ["adjunct?", "ppforth_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpforth_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpforth_np_minus_np", "symbols": ["adjunct?", "ppforth_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpforth_np_minus_np")},
+    {"name": "adjunct_list_passive_prpfrom_np_minus_np", "symbols": ["adjunct?", "ppfrom_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpfrom_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpfrom_np_minus_np", "symbols": ["adjunct?", "ppfrom_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpfrom_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpfrom_np_minus_np", "symbols": ["adjunct?", "ppfrom_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfrom_np_minus_np")},
     {"name": "adjunct_list_passive_prpgo_np_minus_np", "symbols": ["adjunct?", "ppgo_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpgo_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpgo_np_minus_np", "symbols": ["adjunct?", "ppgo_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpgo_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpgo_np_minus_np", "symbols": ["adjunct?", "ppgo_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpgo_np_minus_np")},
+    {"name": "adjunct_list_passive_prphold_np_minus_np", "symbols": ["adjunct?", "pphold_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prphold_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prphold_np_minus_np", "symbols": ["adjunct?", "pphold_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prphold_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prphold_np_minus_np", "symbols": ["adjunct?", "pphold_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prphold_np_minus_np")},
     {"name": "adjunct_list_passive_prpin_exclamative_cl_minus_np", "symbols": ["adjunct?", "ppin_exclamative_cl_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpin_exclamative_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prpin_exclamative_cl_minus_np", "symbols": ["adjunct?", "ppin_exclamative_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpin_exclamative_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prpin_exclamative_cl_minus_np", "symbols": ["adjunct?", "ppin_exclamative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpin_exclamative_cl_minus_np")},
@@ -6240,6 +6614,9 @@ let ParserRules = [
     {"name": "adjunct_list_passive_prptell_that_declarative_cl_minus_np", "symbols": ["adjunct?", "pptell_that_declarative_cl_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prptell_that_declarative_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prptell_that_declarative_cl_minus_np", "symbols": ["adjunct?", "pptell_that_declarative_cl", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prptell_that_declarative_cl_minus_np")},
     {"name": "adjunct_list_passive_o_prptell_that_declarative_cl_minus_np", "symbols": ["adjunct?", "pptell_that_declarative_cl_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prptell_that_declarative_cl_minus_np")},
+    {"name": "adjunct_list_passive_prpthe_np_minus_np", "symbols": ["adjunct?", "ppthe_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpthe_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpthe_np_minus_np", "symbols": ["adjunct?", "ppthe_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpthe_np_minus_np")},
+    {"name": "adjunct_list_passive_o_prpthe_np_minus_np", "symbols": ["adjunct?", "ppthe_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpthe_np_minus_np")},
     {"name": "adjunct_list_passive_prpthrough_np_minus_np", "symbols": ["adjunct?", "ppthrough_np_minus_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_prpthrough_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpthrough_np_minus_np", "symbols": ["adjunct?", "ppthrough_np", "adjunct_list_minus_np"], "postprocess": nt("adjunct_list_passive_o_prpthrough_np_minus_np")},
     {"name": "adjunct_list_passive_o_prpthrough_np_minus_np", "symbols": ["adjunct?", "ppthrough_np_minus_np", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpthrough_np_minus_np")},
@@ -6512,6 +6889,8 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpafter_np", "adjunct_list_prpafter_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpahold_np", "adjunct_list_prpahold_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpapart_np", "adjunct_list_prpapart_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prparound_np", "adjunct_list_prparound_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
@@ -6536,16 +6915,24 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpfault_np", "adjunct_list_prpfault_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpfor_np", "adjunct_list_prpfor_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpforth_np", "adjunct_list_prpforth_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpfrom_np", "adjunct_list_prpfrom_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpgo_np", "adjunct_list_prpgo_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prphold_np", "adjunct_list_prphold_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prphold_np", "adjunct_list_o_prphold_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
@@ -6612,6 +6999,8 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prptell_np", "adjunct_list_o_prptell_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpthe_np", "adjunct_list_prpthe_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpthrough_np", "adjunct_list_prpthrough_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
@@ -6645,6 +7034,13 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpwith_np", "adjunct_list_prpwith_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_fprpacross_np", "adjunct_list_fprpacross_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
+    {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
     {"name": "vbf_sg_vp_minus_np", "symbols": ["advp_vp?", "vbf_sg_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_np"], "postprocess": nt("vbf_sg_vp_minus_np")},
@@ -6865,6 +7261,8 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpafter_np", "adjunct_list_prpafter_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpahold_np", "adjunct_list_prpahold_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpapart_np", "adjunct_list_prpapart_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prparound_np", "adjunct_list_prparound_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
@@ -6889,16 +7287,24 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpfault_np", "adjunct_list_prpfault_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpfor_np", "adjunct_list_prpfor_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpforth_np", "adjunct_list_prpforth_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpfrom_np", "adjunct_list_prpfrom_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpgo_np", "adjunct_list_prpgo_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prphold_np", "adjunct_list_prphold_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prphold_np", "adjunct_list_o_prphold_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
@@ -6965,6 +7371,8 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prptell_np", "adjunct_list_o_prptell_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpthe_np", "adjunct_list_prpthe_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpthrough_np", "adjunct_list_prpthrough_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
@@ -6998,6 +7406,13 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpwith_np", "adjunct_list_prpwith_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_fprpacross_np", "adjunct_list_fprpacross_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
+    {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
     {"name": "vbf_pl_vp_minus_np", "symbols": ["advp_vp?", "vbf_pl_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_np"], "postprocess": nt("vbf_pl_vp_minus_np")},
@@ -7217,6 +7632,8 @@ let ParserRules = [
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpafter_np", "adjunct_list_prpafter_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpahold_np", "adjunct_list_prpahold_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpapart_np", "adjunct_list_prpapart_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prparound_np", "adjunct_list_prparound_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
@@ -7241,16 +7658,24 @@ let ParserRules = [
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpfault_np", "adjunct_list_prpfault_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpfor_np", "adjunct_list_prpfor_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpforth_np", "adjunct_list_prpforth_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpfrom_np", "adjunct_list_prpfrom_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpgo_np", "adjunct_list_prpgo_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prphold_np", "adjunct_list_prphold_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prphold_np", "adjunct_list_o_prphold_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
@@ -7317,6 +7742,8 @@ let ParserRules = [
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prptell_np", "adjunct_list_o_prptell_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpthe_np", "adjunct_list_prpthe_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpthrough_np", "adjunct_list_prpthrough_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_np"], "postprocess": nt("inf_vp_minus_np")},
@@ -7350,6 +7777,13 @@ let ParserRules = [
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpwith_np", "adjunct_list_prpwith_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_fprpacross_np", "adjunct_list_fprpacross_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
+    {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_np"], "postprocess": nt("inf_vp_minus_np")},
     {"name": "inf_vp_minus_np", "symbols": ["advp_vp?", "inf_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_np"], "postprocess": nt("inf_vp_minus_np")},
@@ -7569,6 +8003,8 @@ let ParserRules = [
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpafter_np", "adjunct_list_prpafter_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpahold_np", "adjunct_list_prpahold_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpapart_np", "adjunct_list_prpapart_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prparound_np", "adjunct_list_prparound_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
@@ -7593,16 +8029,24 @@ let ParserRules = [
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpfault_np", "adjunct_list_prpfault_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpfor_np", "adjunct_list_prpfor_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpforth_np", "adjunct_list_prpforth_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpfrom_np", "adjunct_list_prpfrom_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpgo_np", "adjunct_list_prpgo_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prphold_np", "adjunct_list_prphold_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prphold_np", "adjunct_list_o_prphold_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
@@ -7669,6 +8113,8 @@ let ParserRules = [
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prptell_np", "adjunct_list_o_prptell_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpthe_np", "adjunct_list_prpthe_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpthrough_np", "adjunct_list_prpthrough_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
@@ -7702,6 +8148,13 @@ let ParserRules = [
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpwith_np", "adjunct_list_prpwith_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_fprpacross_np", "adjunct_list_fprpacross_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
+    {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
     {"name": "vbg_vp_minus_np", "symbols": ["advp_vp?", "vbg_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_np"], "postprocess": nt("vbg_vp_minus_np")},
@@ -7921,6 +8374,8 @@ let ParserRules = [
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpafter_np", "adjunct_list_prpafter_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpahold_np", "adjunct_list_prpahold_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpapart_np", "adjunct_list_prpapart_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prparound_np", "adjunct_list_prparound_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
@@ -7945,16 +8400,24 @@ let ParserRules = [
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpfault_np", "adjunct_list_prpfault_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpfor_np", "adjunct_list_prpfor_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpforth_np", "adjunct_list_prpforth_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpfrom_np", "adjunct_list_prpfrom_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpgo_np", "adjunct_list_prpgo_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prphold_np", "adjunct_list_prphold_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prphold_np", "adjunct_list_o_prphold_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
@@ -8021,6 +8484,8 @@ let ParserRules = [
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prptell_np", "adjunct_list_o_prptell_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpthe_np", "adjunct_list_prpthe_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpthrough_np", "adjunct_list_prpthrough_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
@@ -8054,6 +8519,13 @@ let ParserRules = [
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpwith_np", "adjunct_list_prpwith_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_fprpacross_np", "adjunct_list_fprpacross_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
+    {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
     {"name": "vbn_vp_minus_np", "symbols": ["advp_vp?", "vbn_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_np"], "postprocess": nt("vbn_vp_minus_np")},
@@ -8154,6 +8626,8 @@ let ParserRules = [
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpacross_that_declarative_cl", "adjunct_list_passive_o_prpacross_that_declarative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpafter_np", "adjunct_list_passive_prpafter_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpafter_np", "adjunct_list_passive_o_prpafter_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpahold_np", "adjunct_list_passive_prpahold_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpahold_np", "adjunct_list_passive_o_prpahold_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpapart_np", "adjunct_list_passive_prpapart_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpapart_np", "adjunct_list_passive_o_prpapart_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prparound_np", "adjunct_list_passive_prparound_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
@@ -8178,16 +8652,24 @@ let ParserRules = [
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpdown_np", "adjunct_list_passive_o_prpdown_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpdown_vbg_cl", "adjunct_list_passive_prpdown_vbg_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpdown_vbg_cl", "adjunct_list_passive_o_prpdown_vbg_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpfault_np", "adjunct_list_passive_prpfault_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfault_np", "adjunct_list_passive_o_prpfault_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpfor_np", "adjunct_list_passive_prpfor_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfor_np", "adjunct_list_passive_o_prpfor_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpfor_predcomp", "adjunct_list_passive_prpfor_predcomp_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfor_predcomp", "adjunct_list_passive_o_prpfor_predcomp_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpfor_vbg_cl", "adjunct_list_passive_prpfor_vbg_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfor_vbg_cl", "adjunct_list_passive_o_prpfor_vbg_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpforth_bare_declarative_cl", "adjunct_list_passive_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpforth_bare_declarative_cl", "adjunct_list_passive_o_prpforth_bare_declarative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpforth_np", "adjunct_list_passive_prpforth_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpforth_np", "adjunct_list_passive_o_prpforth_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpfrom_np", "adjunct_list_passive_prpfrom_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpfrom_np", "adjunct_list_passive_o_prpfrom_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpgo_np", "adjunct_list_passive_prpgo_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpgo_np", "adjunct_list_passive_o_prpgo_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prphold_np", "adjunct_list_passive_prphold_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prphold_np", "adjunct_list_passive_o_prphold_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpin_exclamative_cl", "adjunct_list_passive_prpin_exclamative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpin_exclamative_cl", "adjunct_list_passive_o_prpin_exclamative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpin_interrogative_cl", "adjunct_list_passive_prpin_interrogative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
@@ -8254,6 +8736,8 @@ let ParserRules = [
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prptell_np", "adjunct_list_passive_o_prptell_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prptell_that_declarative_cl", "adjunct_list_passive_prptell_that_declarative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prptell_that_declarative_cl", "adjunct_list_passive_o_prptell_that_declarative_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpthe_np", "adjunct_list_passive_prpthe_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
+    {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpthe_np", "adjunct_list_passive_o_prpthe_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpthrough_np", "adjunct_list_passive_prpthrough_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_o_prpthrough_np", "adjunct_list_passive_o_prpthrough_np_minus_np"], "postprocess": nt("passive_cl_minus_np")},
     {"name": "passive_cl_minus_np", "symbols": ["advp_vp?", "vbn_prpthrough_vbg_cl", "adjunct_list_passive_prpthrough_vbg_cl_minus_np"], "postprocess": nt("passive_cl_minus_np")},
@@ -8683,6 +9167,8 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpacross_that_declarative_cl_minus_adjp", "symbols": ["np_minus_adjp", "adjunct?", "ppacross_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpacross_that_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_prpafter_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prpafter_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_prpahold_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_o_prpahold_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prpapart_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prpapart_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prparound_np_minus_adjp", "symbols": ["impossible"]},
@@ -8723,8 +9209,13 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpdown_vbg_cl_minus_adjp", "symbols": ["np", "adjunct?", "ppdown_vbg_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_o_prpdown_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_o_prpdown_vbg_cl_minus_adjp", "symbols": ["np", "adjunct?", "ppdown_vbg_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpdown_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_o_prpdown_vbg_cl_minus_adjp", "symbols": ["np_minus_adjp", "adjunct?", "ppdown_vbg_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpdown_vbg_cl_minus_adjp")},
+    {"name": "adjunct_list_prpfault_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_o_prpfault_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prpfor_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prpfor_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_prpfor_predcomp_minus_adjp", "symbols": ["adjunct?", "ppfor_predcomp", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_prpfor_predcomp_minus_adjp")},
+    {"name": "adjunct_list_prpfor_predcomp_minus_adjp", "symbols": ["adjunct?", "ppfor_predcomp_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_predcomp_minus_adjp")},
+    {"name": "adjunct_list_o_prpfor_predcomp_minus_adjp", "symbols": ["np", "adjunct?", "ppfor_predcomp_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpfor_predcomp_minus_adjp")},
     {"name": "adjunct_list_prpfor_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppfor_vbg_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_prpfor_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_prpfor_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppfor_vbg_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpfor_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_o_prpfor_vbg_cl_minus_adjp", "symbols": ["np", "adjunct?", "ppfor_vbg_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_o_prpfor_vbg_cl_minus_adjp")},
@@ -8737,8 +9228,12 @@ let ParserRules = [
     {"name": "adjunct_list_o_prpforth_bare_declarative_cl_minus_adjp", "symbols": ["np_minus_adjp", "adjunct?", "ppforth_bare_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prpforth_bare_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_prpforth_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prpforth_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_prpfrom_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_o_prpfrom_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prpgo_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prpgo_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_prphold_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_o_prphold_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prpin_exclamative_cl_minus_adjp", "symbols": ["adjunct?", "ppin_exclamative_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_prpin_exclamative_cl_minus_adjp")},
     {"name": "adjunct_list_prpin_exclamative_cl_minus_adjp", "symbols": ["adjunct?", "ppin_exclamative_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpin_exclamative_cl_minus_adjp")},
     {"name": "adjunct_list_o_prpin_exclamative_cl_minus_adjp", "symbols": ["np", "adjunct?", "ppin_exclamative_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_o_prpin_exclamative_cl_minus_adjp")},
@@ -8877,6 +9372,8 @@ let ParserRules = [
     {"name": "adjunct_list_o_prptell_that_declarative_cl_minus_adjp", "symbols": ["np", "adjunct?", "pptell_that_declarative_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_o_prptell_that_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_o_prptell_that_declarative_cl_minus_adjp", "symbols": ["np", "adjunct?", "pptell_that_declarative_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_o_prptell_that_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_o_prptell_that_declarative_cl_minus_adjp", "symbols": ["np_minus_adjp", "adjunct?", "pptell_that_declarative_cl", "adjunct_list"], "postprocess": nt("adjunct_list_o_prptell_that_declarative_cl_minus_adjp")},
+    {"name": "adjunct_list_prpthe_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_o_prpthe_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prpthrough_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prpthrough_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prpthrough_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppthrough_vbg_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_prpthrough_vbg_cl_minus_adjp")},
@@ -8941,6 +9438,13 @@ let ParserRules = [
     {"name": "adjunct_list_prpwith_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prpwith_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_fprpacross_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_prpof_np_prpas_predcomp_minus_adjp", "symbols": ["adjunct?", "ppof_np", "adjunct?", "ppas_predcomp_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpof_np_prpas_predcomp_minus_adjp")},
+    {"name": "adjunct_list_prpon_np_prpas_np_minus_adjp", "symbols": ["adjunct?", "ppon_np", "adjunct?", "ppas_np_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpon_np_prpas_np_minus_adjp")},
+    {"name": "adjunct_list_prpto_np_prpabout_np_minus_adjp", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppabout_np_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpabout_np_minus_adjp")},
+    {"name": "adjunct_list_prpto_np_prpas_np_minus_adjp", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppas_np_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpas_np_minus_adjp")},
+    {"name": "adjunct_list_prpto_np_prpfor_np_minus_adjp", "symbols": ["adjunct?", "ppto_np", "adjunct?", "ppfor_np_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpto_np_prpfor_np_minus_adjp")},
+    {"name": "adjunct_list_prpupon_np_prpas_np_minus_adjp", "symbols": ["adjunct?", "ppupon_np", "adjunct?", "ppas_np_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpupon_np_prpas_np_minus_adjp")},
+    {"name": "adjunct_list_prpwith_np_prpabout_np_minus_adjp", "symbols": ["adjunct?", "ppwith_np", "adjunct?", "ppabout_np_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_prpwith_np_prpabout_np_minus_adjp")},
     {"name": "adjunct_list_prtin_prpon_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_o_prtin_prpon_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_prtout_prpas_predcomp_minus_adjp", "symbols": ["prtout", "adjunct?", "ppas_predcomp", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_prtout_prpas_predcomp_minus_adjp")},
@@ -8972,6 +9476,8 @@ let ParserRules = [
     {"name": "adjunct_list_passive_o_prpacross_that_declarative_cl_minus_adjp", "symbols": ["adjunct?", "ppacross_that_declarative_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpacross_that_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_passive_prpafter_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_o_prpafter_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_prpahold_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_o_prpahold_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_prpapart_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_o_prpapart_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_prparound_np_minus_adjp", "symbols": ["impossible"]},
@@ -9001,8 +9507,12 @@ let ParserRules = [
     {"name": "adjunct_list_passive_prpdown_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppdown_vbg_cl_minus_np", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_prpdown_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prpdown_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppdown_vbg_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_o_prpdown_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prpdown_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppdown_vbg_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpdown_vbg_cl_minus_adjp")},
+    {"name": "adjunct_list_passive_prpfault_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_o_prpfault_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_prpfor_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_o_prpfor_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_prpfor_predcomp_minus_adjp", "symbols": ["adjunct?", "ppfor_predcomp_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_prpfor_predcomp_minus_adjp")},
+    {"name": "adjunct_list_passive_o_prpfor_predcomp_minus_adjp", "symbols": ["adjunct?", "ppfor_predcomp_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_predcomp_minus_adjp")},
     {"name": "adjunct_list_passive_prpfor_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppfor_vbg_cl_minus_np", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_prpfor_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prpfor_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppfor_vbg_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_o_prpfor_vbg_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prpfor_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppfor_vbg_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpfor_vbg_cl_minus_adjp")},
@@ -9011,8 +9521,12 @@ let ParserRules = [
     {"name": "adjunct_list_passive_o_prpforth_bare_declarative_cl_minus_adjp", "symbols": ["adjunct?", "ppforth_bare_declarative_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpforth_bare_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_passive_prpforth_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_o_prpforth_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_prpfrom_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_o_prpfrom_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_prpgo_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_o_prpgo_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_prphold_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_o_prphold_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_prpin_exclamative_cl_minus_adjp", "symbols": ["adjunct?", "ppin_exclamative_cl_minus_np", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_prpin_exclamative_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prpin_exclamative_cl_minus_adjp", "symbols": ["adjunct?", "ppin_exclamative_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_o_prpin_exclamative_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prpin_exclamative_cl_minus_adjp", "symbols": ["adjunct?", "ppin_exclamative_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prpin_exclamative_cl_minus_adjp")},
@@ -9103,6 +9617,8 @@ let ParserRules = [
     {"name": "adjunct_list_passive_prptell_that_declarative_cl_minus_adjp", "symbols": ["adjunct?", "pptell_that_declarative_cl_minus_np", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_prptell_that_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prptell_that_declarative_cl_minus_adjp", "symbols": ["adjunct?", "pptell_that_declarative_cl", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_o_prptell_that_declarative_cl_minus_adjp")},
     {"name": "adjunct_list_passive_o_prptell_that_declarative_cl_minus_adjp", "symbols": ["adjunct?", "pptell_that_declarative_cl_minus_adjp", "adjunct_list"], "postprocess": nt("adjunct_list_passive_o_prptell_that_declarative_cl_minus_adjp")},
+    {"name": "adjunct_list_passive_prpthe_np_minus_adjp", "symbols": ["impossible"]},
+    {"name": "adjunct_list_passive_o_prpthe_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_prpthrough_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_o_prpthrough_np_minus_adjp", "symbols": ["impossible"]},
     {"name": "adjunct_list_passive_prpthrough_vbg_cl_minus_adjp", "symbols": ["adjunct?", "ppthrough_vbg_cl_minus_np", "adjunct_list_minus_adjp"], "postprocess": nt("adjunct_list_passive_prpthrough_vbg_cl_minus_adjp")},
@@ -9365,6 +9881,8 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpafter_np", "adjunct_list_prpafter_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpahold_np", "adjunct_list_prpahold_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpapart_np", "adjunct_list_prpapart_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prparound_np", "adjunct_list_prparound_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
@@ -9389,16 +9907,24 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpfault_np", "adjunct_list_prpfault_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpfor_np", "adjunct_list_prpfor_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpforth_np", "adjunct_list_prpforth_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpfrom_np", "adjunct_list_prpfrom_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpgo_np", "adjunct_list_prpgo_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prphold_np", "adjunct_list_prphold_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prphold_np", "adjunct_list_o_prphold_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
@@ -9465,6 +9991,8 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prptell_np", "adjunct_list_o_prptell_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpthe_np", "adjunct_list_prpthe_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpthrough_np", "adjunct_list_prpthrough_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
@@ -9498,6 +10026,13 @@ let ParserRules = [
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpwith_np", "adjunct_list_prpwith_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_fprpacross_np", "adjunct_list_fprpacross_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
+    {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
     {"name": "vbf_sg_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_sg_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_adjp"], "postprocess": nt("vbf_sg_vp_minus_adjp")},
@@ -9718,6 +10253,8 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpafter_np", "adjunct_list_prpafter_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpahold_np", "adjunct_list_prpahold_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpapart_np", "adjunct_list_prpapart_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prparound_np", "adjunct_list_prparound_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
@@ -9742,16 +10279,24 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpfault_np", "adjunct_list_prpfault_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpfor_np", "adjunct_list_prpfor_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpforth_np", "adjunct_list_prpforth_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpfrom_np", "adjunct_list_prpfrom_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpgo_np", "adjunct_list_prpgo_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prphold_np", "adjunct_list_prphold_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prphold_np", "adjunct_list_o_prphold_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
@@ -9818,6 +10363,8 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prptell_np", "adjunct_list_o_prptell_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpthe_np", "adjunct_list_prpthe_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpthrough_np", "adjunct_list_prpthrough_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
@@ -9851,6 +10398,13 @@ let ParserRules = [
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpwith_np", "adjunct_list_prpwith_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_fprpacross_np", "adjunct_list_fprpacross_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
+    {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
     {"name": "vbf_pl_vp_minus_adjp", "symbols": ["advp_vp?", "vbf_pl_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_adjp"], "postprocess": nt("vbf_pl_vp_minus_adjp")},
@@ -10070,6 +10624,8 @@ let ParserRules = [
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpafter_np", "adjunct_list_prpafter_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpahold_np", "adjunct_list_prpahold_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpapart_np", "adjunct_list_prpapart_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prparound_np", "adjunct_list_prparound_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
@@ -10094,16 +10650,24 @@ let ParserRules = [
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpfault_np", "adjunct_list_prpfault_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpfor_np", "adjunct_list_prpfor_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpforth_np", "adjunct_list_prpforth_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpfrom_np", "adjunct_list_prpfrom_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpgo_np", "adjunct_list_prpgo_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prphold_np", "adjunct_list_prphold_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prphold_np", "adjunct_list_o_prphold_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
@@ -10170,6 +10734,8 @@ let ParserRules = [
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prptell_np", "adjunct_list_o_prptell_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpthe_np", "adjunct_list_prpthe_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpthrough_np", "adjunct_list_prpthrough_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
@@ -10203,6 +10769,13 @@ let ParserRules = [
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpwith_np", "adjunct_list_prpwith_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_fprpacross_np", "adjunct_list_fprpacross_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
+    {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
     {"name": "inf_vp_minus_adjp", "symbols": ["advp_vp?", "inf_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_adjp"], "postprocess": nt("inf_vp_minus_adjp")},
@@ -10422,6 +10995,8 @@ let ParserRules = [
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpafter_np", "adjunct_list_prpafter_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpahold_np", "adjunct_list_prpahold_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpapart_np", "adjunct_list_prpapart_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prparound_np", "adjunct_list_prparound_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
@@ -10446,16 +11021,24 @@ let ParserRules = [
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpfault_np", "adjunct_list_prpfault_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpfor_np", "adjunct_list_prpfor_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpforth_np", "adjunct_list_prpforth_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpfrom_np", "adjunct_list_prpfrom_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpgo_np", "adjunct_list_prpgo_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prphold_np", "adjunct_list_prphold_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prphold_np", "adjunct_list_o_prphold_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
@@ -10522,6 +11105,8 @@ let ParserRules = [
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prptell_np", "adjunct_list_o_prptell_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpthe_np", "adjunct_list_prpthe_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpthrough_np", "adjunct_list_prpthrough_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
@@ -10555,6 +11140,13 @@ let ParserRules = [
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpwith_np", "adjunct_list_prpwith_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_fprpacross_np", "adjunct_list_fprpacross_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
+    {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
     {"name": "vbg_vp_minus_adjp", "symbols": ["advp_vp?", "vbg_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_adjp"], "postprocess": nt("vbg_vp_minus_adjp")},
@@ -10774,6 +11366,8 @@ let ParserRules = [
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpacross_that_declarative_cl", "adjunct_list_o_prpacross_that_declarative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpafter_np", "adjunct_list_prpafter_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpafter_np", "adjunct_list_o_prpafter_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpahold_np", "adjunct_list_prpahold_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpahold_np", "adjunct_list_o_prpahold_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpapart_np", "adjunct_list_prpapart_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpapart_np", "adjunct_list_o_prpapart_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prparound_np", "adjunct_list_prparound_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
@@ -10798,16 +11392,24 @@ let ParserRules = [
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpdown_np", "adjunct_list_o_prpdown_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpdown_vbg_cl", "adjunct_list_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpdown_vbg_cl", "adjunct_list_o_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfault_np", "adjunct_list_prpfault_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfault_np", "adjunct_list_o_prpfault_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfor_np", "adjunct_list_prpfor_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfor_np", "adjunct_list_o_prpfor_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfor_predcomp", "adjunct_list_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfor_predcomp", "adjunct_list_o_prpfor_predcomp_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfor_vbg_cl", "adjunct_list_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfor_vbg_cl", "adjunct_list_o_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpforth_bare_declarative_cl", "adjunct_list_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpforth_bare_declarative_cl", "adjunct_list_o_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpforth_np", "adjunct_list_prpforth_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpforth_np", "adjunct_list_o_prpforth_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfrom_np", "adjunct_list_prpfrom_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfrom_np", "adjunct_list_o_prpfrom_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpgo_np", "adjunct_list_prpgo_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpgo_np", "adjunct_list_o_prpgo_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prphold_np", "adjunct_list_prphold_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prphold_np", "adjunct_list_o_prphold_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpin_exclamative_cl", "adjunct_list_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpin_exclamative_cl", "adjunct_list_o_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpin_interrogative_cl", "adjunct_list_prpin_interrogative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
@@ -10874,6 +11476,8 @@ let ParserRules = [
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prptell_np", "adjunct_list_o_prptell_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prptell_that_declarative_cl", "adjunct_list_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prptell_that_declarative_cl", "adjunct_list_o_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpthe_np", "adjunct_list_prpthe_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpthe_np", "adjunct_list_o_prpthe_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpthrough_np", "adjunct_list_prpthrough_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpthrough_np", "adjunct_list_o_prpthrough_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpthrough_vbg_cl", "adjunct_list_prpthrough_vbg_cl_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
@@ -10907,6 +11511,13 @@ let ParserRules = [
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpwith_np", "adjunct_list_prpwith_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpwith_np", "adjunct_list_o_prpwith_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_fprpacross_np", "adjunct_list_fprpacross_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpof_np_prpas_predcomp", "adjunct_list_prpof_np_prpas_predcomp_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpon_np_prpas_np", "adjunct_list_prpon_np_prpas_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpto_np_prpabout_np", "adjunct_list_prpto_np_prpabout_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpto_np_prpas_np", "adjunct_list_prpto_np_prpas_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpto_np_prpfor_np", "adjunct_list_prpto_np_prpfor_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpupon_np_prpas_np", "adjunct_list_prpupon_np_prpas_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
+    {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prpwith_np_prpabout_np", "adjunct_list_prpwith_np_prpabout_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prtin_prpon_np", "adjunct_list_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prtin_prpon_np", "adjunct_list_o_prtin_prpon_np_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
     {"name": "vbn_vp_minus_adjp", "symbols": ["advp_vp?", "vbn_prtout_prpas_predcomp", "adjunct_list_prtout_prpas_predcomp_minus_adjp"], "postprocess": nt("vbn_vp_minus_adjp")},
@@ -11007,6 +11618,8 @@ let ParserRules = [
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpacross_that_declarative_cl", "adjunct_list_passive_o_prpacross_that_declarative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpafter_np", "adjunct_list_passive_prpafter_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpafter_np", "adjunct_list_passive_o_prpafter_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpahold_np", "adjunct_list_passive_prpahold_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpahold_np", "adjunct_list_passive_o_prpahold_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpapart_np", "adjunct_list_passive_prpapart_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpapart_np", "adjunct_list_passive_o_prpapart_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prparound_np", "adjunct_list_passive_prparound_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
@@ -11031,16 +11644,24 @@ let ParserRules = [
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpdown_np", "adjunct_list_passive_o_prpdown_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpdown_vbg_cl", "adjunct_list_passive_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpdown_vbg_cl", "adjunct_list_passive_o_prpdown_vbg_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfault_np", "adjunct_list_passive_prpfault_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfault_np", "adjunct_list_passive_o_prpfault_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfor_np", "adjunct_list_passive_prpfor_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfor_np", "adjunct_list_passive_o_prpfor_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfor_predcomp", "adjunct_list_passive_prpfor_predcomp_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfor_predcomp", "adjunct_list_passive_o_prpfor_predcomp_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfor_vbg_cl", "adjunct_list_passive_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfor_vbg_cl", "adjunct_list_passive_o_prpfor_vbg_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpforth_bare_declarative_cl", "adjunct_list_passive_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpforth_bare_declarative_cl", "adjunct_list_passive_o_prpforth_bare_declarative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpforth_np", "adjunct_list_passive_prpforth_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpforth_np", "adjunct_list_passive_o_prpforth_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpfrom_np", "adjunct_list_passive_prpfrom_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpfrom_np", "adjunct_list_passive_o_prpfrom_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpgo_np", "adjunct_list_passive_prpgo_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpgo_np", "adjunct_list_passive_o_prpgo_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prphold_np", "adjunct_list_passive_prphold_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prphold_np", "adjunct_list_passive_o_prphold_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpin_exclamative_cl", "adjunct_list_passive_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpin_exclamative_cl", "adjunct_list_passive_o_prpin_exclamative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpin_interrogative_cl", "adjunct_list_passive_prpin_interrogative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
@@ -11107,6 +11728,8 @@ let ParserRules = [
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prptell_np", "adjunct_list_passive_o_prptell_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prptell_that_declarative_cl", "adjunct_list_passive_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prptell_that_declarative_cl", "adjunct_list_passive_o_prptell_that_declarative_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpthe_np", "adjunct_list_passive_prpthe_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
+    {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpthe_np", "adjunct_list_passive_o_prpthe_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpthrough_np", "adjunct_list_passive_prpthrough_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_o_prpthrough_np", "adjunct_list_passive_o_prpthrough_np_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
     {"name": "passive_cl_minus_adjp", "symbols": ["advp_vp?", "vbn_prpthrough_vbg_cl", "adjunct_list_passive_prpthrough_vbg_cl_minus_adjp"], "postprocess": nt("passive_cl_minus_adjp")},
@@ -11582,6 +12205,31 @@ let ParserRules = [
     {"name": "ppafter_np", "symbols": ["prpafter", "np"], "postprocess": nt("ppafter_np")},
     {"name": "ppafter_np_minus_np", "symbols": ["prpafter"], "postprocess": nt("ppafter_np_minus_np")},
     {"name": "ppafter_np_minus_adjp", "symbols": ["prpafter", "np_minus_adjp"], "postprocess": nt("ppafter_np_minus_adjp")},
+    {"name": "ppahold_np_coordlist", "symbols": ["ppahold_np_coordlist_item", "ppahold_np_coordlist_"], "postprocess": nt("ppahold_np_coordlist")},
+    {"name": "ppahold_np_coordlist_$ebnf$1", "symbols": ["ppahold_np_coordlist_item"]},
+    {"name": "ppahold_np_coordlist_$ebnf$1", "symbols": ["ppahold_np_coordlist_$ebnf$1", "ppahold_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppahold_np_coordlist_", "symbols": ["ppahold_np_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppahold_np_coordlist_")},
+    {"name": "ppahold_np_coordlist_item", "symbols": ["ppahold_np", "comma"], "postprocess": nt("ppahold_np_coordlist_item")},
+    {"name": "ppahold_np_and_coordlist", "symbols": ["ppahold_np_and_coordlist_item", "ppahold_np_and_coordlist_"], "postprocess": nt("ppahold_np_and_coordlist")},
+    {"name": "ppahold_np_and_coordlist_$ebnf$1", "symbols": ["ppahold_np_and_coordlist_item"]},
+    {"name": "ppahold_np_and_coordlist_$ebnf$1", "symbols": ["ppahold_np_and_coordlist_$ebnf$1", "ppahold_np_and_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppahold_np_and_coordlist_", "symbols": ["ppahold_np_and_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppahold_np_and_coordlist_")},
+    {"name": "ppahold_np_and_coordlist_item", "symbols": ["ppahold_np", "and"], "postprocess": nt("ppahold_np_and_coordlist_item")},
+    {"name": "ppahold_np_or_coordlist", "symbols": ["ppahold_np_or_coordlist_item", "ppahold_np_or_coordlist_"], "postprocess": nt("ppahold_np_or_coordlist")},
+    {"name": "ppahold_np_or_coordlist_$ebnf$1", "symbols": ["ppahold_np_or_coordlist_item"]},
+    {"name": "ppahold_np_or_coordlist_$ebnf$1", "symbols": ["ppahold_np_or_coordlist_$ebnf$1", "ppahold_np_or_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppahold_np_or_coordlist_", "symbols": ["ppahold_np_or_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppahold_np_or_coordlist_")},
+    {"name": "ppahold_np_or_coordlist_item", "symbols": ["ppahold_np", "or"], "postprocess": nt("ppahold_np_or_coordlist_item")},
+    {"name": "ppahold_np", "symbols": ["ppahold_np_coordlist", "ppahold_np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np", "symbols": ["ppahold_np", "and", "ppahold_np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np", "symbols": ["ppahold_np_coordlist", "and", "ppahold_np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np", "symbols": ["ppahold_np_and_coordlist", "ppahold_np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np", "symbols": ["ppahold_np", "or", "ppahold_np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np", "symbols": ["ppahold_np_coordlist", "or", "ppahold_np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np", "symbols": ["ppahold_np_or_coordlist", "ppahold_np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np", "symbols": ["prpahold", "np"], "postprocess": nt("ppahold_np")},
+    {"name": "ppahold_np_minus_np", "symbols": ["prpahold"], "postprocess": nt("ppahold_np_minus_np")},
+    {"name": "ppahold_np_minus_adjp", "symbols": ["prpahold", "np_minus_adjp"], "postprocess": nt("ppahold_np_minus_adjp")},
     {"name": "ppapart_np_coordlist", "symbols": ["ppapart_np_coordlist_item", "ppapart_np_coordlist_"], "postprocess": nt("ppapart_np_coordlist")},
     {"name": "ppapart_np_coordlist_$ebnf$1", "symbols": ["ppapart_np_coordlist_item"]},
     {"name": "ppapart_np_coordlist_$ebnf$1", "symbols": ["ppapart_np_coordlist_$ebnf$1", "ppapart_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
@@ -11882,6 +12530,31 @@ let ParserRules = [
     {"name": "ppdown_vbg_cl", "symbols": ["prpdown", "vbg_cl"], "postprocess": nt("ppdown_vbg_cl")},
     {"name": "ppdown_vbg_cl_minus_np", "symbols": ["prpdown"], "postprocess": nt("ppdown_vbg_cl_minus_np")},
     {"name": "ppdown_vbg_cl_minus_adjp", "symbols": ["prpdown", "vbg_cl_minus_adjp"], "postprocess": nt("ppdown_vbg_cl_minus_adjp")},
+    {"name": "ppfault_np_coordlist", "symbols": ["ppfault_np_coordlist_item", "ppfault_np_coordlist_"], "postprocess": nt("ppfault_np_coordlist")},
+    {"name": "ppfault_np_coordlist_$ebnf$1", "symbols": ["ppfault_np_coordlist_item"]},
+    {"name": "ppfault_np_coordlist_$ebnf$1", "symbols": ["ppfault_np_coordlist_$ebnf$1", "ppfault_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfault_np_coordlist_", "symbols": ["ppfault_np_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfault_np_coordlist_")},
+    {"name": "ppfault_np_coordlist_item", "symbols": ["ppfault_np", "comma"], "postprocess": nt("ppfault_np_coordlist_item")},
+    {"name": "ppfault_np_and_coordlist", "symbols": ["ppfault_np_and_coordlist_item", "ppfault_np_and_coordlist_"], "postprocess": nt("ppfault_np_and_coordlist")},
+    {"name": "ppfault_np_and_coordlist_$ebnf$1", "symbols": ["ppfault_np_and_coordlist_item"]},
+    {"name": "ppfault_np_and_coordlist_$ebnf$1", "symbols": ["ppfault_np_and_coordlist_$ebnf$1", "ppfault_np_and_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfault_np_and_coordlist_", "symbols": ["ppfault_np_and_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfault_np_and_coordlist_")},
+    {"name": "ppfault_np_and_coordlist_item", "symbols": ["ppfault_np", "and"], "postprocess": nt("ppfault_np_and_coordlist_item")},
+    {"name": "ppfault_np_or_coordlist", "symbols": ["ppfault_np_or_coordlist_item", "ppfault_np_or_coordlist_"], "postprocess": nt("ppfault_np_or_coordlist")},
+    {"name": "ppfault_np_or_coordlist_$ebnf$1", "symbols": ["ppfault_np_or_coordlist_item"]},
+    {"name": "ppfault_np_or_coordlist_$ebnf$1", "symbols": ["ppfault_np_or_coordlist_$ebnf$1", "ppfault_np_or_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfault_np_or_coordlist_", "symbols": ["ppfault_np_or_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfault_np_or_coordlist_")},
+    {"name": "ppfault_np_or_coordlist_item", "symbols": ["ppfault_np", "or"], "postprocess": nt("ppfault_np_or_coordlist_item")},
+    {"name": "ppfault_np", "symbols": ["ppfault_np_coordlist", "ppfault_np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np", "symbols": ["ppfault_np", "and", "ppfault_np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np", "symbols": ["ppfault_np_coordlist", "and", "ppfault_np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np", "symbols": ["ppfault_np_and_coordlist", "ppfault_np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np", "symbols": ["ppfault_np", "or", "ppfault_np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np", "symbols": ["ppfault_np_coordlist", "or", "ppfault_np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np", "symbols": ["ppfault_np_or_coordlist", "ppfault_np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np", "symbols": ["prpfault", "np"], "postprocess": nt("ppfault_np")},
+    {"name": "ppfault_np_minus_np", "symbols": ["prpfault"], "postprocess": nt("ppfault_np_minus_np")},
+    {"name": "ppfault_np_minus_adjp", "symbols": ["prpfault", "np_minus_adjp"], "postprocess": nt("ppfault_np_minus_adjp")},
     {"name": "ppfor_np_coordlist", "symbols": ["ppfor_np_coordlist_item", "ppfor_np_coordlist_"], "postprocess": nt("ppfor_np_coordlist")},
     {"name": "ppfor_np_coordlist_$ebnf$1", "symbols": ["ppfor_np_coordlist_item"]},
     {"name": "ppfor_np_coordlist_$ebnf$1", "symbols": ["ppfor_np_coordlist_$ebnf$1", "ppfor_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
@@ -11907,6 +12580,31 @@ let ParserRules = [
     {"name": "ppfor_np", "symbols": ["prpfor", "np"], "postprocess": nt("ppfor_np")},
     {"name": "ppfor_np_minus_np", "symbols": ["prpfor"], "postprocess": nt("ppfor_np_minus_np")},
     {"name": "ppfor_np_minus_adjp", "symbols": ["prpfor", "np_minus_adjp"], "postprocess": nt("ppfor_np_minus_adjp")},
+    {"name": "ppfor_predcomp_coordlist", "symbols": ["ppfor_predcomp_coordlist_item", "ppfor_predcomp_coordlist_"], "postprocess": nt("ppfor_predcomp_coordlist")},
+    {"name": "ppfor_predcomp_coordlist_$ebnf$1", "symbols": ["ppfor_predcomp_coordlist_item"]},
+    {"name": "ppfor_predcomp_coordlist_$ebnf$1", "symbols": ["ppfor_predcomp_coordlist_$ebnf$1", "ppfor_predcomp_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfor_predcomp_coordlist_", "symbols": ["ppfor_predcomp_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfor_predcomp_coordlist_")},
+    {"name": "ppfor_predcomp_coordlist_item", "symbols": ["ppfor_predcomp", "comma"], "postprocess": nt("ppfor_predcomp_coordlist_item")},
+    {"name": "ppfor_predcomp_and_coordlist", "symbols": ["ppfor_predcomp_and_coordlist_item", "ppfor_predcomp_and_coordlist_"], "postprocess": nt("ppfor_predcomp_and_coordlist")},
+    {"name": "ppfor_predcomp_and_coordlist_$ebnf$1", "symbols": ["ppfor_predcomp_and_coordlist_item"]},
+    {"name": "ppfor_predcomp_and_coordlist_$ebnf$1", "symbols": ["ppfor_predcomp_and_coordlist_$ebnf$1", "ppfor_predcomp_and_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfor_predcomp_and_coordlist_", "symbols": ["ppfor_predcomp_and_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfor_predcomp_and_coordlist_")},
+    {"name": "ppfor_predcomp_and_coordlist_item", "symbols": ["ppfor_predcomp", "and"], "postprocess": nt("ppfor_predcomp_and_coordlist_item")},
+    {"name": "ppfor_predcomp_or_coordlist", "symbols": ["ppfor_predcomp_or_coordlist_item", "ppfor_predcomp_or_coordlist_"], "postprocess": nt("ppfor_predcomp_or_coordlist")},
+    {"name": "ppfor_predcomp_or_coordlist_$ebnf$1", "symbols": ["ppfor_predcomp_or_coordlist_item"]},
+    {"name": "ppfor_predcomp_or_coordlist_$ebnf$1", "symbols": ["ppfor_predcomp_or_coordlist_$ebnf$1", "ppfor_predcomp_or_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfor_predcomp_or_coordlist_", "symbols": ["ppfor_predcomp_or_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfor_predcomp_or_coordlist_")},
+    {"name": "ppfor_predcomp_or_coordlist_item", "symbols": ["ppfor_predcomp", "or"], "postprocess": nt("ppfor_predcomp_or_coordlist_item")},
+    {"name": "ppfor_predcomp", "symbols": ["ppfor_predcomp_coordlist", "ppfor_predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp", "symbols": ["ppfor_predcomp", "and", "ppfor_predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp", "symbols": ["ppfor_predcomp_coordlist", "and", "ppfor_predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp", "symbols": ["ppfor_predcomp_and_coordlist", "ppfor_predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp", "symbols": ["ppfor_predcomp", "or", "ppfor_predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp", "symbols": ["ppfor_predcomp_coordlist", "or", "ppfor_predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp", "symbols": ["ppfor_predcomp_or_coordlist", "ppfor_predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp", "symbols": ["prpfor", "predcomp"], "postprocess": nt("ppfor_predcomp")},
+    {"name": "ppfor_predcomp_minus_np", "symbols": ["prpfor"], "postprocess": nt("ppfor_predcomp_minus_np")},
+    {"name": "ppfor_predcomp_minus_adjp", "symbols": ["prpfor", "predcomp_minus_adjp"], "postprocess": nt("ppfor_predcomp_minus_adjp")},
     {"name": "ppfor_vbg_cl_coordlist", "symbols": ["ppfor_vbg_cl_coordlist_item", "ppfor_vbg_cl_coordlist_"], "postprocess": nt("ppfor_vbg_cl_coordlist")},
     {"name": "ppfor_vbg_cl_coordlist_$ebnf$1", "symbols": ["ppfor_vbg_cl_coordlist_item"]},
     {"name": "ppfor_vbg_cl_coordlist_$ebnf$1", "symbols": ["ppfor_vbg_cl_coordlist_$ebnf$1", "ppfor_vbg_cl_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
@@ -11982,6 +12680,31 @@ let ParserRules = [
     {"name": "ppforth_np", "symbols": ["prpforth", "np"], "postprocess": nt("ppforth_np")},
     {"name": "ppforth_np_minus_np", "symbols": ["prpforth"], "postprocess": nt("ppforth_np_minus_np")},
     {"name": "ppforth_np_minus_adjp", "symbols": ["prpforth", "np_minus_adjp"], "postprocess": nt("ppforth_np_minus_adjp")},
+    {"name": "ppfrom_np_coordlist", "symbols": ["ppfrom_np_coordlist_item", "ppfrom_np_coordlist_"], "postprocess": nt("ppfrom_np_coordlist")},
+    {"name": "ppfrom_np_coordlist_$ebnf$1", "symbols": ["ppfrom_np_coordlist_item"]},
+    {"name": "ppfrom_np_coordlist_$ebnf$1", "symbols": ["ppfrom_np_coordlist_$ebnf$1", "ppfrom_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfrom_np_coordlist_", "symbols": ["ppfrom_np_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfrom_np_coordlist_")},
+    {"name": "ppfrom_np_coordlist_item", "symbols": ["ppfrom_np", "comma"], "postprocess": nt("ppfrom_np_coordlist_item")},
+    {"name": "ppfrom_np_and_coordlist", "symbols": ["ppfrom_np_and_coordlist_item", "ppfrom_np_and_coordlist_"], "postprocess": nt("ppfrom_np_and_coordlist")},
+    {"name": "ppfrom_np_and_coordlist_$ebnf$1", "symbols": ["ppfrom_np_and_coordlist_item"]},
+    {"name": "ppfrom_np_and_coordlist_$ebnf$1", "symbols": ["ppfrom_np_and_coordlist_$ebnf$1", "ppfrom_np_and_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfrom_np_and_coordlist_", "symbols": ["ppfrom_np_and_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfrom_np_and_coordlist_")},
+    {"name": "ppfrom_np_and_coordlist_item", "symbols": ["ppfrom_np", "and"], "postprocess": nt("ppfrom_np_and_coordlist_item")},
+    {"name": "ppfrom_np_or_coordlist", "symbols": ["ppfrom_np_or_coordlist_item", "ppfrom_np_or_coordlist_"], "postprocess": nt("ppfrom_np_or_coordlist")},
+    {"name": "ppfrom_np_or_coordlist_$ebnf$1", "symbols": ["ppfrom_np_or_coordlist_item"]},
+    {"name": "ppfrom_np_or_coordlist_$ebnf$1", "symbols": ["ppfrom_np_or_coordlist_$ebnf$1", "ppfrom_np_or_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppfrom_np_or_coordlist_", "symbols": ["ppfrom_np_or_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppfrom_np_or_coordlist_")},
+    {"name": "ppfrom_np_or_coordlist_item", "symbols": ["ppfrom_np", "or"], "postprocess": nt("ppfrom_np_or_coordlist_item")},
+    {"name": "ppfrom_np", "symbols": ["ppfrom_np_coordlist", "ppfrom_np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np", "symbols": ["ppfrom_np", "and", "ppfrom_np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np", "symbols": ["ppfrom_np_coordlist", "and", "ppfrom_np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np", "symbols": ["ppfrom_np_and_coordlist", "ppfrom_np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np", "symbols": ["ppfrom_np", "or", "ppfrom_np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np", "symbols": ["ppfrom_np_coordlist", "or", "ppfrom_np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np", "symbols": ["ppfrom_np_or_coordlist", "ppfrom_np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np", "symbols": ["prpfrom", "np"], "postprocess": nt("ppfrom_np")},
+    {"name": "ppfrom_np_minus_np", "symbols": ["prpfrom"], "postprocess": nt("ppfrom_np_minus_np")},
+    {"name": "ppfrom_np_minus_adjp", "symbols": ["prpfrom", "np_minus_adjp"], "postprocess": nt("ppfrom_np_minus_adjp")},
     {"name": "ppgo_np_coordlist", "symbols": ["ppgo_np_coordlist_item", "ppgo_np_coordlist_"], "postprocess": nt("ppgo_np_coordlist")},
     {"name": "ppgo_np_coordlist_$ebnf$1", "symbols": ["ppgo_np_coordlist_item"]},
     {"name": "ppgo_np_coordlist_$ebnf$1", "symbols": ["ppgo_np_coordlist_$ebnf$1", "ppgo_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
@@ -12007,6 +12730,31 @@ let ParserRules = [
     {"name": "ppgo_np", "symbols": ["prpgo", "np"], "postprocess": nt("ppgo_np")},
     {"name": "ppgo_np_minus_np", "symbols": ["prpgo"], "postprocess": nt("ppgo_np_minus_np")},
     {"name": "ppgo_np_minus_adjp", "symbols": ["prpgo", "np_minus_adjp"], "postprocess": nt("ppgo_np_minus_adjp")},
+    {"name": "pphold_np_coordlist", "symbols": ["pphold_np_coordlist_item", "pphold_np_coordlist_"], "postprocess": nt("pphold_np_coordlist")},
+    {"name": "pphold_np_coordlist_$ebnf$1", "symbols": ["pphold_np_coordlist_item"]},
+    {"name": "pphold_np_coordlist_$ebnf$1", "symbols": ["pphold_np_coordlist_$ebnf$1", "pphold_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "pphold_np_coordlist_", "symbols": ["pphold_np_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("pphold_np_coordlist_")},
+    {"name": "pphold_np_coordlist_item", "symbols": ["pphold_np", "comma"], "postprocess": nt("pphold_np_coordlist_item")},
+    {"name": "pphold_np_and_coordlist", "symbols": ["pphold_np_and_coordlist_item", "pphold_np_and_coordlist_"], "postprocess": nt("pphold_np_and_coordlist")},
+    {"name": "pphold_np_and_coordlist_$ebnf$1", "symbols": ["pphold_np_and_coordlist_item"]},
+    {"name": "pphold_np_and_coordlist_$ebnf$1", "symbols": ["pphold_np_and_coordlist_$ebnf$1", "pphold_np_and_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "pphold_np_and_coordlist_", "symbols": ["pphold_np_and_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("pphold_np_and_coordlist_")},
+    {"name": "pphold_np_and_coordlist_item", "symbols": ["pphold_np", "and"], "postprocess": nt("pphold_np_and_coordlist_item")},
+    {"name": "pphold_np_or_coordlist", "symbols": ["pphold_np_or_coordlist_item", "pphold_np_or_coordlist_"], "postprocess": nt("pphold_np_or_coordlist")},
+    {"name": "pphold_np_or_coordlist_$ebnf$1", "symbols": ["pphold_np_or_coordlist_item"]},
+    {"name": "pphold_np_or_coordlist_$ebnf$1", "symbols": ["pphold_np_or_coordlist_$ebnf$1", "pphold_np_or_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "pphold_np_or_coordlist_", "symbols": ["pphold_np_or_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("pphold_np_or_coordlist_")},
+    {"name": "pphold_np_or_coordlist_item", "symbols": ["pphold_np", "or"], "postprocess": nt("pphold_np_or_coordlist_item")},
+    {"name": "pphold_np", "symbols": ["pphold_np_coordlist", "pphold_np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np", "symbols": ["pphold_np", "and", "pphold_np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np", "symbols": ["pphold_np_coordlist", "and", "pphold_np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np", "symbols": ["pphold_np_and_coordlist", "pphold_np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np", "symbols": ["pphold_np", "or", "pphold_np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np", "symbols": ["pphold_np_coordlist", "or", "pphold_np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np", "symbols": ["pphold_np_or_coordlist", "pphold_np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np", "symbols": ["prphold", "np"], "postprocess": nt("pphold_np")},
+    {"name": "pphold_np_minus_np", "symbols": ["prphold"], "postprocess": nt("pphold_np_minus_np")},
+    {"name": "pphold_np_minus_adjp", "symbols": ["prphold", "np_minus_adjp"], "postprocess": nt("pphold_np_minus_adjp")},
     {"name": "ppin_exclamative_cl_coordlist", "symbols": ["ppin_exclamative_cl_coordlist_item", "ppin_exclamative_cl_coordlist_"], "postprocess": nt("ppin_exclamative_cl_coordlist")},
     {"name": "ppin_exclamative_cl_coordlist_$ebnf$1", "symbols": ["ppin_exclamative_cl_coordlist_item"]},
     {"name": "ppin_exclamative_cl_coordlist_$ebnf$1", "symbols": ["ppin_exclamative_cl_coordlist_$ebnf$1", "ppin_exclamative_cl_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
@@ -12832,6 +13580,31 @@ let ParserRules = [
     {"name": "pptell_that_declarative_cl", "symbols": ["prptell", "that_declarative_cl"], "postprocess": nt("pptell_that_declarative_cl")},
     {"name": "pptell_that_declarative_cl_minus_np", "symbols": ["prptell"], "postprocess": nt("pptell_that_declarative_cl_minus_np")},
     {"name": "pptell_that_declarative_cl_minus_adjp", "symbols": ["prptell", "that_declarative_cl_minus_adjp"], "postprocess": nt("pptell_that_declarative_cl_minus_adjp")},
+    {"name": "ppthe_np_coordlist", "symbols": ["ppthe_np_coordlist_item", "ppthe_np_coordlist_"], "postprocess": nt("ppthe_np_coordlist")},
+    {"name": "ppthe_np_coordlist_$ebnf$1", "symbols": ["ppthe_np_coordlist_item"]},
+    {"name": "ppthe_np_coordlist_$ebnf$1", "symbols": ["ppthe_np_coordlist_$ebnf$1", "ppthe_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppthe_np_coordlist_", "symbols": ["ppthe_np_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppthe_np_coordlist_")},
+    {"name": "ppthe_np_coordlist_item", "symbols": ["ppthe_np", "comma"], "postprocess": nt("ppthe_np_coordlist_item")},
+    {"name": "ppthe_np_and_coordlist", "symbols": ["ppthe_np_and_coordlist_item", "ppthe_np_and_coordlist_"], "postprocess": nt("ppthe_np_and_coordlist")},
+    {"name": "ppthe_np_and_coordlist_$ebnf$1", "symbols": ["ppthe_np_and_coordlist_item"]},
+    {"name": "ppthe_np_and_coordlist_$ebnf$1", "symbols": ["ppthe_np_and_coordlist_$ebnf$1", "ppthe_np_and_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppthe_np_and_coordlist_", "symbols": ["ppthe_np_and_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppthe_np_and_coordlist_")},
+    {"name": "ppthe_np_and_coordlist_item", "symbols": ["ppthe_np", "and"], "postprocess": nt("ppthe_np_and_coordlist_item")},
+    {"name": "ppthe_np_or_coordlist", "symbols": ["ppthe_np_or_coordlist_item", "ppthe_np_or_coordlist_"], "postprocess": nt("ppthe_np_or_coordlist")},
+    {"name": "ppthe_np_or_coordlist_$ebnf$1", "symbols": ["ppthe_np_or_coordlist_item"]},
+    {"name": "ppthe_np_or_coordlist_$ebnf$1", "symbols": ["ppthe_np_or_coordlist_$ebnf$1", "ppthe_np_or_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "ppthe_np_or_coordlist_", "symbols": ["ppthe_np_or_coordlist_$ebnf$1"], "postprocess": nonterminal_unpack("ppthe_np_or_coordlist_")},
+    {"name": "ppthe_np_or_coordlist_item", "symbols": ["ppthe_np", "or"], "postprocess": nt("ppthe_np_or_coordlist_item")},
+    {"name": "ppthe_np", "symbols": ["ppthe_np_coordlist", "ppthe_np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np", "symbols": ["ppthe_np", "and", "ppthe_np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np", "symbols": ["ppthe_np_coordlist", "and", "ppthe_np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np", "symbols": ["ppthe_np_and_coordlist", "ppthe_np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np", "symbols": ["ppthe_np", "or", "ppthe_np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np", "symbols": ["ppthe_np_coordlist", "or", "ppthe_np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np", "symbols": ["ppthe_np_or_coordlist", "ppthe_np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np", "symbols": ["prpthe", "np"], "postprocess": nt("ppthe_np")},
+    {"name": "ppthe_np_minus_np", "symbols": ["prpthe"], "postprocess": nt("ppthe_np_minus_np")},
+    {"name": "ppthe_np_minus_adjp", "symbols": ["prpthe", "np_minus_adjp"], "postprocess": nt("ppthe_np_minus_adjp")},
     {"name": "ppthrough_np_coordlist", "symbols": ["ppthrough_np_coordlist_item", "ppthrough_np_coordlist_"], "postprocess": nt("ppthrough_np_coordlist")},
     {"name": "ppthrough_np_coordlist_$ebnf$1", "symbols": ["ppthrough_np_coordlist_item"]},
     {"name": "ppthrough_np_coordlist_$ebnf$1", "symbols": ["ppthrough_np_coordlist_$ebnf$1", "ppthrough_np_coordlist_item"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
@@ -13335,6 +14108,7 @@ let ParserRules = [
     {"name": "prpabout", "symbols": [prpabout], "postprocess": t("prpabout")},
     {"name": "prpacross", "symbols": [prpacross], "postprocess": t("prpacross")},
     {"name": "prpafter", "symbols": [prpafter], "postprocess": t("prpafter")},
+    {"name": "prpahold", "symbols": [prpahold], "postprocess": t("prpahold")},
     {"name": "prpapart", "symbols": [prpapart], "postprocess": t("prpapart")},
     {"name": "prparound", "symbols": [prparound], "postprocess": t("prparound")},
     {"name": "prpas", "symbols": [prpas], "postprocess": t("prpas")},
@@ -13342,9 +14116,12 @@ let ParserRules = [
     {"name": "prpback", "symbols": [prpback], "postprocess": t("prpback")},
     {"name": "prpby", "symbols": [prpby], "postprocess": t("prpby")},
     {"name": "prpdown", "symbols": [prpdown], "postprocess": t("prpdown")},
+    {"name": "prpfault", "symbols": [prpfault], "postprocess": t("prpfault")},
     {"name": "prpfor", "symbols": [prpfor], "postprocess": t("prpfor")},
     {"name": "prpforth", "symbols": [prpforth], "postprocess": t("prpforth")},
+    {"name": "prpfrom", "symbols": [prpfrom], "postprocess": t("prpfrom")},
     {"name": "prpgo", "symbols": [prpgo], "postprocess": t("prpgo")},
+    {"name": "prphold", "symbols": [prphold], "postprocess": t("prphold")},
     {"name": "prpin", "symbols": [prpin], "postprocess": t("prpin")},
     {"name": "prpinto", "symbols": [prpinto], "postprocess": t("prpinto")},
     {"name": "prplike", "symbols": [prplike], "postprocess": t("prplike")},
@@ -13355,6 +14132,7 @@ let ParserRules = [
     {"name": "prpover", "symbols": [prpover], "postprocess": t("prpover")},
     {"name": "prppooh", "symbols": [prppooh], "postprocess": t("prppooh")},
     {"name": "prptell", "symbols": [prptell], "postprocess": t("prptell")},
+    {"name": "prpthe", "symbols": [prpthe], "postprocess": t("prpthe")},
     {"name": "prpthrough", "symbols": [prpthrough], "postprocess": t("prpthrough")},
     {"name": "prpto", "symbols": [prpto], "postprocess": t("prpto")},
     {"name": "prpup", "symbols": [prpup], "postprocess": t("prpup")},
@@ -13554,6 +14332,8 @@ let ParserRules = [
     {"name": "inf_o_prpacross_that_declarative_cl", "symbols": [inf_o_prpacross_that_declarative_cl], "postprocess": t("inf_o_prpacross_that_declarative_cl")},
     {"name": "inf_prpafter_np", "symbols": [inf_prpafter_np], "postprocess": t("inf_prpafter_np")},
     {"name": "inf_o_prpafter_np", "symbols": [inf_o_prpafter_np], "postprocess": t("inf_o_prpafter_np")},
+    {"name": "inf_prpahold_np", "symbols": [inf_prpahold_np], "postprocess": t("inf_prpahold_np")},
+    {"name": "inf_o_prpahold_np", "symbols": [inf_o_prpahold_np], "postprocess": t("inf_o_prpahold_np")},
     {"name": "inf_prpapart_np", "symbols": [inf_prpapart_np], "postprocess": t("inf_prpapart_np")},
     {"name": "inf_o_prpapart_np", "symbols": [inf_o_prpapart_np], "postprocess": t("inf_o_prpapart_np")},
     {"name": "inf_prparound_np", "symbols": [inf_prparound_np], "postprocess": t("inf_prparound_np")},
@@ -13578,16 +14358,24 @@ let ParserRules = [
     {"name": "inf_o_prpdown_np", "symbols": [inf_o_prpdown_np], "postprocess": t("inf_o_prpdown_np")},
     {"name": "inf_prpdown_vbg_cl", "symbols": [inf_prpdown_vbg_cl], "postprocess": t("inf_prpdown_vbg_cl")},
     {"name": "inf_o_prpdown_vbg_cl", "symbols": [inf_o_prpdown_vbg_cl], "postprocess": t("inf_o_prpdown_vbg_cl")},
+    {"name": "inf_prpfault_np", "symbols": [inf_prpfault_np], "postprocess": t("inf_prpfault_np")},
+    {"name": "inf_o_prpfault_np", "symbols": [inf_o_prpfault_np], "postprocess": t("inf_o_prpfault_np")},
     {"name": "inf_prpfor_np", "symbols": [inf_prpfor_np], "postprocess": t("inf_prpfor_np")},
     {"name": "inf_o_prpfor_np", "symbols": [inf_o_prpfor_np], "postprocess": t("inf_o_prpfor_np")},
+    {"name": "inf_prpfor_predcomp", "symbols": [inf_prpfor_predcomp], "postprocess": t("inf_prpfor_predcomp")},
+    {"name": "inf_o_prpfor_predcomp", "symbols": [inf_o_prpfor_predcomp], "postprocess": t("inf_o_prpfor_predcomp")},
     {"name": "inf_prpfor_vbg_cl", "symbols": [inf_prpfor_vbg_cl], "postprocess": t("inf_prpfor_vbg_cl")},
     {"name": "inf_o_prpfor_vbg_cl", "symbols": [inf_o_prpfor_vbg_cl], "postprocess": t("inf_o_prpfor_vbg_cl")},
     {"name": "inf_prpforth_bare_declarative_cl", "symbols": [inf_prpforth_bare_declarative_cl], "postprocess": t("inf_prpforth_bare_declarative_cl")},
     {"name": "inf_o_prpforth_bare_declarative_cl", "symbols": [inf_o_prpforth_bare_declarative_cl], "postprocess": t("inf_o_prpforth_bare_declarative_cl")},
     {"name": "inf_prpforth_np", "symbols": [inf_prpforth_np], "postprocess": t("inf_prpforth_np")},
     {"name": "inf_o_prpforth_np", "symbols": [inf_o_prpforth_np], "postprocess": t("inf_o_prpforth_np")},
+    {"name": "inf_prpfrom_np", "symbols": [inf_prpfrom_np], "postprocess": t("inf_prpfrom_np")},
+    {"name": "inf_o_prpfrom_np", "symbols": [inf_o_prpfrom_np], "postprocess": t("inf_o_prpfrom_np")},
     {"name": "inf_prpgo_np", "symbols": [inf_prpgo_np], "postprocess": t("inf_prpgo_np")},
     {"name": "inf_o_prpgo_np", "symbols": [inf_o_prpgo_np], "postprocess": t("inf_o_prpgo_np")},
+    {"name": "inf_prphold_np", "symbols": [inf_prphold_np], "postprocess": t("inf_prphold_np")},
+    {"name": "inf_o_prphold_np", "symbols": [inf_o_prphold_np], "postprocess": t("inf_o_prphold_np")},
     {"name": "inf_prpin_exclamative_cl", "symbols": [inf_prpin_exclamative_cl], "postprocess": t("inf_prpin_exclamative_cl")},
     {"name": "inf_o_prpin_exclamative_cl", "symbols": [inf_o_prpin_exclamative_cl], "postprocess": t("inf_o_prpin_exclamative_cl")},
     {"name": "inf_prpin_interrogative_cl", "symbols": [inf_prpin_interrogative_cl], "postprocess": t("inf_prpin_interrogative_cl")},
@@ -13654,6 +14442,8 @@ let ParserRules = [
     {"name": "inf_o_prptell_np", "symbols": [inf_o_prptell_np], "postprocess": t("inf_o_prptell_np")},
     {"name": "inf_prptell_that_declarative_cl", "symbols": [inf_prptell_that_declarative_cl], "postprocess": t("inf_prptell_that_declarative_cl")},
     {"name": "inf_o_prptell_that_declarative_cl", "symbols": [inf_o_prptell_that_declarative_cl], "postprocess": t("inf_o_prptell_that_declarative_cl")},
+    {"name": "inf_prpthe_np", "symbols": [inf_prpthe_np], "postprocess": t("inf_prpthe_np")},
+    {"name": "inf_o_prpthe_np", "symbols": [inf_o_prpthe_np], "postprocess": t("inf_o_prpthe_np")},
     {"name": "inf_prpthrough_np", "symbols": [inf_prpthrough_np], "postprocess": t("inf_prpthrough_np")},
     {"name": "inf_o_prpthrough_np", "symbols": [inf_o_prpthrough_np], "postprocess": t("inf_o_prpthrough_np")},
     {"name": "inf_prpthrough_vbg_cl", "symbols": [inf_prpthrough_vbg_cl], "postprocess": t("inf_prpthrough_vbg_cl")},
@@ -13687,6 +14477,13 @@ let ParserRules = [
     {"name": "inf_prpwith_np", "symbols": [inf_prpwith_np], "postprocess": t("inf_prpwith_np")},
     {"name": "inf_o_prpwith_np", "symbols": [inf_o_prpwith_np], "postprocess": t("inf_o_prpwith_np")},
     {"name": "inf_fprpacross_np", "symbols": [inf_fprpacross_np], "postprocess": t("inf_fprpacross_np")},
+    {"name": "inf_prpof_np_prpas_predcomp", "symbols": [inf_prpof_np_prpas_predcomp], "postprocess": t("inf_prpof_np_prpas_predcomp")},
+    {"name": "inf_prpon_np_prpas_np", "symbols": [inf_prpon_np_prpas_np], "postprocess": t("inf_prpon_np_prpas_np")},
+    {"name": "inf_prpto_np_prpabout_np", "symbols": [inf_prpto_np_prpabout_np], "postprocess": t("inf_prpto_np_prpabout_np")},
+    {"name": "inf_prpto_np_prpas_np", "symbols": [inf_prpto_np_prpas_np], "postprocess": t("inf_prpto_np_prpas_np")},
+    {"name": "inf_prpto_np_prpfor_np", "symbols": [inf_prpto_np_prpfor_np], "postprocess": t("inf_prpto_np_prpfor_np")},
+    {"name": "inf_prpupon_np_prpas_np", "symbols": [inf_prpupon_np_prpas_np], "postprocess": t("inf_prpupon_np_prpas_np")},
+    {"name": "inf_prpwith_np_prpabout_np", "symbols": [inf_prpwith_np_prpabout_np], "postprocess": t("inf_prpwith_np_prpabout_np")},
     {"name": "inf_prtin_prpon_np", "symbols": [inf_prtin_prpon_np], "postprocess": t("inf_prtin_prpon_np")},
     {"name": "inf_o_prtin_prpon_np", "symbols": [inf_o_prtin_prpon_np], "postprocess": t("inf_o_prtin_prpon_np")},
     {"name": "inf_prtout_prpas_predcomp", "symbols": [inf_prtout_prpas_predcomp], "postprocess": t("inf_prtout_prpas_predcomp")},
@@ -13889,6 +14686,8 @@ let ParserRules = [
     {"name": "vbg_o_prpacross_that_declarative_cl", "symbols": [vbg_o_prpacross_that_declarative_cl], "postprocess": t("vbg_o_prpacross_that_declarative_cl")},
     {"name": "vbg_prpafter_np", "symbols": [vbg_prpafter_np], "postprocess": t("vbg_prpafter_np")},
     {"name": "vbg_o_prpafter_np", "symbols": [vbg_o_prpafter_np], "postprocess": t("vbg_o_prpafter_np")},
+    {"name": "vbg_prpahold_np", "symbols": [vbg_prpahold_np], "postprocess": t("vbg_prpahold_np")},
+    {"name": "vbg_o_prpahold_np", "symbols": [vbg_o_prpahold_np], "postprocess": t("vbg_o_prpahold_np")},
     {"name": "vbg_prpapart_np", "symbols": [vbg_prpapart_np], "postprocess": t("vbg_prpapart_np")},
     {"name": "vbg_o_prpapart_np", "symbols": [vbg_o_prpapart_np], "postprocess": t("vbg_o_prpapart_np")},
     {"name": "vbg_prparound_np", "symbols": [vbg_prparound_np], "postprocess": t("vbg_prparound_np")},
@@ -13913,16 +14712,24 @@ let ParserRules = [
     {"name": "vbg_o_prpdown_np", "symbols": [vbg_o_prpdown_np], "postprocess": t("vbg_o_prpdown_np")},
     {"name": "vbg_prpdown_vbg_cl", "symbols": [vbg_prpdown_vbg_cl], "postprocess": t("vbg_prpdown_vbg_cl")},
     {"name": "vbg_o_prpdown_vbg_cl", "symbols": [vbg_o_prpdown_vbg_cl], "postprocess": t("vbg_o_prpdown_vbg_cl")},
+    {"name": "vbg_prpfault_np", "symbols": [vbg_prpfault_np], "postprocess": t("vbg_prpfault_np")},
+    {"name": "vbg_o_prpfault_np", "symbols": [vbg_o_prpfault_np], "postprocess": t("vbg_o_prpfault_np")},
     {"name": "vbg_prpfor_np", "symbols": [vbg_prpfor_np], "postprocess": t("vbg_prpfor_np")},
     {"name": "vbg_o_prpfor_np", "symbols": [vbg_o_prpfor_np], "postprocess": t("vbg_o_prpfor_np")},
+    {"name": "vbg_prpfor_predcomp", "symbols": [vbg_prpfor_predcomp], "postprocess": t("vbg_prpfor_predcomp")},
+    {"name": "vbg_o_prpfor_predcomp", "symbols": [vbg_o_prpfor_predcomp], "postprocess": t("vbg_o_prpfor_predcomp")},
     {"name": "vbg_prpfor_vbg_cl", "symbols": [vbg_prpfor_vbg_cl], "postprocess": t("vbg_prpfor_vbg_cl")},
     {"name": "vbg_o_prpfor_vbg_cl", "symbols": [vbg_o_prpfor_vbg_cl], "postprocess": t("vbg_o_prpfor_vbg_cl")},
     {"name": "vbg_prpforth_bare_declarative_cl", "symbols": [vbg_prpforth_bare_declarative_cl], "postprocess": t("vbg_prpforth_bare_declarative_cl")},
     {"name": "vbg_o_prpforth_bare_declarative_cl", "symbols": [vbg_o_prpforth_bare_declarative_cl], "postprocess": t("vbg_o_prpforth_bare_declarative_cl")},
     {"name": "vbg_prpforth_np", "symbols": [vbg_prpforth_np], "postprocess": t("vbg_prpforth_np")},
     {"name": "vbg_o_prpforth_np", "symbols": [vbg_o_prpforth_np], "postprocess": t("vbg_o_prpforth_np")},
+    {"name": "vbg_prpfrom_np", "symbols": [vbg_prpfrom_np], "postprocess": t("vbg_prpfrom_np")},
+    {"name": "vbg_o_prpfrom_np", "symbols": [vbg_o_prpfrom_np], "postprocess": t("vbg_o_prpfrom_np")},
     {"name": "vbg_prpgo_np", "symbols": [vbg_prpgo_np], "postprocess": t("vbg_prpgo_np")},
     {"name": "vbg_o_prpgo_np", "symbols": [vbg_o_prpgo_np], "postprocess": t("vbg_o_prpgo_np")},
+    {"name": "vbg_prphold_np", "symbols": [vbg_prphold_np], "postprocess": t("vbg_prphold_np")},
+    {"name": "vbg_o_prphold_np", "symbols": [vbg_o_prphold_np], "postprocess": t("vbg_o_prphold_np")},
     {"name": "vbg_prpin_exclamative_cl", "symbols": [vbg_prpin_exclamative_cl], "postprocess": t("vbg_prpin_exclamative_cl")},
     {"name": "vbg_o_prpin_exclamative_cl", "symbols": [vbg_o_prpin_exclamative_cl], "postprocess": t("vbg_o_prpin_exclamative_cl")},
     {"name": "vbg_prpin_interrogative_cl", "symbols": [vbg_prpin_interrogative_cl], "postprocess": t("vbg_prpin_interrogative_cl")},
@@ -13989,6 +14796,8 @@ let ParserRules = [
     {"name": "vbg_o_prptell_np", "symbols": [vbg_o_prptell_np], "postprocess": t("vbg_o_prptell_np")},
     {"name": "vbg_prptell_that_declarative_cl", "symbols": [vbg_prptell_that_declarative_cl], "postprocess": t("vbg_prptell_that_declarative_cl")},
     {"name": "vbg_o_prptell_that_declarative_cl", "symbols": [vbg_o_prptell_that_declarative_cl], "postprocess": t("vbg_o_prptell_that_declarative_cl")},
+    {"name": "vbg_prpthe_np", "symbols": [vbg_prpthe_np], "postprocess": t("vbg_prpthe_np")},
+    {"name": "vbg_o_prpthe_np", "symbols": [vbg_o_prpthe_np], "postprocess": t("vbg_o_prpthe_np")},
     {"name": "vbg_prpthrough_np", "symbols": [vbg_prpthrough_np], "postprocess": t("vbg_prpthrough_np")},
     {"name": "vbg_o_prpthrough_np", "symbols": [vbg_o_prpthrough_np], "postprocess": t("vbg_o_prpthrough_np")},
     {"name": "vbg_prpthrough_vbg_cl", "symbols": [vbg_prpthrough_vbg_cl], "postprocess": t("vbg_prpthrough_vbg_cl")},
@@ -14022,6 +14831,13 @@ let ParserRules = [
     {"name": "vbg_prpwith_np", "symbols": [vbg_prpwith_np], "postprocess": t("vbg_prpwith_np")},
     {"name": "vbg_o_prpwith_np", "symbols": [vbg_o_prpwith_np], "postprocess": t("vbg_o_prpwith_np")},
     {"name": "vbg_fprpacross_np", "symbols": [vbg_fprpacross_np], "postprocess": t("vbg_fprpacross_np")},
+    {"name": "vbg_prpof_np_prpas_predcomp", "symbols": [vbg_prpof_np_prpas_predcomp], "postprocess": t("vbg_prpof_np_prpas_predcomp")},
+    {"name": "vbg_prpon_np_prpas_np", "symbols": [vbg_prpon_np_prpas_np], "postprocess": t("vbg_prpon_np_prpas_np")},
+    {"name": "vbg_prpto_np_prpabout_np", "symbols": [vbg_prpto_np_prpabout_np], "postprocess": t("vbg_prpto_np_prpabout_np")},
+    {"name": "vbg_prpto_np_prpas_np", "symbols": [vbg_prpto_np_prpas_np], "postprocess": t("vbg_prpto_np_prpas_np")},
+    {"name": "vbg_prpto_np_prpfor_np", "symbols": [vbg_prpto_np_prpfor_np], "postprocess": t("vbg_prpto_np_prpfor_np")},
+    {"name": "vbg_prpupon_np_prpas_np", "symbols": [vbg_prpupon_np_prpas_np], "postprocess": t("vbg_prpupon_np_prpas_np")},
+    {"name": "vbg_prpwith_np_prpabout_np", "symbols": [vbg_prpwith_np_prpabout_np], "postprocess": t("vbg_prpwith_np_prpabout_np")},
     {"name": "vbg_prtin_prpon_np", "symbols": [vbg_prtin_prpon_np], "postprocess": t("vbg_prtin_prpon_np")},
     {"name": "vbg_o_prtin_prpon_np", "symbols": [vbg_o_prtin_prpon_np], "postprocess": t("vbg_o_prtin_prpon_np")},
     {"name": "vbg_prtout_prpas_predcomp", "symbols": [vbg_prtout_prpas_predcomp], "postprocess": t("vbg_prtout_prpas_predcomp")},
@@ -14224,6 +15040,8 @@ let ParserRules = [
     {"name": "vbn_o_prpacross_that_declarative_cl", "symbols": [vbn_o_prpacross_that_declarative_cl], "postprocess": t("vbn_o_prpacross_that_declarative_cl")},
     {"name": "vbn_prpafter_np", "symbols": [vbn_prpafter_np], "postprocess": t("vbn_prpafter_np")},
     {"name": "vbn_o_prpafter_np", "symbols": [vbn_o_prpafter_np], "postprocess": t("vbn_o_prpafter_np")},
+    {"name": "vbn_prpahold_np", "symbols": [vbn_prpahold_np], "postprocess": t("vbn_prpahold_np")},
+    {"name": "vbn_o_prpahold_np", "symbols": [vbn_o_prpahold_np], "postprocess": t("vbn_o_prpahold_np")},
     {"name": "vbn_prpapart_np", "symbols": [vbn_prpapart_np], "postprocess": t("vbn_prpapart_np")},
     {"name": "vbn_o_prpapart_np", "symbols": [vbn_o_prpapart_np], "postprocess": t("vbn_o_prpapart_np")},
     {"name": "vbn_prparound_np", "symbols": [vbn_prparound_np], "postprocess": t("vbn_prparound_np")},
@@ -14248,16 +15066,24 @@ let ParserRules = [
     {"name": "vbn_o_prpdown_np", "symbols": [vbn_o_prpdown_np], "postprocess": t("vbn_o_prpdown_np")},
     {"name": "vbn_prpdown_vbg_cl", "symbols": [vbn_prpdown_vbg_cl], "postprocess": t("vbn_prpdown_vbg_cl")},
     {"name": "vbn_o_prpdown_vbg_cl", "symbols": [vbn_o_prpdown_vbg_cl], "postprocess": t("vbn_o_prpdown_vbg_cl")},
+    {"name": "vbn_prpfault_np", "symbols": [vbn_prpfault_np], "postprocess": t("vbn_prpfault_np")},
+    {"name": "vbn_o_prpfault_np", "symbols": [vbn_o_prpfault_np], "postprocess": t("vbn_o_prpfault_np")},
     {"name": "vbn_prpfor_np", "symbols": [vbn_prpfor_np], "postprocess": t("vbn_prpfor_np")},
     {"name": "vbn_o_prpfor_np", "symbols": [vbn_o_prpfor_np], "postprocess": t("vbn_o_prpfor_np")},
+    {"name": "vbn_prpfor_predcomp", "symbols": [vbn_prpfor_predcomp], "postprocess": t("vbn_prpfor_predcomp")},
+    {"name": "vbn_o_prpfor_predcomp", "symbols": [vbn_o_prpfor_predcomp], "postprocess": t("vbn_o_prpfor_predcomp")},
     {"name": "vbn_prpfor_vbg_cl", "symbols": [vbn_prpfor_vbg_cl], "postprocess": t("vbn_prpfor_vbg_cl")},
     {"name": "vbn_o_prpfor_vbg_cl", "symbols": [vbn_o_prpfor_vbg_cl], "postprocess": t("vbn_o_prpfor_vbg_cl")},
     {"name": "vbn_prpforth_bare_declarative_cl", "symbols": [vbn_prpforth_bare_declarative_cl], "postprocess": t("vbn_prpforth_bare_declarative_cl")},
     {"name": "vbn_o_prpforth_bare_declarative_cl", "symbols": [vbn_o_prpforth_bare_declarative_cl], "postprocess": t("vbn_o_prpforth_bare_declarative_cl")},
     {"name": "vbn_prpforth_np", "symbols": [vbn_prpforth_np], "postprocess": t("vbn_prpforth_np")},
     {"name": "vbn_o_prpforth_np", "symbols": [vbn_o_prpforth_np], "postprocess": t("vbn_o_prpforth_np")},
+    {"name": "vbn_prpfrom_np", "symbols": [vbn_prpfrom_np], "postprocess": t("vbn_prpfrom_np")},
+    {"name": "vbn_o_prpfrom_np", "symbols": [vbn_o_prpfrom_np], "postprocess": t("vbn_o_prpfrom_np")},
     {"name": "vbn_prpgo_np", "symbols": [vbn_prpgo_np], "postprocess": t("vbn_prpgo_np")},
     {"name": "vbn_o_prpgo_np", "symbols": [vbn_o_prpgo_np], "postprocess": t("vbn_o_prpgo_np")},
+    {"name": "vbn_prphold_np", "symbols": [vbn_prphold_np], "postprocess": t("vbn_prphold_np")},
+    {"name": "vbn_o_prphold_np", "symbols": [vbn_o_prphold_np], "postprocess": t("vbn_o_prphold_np")},
     {"name": "vbn_prpin_exclamative_cl", "symbols": [vbn_prpin_exclamative_cl], "postprocess": t("vbn_prpin_exclamative_cl")},
     {"name": "vbn_o_prpin_exclamative_cl", "symbols": [vbn_o_prpin_exclamative_cl], "postprocess": t("vbn_o_prpin_exclamative_cl")},
     {"name": "vbn_prpin_interrogative_cl", "symbols": [vbn_prpin_interrogative_cl], "postprocess": t("vbn_prpin_interrogative_cl")},
@@ -14324,6 +15150,8 @@ let ParserRules = [
     {"name": "vbn_o_prptell_np", "symbols": [vbn_o_prptell_np], "postprocess": t("vbn_o_prptell_np")},
     {"name": "vbn_prptell_that_declarative_cl", "symbols": [vbn_prptell_that_declarative_cl], "postprocess": t("vbn_prptell_that_declarative_cl")},
     {"name": "vbn_o_prptell_that_declarative_cl", "symbols": [vbn_o_prptell_that_declarative_cl], "postprocess": t("vbn_o_prptell_that_declarative_cl")},
+    {"name": "vbn_prpthe_np", "symbols": [vbn_prpthe_np], "postprocess": t("vbn_prpthe_np")},
+    {"name": "vbn_o_prpthe_np", "symbols": [vbn_o_prpthe_np], "postprocess": t("vbn_o_prpthe_np")},
     {"name": "vbn_prpthrough_np", "symbols": [vbn_prpthrough_np], "postprocess": t("vbn_prpthrough_np")},
     {"name": "vbn_o_prpthrough_np", "symbols": [vbn_o_prpthrough_np], "postprocess": t("vbn_o_prpthrough_np")},
     {"name": "vbn_prpthrough_vbg_cl", "symbols": [vbn_prpthrough_vbg_cl], "postprocess": t("vbn_prpthrough_vbg_cl")},
@@ -14357,6 +15185,13 @@ let ParserRules = [
     {"name": "vbn_prpwith_np", "symbols": [vbn_prpwith_np], "postprocess": t("vbn_prpwith_np")},
     {"name": "vbn_o_prpwith_np", "symbols": [vbn_o_prpwith_np], "postprocess": t("vbn_o_prpwith_np")},
     {"name": "vbn_fprpacross_np", "symbols": [vbn_fprpacross_np], "postprocess": t("vbn_fprpacross_np")},
+    {"name": "vbn_prpof_np_prpas_predcomp", "symbols": [vbn_prpof_np_prpas_predcomp], "postprocess": t("vbn_prpof_np_prpas_predcomp")},
+    {"name": "vbn_prpon_np_prpas_np", "symbols": [vbn_prpon_np_prpas_np], "postprocess": t("vbn_prpon_np_prpas_np")},
+    {"name": "vbn_prpto_np_prpabout_np", "symbols": [vbn_prpto_np_prpabout_np], "postprocess": t("vbn_prpto_np_prpabout_np")},
+    {"name": "vbn_prpto_np_prpas_np", "symbols": [vbn_prpto_np_prpas_np], "postprocess": t("vbn_prpto_np_prpas_np")},
+    {"name": "vbn_prpto_np_prpfor_np", "symbols": [vbn_prpto_np_prpfor_np], "postprocess": t("vbn_prpto_np_prpfor_np")},
+    {"name": "vbn_prpupon_np_prpas_np", "symbols": [vbn_prpupon_np_prpas_np], "postprocess": t("vbn_prpupon_np_prpas_np")},
+    {"name": "vbn_prpwith_np_prpabout_np", "symbols": [vbn_prpwith_np_prpabout_np], "postprocess": t("vbn_prpwith_np_prpabout_np")},
     {"name": "vbn_prtin_prpon_np", "symbols": [vbn_prtin_prpon_np], "postprocess": t("vbn_prtin_prpon_np")},
     {"name": "vbn_o_prtin_prpon_np", "symbols": [vbn_o_prtin_prpon_np], "postprocess": t("vbn_o_prtin_prpon_np")},
     {"name": "vbn_prtout_prpas_predcomp", "symbols": [vbn_prtout_prpas_predcomp], "postprocess": t("vbn_prtout_prpas_predcomp")},
@@ -14559,6 +15394,8 @@ let ParserRules = [
     {"name": "vbf_sg_o_prpacross_that_declarative_cl", "symbols": [vbf_sg_o_prpacross_that_declarative_cl], "postprocess": t("vbf_sg_o_prpacross_that_declarative_cl")},
     {"name": "vbf_sg_prpafter_np", "symbols": [vbf_sg_prpafter_np], "postprocess": t("vbf_sg_prpafter_np")},
     {"name": "vbf_sg_o_prpafter_np", "symbols": [vbf_sg_o_prpafter_np], "postprocess": t("vbf_sg_o_prpafter_np")},
+    {"name": "vbf_sg_prpahold_np", "symbols": [vbf_sg_prpahold_np], "postprocess": t("vbf_sg_prpahold_np")},
+    {"name": "vbf_sg_o_prpahold_np", "symbols": [vbf_sg_o_prpahold_np], "postprocess": t("vbf_sg_o_prpahold_np")},
     {"name": "vbf_sg_prpapart_np", "symbols": [vbf_sg_prpapart_np], "postprocess": t("vbf_sg_prpapart_np")},
     {"name": "vbf_sg_o_prpapart_np", "symbols": [vbf_sg_o_prpapart_np], "postprocess": t("vbf_sg_o_prpapart_np")},
     {"name": "vbf_sg_prparound_np", "symbols": [vbf_sg_prparound_np], "postprocess": t("vbf_sg_prparound_np")},
@@ -14583,16 +15420,24 @@ let ParserRules = [
     {"name": "vbf_sg_o_prpdown_np", "symbols": [vbf_sg_o_prpdown_np], "postprocess": t("vbf_sg_o_prpdown_np")},
     {"name": "vbf_sg_prpdown_vbg_cl", "symbols": [vbf_sg_prpdown_vbg_cl], "postprocess": t("vbf_sg_prpdown_vbg_cl")},
     {"name": "vbf_sg_o_prpdown_vbg_cl", "symbols": [vbf_sg_o_prpdown_vbg_cl], "postprocess": t("vbf_sg_o_prpdown_vbg_cl")},
+    {"name": "vbf_sg_prpfault_np", "symbols": [vbf_sg_prpfault_np], "postprocess": t("vbf_sg_prpfault_np")},
+    {"name": "vbf_sg_o_prpfault_np", "symbols": [vbf_sg_o_prpfault_np], "postprocess": t("vbf_sg_o_prpfault_np")},
     {"name": "vbf_sg_prpfor_np", "symbols": [vbf_sg_prpfor_np], "postprocess": t("vbf_sg_prpfor_np")},
     {"name": "vbf_sg_o_prpfor_np", "symbols": [vbf_sg_o_prpfor_np], "postprocess": t("vbf_sg_o_prpfor_np")},
+    {"name": "vbf_sg_prpfor_predcomp", "symbols": [vbf_sg_prpfor_predcomp], "postprocess": t("vbf_sg_prpfor_predcomp")},
+    {"name": "vbf_sg_o_prpfor_predcomp", "symbols": [vbf_sg_o_prpfor_predcomp], "postprocess": t("vbf_sg_o_prpfor_predcomp")},
     {"name": "vbf_sg_prpfor_vbg_cl", "symbols": [vbf_sg_prpfor_vbg_cl], "postprocess": t("vbf_sg_prpfor_vbg_cl")},
     {"name": "vbf_sg_o_prpfor_vbg_cl", "symbols": [vbf_sg_o_prpfor_vbg_cl], "postprocess": t("vbf_sg_o_prpfor_vbg_cl")},
     {"name": "vbf_sg_prpforth_bare_declarative_cl", "symbols": [vbf_sg_prpforth_bare_declarative_cl], "postprocess": t("vbf_sg_prpforth_bare_declarative_cl")},
     {"name": "vbf_sg_o_prpforth_bare_declarative_cl", "symbols": [vbf_sg_o_prpforth_bare_declarative_cl], "postprocess": t("vbf_sg_o_prpforth_bare_declarative_cl")},
     {"name": "vbf_sg_prpforth_np", "symbols": [vbf_sg_prpforth_np], "postprocess": t("vbf_sg_prpforth_np")},
     {"name": "vbf_sg_o_prpforth_np", "symbols": [vbf_sg_o_prpforth_np], "postprocess": t("vbf_sg_o_prpforth_np")},
+    {"name": "vbf_sg_prpfrom_np", "symbols": [vbf_sg_prpfrom_np], "postprocess": t("vbf_sg_prpfrom_np")},
+    {"name": "vbf_sg_o_prpfrom_np", "symbols": [vbf_sg_o_prpfrom_np], "postprocess": t("vbf_sg_o_prpfrom_np")},
     {"name": "vbf_sg_prpgo_np", "symbols": [vbf_sg_prpgo_np], "postprocess": t("vbf_sg_prpgo_np")},
     {"name": "vbf_sg_o_prpgo_np", "symbols": [vbf_sg_o_prpgo_np], "postprocess": t("vbf_sg_o_prpgo_np")},
+    {"name": "vbf_sg_prphold_np", "symbols": [vbf_sg_prphold_np], "postprocess": t("vbf_sg_prphold_np")},
+    {"name": "vbf_sg_o_prphold_np", "symbols": [vbf_sg_o_prphold_np], "postprocess": t("vbf_sg_o_prphold_np")},
     {"name": "vbf_sg_prpin_exclamative_cl", "symbols": [vbf_sg_prpin_exclamative_cl], "postprocess": t("vbf_sg_prpin_exclamative_cl")},
     {"name": "vbf_sg_o_prpin_exclamative_cl", "symbols": [vbf_sg_o_prpin_exclamative_cl], "postprocess": t("vbf_sg_o_prpin_exclamative_cl")},
     {"name": "vbf_sg_prpin_interrogative_cl", "symbols": [vbf_sg_prpin_interrogative_cl], "postprocess": t("vbf_sg_prpin_interrogative_cl")},
@@ -14659,6 +15504,8 @@ let ParserRules = [
     {"name": "vbf_sg_o_prptell_np", "symbols": [vbf_sg_o_prptell_np], "postprocess": t("vbf_sg_o_prptell_np")},
     {"name": "vbf_sg_prptell_that_declarative_cl", "symbols": [vbf_sg_prptell_that_declarative_cl], "postprocess": t("vbf_sg_prptell_that_declarative_cl")},
     {"name": "vbf_sg_o_prptell_that_declarative_cl", "symbols": [vbf_sg_o_prptell_that_declarative_cl], "postprocess": t("vbf_sg_o_prptell_that_declarative_cl")},
+    {"name": "vbf_sg_prpthe_np", "symbols": [vbf_sg_prpthe_np], "postprocess": t("vbf_sg_prpthe_np")},
+    {"name": "vbf_sg_o_prpthe_np", "symbols": [vbf_sg_o_prpthe_np], "postprocess": t("vbf_sg_o_prpthe_np")},
     {"name": "vbf_sg_prpthrough_np", "symbols": [vbf_sg_prpthrough_np], "postprocess": t("vbf_sg_prpthrough_np")},
     {"name": "vbf_sg_o_prpthrough_np", "symbols": [vbf_sg_o_prpthrough_np], "postprocess": t("vbf_sg_o_prpthrough_np")},
     {"name": "vbf_sg_prpthrough_vbg_cl", "symbols": [vbf_sg_prpthrough_vbg_cl], "postprocess": t("vbf_sg_prpthrough_vbg_cl")},
@@ -14692,6 +15539,13 @@ let ParserRules = [
     {"name": "vbf_sg_prpwith_np", "symbols": [vbf_sg_prpwith_np], "postprocess": t("vbf_sg_prpwith_np")},
     {"name": "vbf_sg_o_prpwith_np", "symbols": [vbf_sg_o_prpwith_np], "postprocess": t("vbf_sg_o_prpwith_np")},
     {"name": "vbf_sg_fprpacross_np", "symbols": [vbf_sg_fprpacross_np], "postprocess": t("vbf_sg_fprpacross_np")},
+    {"name": "vbf_sg_prpof_np_prpas_predcomp", "symbols": [vbf_sg_prpof_np_prpas_predcomp], "postprocess": t("vbf_sg_prpof_np_prpas_predcomp")},
+    {"name": "vbf_sg_prpon_np_prpas_np", "symbols": [vbf_sg_prpon_np_prpas_np], "postprocess": t("vbf_sg_prpon_np_prpas_np")},
+    {"name": "vbf_sg_prpto_np_prpabout_np", "symbols": [vbf_sg_prpto_np_prpabout_np], "postprocess": t("vbf_sg_prpto_np_prpabout_np")},
+    {"name": "vbf_sg_prpto_np_prpas_np", "symbols": [vbf_sg_prpto_np_prpas_np], "postprocess": t("vbf_sg_prpto_np_prpas_np")},
+    {"name": "vbf_sg_prpto_np_prpfor_np", "symbols": [vbf_sg_prpto_np_prpfor_np], "postprocess": t("vbf_sg_prpto_np_prpfor_np")},
+    {"name": "vbf_sg_prpupon_np_prpas_np", "symbols": [vbf_sg_prpupon_np_prpas_np], "postprocess": t("vbf_sg_prpupon_np_prpas_np")},
+    {"name": "vbf_sg_prpwith_np_prpabout_np", "symbols": [vbf_sg_prpwith_np_prpabout_np], "postprocess": t("vbf_sg_prpwith_np_prpabout_np")},
     {"name": "vbf_sg_prtin_prpon_np", "symbols": [vbf_sg_prtin_prpon_np], "postprocess": t("vbf_sg_prtin_prpon_np")},
     {"name": "vbf_sg_o_prtin_prpon_np", "symbols": [vbf_sg_o_prtin_prpon_np], "postprocess": t("vbf_sg_o_prtin_prpon_np")},
     {"name": "vbf_sg_prtout_prpas_predcomp", "symbols": [vbf_sg_prtout_prpas_predcomp], "postprocess": t("vbf_sg_prtout_prpas_predcomp")},
@@ -14894,6 +15748,8 @@ let ParserRules = [
     {"name": "vbf_pl_o_prpacross_that_declarative_cl", "symbols": [vbf_pl_o_prpacross_that_declarative_cl], "postprocess": t("vbf_pl_o_prpacross_that_declarative_cl")},
     {"name": "vbf_pl_prpafter_np", "symbols": [vbf_pl_prpafter_np], "postprocess": t("vbf_pl_prpafter_np")},
     {"name": "vbf_pl_o_prpafter_np", "symbols": [vbf_pl_o_prpafter_np], "postprocess": t("vbf_pl_o_prpafter_np")},
+    {"name": "vbf_pl_prpahold_np", "symbols": [vbf_pl_prpahold_np], "postprocess": t("vbf_pl_prpahold_np")},
+    {"name": "vbf_pl_o_prpahold_np", "symbols": [vbf_pl_o_prpahold_np], "postprocess": t("vbf_pl_o_prpahold_np")},
     {"name": "vbf_pl_prpapart_np", "symbols": [vbf_pl_prpapart_np], "postprocess": t("vbf_pl_prpapart_np")},
     {"name": "vbf_pl_o_prpapart_np", "symbols": [vbf_pl_o_prpapart_np], "postprocess": t("vbf_pl_o_prpapart_np")},
     {"name": "vbf_pl_prparound_np", "symbols": [vbf_pl_prparound_np], "postprocess": t("vbf_pl_prparound_np")},
@@ -14918,16 +15774,24 @@ let ParserRules = [
     {"name": "vbf_pl_o_prpdown_np", "symbols": [vbf_pl_o_prpdown_np], "postprocess": t("vbf_pl_o_prpdown_np")},
     {"name": "vbf_pl_prpdown_vbg_cl", "symbols": [vbf_pl_prpdown_vbg_cl], "postprocess": t("vbf_pl_prpdown_vbg_cl")},
     {"name": "vbf_pl_o_prpdown_vbg_cl", "symbols": [vbf_pl_o_prpdown_vbg_cl], "postprocess": t("vbf_pl_o_prpdown_vbg_cl")},
+    {"name": "vbf_pl_prpfault_np", "symbols": [vbf_pl_prpfault_np], "postprocess": t("vbf_pl_prpfault_np")},
+    {"name": "vbf_pl_o_prpfault_np", "symbols": [vbf_pl_o_prpfault_np], "postprocess": t("vbf_pl_o_prpfault_np")},
     {"name": "vbf_pl_prpfor_np", "symbols": [vbf_pl_prpfor_np], "postprocess": t("vbf_pl_prpfor_np")},
     {"name": "vbf_pl_o_prpfor_np", "symbols": [vbf_pl_o_prpfor_np], "postprocess": t("vbf_pl_o_prpfor_np")},
+    {"name": "vbf_pl_prpfor_predcomp", "symbols": [vbf_pl_prpfor_predcomp], "postprocess": t("vbf_pl_prpfor_predcomp")},
+    {"name": "vbf_pl_o_prpfor_predcomp", "symbols": [vbf_pl_o_prpfor_predcomp], "postprocess": t("vbf_pl_o_prpfor_predcomp")},
     {"name": "vbf_pl_prpfor_vbg_cl", "symbols": [vbf_pl_prpfor_vbg_cl], "postprocess": t("vbf_pl_prpfor_vbg_cl")},
     {"name": "vbf_pl_o_prpfor_vbg_cl", "symbols": [vbf_pl_o_prpfor_vbg_cl], "postprocess": t("vbf_pl_o_prpfor_vbg_cl")},
     {"name": "vbf_pl_prpforth_bare_declarative_cl", "symbols": [vbf_pl_prpforth_bare_declarative_cl], "postprocess": t("vbf_pl_prpforth_bare_declarative_cl")},
     {"name": "vbf_pl_o_prpforth_bare_declarative_cl", "symbols": [vbf_pl_o_prpforth_bare_declarative_cl], "postprocess": t("vbf_pl_o_prpforth_bare_declarative_cl")},
     {"name": "vbf_pl_prpforth_np", "symbols": [vbf_pl_prpforth_np], "postprocess": t("vbf_pl_prpforth_np")},
     {"name": "vbf_pl_o_prpforth_np", "symbols": [vbf_pl_o_prpforth_np], "postprocess": t("vbf_pl_o_prpforth_np")},
+    {"name": "vbf_pl_prpfrom_np", "symbols": [vbf_pl_prpfrom_np], "postprocess": t("vbf_pl_prpfrom_np")},
+    {"name": "vbf_pl_o_prpfrom_np", "symbols": [vbf_pl_o_prpfrom_np], "postprocess": t("vbf_pl_o_prpfrom_np")},
     {"name": "vbf_pl_prpgo_np", "symbols": [vbf_pl_prpgo_np], "postprocess": t("vbf_pl_prpgo_np")},
     {"name": "vbf_pl_o_prpgo_np", "symbols": [vbf_pl_o_prpgo_np], "postprocess": t("vbf_pl_o_prpgo_np")},
+    {"name": "vbf_pl_prphold_np", "symbols": [vbf_pl_prphold_np], "postprocess": t("vbf_pl_prphold_np")},
+    {"name": "vbf_pl_o_prphold_np", "symbols": [vbf_pl_o_prphold_np], "postprocess": t("vbf_pl_o_prphold_np")},
     {"name": "vbf_pl_prpin_exclamative_cl", "symbols": [vbf_pl_prpin_exclamative_cl], "postprocess": t("vbf_pl_prpin_exclamative_cl")},
     {"name": "vbf_pl_o_prpin_exclamative_cl", "symbols": [vbf_pl_o_prpin_exclamative_cl], "postprocess": t("vbf_pl_o_prpin_exclamative_cl")},
     {"name": "vbf_pl_prpin_interrogative_cl", "symbols": [vbf_pl_prpin_interrogative_cl], "postprocess": t("vbf_pl_prpin_interrogative_cl")},
@@ -14994,6 +15858,8 @@ let ParserRules = [
     {"name": "vbf_pl_o_prptell_np", "symbols": [vbf_pl_o_prptell_np], "postprocess": t("vbf_pl_o_prptell_np")},
     {"name": "vbf_pl_prptell_that_declarative_cl", "symbols": [vbf_pl_prptell_that_declarative_cl], "postprocess": t("vbf_pl_prptell_that_declarative_cl")},
     {"name": "vbf_pl_o_prptell_that_declarative_cl", "symbols": [vbf_pl_o_prptell_that_declarative_cl], "postprocess": t("vbf_pl_o_prptell_that_declarative_cl")},
+    {"name": "vbf_pl_prpthe_np", "symbols": [vbf_pl_prpthe_np], "postprocess": t("vbf_pl_prpthe_np")},
+    {"name": "vbf_pl_o_prpthe_np", "symbols": [vbf_pl_o_prpthe_np], "postprocess": t("vbf_pl_o_prpthe_np")},
     {"name": "vbf_pl_prpthrough_np", "symbols": [vbf_pl_prpthrough_np], "postprocess": t("vbf_pl_prpthrough_np")},
     {"name": "vbf_pl_o_prpthrough_np", "symbols": [vbf_pl_o_prpthrough_np], "postprocess": t("vbf_pl_o_prpthrough_np")},
     {"name": "vbf_pl_prpthrough_vbg_cl", "symbols": [vbf_pl_prpthrough_vbg_cl], "postprocess": t("vbf_pl_prpthrough_vbg_cl")},
@@ -15027,6 +15893,13 @@ let ParserRules = [
     {"name": "vbf_pl_prpwith_np", "symbols": [vbf_pl_prpwith_np], "postprocess": t("vbf_pl_prpwith_np")},
     {"name": "vbf_pl_o_prpwith_np", "symbols": [vbf_pl_o_prpwith_np], "postprocess": t("vbf_pl_o_prpwith_np")},
     {"name": "vbf_pl_fprpacross_np", "symbols": [vbf_pl_fprpacross_np], "postprocess": t("vbf_pl_fprpacross_np")},
+    {"name": "vbf_pl_prpof_np_prpas_predcomp", "symbols": [vbf_pl_prpof_np_prpas_predcomp], "postprocess": t("vbf_pl_prpof_np_prpas_predcomp")},
+    {"name": "vbf_pl_prpon_np_prpas_np", "symbols": [vbf_pl_prpon_np_prpas_np], "postprocess": t("vbf_pl_prpon_np_prpas_np")},
+    {"name": "vbf_pl_prpto_np_prpabout_np", "symbols": [vbf_pl_prpto_np_prpabout_np], "postprocess": t("vbf_pl_prpto_np_prpabout_np")},
+    {"name": "vbf_pl_prpto_np_prpas_np", "symbols": [vbf_pl_prpto_np_prpas_np], "postprocess": t("vbf_pl_prpto_np_prpas_np")},
+    {"name": "vbf_pl_prpto_np_prpfor_np", "symbols": [vbf_pl_prpto_np_prpfor_np], "postprocess": t("vbf_pl_prpto_np_prpfor_np")},
+    {"name": "vbf_pl_prpupon_np_prpas_np", "symbols": [vbf_pl_prpupon_np_prpas_np], "postprocess": t("vbf_pl_prpupon_np_prpas_np")},
+    {"name": "vbf_pl_prpwith_np_prpabout_np", "symbols": [vbf_pl_prpwith_np_prpabout_np], "postprocess": t("vbf_pl_prpwith_np_prpabout_np")},
     {"name": "vbf_pl_prtin_prpon_np", "symbols": [vbf_pl_prtin_prpon_np], "postprocess": t("vbf_pl_prtin_prpon_np")},
     {"name": "vbf_pl_o_prtin_prpon_np", "symbols": [vbf_pl_o_prtin_prpon_np], "postprocess": t("vbf_pl_o_prtin_prpon_np")},
     {"name": "vbf_pl_prtout_prpas_predcomp", "symbols": [vbf_pl_prtout_prpas_predcomp], "postprocess": t("vbf_pl_prtout_prpas_predcomp")},

@@ -1,0 +1,11 @@
+{
+    "members": [
+        "take_for"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP", "ADJ"],
+            "examples": ["He took them for dead."]
+        }
+    ]
+}

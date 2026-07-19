@@ -1,0 +1,11 @@
+{
+    "members": [
+        "see_to"
+    ],
+    "frames": [
+        {
+            "primary": ["NP", "V", "NP"],
+            "examples": ["These matters must be seen to."]
+        }
+    ]
+}

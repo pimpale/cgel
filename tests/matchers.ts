@@ -7,6 +7,7 @@
 
 import { expect, test } from 'vitest';
 import type { TestContext } from 'vitest';
+import { treeId } from '../src/index';
 import {
   parse as parseInternal,
   checkConstituency,
@@ -14,10 +15,19 @@ import {
   type TreeNode
 } from './helpers';
 
-/** Result of parsing a sentence, including the original sentence for metadata */
+/**
+ * Result of parsing a sentence, including the original sentence for metadata.
+ *
+ * `trees` is the full, immutable list of parses. `surviving` holds the indices
+ * (into `trees`) of the parses still consistent with every assertion made so
+ * far: structural matchers narrow it and assert it stays non-empty, so all
+ * assertions in a test provably hold of one common parse (the "same parse"
+ * guarantee). It starts as every index.
+ */
 export interface ParseResult {
   sentence: string;
   trees: TreeNode[];
+  surviving: number[];
   error?: string;
 }
 
@@ -80,11 +90,13 @@ export function parse(sentence: string, filters?: Array<ConstituentTest | HasPOS
     return {
       sentence,
       trees,
+      surviving: trees.map((_, i) => i),
     };
   } catch (error: any) {
     return {
       sentence,
       trees: [],
+      surviving: [],
       error: error.message,
     };
   }
@@ -117,6 +129,22 @@ function recordAssertion(
   (task.meta.assertions as RecordedAssertion[]).push(assertion);
 }
 
+/**
+ * Record the current surviving-parse set to task.meta, so the playground can
+ * highlight exactly which of a sentence's parses satisfy every assertion.
+ * `survivingTreeIds` identifies survivors by structural hash (see treeId), so
+ * the playground can match them to its own re-parsed trees regardless of order.
+ */
+function recordSurviving(
+  task: { meta: Record<string, unknown> } | undefined,
+  received: ParseResult
+) {
+  if (!task) return;
+  task.meta.treeCount = received.trees.length;
+  task.meta.survivingIndices = [...received.surviving];
+  task.meta.survivingTreeIds = received.surviving.map(i => treeId(received.trees[i]));
+}
+
 // Extend Vitest's expect with custom matchers
 expect.extend({
   /**
@@ -125,6 +153,8 @@ expect.extend({
    */
   toBeGrammatical(received: ParseResult) {
     const { sentence, trees, error } = received;
+    // Grammaticality is about existence of any parse; it does not narrow the
+    // surviving set (every parse is still a candidate for later constraints).
     const pass = trees.length > 0;
 
     recordAssertion(this.task as any, sentence, {
@@ -132,6 +162,7 @@ expect.extend({
       passed: this.isNot ? !pass : pass,
       details: { parseCount: trees.length },
     }, error);
+    recordSurviving(this.task as any, received);
 
     return {
       pass,
@@ -161,6 +192,7 @@ expect.extend({
         passed: false,
         details: { constituent, excludes, parseCount: 0, error: 'no parse' },
       }, error);
+      recordSurviving(this.task as any, received);
 
       return {
         pass: false,
@@ -170,22 +202,28 @@ expect.extend({
       };
     }
 
-    // Check if ANY parse satisfies the constituency requirement
-    const pass = trees.some(tree =>
-      checkConstituency(tree, constituent[0], constituent[1], excludes)
+    // Keep only surviving parses in which the constituency holds. `pass` is the
+    // raw positive condition (some survivor satisfies it); vitest inverts it for
+    // `.not`. We narrow the surviving set for positive assertions only, so every
+    // later assertion applies to the *same* parse.
+    const keep = received.surviving.filter(i =>
+      checkConstituency(trees[i], constituent[0], constituent[1], excludes)
     );
+    const pass = keep.length > 0;
+    if (pass && !this.isNot) received.surviving = keep;
 
     recordAssertion(this.task as any, sentence, {
       type: 'constituency',
       passed: this.isNot ? !pass : pass,
-      details: { constituent, excludes, parseCount: trees.length },
+      details: { constituent, excludes, parseCount: trees.length, survivingCount: received.surviving.length },
     }, error);
+    recordSurviving(this.task as any, received);
 
     return {
       pass,
       message: () => pass
         ? `Expected "${constituent[0]}" and "${constituent[1]}" NOT to form a constituent excluding "${excludes}"`
-        : `Expected "${constituent[0]}" and "${constituent[1]}" to form a constituent excluding "${excludes}"`,
+        : `Expected "${constituent[0]}" and "${constituent[1]}" to form a constituent excluding "${excludes}" in a parse consistent with the other assertions (checked ${received.surviving.length} surviving parse(s))`,
       actual: pass ? 'forms constituent' : 'does not form constituent',
       expected: `"${constituent[0]}" + "${constituent[1]}" excluding "${excludes}"`,
     };
@@ -209,6 +247,7 @@ expect.extend({
         passed: false,
         details: { word, pos, parseCount: 0, error: 'no parse' },
       }, error);
+      recordSurviving(this.task as any, received);
 
       return {
         pass: false,
@@ -218,14 +257,19 @@ expect.extend({
       };
     }
 
-    // Check if ANY parse has the expected POS
-    const pass = trees.some(tree => checkPartOfSpeech(tree, word, pos));
+    // Keep only surviving parses in which the word has the expected POS, so this
+    // and every other assertion apply to the same parse. Narrow for positive
+    // assertions only; vitest inverts `pass` for `.not`.
+    const keep = received.surviving.filter(i => checkPartOfSpeech(trees[i], word, pos));
+    const pass = keep.length > 0;
+    if (pass && !this.isNot) received.surviving = keep;
 
     recordAssertion(this.task as any, sentence, {
       type: 'pos',
       passed: this.isNot ? !pass : pass,
-      details: { word, pos, parseCount: trees.length },
+      details: { word, pos, parseCount: trees.length, survivingCount: received.surviving.length },
     }, error);
+    recordSurviving(this.task as any, received);
 
     return {
       pass,
